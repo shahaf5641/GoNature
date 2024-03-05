@@ -3,7 +3,7 @@ package logic;
 import java.io.Serializable;
 
 /**
- * This class represents employee in the park
+ * This class represents employee in the parkasd
  */
 @SuppressWarnings("serial")
 public class Employees implements Serializable{
