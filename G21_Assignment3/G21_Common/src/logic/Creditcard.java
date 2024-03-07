@@ -16,7 +16,7 @@ public class Creditcard {
 		this.cvc = cvc;
 	}
 
-	public String getSubscriberId() { //yes
+	public String getSubscriberId() { 
 		return subscriberId;
 	}
 
