@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 /**
  * CustomAlerts is a customize Alerts blablyhtt
- *blablabla
+ *blablablaasdasd
  */
 public class CustomAlerts extends Alert {
 
