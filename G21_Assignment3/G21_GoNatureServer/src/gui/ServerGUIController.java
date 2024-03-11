@@ -27,7 +27,7 @@ import logic.GoNatureFinals;
  * It handles all the JavaFx nodes events.
  * 
  * This is the server configuration screen
- *
+ *aaaaa
  */
 public class ServerGUIController {
 
