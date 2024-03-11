@@ -17,8 +17,8 @@
 	<classpathentry kind="lib" path="lib/fontawesomefx-commons-8.15.jar"/>
 	<classpathentry kind="lib" path="lib/fontawesomefx-fontawesome-4.7.0-5.jar"/>
 	<classpathentry kind="lib" path="lib/fontawesomefx-8.9.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/G8_Common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/G8_GoNatureServer"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/G21_Common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/G21_GoNatureServer"/>
 	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/fontbox-2.0.3.jar"/>
 	<classpathentry kind="lib" path="lib/pdfbox-2.0.3.jar"/>

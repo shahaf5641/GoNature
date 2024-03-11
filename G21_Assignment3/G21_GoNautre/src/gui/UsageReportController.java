@@ -53,7 +53,6 @@ import javafx.stage.Stage;
 import logic.GoNatureFinals;
 import logic.Report;
 
-@SuppressWarnings("restriction")
 /**
  * This class is the GUI controller of UsageReport.fxml
  * It handles all the JavaFx nodes events.
