@@ -29,7 +29,7 @@ public class ClientToServerRequest<T> implements Serializable {
 
 	}
 
-	private Request requestType;
+	private Request requestType; //
 	private ArrayList<T> parameters = new ArrayList<>();
 	private T obj;
 	private String input;
