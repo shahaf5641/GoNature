@@ -31,7 +31,7 @@
                   <Image url="@../resources/images/user.png" />
                </image>
             </ImageView>
-         </children>
+         </children> 
       </AnchorPane>
       <AnchorPane fx:id="lockImageContainer" layoutX="82.0" layoutY="260.0" prefHeight="55.0" prefWidth="59.0" style="-fx-background-color: #33cc33;" visible="false">
          <children>
