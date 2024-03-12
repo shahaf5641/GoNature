@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextAlignment?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="TOP_RIGHT" prefHeight="445.0" prefWidth="154.0" styleClass="toolbar-container" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainScreenMenuController">
    <children>
-      <JFXButton fx:id="orderVisit" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#loadOrderVisit" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button" text="Order A Visit" textAlignment="CENTER">
+      <Button fx:id="orderVisit" onMouseClicked="#loadOrderVisit" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button">
          <graphic>
-            <FontAwesomeIconView glyphName="SHOPPING_CART" size="25" />
+            <Text text="Order A Visit" textAlignment="CENTER" />
          </graphic>
-      </JFXButton>
-      <JFXButton fx:id="travelerLogin" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#loadTravelerLogin" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button" text="Traveler Login" textAlignment="CENTER">
+      </Button>
+      <Button fx:id="travelerLogin" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadTravelerLogin" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button">
          <graphic>
-            <FontAwesomeIconView glyphName="USER" size="25" />
+            <Text text="Traveler Login" textAlignment="CENTER" />
          </graphic>
-      </JFXButton>
-      <JFXButton fx:id="memberLogin" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#loadMemberLogin" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button" text="Member Login" textAlignment="CENTER">
+      </Button>
+      <Button fx:id="memberLogin" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadMemberLogin" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button">
          <graphic>
-            <FontAwesomeIconView glyphName="USER_PLUS" size="25" />
+            <Text text="Member Login" textAlignment="CENTER" />
          </graphic>
-      </JFXButton>
-      <JFXButton fx:id="showPrices" contentDisplay="TOP" layoutX="10.0" layoutY="81.0" mnemonicParsing="false" onMouseClicked="#loadPrices" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button" text="Prices" textAlignment="CENTER">
+      </Button>
+      <Button fx:id="showPrices" layoutX="10.0" layoutY="81.0" onMouseClicked="#loadPrices" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button">
          <graphic>
-            <FontAwesomeIconView glyphName="ILS" size="25" />
+            <Text text="Prices" textAlignment="CENTER" />
          </graphic>
-      </JFXButton>
-      <JFXButton fx:id="contactUs" contentDisplay="TOP" mnemonicParsing="false" onMouseClicked="#loadContactUs" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button" text="Contact Us" textAlignment="CENTER">
+      </Button>
+      <Button fx:id="contactUs" onMouseClicked="#loadContactUs" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-button">
          <graphic>
-            <FontAwesomeIconView glyphName="ENVELOPE" size="25" textAlignment="CENTER" />
+            <Text text="Contact Us" textAlignment="CENTER" />
          </graphic>
-      </JFXButton>
+      </Button>
    </children>
 </VBox>
