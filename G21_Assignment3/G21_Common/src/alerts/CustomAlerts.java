@@ -6,14 +6,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
-<<<<<<< Upstream, based on branch 'main' of https://github.com/shahaf5641/GoNature
- * CustomAlerts is a customize Alerts
-<<<<<<< Upstream, based on branch 'main' of https://github.com/shahaf5641/GoNature
-
-=======
  * CustomAlerts is a customize Alerts blablyhtt
  *blablablaasdasdasdas
->>>>>>> c003284 up
  */
 public class CustomAlerts extends Alert {
 
@@ -37,33 +31,6 @@ public class CustomAlerts extends Alert {
 			setupWarningIcon();
 		else if (alertType.equals("INFORMATION"))
 			setupInfoIcon();
-//ghdf
- 
-public class CustomAlerts extends Alert {
-
-	final String errorIcon = "/resources/images/errorIcon.png";
-	final String warningIcon = "/resources/images/warningIcon.png";
-	final String informationIcon = "/resources/images/infoIcon.png";
-
-	public CustomAlerts(AlertType alertType, String title, String header, String content) {
-		super(alertType);
-		this.setTitle(title);
-		this.setHeaderText(header);
-		this.setContentText(content);
-		setAlertStyle();
-	}
-
-	private void setAlertStyle() {
-		String alertType = this.getAlertType().toString();
-		if (alertType.equals("ERROR"))
-			setupErrorIcon();
-		else if (alertType.equals("WARNING"))
-			setupWarningIcon();
-		else if (alertType.equals("INFORMATION"))
-			setupInfoIcon();
-		
-
-
 	}
 
 	private void setupErrorIcon() {
