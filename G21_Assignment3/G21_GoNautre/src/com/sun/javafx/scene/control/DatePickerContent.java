@@ -170,7 +170,7 @@ public class DatePickerContent extends VBox {
                 if (newFocusOwner == gridPane) {
                     if (oldFocusOwner instanceof DateCell) {
                         // Backwards traversal, skip gridPane.
-                        NodeHelper.traverse(gridPane, Direction.PREVIOUS, null);
+                        NodeHelper.traverse(gridPane, Direction.PREVIOUS);
                     } else {
                         // Forwards traversal, pass focus to day cell.
                         if (lastFocusedDayCell != null) {
