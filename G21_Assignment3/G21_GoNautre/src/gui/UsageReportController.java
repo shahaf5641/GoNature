@@ -14,7 +14,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
-
+import com.sun.javafx.scene.control.DatePickerContent;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -53,7 +53,6 @@ import javafx.stage.Stage;
 import logic.GoNatureFinals;
 import logic.Report;
 
-@SuppressWarnings("restriction")
 /**
  * This class is the GUI controller of UsageReport.fxml
  * It handles all the JavaFx nodes events.

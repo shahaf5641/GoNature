@@ -31,8 +31,6 @@ public class CustomAlerts extends Alert {
 			setupWarningIcon();
 		else if (alertType.equals("INFORMATION"))
 			setupInfoIcon();
-		
-
 	}
 
 	private void setupErrorIcon() {
