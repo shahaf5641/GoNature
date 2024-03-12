@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
@@ -19,6 +19,6 @@
          </columnResizePolicy>
       </TableView>
       <Label fx:id="headerLabel" layoutX="361.0" layoutY="44.0" text="Your Messages" />
-      <JFXTextArea fx:id="messageTextArea" editable="false" layoutX="191.0" layoutY="371.0" />
+      <TextArea fx:id="messageTextArea" editable="false" layoutX="191.0" layoutY="371.0" />
    </children>
 </Pane>

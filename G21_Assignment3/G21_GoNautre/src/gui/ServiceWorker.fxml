@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,26 +27,34 @@
          <children>
             <VBox fx:id="vbox" prefHeight="600.0" prefWidth="204.0">
                <children>
-                  <JFXButton fx:id="profileButton" onMouseClicked="#loadProfile" prefHeight="153.0" prefWidth="204.0" text=" Profile">
+                  <Button fx:id="profileButton" onMouseClicked="#loadProfile" prefHeight="153.0" prefWidth="204.0" text=" Profile">
                      <graphic>
-                        <FontAwesomeIconView glyphName="USER" size="20" />
+                        <ImageView>
+                           <Image url="@../resources/images/user_icon.png" />
+                        </ImageView>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="currentVisitorsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadParkParameters" prefHeight="153.0" prefWidth="204.0" text="Park Parameters">
+                  </Button>
+                  <Button fx:id="currentVisitorsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadParkParameters" prefHeight="153.0" prefWidth="204.0" text="Park Parameters">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SLIDERS" size="20" />
+                        <ImageView>
+                           <Image url="@../resources/images/sliders_icon.png" />
+                        </ImageView>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="registerButton" layoutX="10.0" layoutY="262.0" onMouseClicked="#loadRegister" prefHeight="153.0" prefWidth="204.0" text="Register Subscriber">
+                  </Button>
+                  <Button fx:id="registerButton" layoutX="10.0" layoutY="262.0" onMouseClicked="#loadRegister" prefHeight="153.0" prefWidth="204.0" text="Register Subscriber">
                      <graphic>
-                        <FontAwesomeIconView glyphName="USER_PLUS" size="20" />
+                        <ImageView>
+                           <Image url="@../resources/images/user_plus_icon.png" />
+                        </ImageView>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="logoutBtn" onMouseClicked="#logOut" prefHeight="153.0" prefWidth="204.0" text="Logout">
+                  </Button>
+                  <Button fx:id="logoutBtn" onMouseClicked="#logOut" prefHeight="153.0" prefWidth="204.0" text="Logout">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
+                        <ImageView>
+                           <Image url="@../resources/images/sign_out_icon.png" />
+                        </ImageView>
                      </graphic>
-                  </JFXButton>
+                  </Button>
                </children>
             </VBox>
          </children>

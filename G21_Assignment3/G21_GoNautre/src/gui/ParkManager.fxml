@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,6 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -28,31 +27,31 @@
          <children>
             <VBox fx:id="vbox" prefHeight="600.0" prefWidth="204.0">
                <children>
-                  <JFXButton fx:id="profileButton" onMouseClicked="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile">
+                  <Button fx:id="profileButton" onMouseClicked="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile">
                      <graphic>
-                        <FontAwesomeIconView glyphName="USER" size="20" />
+                        <Label text="USER" style="-fx-font-family: 'FontAwesome'; -fx-font-size: 20;"/>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="currentVisitorsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadParkParameters" prefHeight="122.0" prefWidth="204.0" text="Park Parameters">
+                  </Button>
+                  <Button fx:id="currentVisitorsButton" layoutX="10.0" layoutY="10.0" onMouseClicked="#loadParkParameters" prefHeight="122.0" prefWidth="204.0" text="Park Parameters">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SLIDERS" size="20" />
+                        <Label text="SLIDERS" style="-fx-font-family: 'FontAwesome'; -fx-font-size: 20;"/>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="createReportsButton" layoutX="10.0" layoutY="262.0" onMouseClicked="#loadCreateReports" prefHeight="122.0" prefWidth="204.0" text="Create Reports">
+                  </Button>
+                  <Button fx:id="createReportsButton" layoutX="10.0" layoutY="262.0" onMouseClicked="#loadCreateReports" prefHeight="122.0" prefWidth="204.0" text="Create Reports">
                      <graphic>
-                        <FontAwesomeIconView glyphName="BAR_CHART" size="20" />
+                        <Label text="BAR_CHART" style="-fx-font-family: 'FontAwesome'; -fx-font-size: 20;"/>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="updateParametersButton" layoutX="10.0" layoutY="370.0" onMouseClicked="#loadUpdateParameters" prefHeight="122.0" prefWidth="204.0" text="Update Parameters">
+                  </Button>
+                  <Button fx:id="updateParametersButton" layoutX="10.0" layoutY="370.0" onMouseClicked="#loadUpdateParameters" prefHeight="122.0" prefWidth="204.0" text="Update Parameters">
                      <graphic>
-                        <FontAwesomeIconView glyphName="FLOPPY_ALT" size="20" />
+                        <Label text="FLOPPY_ALT" style="-fx-font-family: 'FontAwesome'; -fx-font-size: 20;"/>
                      </graphic>
-                  </JFXButton>
-                  <JFXButton fx:id="logoutBtn" onMouseClicked="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout">
+                  </Button>
+                  <Button fx:id="logoutBtn" onMouseClicked="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SIGN_OUT" size="20" />
+                        <Label text="SIGN_OUT" style="-fx-font-family: 'FontAwesome'; -fx-font-size: 20;"/>
                      </graphic>
-                  </JFXButton>
+                  </Button>
                </children>
             </VBox>
          </children>
