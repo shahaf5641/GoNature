@@ -32,7 +32,7 @@ public class CustomAlerts extends Alert {
 			setupWarningIcon();
 		else if (alertType.equals("INFORMATION"))
 			setupInfoIcon();
-
+//ghdf
  
 public class CustomAlerts extends Alert {
 
