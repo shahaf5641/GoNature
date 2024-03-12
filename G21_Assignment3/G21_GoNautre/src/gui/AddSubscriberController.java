@@ -23,7 +23,7 @@ import javafx.scene.control.DateCell;
 import javafx.scene.layout.AnchorPane;
 
 /**
- * window for adding new subscriber to subscriber table
+ * window for adding new subscriber to subscriber table ba
  * gets information for new subscriber
  * handles with pop up windows of errors in case form is not filled right
  * in case new subscriber's ID is in traveler table, we delete him from there
