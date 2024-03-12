@@ -32,8 +32,8 @@ public class CustomAlerts extends Alert {
 			setupWarningIcon();
 		else if (alertType.equals("INFORMATION"))
 			setupInfoIcon();
-=======
- */
+
+ 
 public class CustomAlerts extends Alert {
 
 	final String errorIcon = "/resources/images/errorIcon.png";
@@ -58,7 +58,7 @@ public class CustomAlerts extends Alert {
 			setupInfoIcon();
 		
 
->>>>>>> 47ea7fd hsesdu
+
 	}
 
 	private void setupErrorIcon() {
