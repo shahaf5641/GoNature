@@ -6,9 +6,14 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
+<<<<<<< Upstream, based on branch 'main' of https://github.com/shahaf5641/GoNature
  * CustomAlerts is a customize Alerts
 <<<<<<< Upstream, based on branch 'main' of https://github.com/shahaf5641/GoNature
 
+=======
+ * CustomAlerts is a customize Alerts blablyhtt
+ *blablablaasdasdasdas
+>>>>>>> c003284 up
  */
 public class CustomAlerts extends Alert {
 
