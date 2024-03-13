@@ -28,7 +28,7 @@
                     <graphic>
                         <ImageView>
                             <image>
-                                <Image url="path/to/your/calendar/image.png" />
+                                <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -49,7 +49,7 @@
                     <graphic>
                         <ImageView>
                             <image>
-                                <Image url="path/to/your/bar_chart/image.png" />
+                                 <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -66,7 +66,7 @@
                     <graphic>
                         <ImageView>
                             <image>
-                                <Image url="path/to/your/commenting_image.png" />
+                                 <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -76,7 +76,7 @@
         <Label fx:id="createButton" layoutX="386.0" layoutY="499.0" onMouseClicked="#createReportButton" text="Create Reports" />
         <ImageView fitHeight="81.0" fitWidth="93.0" layoutX="410.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="path/to/your/dashboard_image.png" />
+                 <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
             </image>
         </ImageView>
     </children>
