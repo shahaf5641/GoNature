@@ -15,8 +15,6 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
-import com.jfoenix.controls.JFXComboBox;
-
 import Controllers.ReportsControl;
 import alerts.CustomAlerts;
 import client.ChatClient;
@@ -35,9 +33,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -45,82 +44,73 @@ import javafx.util.Duration;
 import logic.GoNatureFinals;
 import logic.VisitReport;
 
-/**
- * Gets month that picked from previous page.
- * Loads all visitors stay time and entrance time into a line chart.
- */
 public class VisitsReportController implements Initializable {
 
-	@FXML
-	private AnchorPane rootPane;
+    @FXML
+    private AnchorPane rootPane;
 
-	@FXML
-	private Label headerLabel;
+    @FXML
+    private Label headerLabel;
 
-	@FXML
-	private LineChart<Number, Number> stayTime_chart;
+    @FXML
+    private LineChart<Number, Number> stayTime_chart;
 
-	@FXML
-	private NumberAxis stayX2;
+    @FXML
+    private NumberAxis stayX2;
 
-	@FXML
-	private NumberAxis stayY;
+    @FXML
+    private NumberAxis stayY;
 
-	@FXML
-	private LineChart<Number, Number> entranceTime_chart;
+    @FXML
+    private LineChart<Number, Number> entranceTime_chart;
 
-	@FXML
-	private NumberAxis enterX2;
+    @FXML
+    private NumberAxis enterX2;
 
-	@FXML
-	private NumberAxis enterY;
+    @FXML
+    private NumberAxis enterY;
 
-	@FXML
-	private Label lblMonth;
+    @FXML
+    private Label lblMonth;
 
-	@FXML
-	private JFXComboBox<String> comboBox;
+    @FXML
+    private ComboBox<String> comboBox;
 
-	@FXML
-	private JFXComboBox<String> dataComboBox;
+    @FXML
+    private ComboBox<String> dataComboBox;
 
-	private int monthNumber; // the month number
+    private int monthNumber; // the month number
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		init();
-	}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        init();
+    }
 
-	private void init() {
-		lblMonth.setText(GoNatureFinals.MONTHS[monthNumber]); // set the name of the month
-		initGraphs();
-		Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.3), new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				initComboBox();
+    private void init() {
+        lblMonth.setText(GoNatureFinals.MONTHS[monthNumber]); // set the name of the month
+        initGraphs();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.3), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                initComboBox();
 
-				entranceTime_chart.getData().clear();
-				stayTime_chart.getData().clear();
-				loadSolosData(comboBox.getSelectionModel().getSelectedItem());
-				loadSubscribersData(comboBox.getSelectionModel().getSelectedItem());
-				loadGroupData(comboBox.getSelectionModel().getSelectedItem());
+                entranceTime_chart.getData().clear();
+                stayTime_chart.getData().clear();
+                loadSolosData(comboBox.getSelectionModel().getSelectedItem());
+                loadSubscribersData(comboBox.getSelectionModel().getSelectedItem());
+                loadGroupData(comboBox.getSelectionModel().getSelectedItem());
 
-			}
-		}));
-		timeline.setCycleCount(1);
-		timeline.play();
-	}
+            }
+        }));
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
 
-	/**
-	 * Setter for class variable monthNumber
-	 * 
-	 * @param month The current month
-	 */
-	public void setMonthNumber(int month) {
-		this.monthNumber = month;
-	}
+    public void setMonthNumber(int month) {
+        this.monthNumber = month;
+    }
 
-	@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
 	private void loadGroupData(String option) {
 		ArrayList<VisitReport> rep3 = new ArrayList<VisitReport>();
 		if (!option.equals("Show whole month"))

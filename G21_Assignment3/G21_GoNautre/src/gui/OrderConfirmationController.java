@@ -1,25 +1,18 @@
+
 package gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.jfoenix.controls.JFXButton;
-
 import Controllers.ParkControl;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import logic.Order;
 import logic.Traveler;
 
-/**
- * This Class is the GUI controller of OrderConfirmation.fxml
- * It handles all the JavaFx nodes events.
- * 
- * This is the order confirmation after the order process ends
- *
- */
 public class OrderConfirmationController implements Initializable {
 
     @FXML
@@ -62,7 +55,7 @@ public class OrderConfirmationController implements Initializable {
     private Label totalPriceLabel;
 
     @FXML
-    private JFXButton finishBtn;
+    private Button finishBtn;
 
     @FXML
     private Label msgLine1;

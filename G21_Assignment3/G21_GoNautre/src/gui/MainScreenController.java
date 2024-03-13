@@ -1,13 +1,11 @@
+
 package gui;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import com.jfoenix.controls.JFXDrawer;
-import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.transitions.hamburger.HamburgerSlideCloseTransition;
+
 import client.ClientUI;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -40,9 +36,6 @@ public class MainScreenController implements Initializable {
 	private StackPane root;
 
 	@FXML
-	private JFXDrawer drawMenu;
-
-	@FXML
 	private AnchorPane rootAnchorPane;
 
 	@FXML
@@ -58,10 +51,7 @@ public class MainScreenController implements Initializable {
 	private ImageView thirdParkImage;
 
 	@FXML
-	private JFXHamburger hamburger;
-	
-    @FXML
-    private ImageView goNatureLogo;
+	private ImageView goNatureLogo;
 
 	@FXML
 	private Label menuLabel;
@@ -75,7 +65,6 @@ public class MainScreenController implements Initializable {
 
 	private void init() {
 		setFirstYouTubeVideo();
-		setDrawer();
 		getStage().setOnCloseRequest(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent we) {
 				ClientUI.chat.getClient().quit();
@@ -112,42 +101,6 @@ public class MainScreenController implements Initializable {
 		youTube.getEngine().load("https://www.youtube.com/embed/o8XbBa2Fhrg");
 	}
 
-	/* Set up the menu in the main screen using drawer */
-	private void setDrawer() {
-		try {
-			/* Connect the drawer with the menu layout */
-			FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("gui/MainScreenMenu.fxml"));
-			VBox menu = loader.load();
-			drawMenu.setSidePane(menu);
-
-			// MainScreenMenuController controller = loader.getController();
-		} catch (IOException e) {
-			System.out.println("Could not load menu bar in mainScreen");
-			e.printStackTrace();
-		}
-
-		/* Set how the drawer will function */
-		HamburgerSlideCloseTransition task = new HamburgerSlideCloseTransition(hamburger);
-		task.setRate(-1);
-		hamburger.addEventHandler(MouseEvent.MOUSE_CLICKED, (Event event) -> {
-			drawMenu.toggle();
-		});
-		drawMenu.setOnDrawerOpening((event) -> {
-			AnchorPane.setLeftAnchor(hamburger, 170.0);
-			AnchorPane.setLeftAnchor(menuLabel, 167.0);
-			drawMenu.toFront();
-			task.setRate(task.getRate() * -1);
-			task.play();
-		});
-		drawMenu.setOnDrawerClosed((event) -> {
-			AnchorPane.setLeftAnchor(hamburger, 20.0);
-			AnchorPane.setLeftAnchor(menuLabel, 17.0);
-			drawMenu.toBack();
-			task.setRate(task.getRate() * -1);
-			task.play();
-		});
-	}
-	
 	@FXML
 	private void loadCardReaderSimulator() {
 		try {
@@ -170,6 +123,7 @@ public class MainScreenController implements Initializable {
 			System.out.println("faild to load form");
 			e.printStackTrace();
 		}
-	}
+	
 
+}
 }
