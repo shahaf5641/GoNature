@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * CustomAlerts is a customize Alerts blalhhjhh
+ * CustomAlerts is a customize Alerts blalhhj
  *
  */
 public class CustomAlerts extends Alert {
