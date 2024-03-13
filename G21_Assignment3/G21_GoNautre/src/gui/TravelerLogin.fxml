@@ -28,8 +28,8 @@
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Label fx:id="idTextField" layoutX="143.0" layoutY="186.0" prefHeight="55.0" prefWidth="265.0" promptText="ID" />
-        <Label fx:id="subscriberIDTextField" layoutX="143.0" layoutY="288.0" prefHeight="55.0" prefWidth="265.0" promptText="Subscriber Number" />
+        <TextField fx:id="idTextField" layoutX="143.0" layoutY="186.0" prefHeight="55.0" prefWidth="265.0" promptText="ID" />
+        <TextField fx:id="subscriberIDTextField" layoutX="143.0" layoutY="288.0" prefHeight="55.0" prefWidth="265.0" promptText="Subscriber Number" />
         <FontAwesomeIconView glyphName="ADDRESS_CARD" layoutX="84.0" layoutY="336.0" size="40" />
         <Button fx:id="loginButton" layoutX="87.0" layoutY="370.0" prefHeight="55.0" prefWidth="327.0" text="LOGIN" />
         <FontAwesomeIconView glyphName="ID_CARD_ALT" layoutX="84.0" layoutY="227.0" size="40" />
