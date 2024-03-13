@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -23,7 +23,8 @@
       <Label fx:id="summaryVisitors" layoutX="313.0" layoutY="276.0" text="1" />
       <Label layoutX="228.0" layoutY="331.0" style="-fx-text-fill: #7FED9D;" text="Total Price:" />
       <Label fx:id="totalPriceLabel" layoutX="309.0" layoutY="331.0" text="950.0" />
-      <JFXButton fx:id="finishBtn" layoutX="232.0" layoutY="387.0" onMouseClicked="#closeStage" prefHeight="39.0" prefWidth="122.0" text="OK" />
+      <Button fx:id="finishBtn" layoutX="232.0" layoutY="387.0" onAction="#closeStage" prefHeight="39.0" prefWidth="122.0" text="OK" />
+
       <Line disable="true" endX="120.0" layoutX="323.0" layoutY="365.0" startX="-175.0" stroke="#d9d9d9" strokeWidth="0.7" />
       <Label fx:id="headerLabel" alignment="CENTER" layoutX="97.0" layoutY="34.0" prefHeight="39.0" prefWidth="400.0" text="Casual Visit Receipt" />
    </children>

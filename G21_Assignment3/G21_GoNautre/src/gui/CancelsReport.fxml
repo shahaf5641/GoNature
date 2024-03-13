@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="600.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -25,6 +25,6 @@
             <Image url="@../resources/images/cancelReport.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="222.0" layoutY="398.0" onMouseClicked="#saveReportAsPdf" text="Save Report Locally" />
+      <Button layoutX="222.0" layoutY="398.0" onMouseClicked="#saveReportAsPdf" text="Save Report Locally" />
    </children>
 </AnchorPane>

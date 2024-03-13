@@ -21,7 +21,7 @@ import util.FxmlUtil;
  * This Class is the GUI controller of ServiceWorker.fxml
  * It handles all the JavaFx nodes events.
  * 
- * This is the main screen of the service worker
+ * This is the main screen of the service worker blabla
  *
  */
 public class ServiceWorkerController implements Initializable {

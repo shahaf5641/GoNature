@@ -12,19 +12,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
 import javax.imageio.ImageIO;
-
+import com.sun.javafx.scene.control.DatePickerContent;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
-import com.sun.javafx.scene.control.skin.DatePickerContent;
-import com.sun.javafx.scene.control.skin.DatePickerSkin;
+//import com.sun.javafx.scene.control.skin.DatePickerContent;
+//import com.sun.javafx.scene.control.skin.DatePickerSkin;
 import Controllers.ParkControl;
 import Controllers.ReportsControl;
 import alerts.CustomAlerts;
@@ -42,6 +40,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.skin.DatePickerSkin;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
@@ -52,7 +51,6 @@ import javafx.stage.Stage;
 import logic.GoNatureFinals;
 import logic.Report;
 
-@SuppressWarnings("restriction")
 /**
  * This class is the GUI controller of UsageReport.fxml
  * It handles all the JavaFx nodes events.
