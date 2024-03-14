@@ -1,22 +1,28 @@
 package logic;
 
 /**
- * OrderType enum represent the order types that are available in the park.
+ * OrderType enum represents the order types that are available in the park.
  */
 public enum OrderType {
-	SOLO, FAMILY, GROUP;
+    SOLO,   // Represents a solo visit.
+    FAMILY, // Represents a family visit.
+    GROUP;  // Represents a group visit.
 
-	@Override
-	public String toString() {
-		switch (this) {
-		case SOLO:
-			return "Solo Visit";
-		case FAMILY:
-			return "Family Visit";
-		case GROUP:
-			return "Group Visit";
-		default:
-			throw new IllegalArgumentException();
-		}
-	}
+    /**
+     * Overrides the toString method to provide custom string representations for each enum value.
+     * @return A string representation of the enum value.
+     */
+    @Override
+    public String toString() {
+        switch (this) {
+            case SOLO:
+                return "Solo Visit";
+            case FAMILY:
+                return "Family Visit";
+            case GROUP:
+                return "Group Visit";
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
 }

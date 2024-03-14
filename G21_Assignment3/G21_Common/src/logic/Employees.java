@@ -3,72 +3,83 @@ package logic;
 import java.io.Serializable;
 
 /**
- * This class represents employee in the parkasd
+ * This class represents an employee in the park.
  */
 @SuppressWarnings("serial")
-public class Employees implements Serializable{
-	private int employeeId;
-	private WorkerType role;
-	private int parkId;
-	private String firstName;
-	private String lastName;
-	private String email;
+public class Employees implements Serializable {
+    // Instance variables representing employee details
+    private int employeeId;
+    private WorkerType role;
+    private int parkId;
+    private String firstName;
+    private String lastName;
+    private String email;
 
-	public Employees(int employeeId, WorkerType role, int parkId, String firstName, String lastName, String email) {
-		this.employeeId = employeeId;
-		this.role = role;
-		this.parkId = parkId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
+    /**
+     * Constructor to initialize an Employees object.
+     * @param employeeId The ID of the employee.
+     * @param role The role of the employee (WorkerType enum).
+     * @param parkId The ID of the park associated with the employee.
+     * @param firstName The first name of the employee.
+     * @param lastName The last name of the employee.
+     * @param email The email address of the employee.
+     */
+    public Employees(int employeeId, WorkerType role, int parkId, String firstName, String lastName, String email) {
+        this.employeeId = employeeId;
+        this.role = role;
+        this.parkId = parkId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
 
-	public int getEmployeeId() {
-		return employeeId;
-	}
+    // Getter and setter methods for accessing and modifying the instance variables
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
+    public int getEmployeeId() {
+        return employeeId;
+    }
 
-	public WorkerType getRole() {
-		return role;
-	}
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
 
-	public void setRole(WorkerType role) {
-		this.role = role;
-	}
+    public WorkerType getRole() {
+        return role;
+    }
 
-	public int getParkId() {
-		return parkId;
-	}
+    public void setRole(WorkerType role) {
+        this.role = role;
+    }
 
-	public void setParkId(int parkId) {
-		this.parkId = parkId;
-	}
+    public int getParkId() {
+        return parkId;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public void setParkId(int parkId) {
+        this.parkId = parkId;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

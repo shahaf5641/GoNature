@@ -6,11 +6,12 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * CustomAlerts provides a way to create customized alerts with different icons and styles based on the alert type.
+ * CustomAlerts provides a way to create customized alerts with different icons
+ * and styles based on the alert type.
  *
  */
 public class CustomAlerts extends Alert {
-	
+
 	// Paths to the icons for different types of alerts
 
 	final String errorIcon = "/resources/images/errorIcon.png";
@@ -35,7 +36,6 @@ public class CustomAlerts extends Alert {
 			setupWarningIcon();
 		else if (alertType.equals("INFORMATION"))
 			setupInfoIcon();
-		
 
 	}
 
@@ -43,25 +43,22 @@ public class CustomAlerts extends Alert {
 	private void setupErrorIcon() {
 		DialogPane pane = this.getDialogPane();
 		((Stage) pane.getScene().getWindow()).getIcons().add(new Image(errorIcon));
-		pane.getStylesheets().add(
-				   getClass().getResource("errorAlert.css").toExternalForm());
+		pane.getStylesheets().add(getClass().getResource("errorAlert.css").toExternalForm());
 	}
 
-    // Method to set up the warning icon and style
+	// Method to set up the warning icon and style
 	private void setupWarningIcon() {
 		DialogPane pane = this.getDialogPane();
 		((Stage) pane.getScene().getWindow()).getIcons().add(new Image(warningIcon));
-		pane.getStylesheets().add(
-				   getClass().getResource("warningAlert.css").toExternalForm());
+		pane.getStylesheets().add(getClass().getResource("warningAlert.css").toExternalForm());
 	}
 
-    // Method to set up the information icon and style
+	// Method to set up the information icon and style
 	private void setupInfoIcon() {
 		DialogPane pane = this.getDialogPane();
 		((Stage) pane.getScene().getWindow()).getIcons().add(new Image(informationIcon));
 		((Stage) pane.getScene().getWindow()).getIcons().add(new Image(warningIcon));
-		pane.getStylesheets().add(
-				   getClass().getResource("infoAlert.css").toExternalForm());
+		pane.getStylesheets().add(getClass().getResource("infoAlert.css").toExternalForm());
 	}
 
 }

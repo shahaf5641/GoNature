@@ -4,93 +4,110 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
- * This class is responsible for the system's messages tables.
+ * This class represents messages in the system, suitable for display in tables.
  */
 public class MessagesTb {
-	private SimpleIntegerProperty messageId;
-	private SimpleStringProperty toId;
-	private SimpleStringProperty sendDate;
-	private SimpleStringProperty subject;
-	private SimpleStringProperty content;
-	private SimpleStringProperty sendTime;
-	private SimpleIntegerProperty orderId;
-	
-	public MessagesTb(int messageId, String toId, String sendDate, String sendTime,
-			String subject, String content, int orderId) {
-		this.messageId = new SimpleIntegerProperty(messageId);
-		this.toId = new SimpleStringProperty(toId);
-		this.sendDate = new SimpleStringProperty(sendDate);
-		this.subject =new SimpleStringProperty (subject);
-		this.content =new SimpleStringProperty (content);
-		/*Lior*/
-		this.sendTime =new SimpleStringProperty (sendTime);
-		this.orderId = new SimpleIntegerProperty(orderId);
-	}
-	
-	/*Lior*/
-	public MessagesTb(Messages message)
-	{
-		this.messageId = new SimpleIntegerProperty(message.getMessageId());
-		this.toId = new SimpleStringProperty(message.getToId());
-		this.sendDate = new SimpleStringProperty(message.getSendDate());
-		this.subject =new SimpleStringProperty (message.getSubject());
-		this.content =new SimpleStringProperty (message.getContent());
-		this.sendTime =new SimpleStringProperty (message.getSendDate());
-		this.orderId = new SimpleIntegerProperty(message.getOrderId());
-	}
+    // JavaFX properties for message details
+    private SimpleIntegerProperty messageId;
+    private SimpleStringProperty toId;
+    private SimpleStringProperty sendDate;
+    private SimpleStringProperty subject;
+    private SimpleStringProperty content;
+    private SimpleStringProperty sendTime;
+    private SimpleIntegerProperty orderId;
+    
+    /**
+     * Constructor to initialize a MessagesTb object with specified details.
+     * @param messageId The ID of the message.
+     * @param toId The ID of the recipient.
+     * @param sendDate The date when the message was sent.
+     * @param sendTime The time when the message was sent.
+     * @param subject The subject of the message.
+     * @param content The content of the message.
+     * @param orderId The ID of the associated order.
+     */
+    public MessagesTb(int messageId, String toId, String sendDate, String sendTime,
+            String subject, String content, int orderId) {
+        // Initialize JavaFX properties with provided values
+        this.messageId = new SimpleIntegerProperty(messageId);
+        this.toId = new SimpleStringProperty(toId);
+        this.sendDate = new SimpleStringProperty(sendDate);
+        this.subject = new SimpleStringProperty(subject);
+        this.content = new SimpleStringProperty(content);
+        this.sendTime = new SimpleStringProperty(sendTime);
+        this.orderId = new SimpleIntegerProperty(orderId);
+    }
+    
+    /**
+     * Constructor to initialize a MessagesTb object with a Messages object.
+     * @param message The Messages object to initialize the MessagesTb object.
+     */
+    public MessagesTb(Messages message) {
+        // Initialize JavaFX properties with values from Messages object
+        this.messageId = new SimpleIntegerProperty(message.getMessageId());
+        this.toId = new SimpleStringProperty(message.getToId());
+        this.sendDate = new SimpleStringProperty(message.getSendDate());
+        this.subject = new SimpleStringProperty(message.getSubject());
+        this.content = new SimpleStringProperty(message.getContent());
+        this.sendTime = new SimpleStringProperty(message.getSendTime());
+        this.orderId = new SimpleIntegerProperty(message.getOrderId());
+    }
 
-	public int getMessageId() {
-		return messageId.get();
-	}
+    // Getter and setter methods for accessing and modifying the JavaFX properties
 
-	public void setMessageId(SimpleIntegerProperty messageId) {
-		this.messageId = messageId;
-	}
+    public int getMessageId() {
+        return messageId.get();
+    }
 
-	public String getToId() {
-		return toId.get();
-	}
+    public void setMessageId(SimpleIntegerProperty messageId) {
+        this.messageId = messageId;
+    }
 
-	public void setToId(SimpleStringProperty toId) {
-		this.toId = toId;
-	}
+    public String getToId() {
+        return toId.get();
+    }
 
-	public String getSendDate() {
-		return sendDate.get();
-	}
+    public void setToId(SimpleStringProperty toId) {
+        this.toId = toId;
+    }
 
-	public void setSendDate(SimpleStringProperty sendDate) {
-		this.sendDate = sendDate;
-	}
+    public String getSendDate() {
+        return sendDate.get();
+    }
 
-	public String getSubject() {
-		return subject.get();
-	}
+    public void setSendDate(SimpleStringProperty sendDate) {
+        this.sendDate = sendDate;
+    }
 
-	public void setSubject(SimpleStringProperty subject) {
-		this.subject = subject;
-	}
+    public String getSubject() {
+        return subject.get();
+    }
 
-	public String getContent() {
-		return content.get();
-	}
+    public void setSubject(SimpleStringProperty subject) {
+        this.subject = subject;
+    }
 
-	public void setContent(SimpleStringProperty content) {
-		this.content = content;
-	}
-	
-	public void setSendTime(SimpleStringProperty sendTime) {
-		this.sendTime = sendTime;
-	}
-	public void setOrderId(SimpleIntegerProperty orderId) {
-		this.orderId = orderId;
-	}
-	
-	public String getSendTime() {
-		return sendTime.get();
-	}
-	public int getOrderId() {
-		return orderId.get();
-	}
-	
+    public String getContent() {
+        return content.get();
+    }
+
+    public void setContent(SimpleStringProperty content) {
+        this.content = content;
+    }
+    
+    public void setSendTime(SimpleStringProperty sendTime) {
+        this.sendTime = sendTime;
+    }
+    
+    public void setOrderId(SimpleIntegerProperty orderId) {
+        this.orderId = orderId;
+    }
+    
+    public String getSendTime() {
+        return sendTime.get();
+    }
+    
+    public int getOrderId() {
+        return orderId.get();
+    }
 }

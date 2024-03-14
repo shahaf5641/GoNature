@@ -3,62 +3,120 @@ package logic;
 import java.io.Serializable;
 
 /**
- * This class represents a traveler
+ * Represents a traveler in the system.
  */
 @SuppressWarnings("serial")
 public class Traveler implements Serializable {
-	private String travelerId;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String phoneNumber;
+    private String travelerId;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
 
-	public Traveler(String travelerId, String firstName, String lastName, String email, String phoneNumber) {
-		this.travelerId = travelerId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-	}
+    /**
+     * Constructs a new Traveler object with the specified details.
+     * 
+     * @param travelerId   The unique identifier for the traveler.
+     * @param firstName    The first name of the traveler.
+     * @param lastName     The last name of the traveler.
+     * @param email        The email address of the traveler.
+     * @param phoneNumber  The phone number of the traveler.
+     */
+    public Traveler(String travelerId, String firstName, String lastName, String email, String phoneNumber) {
+        this.travelerId = travelerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
-	public String getTravelerId() {
-		return travelerId;
-	}
+    /**
+     * get the traveler's unique identifier.
+     * 
+     * @return The traveler's unique identifier.
+     */
+    public String getTravelerId() {
+        return travelerId;
+    }
 
-	public void setTravelerId(String travelerId) {
-		this.travelerId = travelerId;
-	}
+    /**
+     * Sets the traveler's unique identifier.
+     * 
+     * @param travelerId The traveler's unique identifier.
+     */
+    public void setTravelerId(String travelerId) {
+        this.travelerId = travelerId;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    /**
+     * get the traveler's first name.
+     * 
+     * @return The traveler's first name.
+     */
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    /**
+     * Sets the traveler's first name.
+     * 
+     * @param firstName The traveler's first name.
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    /**
+     * get the traveler's last name.
+     * 
+     * @return The traveler's last name.
+     */
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    /**
+     * Sets the traveler's last name.
+     * 
+     * @param lastName The traveler's last name.
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * get the traveler's email address.
+     * 
+     * @return The traveler's email address.
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    /**
+     * Sets the traveler's email address.
+     * 
+     * @param email The traveler's email address.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    /**
+     * get the traveler's phone number.
+     * 
+     * @return The traveler's phone number.
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
+    /**
+     * Sets the traveler's phone number.
+     * 
+     * @param phoneNumber The traveler's phone number.
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

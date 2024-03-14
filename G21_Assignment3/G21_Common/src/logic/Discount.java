@@ -3,10 +3,12 @@ package logic;
 import java.io.Serializable;
 
 /**
- * Discount class represent a discount in the park
+ * Discount class represents a discount in the park.
  */
+
 @SuppressWarnings("serial")
 public class Discount implements Serializable {
+	// Instance variables representing discount details
 	private int discountId;
 	private Double amount;
 	private String startDate;
@@ -14,7 +16,17 @@ public class Discount implements Serializable {
 	private int parkId;
 	private String status;
 
-	public Discount(int discountId, Double amount, String startDate, String endDate, int parkId, String status) { // discountId : String->int ofir n
+	/**
+     * Constructor to initialize a Discount object.
+     * @param discountId The ID of the discount.
+     * @param amount The amount of discount.
+     * @param startDate The start date of the discount.
+     * @param endDate The end date of the discount.
+     * @param parkId The ID of the park associated with the discount.
+     * @param status The status of the discount (e.g., active, inactive).
+     */
+	public Discount(int discountId, Double amount, String startDate, String endDate, int parkId, String status) { 
+		
 		this.discountId = discountId;
 		this.amount = amount;
 		this.startDate = startDate;
@@ -22,6 +34,8 @@ public class Discount implements Serializable {
 		this.parkId = parkId;
 		this.status = status;
 	}
+
+	// Getter and setter methods for accessing and modifying the instance variables
 
 	public int getDiscountId() {
 		return discountId;

@@ -3,84 +3,94 @@ package logic;
 import java.io.Serializable;
 
 /**
- * This class represents a request for change in park parameter
+ * Request class represents a request for change in park parameters.
  */
 @SuppressWarnings("serial")
-public class Request implements Serializable { 
-	private int requestId;
-	private String changeName;
-	private String newValue;
-	private String oldValue;
-	private String requestDate;
-	private int parkId;
-	private String requestStatus;
-	
-	public Request(int requestId, String changeName, String newValue, String oldValue, String requestDate, // requestId- Stinrg to int -- ofir n
-			int parkId, String requestStatus) {
-		this.requestId = requestId;
-		this.changeName = changeName;
-		this.newValue = newValue;
-		this.oldValue = oldValue;
-		this.requestDate = requestDate;
-		this.parkId = parkId;
-		this.requestStatus = requestStatus;
-	}
+public class Request implements Serializable {
+    private int requestId;        
+    private String changeName;    
+    private String newValue;      
+    private String oldValue;      
+    private String requestDate;   
+    private int parkId;           
+    private String requestStatus; 
 
-	public int getRequestId() {
-		return requestId;
-	}
+    /**
+     * Constructor to initialize a Request object.
+     * @param requestId Unique ID of the request.
+     * @param changeName Name of the parameter to be changed.
+     * @param newValue New value of the parameter.
+     * @param oldValue Old value of the parameter.
+     * @param requestDate Date when the request was made.
+     * @param parkId ID of the park associated with the request.
+     * @param requestStatus Status of the request.
+     */
+    public Request(int requestId, String changeName, String newValue, String oldValue, String requestDate,
+                   int parkId, String requestStatus) {
+        this.requestId = requestId;
+        this.changeName = changeName;
+        this.newValue = newValue;
+        this.oldValue = oldValue;
+        this.requestDate = requestDate;
+        this.parkId = parkId;
+        this.requestStatus = requestStatus;
+    }
 
-	public void setRequestId(int requestId) {
-		this.requestId = requestId;
-	}
+    // Getter and setter methods for each property
 
-	public String getChangeName() {
-		return changeName;
-	}
+    public int getRequestId() {
+        return requestId;
+    }
 
-	public void setChangeName(String changeName) {
-		this.changeName = changeName;
-	}
+    public void setRequestId(int requestId) {
+        this.requestId = requestId;
+    }
 
-	public String getNewValue() {
-		return newValue;
-	}
+    public String getChangeName() {
+        return changeName;
+    }
 
-	public void setNewValue(String newValue) {
-		this.newValue = newValue;
-	}
+    public void setChangeName(String changeName) {
+        this.changeName = changeName;
+    }
 
-	public String getOldValue() {
-		return oldValue;
-	}
+    public String getNewValue() {
+        return newValue;
+    }
 
-	public void setOldValue(String oldValue) {
-		this.oldValue = oldValue;
-	}
+    public void setNewValue(String newValue) {
+        this.newValue = newValue;
+    }
 
-	public String getRequestDate() {
-		return requestDate;
-	}
+    public String getOldValue() {
+        return oldValue;
+    }
 
-	public void setRequestDate(String requestDate) {
-		this.requestDate = requestDate;
-	}
+    public void setOldValue(String oldValue) {
+        this.oldValue = oldValue;
+    }
 
-	public int getParkId() {
-		return parkId;
-	}
+    public String getRequestDate() {
+        return requestDate;
+    }
 
-	public void setParkId(int parkId) {
-		this.parkId = parkId;
-	}
+    public void setRequestDate(String requestDate) {
+        this.requestDate = requestDate;
+    }
 
-	public String getRequestStatus() {
-		return requestStatus;
-	}
+    public int getParkId() {
+        return parkId;
+    }
 
-	public void setRequestStatus(String requestStatus) {
-		this.requestStatus = requestStatus;
-	}
-	
-	
+    public void setParkId(int parkId) {
+        this.parkId = parkId;
+    }
+
+    public String getRequestStatus() {
+        return requestStatus;
+    }
+
+    public void setRequestStatus(String requestStatus) {
+        this.requestStatus = requestStatus;
+    }
 }
