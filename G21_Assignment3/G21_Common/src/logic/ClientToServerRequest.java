@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * ClientToServerRequest class is a request from the client to the server
+ * ClientToServerRequest class represents a request from the client to the server.
+ * It contains a request type, parameters, and additional input.
+ * @param <T> The type of object being passed as parameters.
  */
 @SuppressWarnings("serial")
 public class ClientToServerRequest<T> implements Serializable {
 
+	// Enum defining different types of requests
 	public enum Request {
 		IS_CONNECTED, TRAVELER_LOGIN_ID, INSERT_TO_LOGGEDIN, SUBSCRIBER_LOGIN_SUBID, GET_PARK_BY_ID, GET_SUBSCRIBER,
 		GET_ALL_PARKS, GET_MAX_DISCOUNT, GET_PARK_BY_NAME, GET_ORDERS_BETWEEN_DATES, ADD_ORDER, IS_TRAVELER_SUBSCRIBER,
@@ -29,20 +32,23 @@ public class ClientToServerRequest<T> implements Serializable {
 
 	}
 
-	private Request requestType; 
-	private ArrayList<T> parameters = new ArrayList<>();
-	private T obj;
-	private String input;
+	private Request requestType; // Request type
+	private ArrayList<T> parameters = new ArrayList<>(); // List of parameters for the request
+	private T obj; // Object associated with the request
+	private String input; // Additional input
 
+	// Constructor with just request type
 	public ClientToServerRequest(Request requestType) {
 		this.requestType = requestType;
 	}
 
+	// Constructor with request type and parameters
 	public ClientToServerRequest(Request requestType, ArrayList<T> parameters) {
 		this.requestType = requestType;
 		this.parameters = parameters;
 	}
 
+	 // Getters and setters for parameters
 	public ArrayList<?> getParameters() {
 		return parameters;
 	}
@@ -51,6 +57,7 @@ public class ClientToServerRequest<T> implements Serializable {
 		this.parameters = parameters;
 	}
 
+	// Getter and setter for object
 	public T getObj() {
 		return obj;
 	}
@@ -59,6 +66,7 @@ public class ClientToServerRequest<T> implements Serializable {
 		this.obj = obj;
 	}
 
+	// Getter and setter for request type
 	public Request getRequestType() {
 		return requestType;
 	}
@@ -67,6 +75,7 @@ public class ClientToServerRequest<T> implements Serializable {
 		this.requestType = requestType;
 	}
 
+	 // Getter and setter for input
 	public String getInput() {
 		return input;
 	}
