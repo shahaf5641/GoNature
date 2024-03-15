@@ -78,7 +78,7 @@ public class MemberLoginController implements Initializable {
             /* Block parent stage until child stage closes */
             newStage.initModality(Modality.WINDOW_MODAL);
             newStage.initOwner((Stage) loginButton.getScene().getWindow());
-            newStage.setTitle("GoNature8 - Recover Password");
+            newStage.setTitle("GoNature21 - Recover Password");
             newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
             newStage.setScene(new Scene(p));
             newStage.setResizable(false);
