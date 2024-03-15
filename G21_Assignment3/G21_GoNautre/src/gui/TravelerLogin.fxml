@@ -7,6 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextField?>
+
 
 <AnchorPane fx:id="loginContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <children>
@@ -30,8 +32,8 @@
         </Label>
         <TextField fx:id="idTextField" layoutX="143.0" layoutY="186.0" prefHeight="55.0" prefWidth="265.0" promptText="ID" />
         <TextField fx:id="subscriberIDTextField" layoutX="143.0" layoutY="288.0" prefHeight="55.0" prefWidth="265.0" promptText="Subscriber Number" />
-        <FontAwesomeIconView glyphName="ADDRESS_CARD" layoutX="84.0" layoutY="336.0" size="40" />
+        <Label text="&#xf2c2;" layoutX="84.0" layoutY="336.0" styleClass="icon-label" />
         <Button fx:id="loginButton" layoutX="87.0" layoutY="370.0" prefHeight="55.0" prefWidth="327.0" text="LOGIN" />
-        <FontAwesomeIconView glyphName="ID_CARD_ALT" layoutX="84.0" layoutY="227.0" size="40" />
+        <Label text="&#xf2c2;" layoutX="84.0" layoutY="227.0" styleClass="icon-label" />
     </children>
 </AnchorPane>
