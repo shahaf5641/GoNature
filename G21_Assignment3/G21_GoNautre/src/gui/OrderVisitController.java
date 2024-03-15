@@ -31,9 +31,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
@@ -48,8 +51,11 @@ import logic.Traveler;
 import util.UtilityFunctions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DateCell;
+import javafx.scene.control.DatePicker;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 
 /**
  * This Class is the GUI controller of OrderVisit.fxml
@@ -61,116 +67,118 @@ import java.time.LocalDateTime;
 public class OrderVisitController implements Initializable {
 
 	@FXML
-	private AnchorPane orderVisitRootPane;
-	@FXML
-	private Accordion accordion;
+    private AnchorPane orderVisitRootPane;
 
-	@FXML
-	private TitledPane identificationTP;
+    @FXML
+    private Accordion accordion;
 
-	@FXML
-	private AnchorPane identificationAP;
+    @FXML
+    private TitledPane identificationTP;
 
-	@FXML
-	private JFXTextField idInputOrderVisit;
+    @FXML
+    private AnchorPane identificationAP;
 
-	@FXML
-	private AnchorPane informationAP;
+    @FXML
+    private TextField idInputOrderVisit;
 
-	@FXML
-	private JFXComboBox<String> parksComboBox;
+    @FXML
+    private AnchorPane informationAP;
 
-	@FXML
-	private JFXDatePicker datePicker;
+    @FXML
+    private ComboBox<String> parksComboBox;
 
-	@FXML
-	private JFXTextField emailInputOrderVisit;
+    @FXML
+    private DatePicker datePicker;
 
-	@FXML
-	private JFXComboBox<OrderType> typeComboBox;
+    @FXML
+    private TextField emailInputOrderVisit;
 
-	@FXML
-	private Label requiredFieldsLabel;
+    @FXML
+    private ComboBox<OrderType> typeComboBox;
 
-	@FXML
-	private AnchorPane paymentAP;
+    @FXML
+    private Label requiredFieldsLabel;
 
-	@FXML
-	private JFXRadioButton payNowRadioBox;
+    @FXML
+    private AnchorPane paymentAP;
 
-	@FXML
-	private JFXRadioButton payLaterRadioBox;
+    @FXML
+    private RadioButton payNowRadioBox;
 
-	@FXML
-	private AnchorPane paymentPane;
+    @FXML
+    private RadioButton payLaterRadioBox;
 
-	@FXML
-	private JFXComboBox<String> timeComboBox;
+    @FXML
+    private AnchorPane paymentPane;
 
-	@FXML
-	private JFXTextField fullNameInput;
+    @FXML
+    private ComboBox<String> timeComboBox;
 
-	@FXML
-	private JFXTextField phoneInput;
+    @FXML
+    private TextField fullNameInput;
 
-	@FXML
-	private JFXTextField cardHolderName;
+    @FXML
+    private TextField phoneInput;
 
-	@FXML
-	private JFXTextField cardHolderLastName;
+    @FXML
+    private TextField cardHolderName;
 
-	@FXML
-	private JFXTextField CardNumber;
+    @FXML
+    private TextField cardHolderLastName;
 
-	@FXML
-	private JFXTextField CCV;
+    @FXML
+    private TextField CardNumber;
 
-	@FXML
-	private JFXTextField numOfVisitorsOrderVisit;
+    @FXML
+    private TextField CCV;
 
-	@FXML
-	private JFXDatePicker CardExpiryDate;
+    @FXML
+    private TextField numOfVisitorsOrderVisit;
 
-	@FXML
-	private Label permissionLabel;
+    @FXML
+    private DatePicker CardExpiryDate;
 
-	@FXML
-	private Label orderVisitHeaderLabel;
+    @FXML
+    private Label permissionLabel;
 
-	@FXML
-	private Label summaryID;
+    @FXML
+    private Label orderVisitHeaderLabel;
 
-	@FXML
-	private Label summaryPark;
+    @FXML
+    private Label summaryID;
 
-	@FXML
-	private Label summaryDate;
+    @FXML
+    private Label summaryPark;
 
-	@FXML
-	private Label summaryPayment;
+    @FXML
+    private Label summaryDate;
 
-	@FXML
-	private Label summaryType;
+    @FXML
+    private Label summaryPayment;
 
-	@FXML
-	private Label summaryVisitors;
+    @FXML
+    private Label summaryType;
 
-	@FXML
-	private Label summaryEmail;
+    @FXML
+    private Label summaryVisitors;
 
-	@FXML
-	private Label summaryTotalPrice;
+    @FXML
+    private Label summaryEmail;
 
-	@FXML
-	private Label summaryFullName;
+    @FXML
+    private Label summaryTotalPrice;
 
-	@FXML
-	private ProgressIndicator pb;
+    @FXML
+    private Label summaryFullName;
 
-	@FXML
-	private Label summaryPhone;
-	@FXML
-	private Label summaryTime;
+    @FXML
+    private ProgressIndicator pb;
+
+    @FXML
+    private Label summaryPhone;
+
+    @FXML
+    private Label summaryTime;
 
 	DecimalFormat df = new DecimalFormat("####0.00");
 	private Subscriber subscriber;
