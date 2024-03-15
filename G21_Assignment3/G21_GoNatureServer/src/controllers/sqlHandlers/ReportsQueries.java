@@ -29,7 +29,7 @@ public class ReportsQueries {
 	 * @param parameters report type, park id, report month
 	 */
 	public void deleteReport(ArrayList<?> parameters) {
-		String sql = "DELETE FROM g8gonature.reports where reportType = ? and parkID = ? and month = ?";
+		String sql = "DELETE FROM g21gonature.reports where reportType = ? and parkID = ? and month = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -53,7 +53,7 @@ public class ReportsQueries {
 	 */
 	public boolean insertReport(ArrayList<?> parameters) {
 
-		String sql = "INSERT INTO g8gonature.reports  (reportType, parkID, month, comment)  values (?, ?,?,?)";
+		String sql = "INSERT INTO g21gonature.reports  (reportType, parkID, month, comment)  values (?, ?,?,?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -83,8 +83,8 @@ public class ReportsQueries {
 		int year = Calendar.getInstance().get(Calendar.YEAR);
 
 		String sql = "SELECT SUM(test.numberOfParticipants),test.entrenceTime "
-				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime FROM g8gonature.visit , g8gonature.order "
-				+ "WHERE NOT EXISTS ( SELECT subscriber.travelerId FROM g8gonature.subscriber WHERE visit.travelerId = subscriber.travelerId) "
+				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime FROM g21gonature.visit , g21gonature.order "
+				+ "WHERE NOT EXISTS ( SELECT subscriber.travelerId FROM g21gonature.subscriber WHERE visit.travelerId = subscriber.travelerId) "
 				+ "AND visit.travelerId = order.travelerId AND order.orderType = 'Solo Visit' "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ?) as test GROUP BY test.entrenceTime;";
@@ -119,7 +119,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),test.entrenceTime "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime "
-				+ "FROM g8gonature.visit, g8gonature.order, g8gonature.subscriber "
+				+ "FROM g21gonature.visit, g21gonature.order, g21gonature.subscriber "
 				+ "WHERE visit.travelerId = order.travelerId "
 				+ "AND (order.orderType = 'Solo Visit' OR order.orderType = 'Family Visit') "
 				+ "AND visit.travelerId = subscriber.travelerId AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
@@ -155,7 +155,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants), test.entrenceTime FROM "
 				+ "(SELECT visit.travelerId,order.numberOfParticipants,visit.entrenceTime "
-				+ "FROM g8gonature.visit, g8gonature.order WHERE visit.travelerId = order.travelerId "
+				+ "FROM g21gonature.visit, g21gonature.order WHERE visit.travelerId = order.travelerId "
 				+ "AND order.orderType = 'Group Visit' AND order.orderStatus = 'Visit completed' "
 				+ "AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ?) AS test GROUP BY test.entrenceTime;";
@@ -190,7 +190,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),TIMEDIFF (test.exitTime,test.entrenceTime) "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime,visit.exitTime "
-				+ "FROM g8gonature.visit , g8gonature.order WHERE NOT exists ( SELECT subscriber.travelerId FROM g8gonature.subscriber "
+				+ "FROM g21gonature.visit , g21gonature.order WHERE NOT exists ( SELECT subscriber.travelerId FROM g21gonature.subscriber "
 				+ "WHERE visit.travelerId = subscriber.travelerId) AND visit.travelerId = order.travelerId AND order.orderType = 'Solo Visit' "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);";
@@ -225,7 +225,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),TIMEDIFF (test.exitTime,test.entrenceTime) "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime, visit.exitTime "
-				+ "FROM g8gonature.visit, g8gonature.order, g8gonature.subscriber WHERE visit.travelerId = order.travelerId "
+				+ "FROM g21gonature.visit, g21gonature.order, g21gonature.subscriber WHERE visit.travelerId = order.travelerId "
 				+ "AND (order.orderType = 'Solo Visit' OR order.orderType = 'Family Visit') AND visit.travelerId = subscriber.travelerId "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? ) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);;";
@@ -260,7 +260,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),TIMEDIFF (test.exitTime,test.entrenceTime) "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime, visit.exitTime "
-				+ "FROM g8gonature.visit,g8gonature.order WHERE "
+				+ "FROM g21gonature.visit,g21gonature.order WHERE "
 				+ "visit.travelerId = order.travelerId AND order.orderType = 'Group Visit' "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);";
@@ -290,7 +290,7 @@ public class ReportsQueries {
 	 */
 	public ArrayList<Report> getReports(ArrayList<?> parameters) {
 		ArrayList<Report> reports = new ArrayList<Report>();
-		String sql = "SELECT * FROM g8gonature.reports ORDER BY reportID DESC";
+		String sql = "SELECT * FROM g21gonature.reports ORDER BY reportID DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -319,7 +319,7 @@ public class ReportsQueries {
 		int parkId = (int) parameters.get(0);
 		int month = (int) parameters.get(1);
 
-		String sql = "SELECT COUNT(*) FROM g8gonature.order WHERE parkId = ? AND MONTH(orderDate) = ? AND orderStatus = ?";
+		String sql = "SELECT COUNT(*) FROM g21gonature.order WHERE parkId = ? AND MONTH(orderDate) = ? AND orderStatus = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -347,9 +347,9 @@ public class ReportsQueries {
 	public ArrayList<Order> getSolosOrdersVisitorsReport(int month, int parkID) {
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE month(orderDate)=" + month + " AND parkId =" + parkID
-				+ " AND orderType='Solo Visit' AND g8gonature.order.travelerId NOT IN"
-				+ "(  SELECT g8gonature.subscriber.travelerId   FROM  g8gonature.subscriber) AND orderStatus='Visit completed'";
+		String sql = "SELECT * FROM g21gonature.order WHERE month(orderDate)=" + month + " AND parkId =" + parkID
+				+ " AND orderType='Solo Visit' AND g21gonature.order.travelerId NOT IN"
+				+ "(  SELECT g21gonature.subscriber.travelerId   FROM  g21gonature.subscriber) AND orderStatus='Visit completed'";
 
 		try {
 			PreparedStatement query = conn.prepareStatement(sql);
@@ -376,9 +376,9 @@ public class ReportsQueries {
 	public ArrayList<Order> getSubscribersOrdersVisitorsReport(int month, int parkID) {
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE month(orderDate)=" + month + " AND parkId =" + parkID
-				+ " AND (orderType='Family Visit' OR orderType='Solo Visit') AND g8gonature.order.travelerId IN "
-				+ "(  SELECT g8gonature.subscriber.travelerId   FROM  g8gonature.subscriber) AND orderStatus = 'Visit completed'";
+		String sql = "SELECT * FROM g21gonature.order WHERE month(orderDate)=" + month + " AND parkId =" + parkID
+				+ " AND (orderType='Family Visit' OR orderType='Solo Visit') AND g21gonature.order.travelerId IN "
+				+ "(  SELECT g21gonature.subscriber.travelerId   FROM  g21gonature.subscriber) AND orderStatus = 'Visit completed'";
 
 		try {
 			PreparedStatement query = conn.prepareStatement(sql);
@@ -405,7 +405,7 @@ public class ReportsQueries {
 	public ArrayList<Order> getGroupsOrdersVisitorsReport(int month, int parkID) {
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE month(orderDate)=" + month + " AND parkId =" + parkID
+		String sql = "SELECT * FROM g21gonature.order WHERE month(orderDate)=" + month + " AND parkId =" + parkID
 				+ " AND orderType='Group Visit' AND orderStatus = 'Visit completed'";
 
 		try {
@@ -433,16 +433,16 @@ public class ReportsQueries {
 	public ArrayList<?> createNumberOfVisitorsReport(int month, int parkID) { // individual visitors (solo,familty) , orginized (Group) , subscribers.
 		ArrayList<Integer> numberOfVisitorsPerType = new ArrayList<>();
 
-		String sql1 = "SELECT SUM(numberOfParticipants) FROM g8gonature.order WHERE month(orderDate)=" + month
-				+ " AND parkId =" + parkID + " AND orderType='Solo Visit' AND g8gonature.order.travelerId NOT IN"
-				+ "(  SELECT g8gonature.subscriber.travelerId   FROM  g8gonature.subscriber) AND orderStatus='Visit completed'";
+		String sql1 = "SELECT SUM(numberOfParticipants) FROM g21gonature.order WHERE month(orderDate)=" + month
+				+ " AND parkId =" + parkID + " AND orderType='Solo Visit' AND g21gonature.order.travelerId NOT IN"
+				+ "(  SELECT g21gonature.subscriber.travelerId   FROM  g21gonature.subscriber) AND orderStatus='Visit completed'";
 
-		String sql2 = "SELECT SUM(numberOfParticipants) FROM g8gonature.order WHERE month(orderDate)=" + month
+		String sql2 = "SELECT SUM(numberOfParticipants) FROM g21gonature.order WHERE month(orderDate)=" + month
 				+ " AND parkId =" + parkID
-				+ " AND (orderType='Family Visit' OR orderType='Solo Visit') AND g8gonature.order.travelerId IN "
-				+ "(  SELECT g8gonature.subscriber.travelerId   FROM  g8gonature.subscriber) AND orderStatus = 'Visit completed'";
+				+ " AND (orderType='Family Visit' OR orderType='Solo Visit') AND g21gonature.order.travelerId IN "
+				+ "(  SELECT g21gonature.subscriber.travelerId   FROM  g21gonature.subscriber) AND orderStatus = 'Visit completed'";
 
-		String sql3 = "SELECT SUM(numberOfParticipants) FROM g8gonature.order WHERE month(orderDate)=" + month
+		String sql3 = "SELECT SUM(numberOfParticipants) FROM g21gonature.order WHERE month(orderDate)=" + month
 				+ " AND parkId =" + parkID + " AND orderType='Group Visit' AND orderStatus = 'Visit completed'";
 
 		PreparedStatement query;
@@ -491,16 +491,16 @@ public class ReportsQueries {
 
 		ArrayList<Integer> totalIncomePerType = new ArrayList<>();
 
-		String sql1 = "SELECT SUM(price) FROM g8gonature.order WHERE month(orderDate)=" + month + " AND parkId ="
-				+ parkID + " AND orderType='Solo Visit' AND g8gonature.order.travelerId NOT IN"
-				+ "(  SELECT g8gonature.subscriber.travelerId   FROM  g8gonature.subscriber) AND orderStatus='Visit completed'";
+		String sql1 = "SELECT SUM(price) FROM g21gonature.order WHERE month(orderDate)=" + month + " AND parkId ="
+				+ parkID + " AND orderType='Solo Visit' AND g21gonature.order.travelerId NOT IN"
+				+ "(  SELECT g21gonature.subscriber.travelerId   FROM  g21gonature.subscriber) AND orderStatus='Visit completed'";
 
-		String sql2 = "SELECT SUM(price) FROM g8gonature.order WHERE month(orderDate)=" + month + " AND parkId ="
+		String sql2 = "SELECT SUM(price) FROM g21gonature.order WHERE month(orderDate)=" + month + " AND parkId ="
 				+ parkID
-				+ " AND (orderType='Family Visit' OR orderType='Solo Visit') AND g8gonature.order.travelerId IN "
-				+ "(  SELECT g8gonature.subscriber.travelerId   FROM  g8gonature.subscriber) AND orderStatus = 'Visit completed'";
+				+ " AND (orderType='Family Visit' OR orderType='Solo Visit') AND g21gonature.order.travelerId IN "
+				+ "(  SELECT g21gonature.subscriber.travelerId   FROM  g21gonature.subscriber) AND orderStatus = 'Visit completed'";
 
-		String sql3 = "SELECT SUM(price) FROM g8gonature.order WHERE month(orderDate)=" + month + " AND parkId ="
+		String sql3 = "SELECT SUM(price) FROM g21gonature.order WHERE month(orderDate)=" + month + " AND parkId ="
 				+ parkID + " AND orderType='Group Visit' AND orderStatus = 'Visit completed'";
 
 		PreparedStatement query;
@@ -544,7 +544,7 @@ public class ReportsQueries {
 	 */
 	public void createNewReportInDB(ArrayList<?> parameters) {
 
-		String sql = "INSERT INTO g8gonature.reports (reportType,parkId,month,comment) values (?,?,?,?)";
+		String sql = "INSERT INTO g21gonature.reports (reportType,parkId,month,comment) values (?,?,?,?)";
 
 		PreparedStatement query;
 		try {
@@ -574,7 +574,7 @@ public class ReportsQueries {
 		int parkId = (int) parameters.get(0);
 		int month = (int) parameters.get(1);
 
-		String sql = "SELECT COUNT(*) FROM g8gonature.order WHERE parkId = ? AND MONTH(orderDate) = ? AND orderStatus = ? AND orderDate < curdate()";
+		String sql = "SELECT COUNT(*) FROM g21gonature.order WHERE parkId = ? AND MONTH(orderDate) = ? AND orderStatus = ? AND orderDate < curdate()";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -605,8 +605,8 @@ public class ReportsQueries {
 		int day = Integer.parseInt((String) parameters.get(1));
 
 		String sql = "SELECT SUM(test.numberOfParticipants),test.entrenceTime "
-				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime FROM g8gonature.visit , g8gonature.order "
-				+ "WHERE NOT EXISTS ( SELECT subscriber.travelerId FROM g8gonature.subscriber WHERE visit.travelerId = subscriber.travelerId) "
+				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime FROM g21gonature.visit , g21gonature.order "
+				+ "WHERE NOT EXISTS ( SELECT subscriber.travelerId FROM g21gonature.subscriber WHERE visit.travelerId = subscriber.travelerId) "
 				+ "AND visit.travelerId = order.travelerId AND order.orderType = 'Solo Visit' "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) as test GROUP BY test.entrenceTime;";
@@ -643,7 +643,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),test.entrenceTime "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime "
-				+ "FROM g8gonature.visit, g8gonature.order, g8gonature.subscriber "
+				+ "FROM g21gonature.visit, g21gonature.order, g21gonature.subscriber "
 				+ "WHERE visit.travelerId = order.travelerId "
 				+ "AND (order.orderType = 'Solo Visit' OR order.orderType = 'Family Visit') "
 				+ "AND visit.travelerId = subscriber.travelerId AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
@@ -681,7 +681,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants), test.entrenceTime FROM "
 				+ "(SELECT visit.travelerId,order.numberOfParticipants,visit.entrenceTime "
-				+ "FROM g8gonature.visit, g8gonature.order WHERE visit.travelerId = order.travelerId "
+				+ "FROM g21gonature.visit, g21gonature.order WHERE visit.travelerId = order.travelerId "
 				+ "AND order.orderType = 'Group Visit' AND order.orderStatus = 'Visit completed' "
 				+ "AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) AS test GROUP BY test.entrenceTime;";
@@ -718,7 +718,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),TIMEDIFF (test.exitTime,test.entrenceTime) "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime,visit.exitTime "
-				+ "FROM g8gonature.visit , g8gonature.order WHERE NOT exists ( SELECT subscriber.travelerId FROM g8gonature.subscriber "
+				+ "FROM g21gonature.visit , g21gonature.order WHERE NOT exists ( SELECT subscriber.travelerId FROM g21gonature.subscriber "
 				+ "WHERE visit.travelerId = subscriber.travelerId) AND visit.travelerId = order.travelerId AND order.orderType = 'Solo Visit' "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);";
@@ -755,7 +755,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),TIMEDIFF (test.exitTime,test.entrenceTime) "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime, visit.exitTime "
-				+ "FROM g8gonature.visit, g8gonature.order, g8gonature.subscriber WHERE visit.travelerId = order.travelerId "
+				+ "FROM g21gonature.visit, g21gonature.order, g21gonature.subscriber WHERE visit.travelerId = order.travelerId "
 				+ "AND (order.orderType = 'Solo Visit' OR order.orderType = 'Family Visit') AND visit.travelerId = subscriber.travelerId "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);;";
@@ -792,7 +792,7 @@ public class ReportsQueries {
 
 		String sql = "SELECT SUM(test.numberOfParticipants),TIMEDIFF (test.exitTime,test.entrenceTime) "
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime, visit.exitTime "
-				+ "FROM g8gonature.visit,g8gonature.order WHERE "
+				+ "FROM g21gonature.visit,g21gonature.order WHERE "
 				+ "visit.travelerId = order.travelerId AND order.orderType = 'Group Visit' "
 				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);";

@@ -30,7 +30,7 @@ public class EmployeeQueries {
 		 */
 		public Employees getEmployeeById(ArrayList<?> parameters) {
 			Employees employee = null;
-			String sql = "SELECT * FROM g8gonature.employees WHERE employeeId = ? ";
+			String sql = "SELECT * FROM g21gonature.employees WHERE employeeId = ? ";
 			PreparedStatement query;
 			try {
 				query = conn.prepareStatement(sql);
@@ -74,7 +74,7 @@ public class EmployeeQueries {
 		 * @return The employee's password as string
 		 */
 		public String getEmployeePasswordById(int employeeId) {
-			String sql = "SELECT employeesidentification.password FROM g8gonature.employeesidentification WHERE employeeId = ?";
+			String sql = "SELECT employeesidentification.password FROM g21gonature.employeesidentification WHERE employeeId = ?";
 			PreparedStatement query;
 			try {
 				query = conn.prepareStatement(sql);

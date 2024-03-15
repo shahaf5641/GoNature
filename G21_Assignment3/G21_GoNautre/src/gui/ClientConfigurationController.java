@@ -3,7 +3,6 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,8 +12,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -46,10 +47,10 @@ public class ClientConfigurationController implements Initializable {
     private Circle circleStatus;
 
     @FXML
-    private Label ipLabel;
+    private TextField ipTextField;
 
     @FXML
-    private Label portLabel;
+    private TextField portTextField;
 
     private Stage stage;
 
@@ -70,10 +71,10 @@ public class ClientConfigurationController implements Initializable {
 	}
 
     @FXML
-    private void connectButtonClick(ActionEvent event) {
-        if (!ipLabel.getText().isEmpty() && !portLabel.getText().isEmpty()) {
+    private void connectButtonClick(MouseEvent event) {
+        if (!ipTextField.getText().isEmpty() && !portTextField.getText().isEmpty()) {
             try {
-                ClientUI.chat = new ClientController(ipLabel.getText(), Integer.parseInt(portLabel.getText()));
+                ClientUI.chat = new ClientController(ipTextField.getText(), Integer.parseInt(portTextField.getText()));
                 circleStatus.setFill(Color.GREEN);
             } catch (NumberFormatException e) {
                 circleStatus.setFill(Color.RED);
@@ -88,11 +89,13 @@ public class ClientConfigurationController implements Initializable {
     }
 
     @FXML
-    private void loadApp(ActionEvent event) {
+    private void loadApp(MouseEvent event) {
         if (ClientUI.chat != null) {
             try {
+            	System.out.println("1 in try");
                 Stage thisStage = getStage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainScreen.fxml"));
+                
                 MainScreenController controller = new MainScreenController();
                 loader.setController(controller);
                 Stage newStage = new Stage();

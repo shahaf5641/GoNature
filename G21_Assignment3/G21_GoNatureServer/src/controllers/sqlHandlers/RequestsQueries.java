@@ -31,7 +31,7 @@ public class RequestsQueries {
 	public Discount getMaxDisount(ArrayList<?> parameters) {
 
 		Discount discount = null;
-		String sql = "SELECT * FROM g8gonature.discount WHERE status = ? and parkId = ? and startDate <= ? and endDate >= ? ORDER BY amount DESC";
+		String sql = "SELECT * FROM g21gonature.discount WHERE status = ? and parkId = ? and startDate <= ? and endDate >= ? ORDER BY amount DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -58,8 +58,8 @@ public class RequestsQueries {
 	 */
 	public void insertAllNewRequestsFromParkManager(ArrayList<?> managerRequests) {
 
-		String sql = "INSERT INTO g8gonature.request (changeName,newValue,oldValue,requestDate,parkId,requestStatus) values (?,?,?,?,?,?)";
-		String sql2 = "INSERT INTO g8gonature.discount (amount,startDate,endDate,parkId,status) values (?,?,?,?,?)";
+		String sql = "INSERT INTO g21gonature.request (changeName,newValue,oldValue,requestDate,parkId,requestStatus) values (?,?,?,?,?,?)";
+		String sql2 = "INSERT INTO g21gonature.discount (amount,startDate,endDate,parkId,status) values (?,?,?,?,?)";
 
 		java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		String parkID = (String) managerRequests.get(6);
@@ -134,7 +134,7 @@ public class RequestsQueries {
 	public ArrayList<?> GetRequestsFromDB() {
 		ArrayList<Request> requests = new ArrayList<>();
 		int i = 0;
-		String sql = "SELECT * FROM g8gonature.request ORDER BY requestId DESC";
+		String sql = "SELECT * FROM g21gonature.request ORDER BY requestId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -166,10 +166,10 @@ public class RequestsQueries {
 		String sql;
 
 		if (bool)
-			sql = "UPDATE g8gonature.request SET requestStatus='Confirmed' WHERE requestId=" + requestsID;
+			sql = "UPDATE g21gonature.request SET requestStatus='Confirmed' WHERE requestId=" + requestsID;
 
 		else {
-			sql = "UPDATE g8gonature.request SET requestStatus='declined' WHERE requestId=" + requestsID;
+			sql = "UPDATE g21gonature.request SET requestStatus='declined' WHERE requestId=" + requestsID;
 		}
 
 		PreparedStatement query;
@@ -195,10 +195,10 @@ public class RequestsQueries {
 		String sql;
 
 		if (bool)
-			sql = "UPDATE g8gonature.discount SET status='confirmed' WHERE discountId=" + discountsID;
+			sql = "UPDATE g21gonature.discount SET status='confirmed' WHERE discountId=" + discountsID;
 
 		else {
-			sql = "UPDATE g8gonature.discount SET status='declined' WHERE discountId=" + discountsID;
+			sql = "UPDATE g21gonature.discount SET status='declined' WHERE discountId=" + discountsID;
 		}
 
 		PreparedStatement query;
@@ -222,7 +222,7 @@ public class RequestsQueries {
 
 		ArrayList<Discount> discount = new ArrayList<>();
 		int i = 0;
-		String sql = "SELECT * FROM g8gonature.discount ORDER BY discountId DESC";
+		String sql = "SELECT * FROM g21gonature.discount ORDER BY discountId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -250,7 +250,7 @@ public class RequestsQueries {
 	 */
 	public int getOldValFromParkParameters(String nameOfColumn, int parkID) {
 
-		String sql = "SELECT g8gonature.park." + nameOfColumn + " FROM g8gonature.park WHERE g8gonature.park.parkId="
+		String sql = "SELECT g21gonature.park." + nameOfColumn + " FROM g21gonature.park WHERE g21gonature.park.parkId="
 				+ parkID + "";
 		PreparedStatement query;
 		try {

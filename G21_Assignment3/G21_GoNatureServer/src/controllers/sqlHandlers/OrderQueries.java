@@ -29,7 +29,7 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getOrderBetweenTimes(ArrayList<?> parameters) {
 		ArrayList<Order> orders = new ArrayList<Order>();
-		String sql = "SELECT * FROM g8gonature.order WHERE parkId = ? and orderDate = ? and orderTime >= ? and orderTime <= ? AND (orderStatus = ? OR orderStatus = ? OR orderStatus = ? OR orderStatus = ?)";
+		String sql = "SELECT * FROM g21gonature.order WHERE parkId = ? and orderDate = ? and orderTime >= ? and orderTime <= ? AND (orderStatus = ? OR orderStatus = ? OR orderStatus = ? OR orderStatus = ?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -63,7 +63,7 @@ public class OrderQueries {
 	public boolean addNewOrder(Object obj) {
 		Order orderToAdd = (Order) obj;
 		int result = 0;
-		String sql = "INSERT INTO g8gonature.order (travelerId, parkId, orderDate, orderTime, orderType, numberOfParticipants, email, price, orderStatus) "
+		String sql = "INSERT INTO g21gonature.order (travelerId, parkId, orderDate, orderTime, orderType, numberOfParticipants, email, price, orderStatus) "
 				+ "values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement query;
 		try {
@@ -94,7 +94,7 @@ public class OrderQueries {
 	public Order getRecentOrder(ArrayList<?> parameters) {
 		Order order = null;
 
-		String sql = "SELECT * FROM g8gonature.order WHERE travelerId = ? ORDER BY orderId DESC";
+		String sql = "SELECT * FROM g21gonature.order WHERE travelerId = ? ORDER BY orderId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -146,7 +146,7 @@ public class OrderQueries {
 		for (Order o : resultOrders)
 			count += o.getNumberOfParticipants();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE parkId = ? AND "
+		String sql = "SELECT * FROM g21gonature.order WHERE parkId = ? AND "
 				+ "orderDate = ? AND orderTime BETWEEN ? AND ? AND orderStatus = ?";
 		ResultSet rs;
 		PreparedStatement query;
@@ -186,7 +186,7 @@ public class OrderQueries {
 		int parkId = Integer.parseInt((String) parameters.get(0));
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE parkId = ? ORDER BY orderId DESC";
+		String sql = "SELECT * FROM g21gonature.order WHERE parkId = ? ORDER BY orderId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -218,7 +218,7 @@ public class OrderQueries {
 		String travId = (String) parameters.get(1);
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE parkId = ? AND travelerId = ?";
+		String sql = "SELECT * FROM g21gonature.order WHERE parkId = ? AND travelerId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -246,7 +246,7 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getPendingOrders() {
 		ArrayList<Order> orders = new ArrayList<Order>();
-		String sql = "SELECT * FROM g8gonature.order WHERE orderStatus = ?";
+		String sql = "SELECT * FROM g21gonature.order WHERE orderStatus = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -274,7 +274,7 @@ public class OrderQueries {
 	 */
 	public Order getOrderByID(int orderId) {
 		Order order = null;
-		String sql = "SELECT * FROM g8gonature.order WHERE orderId = ?";
+		String sql = "SELECT * FROM g21gonature.order WHERE orderId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -301,7 +301,7 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getRelevantOrderForParkEntrance(ArrayList<?> parameters) {
 		ArrayList<Order> orders = new ArrayList<>();
-		String sql = "SELECT * FROM g8gonature.order where travelerId = ? AND orderDate = ? AND orderTime >= ? AND orderTime <= ? AND orderStatus = ?";
+		String sql = "SELECT * FROM g21gonature.order where travelerId = ? AND orderDate = ? AND orderTime >= ? AND orderTime <= ? AND orderStatus = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -334,7 +334,7 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getRelevantOrderForParkExit(ArrayList<?> parameters) {
 		ArrayList<Order> orders = new ArrayList<>();
-		String sql = "SELECT * FROM g8gonature.order where travelerId = ? AND orderStatus = ? order by orderId DESC";
+		String sql = "SELECT * FROM g21gonature.order where travelerId = ? AND orderStatus = ? order by orderId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -365,7 +365,7 @@ public class OrderQueries {
 	public ArrayList<Order> getAllOrdersForID(ArrayList<?> parameters) {
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order WHERE travelerId = ? ORDER BY orderId DESC";
+		String sql = "SELECT * FROM g21gonature.order WHERE travelerId = ? ORDER BY orderId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -393,7 +393,7 @@ public class OrderQueries {
 	public ArrayList<Order> getAllOrders() {
 		ArrayList<Order> orders = new ArrayList<Order>();
 
-		String sql = "SELECT * FROM g8gonature.order";
+		String sql = "SELECT * FROM g21gonature.order";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -419,7 +419,7 @@ public class OrderQueries {
 	 * @return true on success, false otherwise.
 	 */
 	public boolean setOrderStatusWithIDandStatus(ArrayList<?> parameters) {
-		String sql = "UPDATE g8gonature.order SET orderStatus = ? WHERE orderId = ?";
+		String sql = "UPDATE g21gonature.order SET orderStatus = ? WHERE orderId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -442,7 +442,7 @@ public class OrderQueries {
 	 */
 	public boolean UpdateNumberOfVisitorsForOrder(ArrayList<?> parameters) {
 
-		String sql = "UPDATE g8gonature.order SET numberOfParticipants = ? WHERE orderId = ?";
+		String sql = "UPDATE g21gonature.order SET numberOfParticipants = ? WHERE orderId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -465,7 +465,7 @@ public class OrderQueries {
 	 */
 	public boolean UpdatePriceForOrder(ArrayList<?> parameters) {
 
-		String sql = "UPDATE g8gonature.order SET price = ? WHERE orderId = ?";
+		String sql = "UPDATE g21gonature.order SET price = ? WHERE orderId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -487,8 +487,8 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getEnteredOrdersWithTimePassed() {
 		ArrayList<Order> orders = new ArrayList<Order>();
-		String sql = "SELECT g8gonature.order.* FROM g8gonature.visit,g8gonature.order WHERE visitDate = ? AND exitTime < ? AND orderStatus = ? "
-				+ "AND g8gonature.order.travelerId = g8gonature.visit.travelerId GROUP BY orderId";
+		String sql = "SELECT g21gonature.order.* FROM g21gonature.visit,g21gonature.order WHERE visitDate = ? AND exitTime < ? AND orderStatus = ? "
+				+ "AND g21gonature.order.travelerId = g21gonature.visit.travelerId GROUP BY orderId";
 
 		PreparedStatement query;
 		try {
@@ -521,7 +521,7 @@ public class OrderQueries {
 	 */
 	public boolean addOrderAlert(int orderId, String date, String startTime, String endTime) {
 		int result = 0;
-		String sql = "INSERT INTO g8gonature.orders_alerts (orderId, alertDate, alertSendTime, alertEndTime) "
+		String sql = "INSERT INTO g21gonature.orders_alerts (orderId, alertDate, alertSendTime, alertEndTime) "
 				+ "values (?, ?, ?, ?)";
 		PreparedStatement query;
 		try {
@@ -547,7 +547,7 @@ public class OrderQueries {
 	 */
 	public boolean deleteOrderAlert(int alertId) {
 		int result = 0;
-		String sql = "DELETE FROM g8gonature.orders_alerts WHERE alertId = ? ";
+		String sql = "DELETE FROM g21gonature.orders_alerts WHERE alertId = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -571,8 +571,8 @@ public class OrderQueries {
 	public ArrayList<Order> getOrderWithExpiryAlertTime(String date, String time) {
 
 		ArrayList<Order> orders = new ArrayList<Order>();
-		String sql = "SELECT g8gonature.order.* " + "FROM g8gonature.orders_alerts, g8gonature.order "
-				+ "WHERE alertDate = ? AND alertEndTime < ? AND (orderStatus = ? OR orderStatus = ?) AND g8gonature.order.orderId = g8gonature.orders_alerts.orderId";
+		String sql = "SELECT g21gonature.order.* " + "FROM g21gonature.orders_alerts, g21gonature.order "
+				+ "WHERE alertDate = ? AND alertEndTime < ? AND (orderStatus = ? OR orderStatus = ?) AND g21gonature.order.orderId = g21gonature.orders_alerts.orderId";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -608,8 +608,8 @@ public class OrderQueries {
 	public ArrayList<Integer> getOrderAlertIdWithExpiryAlertTime(String date, String time) {
 
 		ArrayList<Integer> orders = new ArrayList<Integer>();
-		String sql = "SELECT g8gonature.orders_alerts.alertId " + "FROM g8gonature.orders_alerts, g8gonature.order "
-				+ "WHERE alertDate = ? AND alertEndTime < ? AND (orderStatus = ? OR orderStatus = ?) AND g8gonature.order.orderId = g8gonature.orders_alerts.orderId";
+		String sql = "SELECT g21gonature.orders_alerts.alertId " + "FROM g21gonature.orders_alerts, g21gonature.order "
+				+ "WHERE alertDate = ? AND alertEndTime < ? AND (orderStatus = ? OR orderStatus = ?) AND g21gonature.order.orderId = g21gonature.orders_alerts.orderId";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -637,11 +637,11 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getCompletedOrders() {
 		ArrayList<Order> orders = new ArrayList<Order>();
-		String sql = "SELECT g8gonature.order.* FROM g8gonature.order, g8gonature.visit"
-				+ " WHERE g8gonature.order.orderStatus = ? AND g8gonature.order.travelerId = g8gonature.visit.travelerId"
-				+ " AND g8gonature.order.parkId = g8gonature.visit.parkId AND g8gonature.order.parkId = g8gonature.visit.parkId"
-				+ " AND g8gonature.order.orderTime = g8gonature.visit.entrenceTime AND g8gonature.order.orderDate = g8gonature.visit.visitDate"
-				+ " AND g8gonature.visit.exitTime < ?";
+		String sql = "SELECT g21gonature.order.* FROM g21gonature.order, g21gonature.visit"
+				+ " WHERE g21gonature.order.orderStatus = ? AND g21gonature.order.travelerId = g21gonature.visit.travelerId"
+				+ " AND g21gonature.order.parkId = g21gonature.visit.parkId AND g21gonature.order.parkId = g21gonature.visit.parkId"
+				+ " AND g21gonature.order.orderTime = g21gonature.visit.entrenceTime AND g21gonature.order.orderDate = g21gonature.visit.visitDate"
+				+ " AND g21gonature.visit.exitTime < ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -672,7 +672,7 @@ public class OrderQueries {
 	 */
 	public ArrayList<Order> getWaitingOrdersToCancel() {
 		ArrayList<Order> orders = new ArrayList<Order>();
-		String sql = "SELECT * FROM g8gonature.order WHERE orderStatus = ? AND ((orderDate = ? AND orderTime <= ?) || orderDate < ?)";
+		String sql = "SELECT * FROM g21gonature.order WHERE orderStatus = ? AND ((orderDate = ? AND orderTime <= ?) || orderDate < ?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);

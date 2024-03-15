@@ -30,7 +30,7 @@ public class TravelersQueries {
 	 * @return true if connected, false if not
 	 */
 	public boolean checkIfConnected(ArrayList<?> parameters) {
-		String sql = "SELECT * FROM g8gonature.loggedin WHERE id = ? ";
+		String sql = "SELECT * FROM g21gonature.loggedin WHERE id = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class TravelersQueries {
 	 */
 	public Traveler isTravelerExist(ArrayList<?> parameters) {
 		Traveler traveler = null;
-		String sql = "SELECT * FROM g8gonature.traveler WHERE travelerId = ? ";
+		String sql = "SELECT * FROM g21gonature.traveler WHERE travelerId = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class TravelersQueries {
 	 * @param parameters id
 	 */
 	public void insertToLoggedInTable(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g8gonature.loggedin (id) values (?)";
+		String sql = "INSERT INTO g21gonature.loggedin (id) values (?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -99,7 +99,7 @@ public class TravelersQueries {
 	 */
 	public Subscriber getSubscriberBySubId(ArrayList<?> parameters) {
 		Subscriber sub = null;
-		String sql = "SELECT * FROM g8gonature.subscriber WHERE subscriberNumber = ? ";
+		String sql = "SELECT * FROM g21gonature.subscriber WHERE subscriberNumber = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class TravelersQueries {
 	 */
 	public Subscriber getSubscriberById(ArrayList<?> parameters) {
 		Subscriber sub = null;
-		String sql = "SELECT * FROM g8gonature.subscriber WHERE travelerId = ? ";
+		String sql = "SELECT * FROM g21gonature.subscriber WHERE travelerId = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -152,7 +152,7 @@ public class TravelersQueries {
 	public boolean addTraveler(Object obj) {
 		Traveler travelerToAdd = (Traveler) obj;
 		int result = 0;
-		String sql = "INSERT INTO g8gonature.traveler (travelerId, firstName, lastName, email, phoneNumber) "
+		String sql = "INSERT INTO g21gonature.traveler (travelerId, firstName, lastName, email, phoneNumber) "
 				+ "values (?, ?, ?, ?, ?)";
 		PreparedStatement query;
 		try {
@@ -179,7 +179,7 @@ public class TravelersQueries {
 	public Employees isMemberExist(ArrayList<?> parameters) {
 		WorkerType wt;
 		Employees member = null;
-		String sql = "SELECT * FROM g8gonature.employeesidentification WHERE employeeId = ? AND password = ? ";
+		String sql = "SELECT * FROM g21gonature.employeesidentification WHERE employeeId = ? AND password = ? ";
 		PreparedStatement query, query2;
 		try {
 			query = conn.prepareStatement(sql);
@@ -188,7 +188,7 @@ public class TravelersQueries {
 			ResultSet res = query.executeQuery();
 			if (res.next()) {
 				/* new query */
-				sql = "SELECT * FROM g8gonature.employees WHERE employeeId = ?";
+				sql = "SELECT * FROM g21gonature.employees WHERE employeeId = ?";
 				query2 = conn.prepareStatement(sql);
 				query2.setInt(1, Integer.parseInt((String) parameters.get(0)));// changed to int
 				res = query2.executeQuery();
@@ -227,7 +227,7 @@ public class TravelersQueries {
 	 *
 	 */
 	public void removeFromLoggedInTable(ArrayList<?> parameters) {
-		String sql = "DELETE FROM g8gonature.loggedin WHERE id = ? ";
+		String sql = "DELETE FROM g21gonature.loggedin WHERE id = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -245,7 +245,7 @@ public class TravelersQueries {
 	 * @param parameters The traveler id
 	 */
 	public void deleteFromTravelerTable(ArrayList<?> parameters) {
-		String sql = "DELETE FROM g8gonature.traveler WHERE travelerId = ?";
+		String sql = "DELETE FROM g21gonature.traveler WHERE travelerId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -263,7 +263,7 @@ public class TravelersQueries {
 	 * @param parameters ArrayList with travelerId firstName lastName email phoneNumber creditCard subscriberType numberOfParticipants
 	 */
 	public void insertSubscriberToSubscriberTable(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g8gonature.subscriber (travelerId, firstName, lastName, email, phoneNumber, creditCard, subscriberType, numberOfParticipants) values (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO g21gonature.subscriber (travelerId, firstName, lastName, email, phoneNumber, creditCard, subscriberType, numberOfParticipants) values (?,?,?,?,?,?,?,?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -290,7 +290,7 @@ public class TravelersQueries {
 	 */
 	public ArrayList<Messages> getMessages(ArrayList<?> parameters) {
 		ArrayList<Messages> messeges = new ArrayList<Messages>();
-		String sql = "SELECT * FROM g8gonature.messages WHERE toId = ? ORDER BY messageId DESC";
+		String sql = "SELECT * FROM g21gonature.messages WHERE toId = ? ORDER BY messageId DESC";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -316,7 +316,7 @@ public class TravelersQueries {
 	 * @return true on success, false otherwise
 	 */
 	public boolean sendMessageToTraveler(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g8gonature.messages (toId,sendDate,sendTime,subject,content,orderId) "
+		String sql = "INSERT INTO g21gonature.messages (toId,sendDate,sendTime,subject,content,orderId) "
 				+ "VALUES (?,?,?,?,?,?)";
 		PreparedStatement query;
 		int res = 0;
@@ -343,7 +343,7 @@ public class TravelersQueries {
 	 * @param parameters ArrayList with subscriberId cardNumber cardExpiryDate CVC
 	 */
 	public void insertCardToCreditCardTable(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g8gonature.creditcard (subscriberId, cardNumber, cardExpiryDate, CVC) values (?,?,?,?)";
+		String sql = "INSERT INTO g21gonature.creditcard (subscriberId, cardNumber, cardExpiryDate, CVC) values (?,?,?,?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -365,7 +365,7 @@ public class TravelersQueries {
 	 * @return The email in this order as String
 	 */
 	public String getEmailByOrderID(int orderId) {
-		String sql = "SELECT order.email FROM g8gonature.order WHERE orderId = ?";
+		String sql = "SELECT order.email FROM g21gonature.order WHERE orderId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);

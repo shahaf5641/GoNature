@@ -27,7 +27,7 @@ public class ParkQueries {
 	 */
 	public Park getParkById(ArrayList<?> parameters) {
 		Park park = null;
-		String sql = "SELECT * FROM g8gonature.park WHERE parkId = ? ";
+		String sql = "SELECT * FROM g21gonature.park WHERE parkId = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -53,7 +53,7 @@ public class ParkQueries {
 	 */
 	public Park getParkByName(ArrayList<?> parameters) {
 		Park park = null;
-		String sql = "SELECT * FROM g8gonature.park WHERE parkName = ? ";
+		String sql = "SELECT * FROM g21gonature.park WHERE parkName = ? ";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class ParkQueries {
 	 */
 	public ArrayList<Park> getAllParks() {
 		ArrayList<Park> parks = new ArrayList<Park>();
-		String sql = "SELECT * FROM g8gonature.park";
+		String sql = "SELECT * FROM g21gonature.park";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -104,7 +104,7 @@ public class ParkQueries {
 	public ArrayList<String> isParkIsFullAtDate(ArrayList<?> parameters) {
 		ArrayList<String> comment = new ArrayList<String>();
 
-		String sql = "SELECT comment FROM g8gonature.fullparkdate WHERE date = ? and parkId = ?";
+		String sql = "SELECT comment FROM g21gonature.fullparkdate WHERE date = ? and parkId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -132,7 +132,7 @@ public class ParkQueries {
 	 * @return true on success, false otherwise
 	 */
 	public boolean insertToFullParkDate(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g8gonature.fullparkdate  (parkId, date, maxVisitors,comment)  values (?, ?,?,?)";
+		String sql = "INSERT INTO g21gonature.fullparkdate  (parkId, date, maxVisitors,comment)  values (?, ?,?,?)";
 		int res = 0;
 		PreparedStatement query;
 		try {
@@ -158,7 +158,7 @@ public class ParkQueries {
 	 */
 	public boolean updateNumberOfVisitors(ArrayList<?> parameters) {
 		int res = 0;
-		String sql = "UPDATE g8gonature.park SET currentVisitors = ? WHERE parkId = ?";
+		String sql = "UPDATE g21gonature.park SET currentVisitors = ? WHERE parkId = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -186,7 +186,7 @@ public class ParkQueries {
 		LocalTime exitTime = LocalTime.parse(enterTime).plusHours(Integer.parseInt(estimated));
 		int res = 0;
 
-		String sql = "INSERT INTO g8gonature.visit (travelerId,parkId,entrenceTime,exitTime,visitDate) "
+		String sql = "INSERT INTO g21gonature.visit (travelerId,parkId,entrenceTime,exitTime,visitDate) "
 				+ "VALUES (?,?,?,?,?)";
 		PreparedStatement query;
 		try {
@@ -211,7 +211,7 @@ public class ParkQueries {
 	 */
 	public ArrayList<String> getSimulatorTravelersId() {
 		ArrayList<String> travelersID = new ArrayList<>();
-		String sql = "SELECT * FROM g8gonature.card_reader_simulator";
+		String sql = "SELECT * FROM g21gonature.card_reader_simulator";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
@@ -236,7 +236,7 @@ public class ParkQueries {
 	 * @param exitTime The traveler exit time
 	 */
 	public void updateVisitExitTimeSimulator(Order order, String exitTime) {
-		String sql = "UPDATE g8gonature.visit SET exitTime = ? WHERE travelerId = ? AND parkId = ? AND entrenceTime = ? AND visitDate = ?";
+		String sql = "UPDATE g21gonature.visit SET exitTime = ? WHERE travelerId = ? AND parkId = ? AND entrenceTime = ? AND visitDate = ?";
 		PreparedStatement query;
 		String time = order.getOrderTime();
 		String newExitTime = null;
@@ -279,7 +279,7 @@ public class ParkQueries {
 
 		try {
 
-			sql = "UPDATE g8gonature.park SET " + typeOfRequest + "=? WHERE parkId=" + parameters.get(2) + "";
+			sql = "UPDATE g21gonature.park SET " + typeOfRequest + "=? WHERE parkId=" + parameters.get(2) + "";
 			query = conn.prepareStatement(sql);
 			query.setInt(1, Integer.parseInt((String) parameters.get(1)));
 			query.executeUpdate();
