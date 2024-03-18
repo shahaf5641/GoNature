@@ -20,7 +20,7 @@
                             <children>
                                 <ImageView fx:id="goNatureLogo" fitHeight="190.0" fitWidth="195.0" onMouseClicked="#loadCardReaderSimulator" pickOnBounds="true">
                                     <image>
-                                        <Image url="@../../../../../../Desktop/PROJECTLOGOS/Gonature21.png" />
+                                        <Image url="@../resources/images/Gonature21.png" />
                                     </image>
                                 </ImageView>
                             </children>

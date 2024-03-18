@@ -12,15 +12,13 @@
 
 /* General Styling */
 .root {
-    -fx-background-image: url('file:///C:/Users/shaha/Desktop/PROJECTLOGOS/BackroundImage.png');
+    -fx-background-image: url("../resources/images/BackroundImage.png"); /* Adjust path as needed */
     -fx-background-size: cover; /* Optional: Adjusts the image size to cover the entire scene */
     -fx-background-repeat: no-repeat; /* Optional: Prevents image repetition */
     -fx-background-position: center;
     -fx-max-width: Infinity;
     -fx-max-height: Infinity;
-
 }
-
 
 
 .glyph-icon {
