@@ -46,7 +46,7 @@
                                     <children>
                                         <ImageView fx:id="firstParkImage" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#setFirstYouTubeVideo" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../../../../Desktop/PROJECTLOGOS/Moses.png" />
+                                                <Image url="@../resources/images/Moses.png" />
                                             </image>
                                         </ImageView>
                                     </children>
@@ -55,7 +55,7 @@
                                     <children>
                                         <ImageView fx:id="secondParkImage" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#setThirdYouTubeVideo" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../../../../Desktop/PROJECTLOGOS/Pheonix.png" />
+                                                <Image url="@../resources/images/Pheonix.png" />
                                             </image>
                                         </ImageView>
                                     </children>
@@ -64,7 +64,7 @@
                                     <children>
                                         <ImageView fx:id="thirdParkImage" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#setSecondYouTubeVideo" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../../../../Desktop/PROJECTLOGOS/Yosemite.png" />
+                                                <Image url="@../resources/images/Yosemite.png" />
                                             </image>
                                         </ImageView>
                                     </children>
