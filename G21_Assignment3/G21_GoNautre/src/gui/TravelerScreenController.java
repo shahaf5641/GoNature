@@ -67,15 +67,18 @@ public class TravelerScreenController implements Initializable {
     private void init() {
         getStage().setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
-                AutenticationControl.userLogout(
-                        TravelerLoginController.traveler != null ? TravelerLoginController.traveler.getTravelerId()
-                                : TravelerLoginController.subscriber.getTravelerId());
+                String travelerId = "";
+                if (TravelerLoginController.traveler != null) {
+                    travelerId = TravelerLoginController.traveler.getTravelerId();
+                }
+                AutenticationControl.userLogout(travelerId);
                 mainScreenStage.close();
                 ClientUI.chat.getClient().quit();
             }
         });
         loadProfile();
     }
+
 
     private Stage getStage() {
         return stage;
@@ -126,11 +129,14 @@ public class TravelerScreenController implements Initializable {
 
     @FXML
     private void logOut() {
-        AutenticationControl
-                .userLogout(TravelerLoginController.traveler != null ? TravelerLoginController.traveler.getTravelerId()
-                        : TravelerLoginController.subscriber.getTravelerId());
+        String travelerId = "";
+        if (TravelerLoginController.traveler != null) {
+            travelerId = TravelerLoginController.traveler.getTravelerId();
+        }
+        AutenticationControl.userLogout(travelerId);
         getStage().close();
         mainScreenStage.show();
     }
+
 
 }

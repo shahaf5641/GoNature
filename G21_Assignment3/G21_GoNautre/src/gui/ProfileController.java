@@ -85,7 +85,7 @@ public class ProfileController implements Initializable {
 			}
 		}
 		//Subscriber
-		else if(TravelerLoginController.traveler==null) {
+		/*else if(TravelerLoginController.traveler==null) {
 			profileNameLabel.setText(TravelerLoginController.subscriber.getFirstName());
 			profileLastNameLabel.setText(TravelerLoginController.subscriber.getLastName());
 			profileIDLabel.setText(TravelerLoginController.subscriber.getTravelerId());
@@ -94,7 +94,7 @@ public class ProfileController implements Initializable {
 			parkLabel.setVisible(false);
 			line.setVisible(false);
 			profileAccountTypeLabel.setText(TravelerLoginController.subscriber.getSubscriberType());
-		}
+		}*/
 		//Traveler
 		else {
 			profileNameLabel.setText(TravelerLoginController.traveler.getFirstName());

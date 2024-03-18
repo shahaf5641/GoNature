@@ -106,19 +106,19 @@ public class TravelerViewOrders implements Initializable {
 	 */
 	@FXML
 	public void loadTableView() {
-		String id;
-		Traveler trv = TravelerLoginController.traveler;
-		Subscriber sbc = TravelerLoginController.subscriber;
-		if (trv == null)
-			id = String.valueOf(sbc.getTravelerId());
-		else
-			id = String.valueOf(trv.getTravelerId());
-
-		ArrayList<Order> ordersArrayList = OrderControl.getOrders(id);
-		ArrayList<OrderTb> tbOrdersArrayList = OrderControl.convertOrderToOrderTb(ordersArrayList);
-		init(tbOrdersArrayList);
-		ordersTableView.setItems(getOrders(tbOrdersArrayList));
+	    String id;
+	    Traveler trv = TravelerLoginController.traveler;
+	    if (trv != null) {
+	        id = String.valueOf(trv.getTravelerId());
+	        ArrayList<Order> ordersArrayList = OrderControl.getOrders(id);
+	        ArrayList<OrderTb> tbOrdersArrayList = OrderControl.convertOrderToOrderTb(ordersArrayList);
+	        init(tbOrdersArrayList);
+	        ordersTableView.setItems(getOrders(tbOrdersArrayList));
+	    } else {
+	        // Handle the case where traveler is null (if necessary)
+	    }
 	}
+
 
 	/*
 	 * This function init the orders ObservableList

@@ -414,13 +414,13 @@ public class OrderVisitController implements Initializable {
 				emailInputOrderVisit.setText(TravelerLoginController.traveler.getEmail());
 				phoneInput.setText(TravelerLoginController.traveler.getPhoneNumber());
 
-			} else {
+			} /*else {
 				id = TravelerLoginController.subscriber.getTravelerId();
 				fullNameInput.setText(TravelerLoginController.subscriber.getFirstName() + " "
 						+ TravelerLoginController.subscriber.getLastName());
 				emailInputOrderVisit.setText(TravelerLoginController.subscriber.getEmail());
 				phoneInput.setText(TravelerLoginController.subscriber.getPhoneNumber());
-			}
+			}*/
 			idInputOrderVisit.setText(id);
 			idInputOrderVisit.setDisable(true);
 			fullNameInput.setDisable(true);

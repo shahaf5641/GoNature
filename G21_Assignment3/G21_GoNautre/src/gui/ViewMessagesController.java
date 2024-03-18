@@ -54,22 +54,22 @@ public class ViewMessagesController implements Initializable {
 
     private void loadTableView() {
         String id;
-        /* Loading traveler/subscriber's id */
         Traveler traveler = TravelerLoginController.traveler;
-        /* if subscriber */
-        if (traveler == null) {
-            Subscriber subscriber = TravelerLoginController.subscriber;
-            id = String.valueOf(subscriber.getTravelerId());
-            /* if traveler */
-        } else {
+        if (traveler != null) {
             id = String.valueOf(traveler.getTravelerId());
+        } else {
+            // Handle the case when TravelerLoginController.traveler is null
+            // For example, show an error message or return
+            return;
         }
-        /* getting all messages by id */
         ArrayList<Messages> messages = NotificationControl.getMessages(id);
         ArrayList<MessagesTb> tbMessages = convertMessagesToMessagesTb(messages);
         init(tbMessages);
         messagesTableView.setItems(getMessages(tbMessages));
     }
+
+
+
 
     private ArrayList<MessagesTb> convertMessagesToMessagesTb(ArrayList<Messages> messages) {
         ArrayList<MessagesTb> messagesTb = new ArrayList<MessagesTb>();
@@ -97,6 +97,7 @@ public class ViewMessagesController implements Initializable {
             return row;
         });
     }
+
 
     private ObservableList<MessagesTb> getMessages(ArrayList<MessagesTb> tbMessages) {
         messagesTableView.getItems().clear();
