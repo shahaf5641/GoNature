@@ -1,6 +1,6 @@
 /* Theme Colors */
 * {
-    -fx-primary: #008000; /* Green */
+    -fx-primary: #FFFFFF; /* White */
     -fx-secondary: #4CAF50; /* Dark Green */
     -fx-primarytext: black; /* Black */
     -fx-prompttext: lightgray; 
@@ -16,7 +16,7 @@
     -fx-background-size: cover; /* Optional: Adjusts the image size to cover the entire scene */
     -fx-background-repeat: no-repeat; /* Optional: Prevents image repetition */
     -fx-background-position: center;
-     -fx-max-width: Infinity;
+    -fx-max-width: Infinity;
     -fx-max-height: Infinity;
 
 }
@@ -135,7 +135,9 @@
     -fx-background-color: derive(-fx-primary, 20%);
 }
 
-/* ... (rest of the table styles) */
+#MenuButtons {
+	-fx-text-fill: white;
+}
 
 #PortText, #TextArea, #OrderNumberText, #OrderNumberText2, #ParkNameText, #PhoneNumberText {
     -fx-text-fill: black; /* Set column text color to black */

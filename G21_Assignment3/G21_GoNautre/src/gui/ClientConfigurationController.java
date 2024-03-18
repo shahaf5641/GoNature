@@ -92,7 +92,6 @@ public class ClientConfigurationController implements Initializable {
     private void loadApp(MouseEvent event) {
         if (ClientUI.chat != null) {
             try {
-            	System.out.println("1 in try");
                 Stage thisStage = getStage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainScreen.fxml"));
                 
