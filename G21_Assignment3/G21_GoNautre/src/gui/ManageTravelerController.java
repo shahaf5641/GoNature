@@ -15,7 +15,6 @@ import Controllers.calculatePrice.CheckOut;
 import Controllers.calculatePrice.GuidePrePayCheckOut;
 import Controllers.calculatePrice.RegularCheckOut;
 import Controllers.calculatePrice.RegularPreOrderCheckOut;
-import Controllers.calculatePrice.SubscriberPreOrderCheckOut;
 import alerts.CustomAlerts;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

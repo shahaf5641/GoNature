@@ -30,6 +30,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.WritableImage;
@@ -41,6 +42,9 @@ import logic.Report;
 
 public class TotalVisitorsReportController implements Initializable {
 
+	@FXML
+	private Button sendToManagerBtn;
+	
     @FXML
     private AnchorPane rootPane;
     
@@ -102,6 +106,7 @@ public class TotalVisitorsReportController implements Initializable {
         getData();
         cleanData();
         loadBarChart();
+        
     }
 
     private void init() {
@@ -164,7 +169,8 @@ public class TotalVisitorsReportController implements Initializable {
         closeStage();
     }
 
-    private void initLabels() {
+    @SuppressWarnings("unchecked")
+	private void initLabels() {
         monthLabel.setText(GoNatureFinals.MONTHS[monthNumber]); // set the name of the month
         newReportList = new ArrayList<>();
         newReportList.add(String.valueOf(monthNumber));

@@ -3,6 +3,8 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Controllers.AutenticationControl;
+import client.ClientUI;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,9 +69,9 @@ public class ParkManagerController implements Initializable {
         getStage().setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent we) {
                 // Logout action
-                // AutenticationControl.userLogout(String.valueOf(MemberLoginController.member.getEmployeeId()));
+                AutenticationControl.userLogout(String.valueOf(MemberLoginController.member.getEmployeeId()));
                 mainScreenStage.close();
-                // ClientUI.chat.getClient().quit();
+                ClientUI.chat.getClient().quit();
             }
         });
     }
@@ -124,7 +126,7 @@ public class ParkManagerController implements Initializable {
 
     @FXML
     private void logOut() {
-        // AutenticationControl.userLogout(String.valueOf(MemberLoginController.member.getEmployeeId()));
+        AutenticationControl.userLogout(String.valueOf(MemberLoginController.member.getEmployeeId()));
         getStage().close();
         mainScreenStage.show();
     }

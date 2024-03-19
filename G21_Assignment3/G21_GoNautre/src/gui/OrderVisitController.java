@@ -333,16 +333,9 @@ public class OrderVisitController implements Initializable {
 			}
 
 			CheckOut basic = new RegularCheckOut(visitorsNumber, 1, summaryDate.getText());
-			/* subscriber - Solo/family order */
-			if ((permissionLabel.getText().equals("Solo") || permissionLabel.getText().equals("Family"))
-					&& summaryType.getText().equals(OrderType.SOLO.toString())
-					|| summaryType.getText().equals(OrderType.FAMILY.toString())) {
-
-				SubscriberPreOrderCheckOut checkOut = new SubscriberPreOrderCheckOut(basic);
-				return checkOut.getPrice();
 
 				/* guest order */
-			} else if (permissionLabel.getText().equals("Guest")) {
+			 if (permissionLabel.getText().equals("Guest")) {
 				RegularPreOrderCheckOut checkOut = new RegularPreOrderCheckOut(basic);
 				return checkOut.getPrice();
 

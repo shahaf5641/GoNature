@@ -13,7 +13,6 @@ import Controllers.TravelerControl;
 import Controllers.calculatePrice.CheckOut;
 import Controllers.calculatePrice.GroupCasualCheckOut;
 import Controllers.calculatePrice.RegularCheckOut;
-import Controllers.calculatePrice.SubscriberPayAtParkCheckOut;
 import alerts.CustomAlerts;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

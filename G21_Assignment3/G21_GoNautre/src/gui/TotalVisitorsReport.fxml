@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="headerReport" layoutX="217.0" layoutY="14.0" text="Total Visitors Report" />
       <Label layoutX="229.0" layoutY="134.0" text="Individual Visitors:" underline="true" />
@@ -31,7 +31,7 @@
 
          </image>
       </ImageView>
-      <Button fx:id="sendToManagerBtn" layoutX="230.0" layoutY="797.0" text="Send To Department Manager" />
+      <Button fx:id="sendToManagerBtn" layoutX="261.0" layoutY="798.0" text="Send To Department Manager" onAction="#sendToManagerBtn" />
       <TextArea fx:id="commentTextArea" layoutX="230.0" layoutY="693.0" prefHeight="88.0" prefWidth="239.0" promptText="Add Comments (Optional)" />
       <Label layoutX="315.0" layoutY="658.0" text="Comments:" underline="true" />
       <BarChart fx:id="barChart" layoutX="17.0" layoutY="304.0" prefHeight="338.0" prefWidth="627.0" title="Days Distribution">
