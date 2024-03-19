@@ -15,8 +15,13 @@ public class RequestControl {
 	 * @param arrayOfRequests Array with the needed parameters
 	 */
 	public static void addNewRequest(ArrayList<?> arrayOfRequests) {
+		System.out.println("10");
 		ClientToServerRequest<?> request = new ClientToServerRequest<>(Request.MANAGER_REQUEST, arrayOfRequests);
+		System.out.println("11");
+
 		ClientUI.chat.accept(request);
+		System.out.println("12");
+
 	}
 
 	/**

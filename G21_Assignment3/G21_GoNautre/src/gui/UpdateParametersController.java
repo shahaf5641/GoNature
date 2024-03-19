@@ -1,28 +1,22 @@
 package gui;
 
-import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import Controllers.RequestControl;
 import alerts.CustomAlerts;
 
-/**
- * This class control the request sending, that is used by Park Manager.
- */
 public class UpdateParametersController implements Initializable {
 
     @FXML
@@ -68,75 +62,62 @@ public class UpdateParametersController implements Initializable {
     private TextField discountPercentage;
 
     @FXML
-    private DatePicker discountStartDate;
+    private TextField discountStartDateTextField;
 
     @FXML
-    private DatePicker discountEndDate;
-
-    @FXML
-    private Label headerLabel;
+    private TextField discountEndDateTextField;
 
     @FXML
     private Button sendForApprovealButton;
 
     @FXML
-    private void sendForApprovealButton() {
+    private void sendForApprovealButtonClicked() {
 
+    	
         ArrayList<String> arrayOfTextRequests = new ArrayList<>();
 
+        System.out.println("1");
         arrayOfTextRequests.add(newMaxVisitorsTextField.getText());
+        System.out.println("2");
         arrayOfTextRequests.add(newEsitimatedTIme.getText());
+        System.out.println("3");
         arrayOfTextRequests.add(gapTextField.getText());
+        System.out.println("4");
+        //arrayOfTextRequests.add(discountStartDateTextField.getText());
+        //arrayOfTextRequests.add(discountEndDateTextField.getText());
+        //arrayOfTextRequests.add(discountPercentage.getText());
 
-        if (discountStartDate.getValue() != null)
-            arrayOfTextRequests.add(discountStartDate.getValue().toString());
-
-        else
-            arrayOfTextRequests.add("NULL"); //
-
-        if (discountEndDate.getValue() != null)
-            arrayOfTextRequests.add(discountEndDate.getValue().toString());
-        else
-            arrayOfTextRequests.add("NULL"); //
-
-        arrayOfTextRequests.add(discountPercentage.getText());
-
+        System.out.println("5");
         Integer prakID = MemberLoginController.member.getParkId();
+        System.out.println("6");
         arrayOfTextRequests.add(prakID.toString());
-
+        System.out.println("7");
         RequestControl.addNewRequest(arrayOfTextRequests);
-
+        System.out.println("8");
         new CustomAlerts(AlertType.INFORMATION, "Sent", "Sent", "New requests were sent to Department Manager")
                 .showAndWait();
-
+        System.out.println("9");
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         accordion.setExpandedPane(maxVisitorsTP);
-        initDatePicker();
+        
+
         initTextFields();
+        
     }
 
     private void initTextFields() {
-        discountPercentage.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                discountPercentage.setText(arg2.replaceAll("[^\\d]", ""));
-            }
-        });
+        
+ 
         gapTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 gapTextField.setText(arg2.replaceAll("[^\\d]", ""));
             }
         });
-        newEsitimatedTIme.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                newEsitimatedTIme.setText(arg2.replaceAll("[^\\d]", ""));
-            }
-        });
+        
         newMaxVisitorsTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
@@ -144,26 +125,4 @@ public class UpdateParametersController implements Initializable {
             }
         });
     }
-
-    private void initDatePicker() {
-        discountStartDate.setDayCellFactory(picker -> new DateCell() {
-            @Override
-            public void updateItem(LocalDate date, boolean empty) {
-                super.updateItem(date, empty);
-                LocalDate today = LocalDate.now();
-                setDisable(empty || date.compareTo(today) < 0);
-            }
-        });
-
-        discountEndDate.setDayCellFactory(picker -> new DateCell() {
-            @Override
-            public void updateItem(LocalDate date, boolean empty) {
-                super.updateItem(date, empty);
-                LocalDate today = LocalDate.now();
-                setDisable(empty || date.compareTo(today) < 0);
-            }
-        });
-
-    }
-
 }

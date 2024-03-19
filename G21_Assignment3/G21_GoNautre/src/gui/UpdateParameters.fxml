@@ -9,6 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <AnchorPane fx:id="updateParametersRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <padding>
       <javafx.geometry.Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -70,7 +71,7 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CUBES" />
                </graphic>
             </TitledPane>
-            <TitledPane fx:id="discountTP" animated="false" text="CREATE DISCOUNT">
+            //<TitledPane fx:id="discountTP" animated="false" text="CREATE DISCOUNT">
               <content>
                 <AnchorPane fx:id="discountAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -83,9 +84,9 @@
                               <Font size="50.0" />
                            </font>
                         </Text>
-                        <!-- Replace DatePicker with TextField for discountStartDate and discountEndDate -->
-                        <TextField fx:id="discountStartDate" layoutX="264.0" layoutY="149.0" promptText="Start Date" />
-                        <TextField fx:id="discountEndDate" layoutX="264.0" layoutY="194.0" promptText="End Date" />
+                       // <!-- Replace DatePicker with TextField for discountStartDate and discountEndDate -->
+                        //<TextField fx:id="discountStartDate" layoutX="264.0" layoutY="149.0" promptText="Start Date" />
+                        //<TextField fx:id="discountEndDate" layoutX="264.0" layoutY="194.0" promptText="End Date" />
                      </children>
                   </AnchorPane>
               </content>
@@ -96,6 +97,6 @@
          </panes>
       </Accordion>
       <Label fx:id="headerLabel" layoutX="337.0" layoutY="22.0" text="Update Parameters" />
-      <Button fx:id="sendForApprovealButton" layoutX="360.0" layoutY="547.0" onMouseClicked="#sendForApprovealButton" text="SEND FOR APPROVAL" />
+<Button fx:id="sendForApprovealButton" layoutX="360.0" layoutY="547.0" onAction="#sendForApprovealButtonClicked" text="SEND FOR APPROVAL" />
    </children>
 </AnchorPane>
