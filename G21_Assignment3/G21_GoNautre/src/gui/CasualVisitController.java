@@ -37,7 +37,6 @@ import logic.OrderStatusName;
 import logic.OrderTb;
 import logic.OrderType;
 import logic.Park;
-import logic.Subscriber;
 import util.UtilityFunctions;
 
 /**
@@ -49,326 +48,293 @@ import util.UtilityFunctions;
  */
 public class CasualVisitController implements Initializable {
 
-    @FXML
-    private TextField idInputCasualVisit;
+	@FXML
+	private TextField idInputCasualVisit;
 
-    @FXML
-    private TextField emailInputCasualVisit;
+	@FXML
+	private TextField emailInputCasualVisit;
 
-    @FXML
-    private ComboBox<OrderType> typeComboBox;
+	@FXML
+	private ComboBox<OrderType> typeComboBox;
 
-    @FXML
-    private TextField numOfVisitorsCasualVisit;
+	@FXML
+	private TextField numOfVisitorsCasualVisit;
 
-    @FXML
-    private Label headerLabel;
+	@FXML
+	private Label headerLabel;
 
-    @FXML
-    private Button placeOrderBtn;
+	@FXML
+	private Button placeOrderBtn;
 
-    @FXML
-    private Label totalPriceLabel;
+	@FXML
+	private Label totalPriceLabel;
 
-    @FXML
-    private Button checkPriceBtn;
+	@FXML
+	private Button checkPriceBtn;
 
-    @FXML
-    private Label permissionLabel;
+	@FXML
+	private Label permissionLabel;
 
-    private Subscriber subscriber;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        initComboBoxOrderType();
-        initListeners();
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		initComboBoxOrderType();
+		initListeners();
 
-        // In order to check price - all info has to be valid
-        checkPriceBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (validInfo())
-                    checkPricebtnAction();
-            }
-        });
+		// In order to check price - all info has to be valid
+		checkPriceBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				if (validInfo())
+					checkPricebtnAction();
+			}
+		});
 
-        // In order to place order - info and price has to be valid.
-        placeOrderBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                if (validInfo() && validPrice())
-                    placeOrderAction();
-            }
-        });
-    }
+		// In order to place order - info and price has to be valid.
+		placeOrderBtn.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				if (validInfo() && validPrice())
+					placeOrderAction();
+			}
+		});
+	}
 
-    private void initComboBoxOrderType() {
+	private void initComboBoxOrderType() {
 
-        typeComboBox.getItems().clear();
-        typeComboBox.getItems().addAll(Arrays.asList(OrderType.values()));
-        if (!permissionLabel.getText().equals("Family")) {
-            typeComboBox.getItems().remove(OrderType.GROUP);
-        }
+		typeComboBox.getItems().clear();
+		typeComboBox.getItems().addAll(Arrays.asList(OrderType.values()));
+		if (!permissionLabel.getText().equals("Family")) {
+			typeComboBox.getItems().remove(OrderType.GROUP);
+		}
 
-        /* Listener to order type ComboBox. activate on every item selected */
-        typeComboBox.valueProperty().addListener((obs, oldItem, newItem) -> {
-            if (newItem == null) {
-            } else {
+		/* Listener to order type ComboBox. activate on every item selected */
+		typeComboBox.valueProperty().addListener((obs, oldItem, newItem) -> {
+			if (newItem == null) {
+			} else {
 				if (newItem.toString().equals("Solo Visit")) {
-                    numOfVisitorsCasualVisit.setText("1");
-                    numOfVisitorsCasualVisit.setEditable(false);
+					numOfVisitorsCasualVisit.setText("1");
+					numOfVisitorsCasualVisit.setEditable(false);
 
-                } else {
-                    numOfVisitorsCasualVisit.setText("");
-                    numOfVisitorsCasualVisit.setPromptText("Visitor's Number");
-                    numOfVisitorsCasualVisit.setEditable(true);
-                }
-            }
-        });
-    }
+				} else {
+					numOfVisitorsCasualVisit.setText("");
+					numOfVisitorsCasualVisit.setPromptText("Visitor's Number");
+					numOfVisitorsCasualVisit.setEditable(true);
+				}
+			}
+		});
+	}
 
-    /*
-     * This function init the listeners for permission label.
-     */
-    private void initListeners() {
-        idInputCasualVisit.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
-                if (arg2.length() == 9) {
-                    subscriber = TravelerControl.getSubscriber(arg2);
-                    if (subscriber == null)
-                        permissionLabel.setText("Guest");
-                    else
-                        permissionLabel.setText(subscriber.getSubscriberType());
-                } else {
-                    permissionLabel.setText("Guest");
-                }
-                initComboBoxOrderType();
-            }
-        });
-    }
+	/*
+	 * This function init the listeners for permission label.
+	 */
+	private void initListeners() {
+		idInputCasualVisit.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 
-    /*
-     * This function return the current OrderType in a string format if the user did
-     * not choose, it returns null.
-     */
-    private String currentOrderType() {
-        if (typeComboBox.getValue() == null)
-            return "null";
-        return typeComboBox.getValue().toString();
-    }
+				permissionLabel.setText("Guest");
 
-    /*
-     * This function return if order details are valid, otherwise it shows a pop up
-     * screen with relevent message.
-     */
-    private boolean validInfo() {
+				initComboBoxOrderType();
+			}
+		});
+	}
 
-        // Recive the data from the text fields.
-        String idOfTraveler = idInputCasualVisit.getText();
-        String orderType = currentOrderType();
-        String email = emailInputCasualVisit.getText();
-        String numOfCasualVisitors = numOfVisitorsCasualVisit.getText();
+	/*
+	 * This function return the current OrderType in a string format if the user did
+	 * not choose, it returns null.
+	 */
+	private String currentOrderType() {
+		if (typeComboBox.getValue() == null)
+			return "null";
+		return typeComboBox.getValue().toString();
+	}
 
-        // Check if one of the text fields is empty.
-        if (idOfTraveler.isEmpty() || orderType.equals("null") || email.isEmpty() || numOfCasualVisitors.isEmpty()) {
-            popNotification(AlertType.ERROR, "Input Error", "Please fill all of the fields correctly ");
-            return false;
-        }
+	/*
+	 * This function return if order details are valid, otherwise it shows a pop up
+	 * screen with relevent message.
+	 */
+	private boolean validInfo() {
 
-        // Input validation for id and email.
-        if (!UtilityFunctions.isNumeric(idOfTraveler) || idOfTraveler.length() != 9
-                || !UtilityFunctions.isValidEmailAddress(email)) {
-            popNotification(AlertType.ERROR, "Input Error", "Please fill the form correctly");
-            return false;
-        }
+		// Recive the data from the text fields.
+		String idOfTraveler = idInputCasualVisit.getText();
+		String orderType = currentOrderType();
+		String email = emailInputCasualVisit.getText();
+		String numOfCasualVisitors = numOfVisitorsCasualVisit.getText();
 
-        // Recive the data after it has been validated, in order to avoid exceptions.
-        int numOfVisitors = Integer.parseInt(numOfCasualVisitors);
-        Subscriber sub = TravelerControl.getSubscriber(idOfTraveler);
+		// Check if one of the text fields is empty.
+		if (idOfTraveler.isEmpty() || orderType.equals("null") || email.isEmpty() || numOfCasualVisitors.isEmpty()) {
+			popNotification(AlertType.ERROR, "Input Error", "Please fill all of the fields correctly ");
+			return false;
+		}
 
-        // Input validation for number of visitors.
-        if (numOfVisitors > 15 || numOfVisitors <= 0) {
-            popNotification(AlertType.ERROR, "Input Error",
-                    "Please fill the form correctly and then press check price");
-            return false;
-        }
+		// Input validation for id and email.
+		if (!UtilityFunctions.isNumeric(idOfTraveler) || idOfTraveler.length() != 9
+				|| !UtilityFunctions.isValidEmailAddress(email)) {
+			popNotification(AlertType.ERROR, "Input Error", "Please fill the form correctly");
+			return false;
+		}
 
-        // Input validation - group with one participant.
-        if (orderType.equals(OrderType.GROUP.toString()) && numOfVisitors < 2) {
-            popNotification(AlertType.ERROR, "Input Error", "Can't order for group of 1");
-            return false;
-        }
+		// Recive the data after it has been validated, in order to avoid exceptions.
+		int numOfVisitors = Integer.parseInt(numOfCasualVisitors);
 
-        if (sub == null)
-            return true;
+		// Input validation for number of visitors.
+		if (numOfVisitors > 15 || numOfVisitors <= 0) {
+			popNotification(AlertType.ERROR, "Input Error",
+					"Please fill the form correctly and then press check price");
+			return false;
+		}
 
-        // Input validation - Number of visitors cant be larger than number of
-        // participants in family subscription
-        if (orderType.equals(OrderType.FAMILY.toString()) && numOfVisitors > sub.getNumberOfParticipants()) {
-            popNotification(AlertType.ERROR, "Input Error", "Check number of participants");
-            return false;
-        }
+		// Input validation - group with one participant.
+		if (orderType.equals(OrderType.GROUP.toString()) && numOfVisitors < 2) {
+			popNotification(AlertType.ERROR, "Input Error", "Can't order for group of 1");
+			return false;
+		}
 
-        // Input validation - Number of visitors cant be larger than number of
-        // participants in subsriber subscription
-        if (orderType.equals(OrderType.GROUP.toString()) && sub.getSubscriberType().equals("Guide")
-                && numOfVisitors > sub.getNumberOfParticipants()) {
-            popNotification(AlertType.ERROR, "Input Error", "Check number of participants");
-            return false;
-        }
-        return true;
-    }
+		
 
-    /*
-     * This function calculate the order price.
-     */
-    private double calculatePriceForVisit() {
-        double price = 0;
-        // Recive the data from the text fields.
-        String idOfTraveler = idInputCasualVisit.getText();
-        int numberOfVisitors = Integer.parseInt(numOfVisitorsCasualVisit.getText());
-        String orderType = currentOrderType();
+		
+		return true;
+	}
 
-        // Setting up vars
-        Subscriber sub = null;
-        boolean existTraveler = TravelerControl.isTravelerExist(idOfTraveler);
-        LocalDate today = LocalDate.now();
-        int parkId = MemberLoginController.member.getParkId();
+	/*
+	 * This function calculate the order price.
+	 */
+	private double calculatePriceForVisit() {
+		double price = 0;
+		// Recive the data from the text fields.
+		String idOfTraveler = idInputCasualVisit.getText();
+		int numberOfVisitors = Integer.parseInt(numOfVisitorsCasualVisit.getText());
+		String orderType = currentOrderType();
 
-        // Setting up price class.
-        CheckOut chk = new RegularCheckOut(numberOfVisitors, parkId, today.toString());
+		// Setting up vars
+		boolean existTraveler = TravelerControl.isTravelerExist(idOfTraveler);
+		LocalDate today = LocalDate.now();
+		int parkId = MemberLoginController.member.getParkId();
 
-        // Order for group has no discount.
-        if (orderType.equals(OrderType.GROUP.toString())) {
-            price = (new GroupCasualCheckOut(chk)).getPrice();
-            return price;
-        }
-        // If the traveler is subscriber.
-        if (existTraveler)
-            sub = TravelerControl.getSubscriber(idOfTraveler);
-        if (sub != null)
-            price = (new SubscriberPayAtParkCheckOut(chk)).getPrice();
-        else
-            price = chk.getPrice();
-        return price;
-    }
+		// Setting up price class.
+		CheckOut chk = new RegularCheckOut(numberOfVisitors, parkId, today.toString());
 
-    /*
-     * This function set the label for price label.
-     */
-    private void checkPricebtnAction() {
-        double price = calculatePriceForVisit();
-        totalPriceLabel.setText(String.valueOf(price));
-    }
+		// Order for group has no discount.
+		if (orderType.equals(OrderType.GROUP.toString())) {
+			price = (new GroupCasualCheckOut(chk)).getPrice();
+			return price;
+		}
+		
+		return price;
+	}
 
-    /*
-     * This function check if the price that appears in the form is valid
-     */
-    private boolean validPrice() {
-        if (totalPriceLabel.getText().equals("")) {
-            popNotification(AlertType.ERROR, "Price error", "Please check the price in order to continue");
-            return false;
-        }
+	/*
+	 * This function set the label for price label.
+	 */
+	private void checkPricebtnAction() {
+		double price = calculatePriceForVisit();
+		totalPriceLabel.setText(String.valueOf(price));
+	}
 
-        double priceInForm = Double.parseDouble(totalPriceLabel.getText());
-        double realPrice = calculatePriceForVisit();
-        if (priceInForm == realPrice)
-            return true;
-        popNotification(AlertType.ERROR, "Price error", "Please check the price in order to continue");
-        return false;
-    }
+	/*
+	 * This function check if the price that appears in the form is valid
+	 */
+	private boolean validPrice() {
+		if (totalPriceLabel.getText().equals("")) {
+			popNotification(AlertType.ERROR, "Price error", "Please check the price in order to continue");
+			return false;
+		}
 
-    /*
-     * This function is a wrapper for alerts.
-     */
-    private void popNotification(AlertType type, String header, String content) {
-        new CustomAlerts(type, header, header, content).showAndWait();
-    }
+		double priceInForm = Double.parseDouble(totalPriceLabel.getText());
+		double realPrice = calculatePriceForVisit();
+		if (priceInForm == realPrice)
+			return true;
+		popNotification(AlertType.ERROR, "Price error", "Please check the price in order to continue");
+		return false;
+	}
 
-    /*
-     * This function handle the place order button when pressed.
-     */
-    private void placeOrderAction() {
+	/*
+	 * This function is a wrapper for alerts.
+	 */
+	private void popNotification(AlertType type, String header, String content) {
+		new CustomAlerts(type, header, header, content).showAndWait();
+	}
 
-        // Recive the data from the text fields.
-        String idOfTraveler = idInputCasualVisit.getText();
-        int numberOfVisitors = Integer.parseInt(numOfVisitorsCasualVisit.getText());
-        String orderType = currentOrderType();
-        String email = emailInputCasualVisit.getText();
-        int parkId = MemberLoginController.member.getParkId();
+	/*
+	 * This function handle the place order button when pressed.
+	 */
+	private void placeOrderAction() {
 
-        // Checking if the user is already a subscriber.
-        Subscriber sub = TravelerControl.getSubscriber(idOfTraveler);
-        if (sub != null)
-            email = sub.getEmail();
+		// Recive the data from the text fields.
+		String idOfTraveler = idInputCasualVisit.getText();
+		int numberOfVisitors = Integer.parseInt(numOfVisitorsCasualVisit.getText());
+		String orderType = currentOrderType();
+		String email = emailInputCasualVisit.getText();
+		int parkId = MemberLoginController.member.getParkId();
 
-        // Creating new order with relevent details.
-        Order order = new Order(idOfTraveler, parkId, LocalDate.now().toString(), LocalTime.now().toString(),
-                orderType, numberOfVisitors, email, Double.parseDouble(totalPriceLabel.getText()),
-                OrderStatusName.ENTERED_THE_PARK.toString());
+		
 
-        // Since addVisit Uses orderTb from previous controllers,we need to convert it
-        // with builder.
-        // Adding casual Order is the same as adding order
-        // Adding visit adds the visit to the DB
+		// Creating new order with relevent details.
+		Order order = new Order(idOfTraveler, parkId, LocalDate.now().toString(), LocalTime.now().toString(), orderType,
+				numberOfVisitors, email, Double.parseDouble(totalPriceLabel.getText()),
+				OrderStatusName.ENTERED_THE_PARK.toString());
 
-        OrderTb orderTb = new OrderTb(order);
-        if (OrderControl.addCasualOrder(order)) {
-            OrderControl.addVisit(orderTb);
+		// Since addVisit Uses orderTb from previous controllers,we need to convert it
+		// with builder.
+		// Adding casual Order is the same as adding order
+		// Adding visit adds the visit to the DB
 
-            // Updated number = the number of visitors after the entrance of the casual
-            // visit.
-            int updateNumber = ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors()
-                    + numberOfVisitors;
+		OrderTb orderTb = new OrderTb(order);
+		if (OrderControl.addCasualOrder(order)) {
+			OrderControl.addVisit(orderTb);
 
-            // Updating the number of visitors in the park
-            ParkControl.updateCurrentVisitors(parkId, updateNumber);
-            Park park = ParkControl.getParkById(String.valueOf(MemberLoginController.member.getParkId()));
+			// Updated number = the number of visitors after the entrance of the casual
+			// visit.
+			int updateNumber = ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors() + numberOfVisitors;
 
-            ParkControl.updateIfParkFull(park);
+			// Updating the number of visitors in the park
+			ParkControl.updateCurrentVisitors(parkId, updateNumber);
+			Park park = ParkControl.getParkById(String.valueOf(MemberLoginController.member.getParkId()));
 
-            // Notifying the visit is approved.
+			ParkControl.updateIfParkFull(park);
 
-            // Need to get orderId from DB
-            order = OrderControl.getTravelerRecentOrder(idOfTraveler);
+			// Notifying the visit is approved.
 
-            // Closing the scene and updating the table for entrance worker.
-            Stage stage = (Stage) idInputCasualVisit.getScene().getWindow();
-            ManageTravelerController manageTravelerController = (ManageTravelerController) stage.getUserData();
-            manageTravelerController.loadTableView();
-            stage.close();
+			// Need to get orderId from DB
+			order = OrderControl.getTravelerRecentOrder(idOfTraveler);
 
-            // Setting the receipt window.
-            loadOrderConfirmation(order);
-        } else {
-            popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
-        }
-    }
+			// Closing the scene and updating the table for entrance worker.
+			Stage stage = (Stage) idInputCasualVisit.getScene().getWindow();
+			ManageTravelerController manageTravelerController = (ManageTravelerController) stage.getUserData();
+			manageTravelerController.loadTableView();
+			stage.close();
 
-    /*
-     * This function handle the receipt.
-     */
-    private void loadOrderConfirmation(Order order) {
-        try {
-            Stage newStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
-            CasualVisitReceiptController controller = new CasualVisitReceiptController();
-            controller.setOrder(order);
+			// Setting the receipt window.
+			loadOrderConfirmation(order);
+		} else {
+			popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
+		}
+	}
 
-            loader.setController(controller);
-            loader.load();
-            Parent p = loader.getRoot();
+	/*
+	 * This function handle the receipt.
+	 */
+	private void loadOrderConfirmation(Order order) {
+		try {
+			Stage newStage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
+			CasualVisitReceiptController controller = new CasualVisitReceiptController();
+			controller.setOrder(order);
 
-            newStage.setTitle("Order receipt");
-            newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
-            newStage.setScene(new Scene(p));
-            newStage.setResizable(false);
-            newStage.show();
-        } catch (IOException e) {
-            System.out.println("faild to load form");
-            e.printStackTrace();
-        }
-    }
+			loader.setController(controller);
+			loader.load();
+			Parent p = loader.getRoot();
+
+			newStage.setTitle("Order receipt");
+			newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
+			newStage.setScene(new Scene(p));
+			newStage.setResizable(false);
+			newStage.show();
+		} catch (IOException e) {
+			System.out.println("faild to load form");
+			e.printStackTrace();
+		}
+	}
 
 }

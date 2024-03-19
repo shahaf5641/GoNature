@@ -46,20 +46,17 @@ import logic.Order;
 import logic.OrderStatusName;
 import logic.OrderType;
 import logic.Park;
-import logic.Subscriber;
 import logic.Traveler;
 import util.UtilityFunctions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
 /**
- * This Class is the GUI controller of OrderVisit.fxml
- * It handles all the JavaFx nodes events.
+ * This Class is the GUI controller of OrderVisit.fxml It handles all the JavaFx
+ * nodes events.
  * 
  * In this screen the traveler makes a new order
  *
@@ -67,121 +64,120 @@ import java.time.LocalDateTime;
 public class OrderVisitController implements Initializable {
 
 	@FXML
-    private AnchorPane orderVisitRootPane;
+	private AnchorPane orderVisitRootPane;
 
-    @FXML
-    private Accordion accordion;
+	@FXML
+	private Accordion accordion;
 
-    @FXML
-    private TitledPane identificationTP;
+	@FXML
+	private TitledPane identificationTP;
 
-    @FXML
-    private AnchorPane identificationAP;
+	@FXML
+	private AnchorPane identificationAP;
 
-    @FXML
-    private TextField idInputOrderVisit;
+	@FXML
+	private TextField idInputOrderVisit;
 
-    @FXML
-    private AnchorPane informationAP;
+	@FXML
+	private AnchorPane informationAP;
 
-    @FXML
-    private ComboBox<String> parksComboBox;
+	@FXML
+	private ComboBox<String> parksComboBox;
 
-    @FXML
-    private DatePicker datePicker;
+	@FXML
+	private DatePicker datePicker;
 
-    @FXML
-    private TextField emailInputOrderVisit;
+	@FXML
+	private TextField emailInputOrderVisit;
 
-    @FXML
-    private ComboBox<OrderType> typeComboBox;
+	@FXML
+	private ComboBox<OrderType> typeComboBox;
 
-    @FXML
-    private Label requiredFieldsLabel;
+	@FXML
+	private Label requiredFieldsLabel;
 
-    @FXML
-    private AnchorPane paymentAP;
+	@FXML
+	private AnchorPane paymentAP;
 
-    @FXML
-    private RadioButton payNowRadioBox;
+	@FXML
+	private RadioButton payNowRadioBox;
 
-    @FXML
-    private RadioButton payLaterRadioBox;
+	@FXML
+	private RadioButton payLaterRadioBox;
 
-    @FXML
-    private AnchorPane paymentPane;
+	@FXML
+	private AnchorPane paymentPane;
 
-    @FXML
-    private ComboBox<String> timeComboBox;
+	@FXML
+	private ComboBox<String> timeComboBox;
 
-    @FXML
-    private TextField fullNameInput;
+	@FXML
+	private TextField fullNameInput;
 
-    @FXML
-    private TextField phoneInput;
+	@FXML
+	private TextField phoneInput;
 
-    @FXML
-    private TextField cardHolderName;
+	@FXML
+	private TextField cardHolderName;
 
-    @FXML
-    private TextField cardHolderLastName;
+	@FXML
+	private TextField cardHolderLastName;
 
-    @FXML
-    private TextField CardNumber;
+	@FXML
+	private TextField CardNumber;
 
-    @FXML
-    private TextField CCV;
+	@FXML
+	private TextField CCV;
 
-    @FXML
-    private TextField numOfVisitorsOrderVisit;
+	@FXML
+	private TextField numOfVisitorsOrderVisit;
 
-    @FXML
-    private DatePicker CardExpiryDate;
+	@FXML
+	private DatePicker CardExpiryDate;
 
-    @FXML
-    private Label permissionLabel;
+	@FXML
+	private Label permissionLabel;
 
-    @FXML
-    private Label orderVisitHeaderLabel;
+	@FXML
+	private Label orderVisitHeaderLabel;
 
-    @FXML
-    private Label summaryID;
+	@FXML
+	private Label summaryID;
 
-    @FXML
-    private Label summaryPark;
+	@FXML
+	private Label summaryPark;
 
-    @FXML
-    private Label summaryDate;
+	@FXML
+	private Label summaryDate;
 
-    @FXML
-    private Label summaryPayment;
+	@FXML
+	private Label summaryPayment;
 
-    @FXML
-    private Label summaryType;
+	@FXML
+	private Label summaryType;
 
-    @FXML
-    private Label summaryVisitors;
+	@FXML
+	private Label summaryVisitors;
 
-    @FXML
-    private Label summaryEmail;
+	@FXML
+	private Label summaryEmail;
 
-    @FXML
-    private Label summaryTotalPrice;
+	@FXML
+	private Label summaryTotalPrice;
 
-    @FXML
-    private Label summaryFullName;
+	@FXML
+	private Label summaryFullName;
 
-    @FXML
-    private ProgressIndicator pb;
+	@FXML
+	private ProgressIndicator pb;
 
-    @FXML
-    private Label summaryPhone;
+	@FXML
+	private Label summaryPhone;
 
-    @FXML
-    private Label summaryTime;
+	@FXML
+	private Label summaryTime;
 
 	DecimalFormat df = new DecimalFormat("####0.00");
-	private Subscriber subscriber;
 	private Traveler traveler;
 	private Order order;
 	private Order recentOrder;
@@ -279,16 +275,13 @@ public class OrderVisitController implements Initializable {
 				&& summaryType.getText().equals(OrderType.GROUP.toString())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
 					"Group order must have atleast 2 visitors").showAndWait();
-		} else if (subscriber != null && subscriber.getSubscriberType().equals("Family")
-				&& Integer.parseInt(summaryVisitors.getText()) > subscriber.getNumberOfParticipants()
+		} else if (Integer.parseInt(summaryVisitors.getText()) > 9
 				&& summaryType.getText().equals(OrderType.FAMILY.toString())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
-					"Your family account has " + subscriber.getNumberOfParticipants()
-							+ " members.\nThe number of visitors can not be higher than "
-							+ subscriber.getNumberOfParticipants()).showAndWait();
+					"Group order can be up to 9 travelers").showAndWait();
 		} else if (Integer.parseInt(summaryVisitors.getText()) < 1) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
-					"Visitor's number must be positive number and atleast 1. ").showAndWait();
+					"Visitor's number must be positive number and atleast 2. ").showAndWait();
 		} else if (!UtilityFunctions.isValidEmailAddress(summaryEmail.getText())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Email", "Please insert valid email. ")
 					.showAndWait();
@@ -407,31 +400,20 @@ public class OrderVisitController implements Initializable {
 
 		if (!isOrderFromMain) {
 			String id = "";
-			if (TravelerLoginController.traveler != null) {
-				id = TravelerLoginController.traveler.getTravelerId();
-				fullNameInput.setText(TravelerLoginController.traveler.getFirstName() + " "
-						+ TravelerLoginController.traveler.getLastName());
-				emailInputOrderVisit.setText(TravelerLoginController.traveler.getEmail());
-				phoneInput.setText(TravelerLoginController.traveler.getPhoneNumber());
 
-			} /*else {
-				id = TravelerLoginController.subscriber.getTravelerId();
-				fullNameInput.setText(TravelerLoginController.subscriber.getFirstName() + " "
-						+ TravelerLoginController.subscriber.getLastName());
-				emailInputOrderVisit.setText(TravelerLoginController.subscriber.getEmail());
-				phoneInput.setText(TravelerLoginController.subscriber.getPhoneNumber());
-			}*/
+			id = TravelerLoginController.traveler.getTravelerId();
+			fullNameInput.setText(TravelerLoginController.traveler.getFirstName() + " "
+					+ TravelerLoginController.traveler.getLastName());
+			emailInputOrderVisit.setText(TravelerLoginController.traveler.getEmail());
+			phoneInput.setText(TravelerLoginController.traveler.getPhoneNumber());
+
 			idInputOrderVisit.setText(id);
 			idInputOrderVisit.setDisable(true);
 			fullNameInput.setDisable(true);
 			emailInputOrderVisit.setDisable(true);
 			phoneInput.setDisable(true);
 
-			subscriber = TravelerControl.getSubscriber(id);
-			if (subscriber == null) {
-				permissionLabel.setText("Guest");
-			} else
-				permissionLabel.setText(subscriber.getSubscriberType());
+			permissionLabel.setText("Guest");
 
 			initComboBoxes();
 
@@ -491,11 +473,7 @@ public class OrderVisitController implements Initializable {
 			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
 				idInputOrderVisit.setText(arg2.replaceAll("[^\\d]", ""));
 				if (arg2.length() == 9) {
-					subscriber = TravelerControl.getSubscriber(arg2);
-					if (subscriber == null)
-						permissionLabel.setText("Guest");
-					else
-						permissionLabel.setText(subscriber.getSubscriberType());
+					permissionLabel.setText("Guest");
 
 					if (!summaryVisitors.getText().isEmpty())
 						summaryTotalPrice.setText(df.format(CalculatePrice()) + "₪");
@@ -597,9 +575,9 @@ public class OrderVisitController implements Initializable {
 		}
 		/* Set up order type from OrderType Enum */
 		typeComboBox.getItems().addAll(Arrays.asList(OrderType.values()));
-		if (!permissionLabel.getText().equals("Family")) {
-			typeComboBox.getItems().remove(1);
-		}
+		// if (!permissionLabel.getText().equals("Family")) {
+		// typeComboBox.getItems().remove(1);
+		// }
 
 		/* Listener to order type ComboBox. activate on every item selected */
 		typeComboBox.valueProperty().addListener((obs, oldItem, newItem) -> {

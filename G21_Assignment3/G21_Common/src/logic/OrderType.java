@@ -18,7 +18,7 @@ public enum OrderType {
             case SOLO:
                 return "Solo Visit";
             case FAMILY:
-                return "Family Visit";
+                return "Family visit";
             case GROUP:
                 return "Group Visit";
             default:
