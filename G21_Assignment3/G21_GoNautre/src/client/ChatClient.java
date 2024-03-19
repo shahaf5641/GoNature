@@ -110,7 +110,6 @@ public class ChatClient extends AbstractClient {
 		try {
 			openConnection();// in order to send more than one message
 			awaitResponse = true;
-
 			sendToServer(message);
 			// wait for response
 			while (awaitResponse) {

@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import controllers.EmailControl;
-import controllers.SmsSender;
 import controllers.WaitingListControl;
 import controllers.sqlHandlers.EmployeeQueries;
 import controllers.sqlHandlers.OrderQueries;
@@ -511,12 +510,7 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(reportsQueries.getGroupsOrdersVisitorsReport(month, parkID));
 					client.sendToClient(response);
 				}
-				if (request.getRequestType().equals(Request.SEND_SMS)) {
 
-					SmsSender.sendSms((String) request.getParameters().get(0), (String) request.getParameters().get(1));
-					client.sendToClient("Finish");
-				}
-				
 				if (request.getRequestType().equals(Request.COUNT_ENTER_SUBS_VISITORS_WITH_DAYS)) {
 					response = new ServerToClientResponse();
 					response.setResultSet(reportsQueries.CountSubsEnterTimeWithDays(request.getParameters()));
