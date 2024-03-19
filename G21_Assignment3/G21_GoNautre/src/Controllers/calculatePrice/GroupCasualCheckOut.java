@@ -9,6 +9,7 @@ import logic.GoNatureFinals;
  */
 public class GroupCasualCheckOut extends CheckOutDecorator {
 
+	private final double discountForGuidesPayAtPark = 0.9;
 
 	public GroupCasualCheckOut(CheckOut tempCheckOut) {
 		super(tempCheckOut);
@@ -20,6 +21,6 @@ public class GroupCasualCheckOut extends CheckOutDecorator {
 	 * @return return the casual group order's price
 	 */
 	public double getPrice() {
-		return GoNatureFinals.FULL_PRICE;
+		return regularCheckOut.getPrice() * discountForGuidesPayAtPark;
 	}
 }

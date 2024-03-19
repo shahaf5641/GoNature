@@ -311,7 +311,7 @@ public class ManageTravelerController implements Initializable {
 		int parkId = MemberLoginController.member.getParkId();
 
 		// Regular Price
-		CheckOut chk = new RegularCheckOut(numberOfVisitors, parkId, today.toString());
+		CheckOut chk = new RegularCheckOut(numberOfVisitors);
 
 		// Order is for solo / family and the visit is pre-ordered,
 		// in addition the ordering person is not a guide

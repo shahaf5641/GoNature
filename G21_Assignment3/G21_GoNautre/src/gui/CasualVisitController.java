@@ -212,7 +212,7 @@ public class CasualVisitController implements Initializable {
 		int parkId = MemberLoginController.member.getParkId();
 
 		// Setting up price class.
-		CheckOut chk = new RegularCheckOut(numberOfVisitors, parkId, today.toString());
+		CheckOut chk = new RegularCheckOut(numberOfVisitors);
 
 		// Order for group has no discount.
 		if (orderType.equals(OrderType.GROUP.toString())) {

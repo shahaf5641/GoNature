@@ -332,7 +332,7 @@ public class OrderVisitController implements Initializable {
 				}
 			}
 
-			CheckOut basic = new RegularCheckOut(visitorsNumber, 1, summaryDate.getText());
+			CheckOut basic = new RegularCheckOut(visitorsNumber);
 
 				/* guest order */
 			 if (permissionLabel.getText().equals("Guest")) {
