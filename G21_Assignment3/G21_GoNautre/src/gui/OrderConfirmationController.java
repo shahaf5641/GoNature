@@ -81,7 +81,7 @@ public class OrderConfirmationController implements Initializable {
 	public void setOrderInfo() {
 		smsSimLabel.setText("");
 		if (isOrderFromWeb) {
-			smsSimLabel.setText("This message was sent to your Email and to your phone");
+			smsSimLabel.setText("This message was sent to your Email");
 		}
 		if (isWaitingList) {
 			headerLabel.setText("You Are In The Waiting List");

@@ -48,6 +48,7 @@ public class OrderControl {
 	 * @return Order object - the order that was inserted to the database
 	 */
 	public static Order addOrderAndNotify(Order order, Traveler traveler) {
+		System.out.println("In FUNCTION");
 		Order recentOrder = null;
 		if (OrderControl.addOrder(order, traveler)) {
 			recentOrder = OrderControl.getTravelerRecentOrder(traveler.getTravelerId());
@@ -65,15 +66,12 @@ public class OrderControl {
 						ParkControl.getParkName(String.valueOf(recentOrder.getParkId())), recentOrder.getOrderDate(),
 						recentOrder.getOrderTime(), recentOrder.getOrderType(),
 						String.valueOf(recentOrder.getNumberOfParticipants()), String.valueOf(recentOrder.getPrice()));
-
 				/* Add message to data base */
 				NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), date, time,
 						MsgTemplates.orderConfirmation[0], emailContent, String.valueOf(recentOrder.getOrderId()));
-
 				/* Send message by mail */
 				Messages msg = new Messages(0, traveler.getTravelerId(), date, time, MsgTemplates.orderConfirmation[0],
 						emailContent, recentOrder.getOrderId());
-				NotificationControl.sendSms(traveler.getPhoneNumber(), msg); // Need to de-comment when showing
 				NotificationControl.sendMailInBackgeound(msg, null);
 			}
 

@@ -54,6 +54,7 @@ import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+
 /**
  * This Class is the GUI controller of OrderVisit.fxml It handles all the JavaFx
  * nodes events.
@@ -206,6 +207,7 @@ public class OrderVisitController implements Initializable {
 							summaryTime.getText(), summaryType.getText(), Integer.parseInt(summaryVisitors.getText()),
 							summaryEmail.getText(), CalculatePrice(), OrderStatusName.PENDING.toString());
 
+
 					String[] travelerName = summaryFullName.getText().split(" ");
 					String travelerFirstName = travelerName[0];
 					String travelerLastName = travelerName.length == 1 ? "" : travelerName[1];
@@ -222,6 +224,7 @@ public class OrderVisitController implements Initializable {
 			pb.setVisible(true);
 			orderVisitRootPane.setDisable(true);
 			new Thread(task).start();
+			
 			task.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED, new EventHandler<WorkerStateEvent>() {
 				@Override
 				public void handle(WorkerStateEvent t) {

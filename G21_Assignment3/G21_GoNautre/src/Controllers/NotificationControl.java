@@ -88,10 +88,4 @@ public class NotificationControl {
 		return ChatClient.responseFromServer.getResultSet();
 	}
 
-	public static void sendSms(String phoneNumber, Messages msg) {
-		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.SEND_SMS,
-				new ArrayList<String>(Arrays.asList(phoneNumber, msg.getContent())));
-		ClientUI.chat.accept(request);
-	}
-
 }
