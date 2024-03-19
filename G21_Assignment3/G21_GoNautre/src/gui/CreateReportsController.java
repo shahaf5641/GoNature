@@ -93,7 +93,7 @@ public class CreateReportsController implements Initializable {
     }
 
     @FXML
-    private void turnOnTotalVisitorsRB() {
+    private void turnON_totalVisitorsRB() {
         totalVisitorsRB.setSelected(true);
         useageRB.setSelected(false);
         incomeRB.setSelected(false);
@@ -102,7 +102,7 @@ public class CreateReportsController implements Initializable {
     }
 
     @FXML
-    private void turnOnUseageRB() {
+    private void turnON_useageRB() {
         useageRB.setSelected(true);
         totalVisitorsRB.setSelected(false);
         incomeRB.setSelected(false);
@@ -111,7 +111,7 @@ public class CreateReportsController implements Initializable {
     }
 
     @FXML
-    private void turnOnIncomeRB() {
+    private void turnON_IncomeRB() {
         incomeRB.setSelected(true);
         totalVisitorsRB.setSelected(false);
         useageRB.setSelected(false);

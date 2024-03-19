@@ -28,7 +28,8 @@
                     <graphic>
                         <ImageView>
                             <image>
-                                <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
+                               <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
+
                             </image>
                         </ImageView>
                     </graphic>
@@ -49,7 +50,7 @@
                     <graphic>
                         <ImageView>
                             <image>
-                                 <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
+                                 <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -66,7 +67,7 @@
                     <graphic>
                         <ImageView>
                             <image>
-                                 <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
+                                 <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
                             </image>
                         </ImageView>
                     </graphic>
@@ -76,7 +77,7 @@
         <Label fx:id="createButton" layoutX="386.0" layoutY="499.0" onMouseClicked="#createReportButton" text="Create Reports" />
         <ImageView fitHeight="81.0" fitWidth="93.0" layoutX="410.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                 <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
+                                 <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
             </image>
         </ImageView>
     </children>

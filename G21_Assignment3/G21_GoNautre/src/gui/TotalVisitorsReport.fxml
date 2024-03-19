@@ -27,7 +27,8 @@
       <Label layoutX="229.0" layoutY="94.0" style="-fx-font-weight: bold;" text="Type:" underline="true" />
       <ImageView fitHeight="84.0" fitWidth="71.0" layoutX="563.0" layoutY="752.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-2.0">
          <image>
-            <Image url="C:\Users\yuval\OneDrive\Desktop\dashboard1.png" />
+             <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/visitorsReport.png" />
+
          </image>
       </ImageView>
       <Button fx:id="sendToManagerBtn" layoutX="230.0" layoutY="797.0" text="Send To Department Manager" />
