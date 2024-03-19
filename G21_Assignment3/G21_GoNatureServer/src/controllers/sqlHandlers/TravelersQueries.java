@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import logic.Employees;
 import logic.Messages;
-import logic.Subscriber;
 import logic.Traveler;
 import logic.WorkerType;
 
@@ -91,58 +90,9 @@ public class TravelersQueries {
 		}
 	}
 
-	/**
-	 * This function gets subscriber's subscription id a retrieve the subscriber from the database
-	 * 
-	 * @param parameters The subscriber's subscription id
-	 * @return Subscriber object
-	 */
-	public Subscriber getSubscriberBySubId(ArrayList<?> parameters) {
-		Subscriber sub = null;
-		String sql = "SELECT * FROM g21gonature.subscriber WHERE subscriberNumber = ? ";
-		PreparedStatement query;
-		try {
-			query = conn.prepareStatement(sql);
-			query.setString(1, (String) parameters.get(0));
-			ResultSet res = query.executeQuery();
+	
 
-			if (res.next())
-				sub = new Subscriber(res.getInt(1), res.getString(2), res.getString(3), res.getString(4),
-						res.getString(5), res.getString(6), res.getString(7), res.getString(8), res.getInt(9));
-		} catch (SQLException e) {
-			System.out.println("Could not execute getSubscriberBySubId query");
-			e.printStackTrace();
-		}
-
-		return sub;
-	}
-
-	/**
-	 * This function gets subscriber's id a retrieve the subscriber from the database
-	 * 
-	 * @param parameters The subscriber's id
-	 * @return Subscriber object
-	 */
-	public Subscriber getSubscriberById(ArrayList<?> parameters) {
-		Subscriber sub = null;
-		String sql = "SELECT * FROM g21gonature.subscriber WHERE travelerId = ? ";
-		PreparedStatement query;
-		try {
-			query = conn.prepareStatement(sql);
-			query.setString(1, (String) parameters.get(0));
-			ResultSet res = query.executeQuery();
-
-			if (res.next())
-				sub = new Subscriber(res.getInt(1), res.getString(2), res.getString(3), res.getString(4),
-						res.getString(5), res.getString(6), res.getString(7), res.getString(8), res.getInt(9));
-		} catch (SQLException e) {
-			System.out.println("Could not execute checkIfConnected query");
-			e.printStackTrace();
-		}
-
-		return sub;
-	}
-
+	
 	/**
 	 * This function INSERT a new traveler to 'traveler' table in the database
 	 * 

@@ -27,7 +27,6 @@ import logic.Messages;
 import logic.Order;
 import logic.OrderTb;
 import logic.Park;
-import logic.Subscriber;
 import logic.Traveler;
 import resources.MsgTemplates;
 import logic.OrderStatusName;

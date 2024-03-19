@@ -23,7 +23,6 @@ import logic.Messages;
 import logic.Order;
 import logic.Park;
 import logic.ServerToClientResponse;
-import logic.Subscriber;
 import logic.Traveler;
 import logic.Report;
 import ocsf.server.ConnectionToClient;
@@ -99,12 +98,7 @@ public class HandleClientRequest implements Runnable {
 					travelerQueriesl.insertToLoggedInTable(request.getParameters());
 					client.sendToClient("Finished Insert");
 				}
-				if (request.getRequestType().equals(Request.SUBSCRIBER_LOGIN_SUBID)) {
-					Subscriber sub = travelerQueriesl.getSubscriberBySubId(request.getParameters());
-					response = new ServerToClientResponse();
-					response.setResultSet(new ArrayList<Traveler>(Arrays.asList(sub)));
-					client.sendToClient(response);
-				}
+				
 				if (request.getRequestType().equals(Request.GET_PARK_BY_ID)) {
 					Park park = parkQueries.getParkById(request.getParameters());
 					response = new ServerToClientResponse();
@@ -118,12 +112,7 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(new ArrayList<Park>(Arrays.asList(park)));
 					client.sendToClient(response);
 				}
-				if (request.getRequestType().equals(Request.GET_SUBSCRIBER)) {
-					Subscriber sub = travelerQueriesl.getSubscriberById(request.getParameters());
-					response = new ServerToClientResponse();
-					response.setResultSet(new ArrayList<Subscriber>(Arrays.asList(sub)));
-					client.sendToClient(response);
-				}
+				
 				if (request.getRequestType().equals(Request.GET_ALL_PARKS)) {
 					ArrayList<Park> parks = parkQueries.getAllParks();
 					response = new ServerToClientResponse();
@@ -215,11 +204,7 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient("");
 				}
 
-				if (request.getRequestType().equals(Request.INSERT_TO_SUBSCRIBER)) {
-					travelerQueriesl.insertSubscriberToSubscriberTable(request.getParameters());
-					client.sendToClient("Finished Insert");
-					client.sendToClient("");
-				}
+				
 				if (request.getRequestType().equals(Request.INSERT_TO_CREDITCARD)) {
 					travelerQueriesl.insertCardToCreditCardTable(request.getParameters());
 					client.sendToClient("Finished Insert");
@@ -518,13 +503,7 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(reportsQueries.getSolosOrdersVisitorsReport(month, parkID));
 					client.sendToClient(response);
 				}
-				if (request.getRequestType().equals(Request.GET_SUBSCRIBERS_ORDERS)) {
-					int month = (int) request.getParameters().get(0);
-					int parkID = (int) request.getParameters().get(1);
-					response = new ServerToClientResponse();
-					response.setResultSet(reportsQueries.getSubscribersOrdersVisitorsReport(month, parkID));
-					client.sendToClient(response);
-				}
+				
 				if (request.getRequestType().equals(Request.GET_GROUPS_ORDERS)) {
 					int month = (int) request.getParameters().get(0);
 					int parkID = (int) request.getParameters().get(1);

@@ -195,12 +195,7 @@ public class ReportsControl {
 	 * 
 	 * @return ArrayList of order object
 	 */
-	public static ArrayList<Order> getSubscribersOrdersVisitorsReport(int monthNumber, int parkID) {
-		ClientToServerRequest<Integer> request = new ClientToServerRequest<>(Request.GET_SUBSCRIBERS_ORDERS,
-				new ArrayList<Integer>(Arrays.asList(monthNumber, parkID)));
-		ClientUI.chat.accept(request);
-		return ChatClient.responseFromServer.getResultSet();
-	}
+	
 
 	/**
 	 * This function returns all the orders in a given month which are Group visits

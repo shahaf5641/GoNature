@@ -17,7 +17,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import logic.Messages;
 import logic.MessagesTb;
-import logic.Subscriber;
 import logic.Traveler;
 import Controllers.NotificationControl;
 

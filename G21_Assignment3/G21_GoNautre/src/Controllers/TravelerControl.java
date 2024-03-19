@@ -8,7 +8,6 @@ import client.ClientUI;
 import logic.ClientToServerRequest;
 import logic.Traveler;
 import logic.ClientToServerRequest.Request;
-import logic.Subscriber;
 
 /**
  * TravelerControl class handles all the traveler related functionalities
@@ -22,13 +21,7 @@ public class TravelerControl {
 	 * @param id the id of the subscriber
 	 * @return Subscriber object, null if not exist
 	 */
-	public static Subscriber getSubscriber(String id) {
-		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.GET_SUBSCRIBER,
-				new ArrayList<String>(Arrays.asList(id)));
-		ClientUI.chat.accept(request);
-		Subscriber subscriber = (Subscriber) ChatClient.responseFromServer.getResultSet().get(0);
-		return subscriber;
-	}
+	
 
 	/**
 	 * This function gets an id and check if there is a traveler (regular of subscriber)
@@ -39,10 +32,8 @@ public class TravelerControl {
 	 */
 	public static boolean isTravelerExist(String id) {
 		/* First we check if the id is subscriber */
-		Subscriber subscriber = getSubscriber(id);
-		if (subscriber != null) // If not null means the subscriber exist
-			return true;
-		else {
+		
+		
 			/*
 			 * If there is no subscriber with such id
 			 * we check if the id is regular traveler
@@ -54,7 +45,7 @@ public class TravelerControl {
 			if (traveler != null) // If not null means the traveler exist
 				return true;
 
-		}
+		
 		return false;
 	}
 
@@ -69,25 +60,8 @@ public class TravelerControl {
 		ClientUI.chat.accept(request);
 	}
 
-	/**
-	 * This function inserts new subscriber into subscriber table
-	 * 
-	 * @param id                   new subscriber's ID
-	 * @param firstName            new subscriber's firstName
-	 * @param lastName             new subscriber's ID
-	 * @param email                new subscriber's lastName
-	 * @param phoneNumber          new subscriber's phoneNumber
-	 * @param cardNumber           new subscriber's cardNumber
-	 * @param type                 type of subscriber {Solo,Family,Guide}
-	 * @param numberOfParticipants number of participants in subscription
-	 */
-	public static void insertSubscriberToSubscriberTable(String id, String firstName, String lastName, String email,
-			String phoneNumber, String cardNumber, String type, String numberOfParticipants) {
-		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.INSERT_TO_SUBSCRIBER,
-				new ArrayList<String>(Arrays.asList(id, firstName, lastName, email, phoneNumber, cardNumber, type,
-						numberOfParticipants)));
-		ClientUI.chat.accept(request);
-	}
+	
+	
 
 	/**
 	 * This function inserts subscriber's credit cared into card table

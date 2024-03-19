@@ -2,7 +2,6 @@ package util;
 
 import java.io.IOException;
 
-import gui.AddSubscriberController;
 import gui.CreateReportsController;
 import gui.DepartmentManagerReportsController;
 import gui.ManageTravelerController;
@@ -56,9 +55,7 @@ public class FxmlUtil {
 		} else if (controllerName.equals("viewRequests")) {
 			ViewRequestsForChangesController controller = new ViewRequestsForChangesController();
 			loader.setController(controller);
-		} else if (controllerName.equals("addSubSubscriber")) {
-			AddSubscriberController controller = new AddSubscriberController();
-			loader.setController(controller);
+		
 		} else if (controllerName.equals("updateParameters")) {
 			UpdateParametersController controller = new UpdateParametersController();
 			loader.setController(controller);

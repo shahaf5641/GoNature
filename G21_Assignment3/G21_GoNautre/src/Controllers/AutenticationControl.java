@@ -7,7 +7,6 @@ import client.ClientUI;
 import logic.ClientToServerRequest;
 import logic.ClientToServerRequest.Request;
 import logic.Employees;
-import logic.Subscriber;
 import logic.Traveler;
 
 /**
@@ -43,26 +42,7 @@ public class AutenticationControl {
 	 * @return 1 traveler already connected
 	 * @return 2 traveler id does not exist
 	 */
-	public static int loginBySubId(String subID) {
-		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.SUBSCRIBER_LOGIN_SUBID,
-				new ArrayList<String>(Arrays.asList(subID)));
-		ClientUI.chat.accept(request);
-		Subscriber sub = (Subscriber) ChatClient.responseFromServer.getResultSet().get(0);
-		if (sub == null)
-			return 2;
-		else {
-			String id = sub.getTravelerId();
-			if (isConnected(id)) {
-				return 1;
-			} else {
-				insertTologgedinTable(id);
-				ClientUI.chat.accept(request);
-				return 0;
-			}
-
-		}
-
-	}
+	
 
 	/**
 	 * This function get a traveler's id and ask the server to

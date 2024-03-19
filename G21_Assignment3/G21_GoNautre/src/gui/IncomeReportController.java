@@ -265,7 +265,6 @@ public class IncomeReportController implements Initializable {
 
     private void getData() {
         solosOrdersUnClean = ReportsControl.getSolosOrdersVisitorsReport(monthNumber, parkID);
-        subscribesrOrdersUnClean = ReportsControl.getSubscribersOrdersVisitorsReport(monthNumber, parkID);
         groupsOrdersUnClean = ReportsControl.getGroupOrdersVisitorsReport(monthNumber, parkID);
     }
 
