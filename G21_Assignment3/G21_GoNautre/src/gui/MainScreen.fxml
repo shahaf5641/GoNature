@@ -22,9 +22,14 @@
                                 </ImageView>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="5.0" prefWidth="200.0" />
-                        <HBox alignment="CENTER" fillHeight="false" prefHeight="320.0" prefWidth="1150.0" />
-                        <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0" prefHeight="5.0" prefWidth="200.0" />
+                        <HBox alignment="CENTER" fillHeight="false" prefHeight="325.0" prefWidth="802.0">
+                     <children>
+                        <ImageView fx:id="goNatureLogo1" fitHeight="307.0" fitWidth="784.0" onMouseClicked="#loadCardReaderSimulator" pickOnBounds="true">
+                           <image>
+                              <Image url="@../resources/images/Welcome.png" />
+                           </image>
+                        </ImageView>
+                     </children></HBox>
                         <HBox alignment="CENTER" prefHeight="180.0" prefWidth="1153.0" spacing="175.0">
                             <children>
                                 <StackPane fx:id="firstImageStack" prefHeight="150.0" prefWidth="200.0">
