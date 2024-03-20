@@ -39,9 +39,6 @@ public class MainScreenController implements Initializable {
 	private AnchorPane rootAnchorPane;
 
 	@FXML
-	private WebView youTube;
-
-	@FXML
 	private ImageView firstParkImage;
 
 	@FXML
@@ -64,7 +61,6 @@ public class MainScreenController implements Initializable {
 	}
 
 	private void init() {
-		setFirstYouTubeVideo();
 		getStage().setOnCloseRequest(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent we) {
 				ClientUI.chat.getClient().quit();
@@ -86,44 +82,4 @@ public class MainScreenController implements Initializable {
 		this.stage = stage;
 	}
 
-	@FXML
-	private void setFirstYouTubeVideo() {
-		youTube.getEngine().load("https://www.youtube.com/embed/QM5wVpOj9iI");
-	}
-
-	@FXML
-	private void setSecondYouTubeVideo() {
-		youTube.getEngine().load("https://www.youtube.com/embed/WWorX7kqC9g");
-	}
-
-	@FXML
-	private void setThirdYouTubeVideo() {
-		youTube.getEngine().load("https://www.youtube.com/embed/o8XbBa2Fhrg");
-	}
-
-	@FXML
-	private void loadCardReaderSimulator() {
-		try {
-			Stage thisStage = getStage();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CardReaderSimulator.fxml"));
-			loader.load();
-			Parent p = loader.getRoot();
-			Stage newStage = new Stage();
-
-			/* Block parent stage until child stage closes */
-			newStage.initModality(Modality.WINDOW_MODAL);
-			newStage.initOwner(thisStage);
-
-			newStage.setTitle("Card Reader Simulator");
-			newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
-			newStage.setScene(new Scene(p));
-			newStage.setResizable(false);
-			newStage.show();
-		} catch (IOException e) {
-			System.out.println("faild to load form");
-			e.printStackTrace();
-		}
-	
-
-}
 }

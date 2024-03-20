@@ -15,26 +15,19 @@
                     <children>
                         <HBox alignment="CENTER" prefHeight="225.0" prefWidth="225.0" spacing="20.0">
                             <children>
-                                <ImageView fx:id="goNatureLogo" fitHeight="190.0" fitWidth="195.0" onMouseClicked="#loadCardReaderSimulator" pickOnBounds="true">
+                                <ImageView fx:id="goNatureLogo" fitHeight="190.0" fitWidth="195.0" pickOnBounds="true">
                                     <image>
                                         <Image url="@../resources/images/Gonature21.png" />
                                     </image>
                                 </ImageView>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" fillHeight="false" prefHeight="325.0" prefWidth="802.0">
-                     <children>
-                        <ImageView fx:id="goNatureLogo1" fitHeight="307.0" fitWidth="784.0" onMouseClicked="#loadCardReaderSimulator" pickOnBounds="true">
-                           <image>
-                              <Image url="@../resources/images/Welcome.png" />
-                           </image>
-                        </ImageView>
-                     </children></HBox>
+                        <HBox alignment="CENTER" fillHeight="false" prefHeight="325.0" prefWidth="802.0" />
                         <HBox alignment="CENTER" prefHeight="180.0" prefWidth="1153.0" spacing="175.0">
                             <children>
                                 <StackPane fx:id="firstImageStack" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <ImageView fx:id="firstParkImage" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#setFirstYouTubeVideo" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="firstParkImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../resources/images/Moses.png" />
                                             </image>
@@ -43,7 +36,7 @@
                                 </StackPane>
                                 <StackPane fx:id="secondImageStack" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <ImageView fx:id="secondParkImage" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#setThirdYouTubeVideo" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="secondParkImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../resources/images/Pheonix.png" />
                                             </image>
@@ -52,7 +45,7 @@
                                 </StackPane>
                                 <StackPane fx:id="thirdImageStack" layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <ImageView fx:id="thirdParkImage" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#setSecondYouTubeVideo" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fx:id="thirdParkImage" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
                                                 <Image url="@../resources/images/Yosemite.png" />
                                             </image>
@@ -64,9 +57,6 @@
                     </children>
                 </VBox>
                 <VBox fx:id="MenuButtons" prefHeight="478.0" prefWidth="154.0">
-      				<!-- Your existing content -->
-      
-                                        				<!-- Include MainScreenMenu.fxml here -->
       					<fx:include source="MainScreenMenu.fxml" />
       				</VBox>
             </children>

@@ -11,7 +11,7 @@
 <Pane fx:id="paneMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="500.0" stylesheets="@GreenTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ServerGUIController">
    <children>
       <Button fx:id="btnStartServer" layoutX="266.0" layoutY="144.0" mnemonicParsing="false" onAction="#startServer" prefHeight="39.0" prefWidth="125.0" text="Start server" />
-      <TextArea fx:id="txtareaLog" editable="false" layoutX="81.0" layoutY="199.0" prefHeight="200.0" prefWidth="338.0" />
+      <TextArea fx:id="txtareaLog" editable="false" layoutX="39.0" layoutY="200.0" prefHeight="200.0" prefWidth="422.0" />
       <TextField fx:id="txtFldPort" layoutX="148.0" layoutY="145.0" prefHeight="36.0" prefWidth="84.0" promptText="5555" />
       <Label fx:id="lblPort" layoutX="81.0" layoutY="146.0" text="Port" />
       <ImageView fitHeight="117.0" fitWidth="119.0" layoutX="192.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
