@@ -115,15 +115,6 @@ public class DepartmentManagerReportsController implements Initializable {
                 controller.setParkID(parkID);
                 controller.setIsDepManager(true);
                 loader.setController(controller);
-            } else if (name.equals("Income")) {
-                screenTitle = "Income Report";
-                loader = new FXMLLoader(getClass().getResource("/gui/IncomeReport.fxml"));
-                IncomeReportController controller = new IncomeReportController();
-                controller.setComment(comment);
-                controller.setMonthNumber(month);
-                controller.setParkID(parkID);
-                controller.setIsDepManager(true);
-                loader.setController(controller);
             } else if (name.equals("Total Visitors")) {
                 screenTitle = "Total Visitors Report";
                 loader = new FXMLLoader(getClass().getResource("/gui/TotalVisitorsReport.fxml"));

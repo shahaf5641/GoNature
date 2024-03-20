@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import alerts.CustomAlerts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,9 +49,6 @@ public class CreateReportsController implements Initializable {
     private RadioButton useageRB;
 
     @FXML
-    private RadioButton incomeRB;
-
-    @FXML
     private TitledPane commentTP;
 
     @FXML
@@ -96,7 +92,6 @@ public class CreateReportsController implements Initializable {
     private void turnON_totalVisitorsRB() {
         totalVisitorsRB.setSelected(true);
         useageRB.setSelected(false);
-        incomeRB.setSelected(false);
         this.fxmlName = "/gui/TotalVisitorsReport.fxml";
         screenTitle = "Total Visitors Report";
     }
@@ -105,14 +100,12 @@ public class CreateReportsController implements Initializable {
     private void turnON_useageRB() {
         useageRB.setSelected(true);
         totalVisitorsRB.setSelected(false);
-        incomeRB.setSelected(false);
         this.fxmlName = "/gui/UsageReport.fxml";
         screenTitle = "Usage Report";
     }
 
     @FXML
     private void turnON_IncomeRB() {
-        incomeRB.setSelected(true);
         totalVisitorsRB.setSelected(false);
         useageRB.setSelected(false);
         this.fxmlName = "/gui/IncomeReport.fxml";
@@ -146,12 +139,6 @@ public class CreateReportsController implements Initializable {
                 controller.setParkID(MemberLoginController.member.getParkId());
                 loader.setController(controller);
 
-            } else if (incomeRB.isSelected()) {
-                IncomeReportController controller = new IncomeReportController();
-                controller.setComment(commentTextArea.getText());
-                controller.setMonthNumber(monthCB.getSelectionModel().getSelectedIndex());
-                controller.setParkID(MemberLoginController.member.getParkId());
-                loader.setController(controller);
             }
             loader.load();
             Parent p = loader.getRoot();

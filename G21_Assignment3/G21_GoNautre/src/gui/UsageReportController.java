@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
 import Controllers.ParkControl;
 import Controllers.ReportsControl;
 import alerts.CustomAlerts;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -29,6 +31,12 @@ import logic.Report;
  */
 public class UsageReportController implements Initializable {
 
+    @FXML
+    private TableView<String> notFullDatesTable;
+
+    @FXML
+    private TableColumn<String, String> dateColumn;
+    
     @FXML
     private StackPane rootPane;
     
@@ -55,12 +63,17 @@ public class UsageReportController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		init();
+	    Locale.setDefault(Locale.ENGLISH);
+	    dateColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue()));
+	    init();
+
 	}
+
 
 	private void init() {
 		Locale.setDefault(Locale.ENGLISH);
 		initLabels();
+	    generateUsageReport(); // Call generateUsageReport method here
 
 		if (isDepManager) {
 			commentTextArea.setEditable(false);
@@ -78,6 +91,30 @@ public class UsageReportController implements Initializable {
 			});
 		}
 	}
+	
+	public void generateUsageReport() {
+	    // Clear existing items in the table
+	    notFullDatesTable.getItems().clear();
+
+	    // Get the number of days in the selected month
+	    int daysInMonth = getDaysInMonth(year, monthNumber);
+    	int currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
+		if (monthNumber > currentMonth)
+			year--;
+	    // Loop through each day of the selected month
+	    for (int day = 1; day <= daysInMonth; day++) {
+	        // Call isParkIsFullAtDate method to check if park was full on the current day
+	        ArrayList<String> comments = isParkIsFullAtDate(year, monthNumber, day);
+
+	        // Check if the park was not full on the current day
+	        if (!comments.contains("Full")) {
+	            String date = String.format("%d-%02d-%02d", year, monthNumber, day);
+	            // Add the date to the TableView
+	            notFullDatesTable.getItems().add(date);
+	        }
+	    }
+	}
+
 
 	private void initLabels() {
 		monthLabel.setText(GoNatureFinals.MONTHS[monthNumber]); // Set the name of the month
@@ -113,6 +150,13 @@ public class UsageReportController implements Initializable {
 			new CustomAlerts(AlertType.ERROR, "Faild", "Faild", "Something went wrong. Please try again late.")
 					.showAndWait();
 		}
+	}
+	
+	// Helper method to get the number of days in a month
+	private int getDaysInMonth(int year, int month) {
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.set(year, month - 1, 1); // Set the calendar to the first day of the month
+	    return calendar.getActualMaximum(Calendar.DAY_OF_MONTH); // Get the maximum days in the month
 	}
 
 	private Stage getStage() {

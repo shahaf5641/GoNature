@@ -20,6 +20,7 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import Controllers.ReportsControl;
+import alerts.CustomAlerts;
 import client.ChatClient;
 import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
@@ -33,6 +34,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -61,9 +63,6 @@ public class TotalVisitorsReportController implements Initializable {
     private Label groupsLabel;
 
     @FXML
-    private Label subscribersLabel;
-
-    @FXML
     private Label totalLabel;
 
     @FXML
@@ -87,7 +86,6 @@ public class TotalVisitorsReportController implements Initializable {
 
     /* Orders distributed by order type */
     private ArrayList<Order> solosOrdersUnClean = new ArrayList<>();
-    private ArrayList<Order> subscribesrOrdersUnClean = new ArrayList<>();
     private ArrayList<Order> groupsOrdersUnClean = new ArrayList<>();
 
     /*
@@ -96,7 +94,6 @@ public class TotalVisitorsReportController implements Initializable {
      * 6 - Saturday
      */
     private int[] daysSolosClean = new int[7];
-    private int[] daysSubscribersClean = new int[7];
     private int[] daysGroupClean = new int[7];
     private int[] totalClean = new int[7];
 
@@ -124,7 +121,6 @@ public class TotalVisitorsReportController implements Initializable {
         barChart.setBarGap(2);
 
         loadDataToChart(daysSolosClean, "Solos      ");
-        loadDataToChart(daysSubscribersClean, "Subscribers");
         loadDataToChart(daysGroupClean, "Groups     ");
         loadDataToChart(totalClean, "Total      ");
     }
@@ -158,16 +154,18 @@ public class TotalVisitorsReportController implements Initializable {
         }
     }
 
-    @FXML
-    private void sendToManagerBtn() {
-        Report r = new Report(0, "Total Visitors", parkID, monthNumber, commentTextArea.getText());
-        if (ReportsControl.addReport(r)) {
-            System.out.println("Total Visitors report has been sent to department manager.");
-        } else {
-            System.out.println("Something went wrong. Please try again later.");
-        }
-        closeStage();
-    }
+	@FXML
+	private void sendToManagerBtn() {
+
+		Report r = new Report(0, "Usage", parkID, monthNumber, commentTextArea.getText());
+		if (ReportsControl.addReport(r)) {
+			new CustomAlerts(AlertType.INFORMATION, "Success", "Success",
+					"Total Visitors report has been sent to department manager.").showAndWait();
+		} else {
+			new CustomAlerts(AlertType.ERROR, "Faild", "Faild", "Something went wrong. Please try again late.")
+					.showAndWait();
+		}
+	}
 
     @SuppressWarnings("unchecked")
 	private void initLabels() {
@@ -180,7 +178,6 @@ public class TotalVisitorsReportController implements Initializable {
         reportList = ChatClient.responseFromServer.getResultSet();
         individualLabel.setText(String.valueOf(reportList.get(0)));
         groupsLabel.setText(String.valueOf(reportList.get(2)));
-        subscribersLabel.setText(String.valueOf(reportList.get(1)));
         totalLabel.setText(String.valueOf(reportList.get(0) + reportList.get(1) + reportList.get(2)));
     }
 
@@ -194,13 +191,6 @@ public class TotalVisitorsReportController implements Initializable {
             String date = order.getOrderDate();
             int dayInWeek = getNumberInWeek(date);
             daysSolosClean[dayInWeek] += order.getNumberOfParticipants();
-            totalClean[dayInWeek] += order.getNumberOfParticipants();
-        }
-
-        for (Order order : subscribesrOrdersUnClean) {
-            String date = order.getOrderDate();
-            int dayInWeek = getNumberInWeek(date);
-            daysSubscribersClean[dayInWeek] += order.getNumberOfParticipants();
             totalClean[dayInWeek] += order.getNumberOfParticipants();
         }
 

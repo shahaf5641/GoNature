@@ -105,6 +105,7 @@ public class ParkManagerController implements Initializable {
         borderPane.setCenter(view);
     }
 
+    
     @FXML
     private void loadCreateReports() {
         Pane view = loader.loadPaneToBorderPaneWithController("/gui/CreateReports.fxml", "createReport");

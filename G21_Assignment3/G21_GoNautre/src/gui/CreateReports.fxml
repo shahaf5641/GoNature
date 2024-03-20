@@ -10,8 +10,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="createReportsRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="createReportsRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label fx:id="headerLabel" layoutX="357.0" layoutY="37.0" text="Create Reports" />
         <Accordion fx:id="accordion" layoutX="257.0" layoutY="216.0" prefHeight="238.0" prefWidth="386.0">
@@ -39,11 +40,10 @@
                         <AnchorPane fx:id="chooseReportAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
                                 <Label layoutX="101.0" layoutY="29.0" text="Please Choose Report To Create" />
-                                <HBox spacing="10.0" layoutX="20.0" layoutY="81.0">
+                                <HBox layoutX="20.0" layoutY="81.0" spacing="10.0">
                                     <RadioButton fx:id="totalVisitorsRB" onMouseClicked="#turnON_totalVisitorsRB" text="Total Visitors" />
-                                    <RadioButton fx:id="useageRB" onMouseClicked="#turnON_useageRB" text="Usage" />
-                                    <RadioButton fx:id="IncomeRB" onMouseClicked="#turnON_IncomeRB" text="Income" />
                                 </HBox>
+                                 <RadioButton fx:id="useageRB" layoutX="210.0" layoutY="81.0" onMouseClicked="#turnON_useageRB" text="Usage" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -64,21 +64,12 @@
                             </children>
                         </AnchorPane>
                     </content>
-                    <graphic>
-                        <ImageView>
-                            <image>
-                                 <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
                 </TitledPane>
             </panes>
         </Accordion>
-        <Label fx:id="createButton" layoutX="386.0" layoutY="499.0" onMouseClicked="#createReportButton" text="Create Reports" />
-        <ImageView fitHeight="81.0" fitWidth="93.0" layoutX="410.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                                 <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
-            </image>
-        </ImageView>
+        <Label fx:id="createButton" layoutX="412.0" layoutY="470.0" onMouseClicked="#createReportButton" prefHeight="57.0" prefWidth="114.0" text="Create Reports">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
     </children>
 </AnchorPane>
