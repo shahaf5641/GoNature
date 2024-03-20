@@ -54,7 +54,6 @@ import javafx.scene.control.DatePicker;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
 /**
  * This Class is the GUI controller of OrderVisit.fxml It handles all the JavaFx
  * nodes events.
@@ -207,7 +206,6 @@ public class OrderVisitController implements Initializable {
 							summaryTime.getText(), summaryType.getText(), Integer.parseInt(summaryVisitors.getText()),
 							summaryEmail.getText(), CalculatePrice(), OrderStatusName.PENDING.toString());
 
-
 					String[] travelerName = summaryFullName.getText().split(" ");
 					String travelerFirstName = travelerName[0];
 					String travelerLastName = travelerName.length == 1 ? "" : travelerName[1];
@@ -224,7 +222,7 @@ public class OrderVisitController implements Initializable {
 			pb.setVisible(true);
 			orderVisitRootPane.setDisable(true);
 			new Thread(task).start();
-			
+
 			task.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED, new EventHandler<WorkerStateEvent>() {
 				@Override
 				public void handle(WorkerStateEvent t) {
@@ -323,6 +321,7 @@ public class OrderVisitController implements Initializable {
 				&& !summaryDate.getText().equals("null")) {
 
 			int visitorsNumber = 0;
+			
 			if (!UtilityFunctions.isNumeric(summaryVisitors.getText())) {
 				return 0.0;
 			} else {
@@ -332,32 +331,37 @@ public class OrderVisitController implements Initializable {
 				}
 			}
 
-			CheckOut basic = new RegularCheckOut(visitorsNumber);
+			System.out.println("1");
 
-				/* guest order */
-			 if (permissionLabel.getText().equals("Guest")) {
-				RegularPreOrderCheckOut checkOut = new RegularPreOrderCheckOut(basic);
+			/* guest order */
+			if (summaryPayment.getText().equals("At The Park")
+					&& summaryType.getText().equals(OrderType.GROUP.toString())) {
+				GuidePayAtParkCheckOut checkOut = new GuidePayAtParkCheckOut(visitorsNumber);
+				System.out.println("4");
+
 				return checkOut.getPrice();
 
 				/* group order - pay online */
 			} else if (summaryPayment.getText().equals("Online")
 					&& summaryType.getText().equals(OrderType.GROUP.toString())) {
-				GuidePrePayCheckOut checkOut = new GuidePrePayCheckOut(basic);
+				GuidePrePayCheckOut checkOut = new GuidePrePayCheckOut(visitorsNumber);
+				System.out.println("3");
+
 				return checkOut.getPrice();
 
 			}
-			/* group order - pay at the park */
-			else if (summaryPayment.getText().equals("At The Park")
-					&& summaryType.getText().equals(OrderType.GROUP.toString())) {
-				GuidePayAtParkCheckOut checkOut = new GuidePayAtParkCheckOut(basic);
-				return checkOut.getPrice();
+			/* solo/family order */
 
-			} else {
-				RegularPreOrderCheckOut checkOut = new RegularPreOrderCheckOut(basic);
+			else {
+				SoloFamilyOrderCheckOut checkOut = new SoloFamilyOrderCheckOut(visitorsNumber);
+				System.out.println("5");
+
 				return checkOut.getPrice();
 			}
 
 		}
+		System.out.println("6");
+
 		return (double) GoNatureFinals.FULL_PRICE;
 	}
 

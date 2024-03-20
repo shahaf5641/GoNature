@@ -2,20 +2,13 @@ package Controllers.calculatePrice;
 
 import logic.GoNatureFinals;
 
-
-/**
- * GroupCasualCheckOut calculates casual group order's price
- */
-public class RegularPreOrderCheckOut implements CheckOut {
-
-    private int numOfVisitors;
+public class CasualSoloFamilyVisitCheckOut  implements CheckOut {
+	private int numOfVisitors;
     private final double fullPrice = GoNatureFinals.FULL_PRICE;
 
-    
 
-
-    public RegularPreOrderCheckOut(int numOfVisitors) {
-    	this.numOfVisitors = numOfVisitors ;
+    public CasualSoloFamilyVisitCheckOut(int numOfVisitors) {
+        this.numOfVisitors = numOfVisitors;
     }
 
     /**
@@ -26,4 +19,5 @@ public class RegularPreOrderCheckOut implements CheckOut {
     public double getPrice() {
         return numOfVisitors * fullPrice ;
     }
+
 }

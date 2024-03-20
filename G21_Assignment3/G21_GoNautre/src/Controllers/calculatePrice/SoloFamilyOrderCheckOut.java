@@ -6,14 +6,14 @@ import logic.GoNatureFinals;
 /**
  * GroupCasualCheckOut calculates casual group order's price
  */
-public class GroupCasualCheckOut implements CheckOut {
+public class SoloFamilyOrderCheckOut implements CheckOut {
 
     private int numOfVisitors;
     private final double fullPrice = GoNatureFinals.FULL_PRICE;
 
-    private final double discountForGuidesPayAtPark = 0.9;
+    private final double discountForGuidesPayAtPark = 0.85;
 
-    public GroupCasualCheckOut(int numOfVisitors) {
+    public SoloFamilyOrderCheckOut(int numOfVisitors) {
     	this.numOfVisitors = numOfVisitors;
     }
 

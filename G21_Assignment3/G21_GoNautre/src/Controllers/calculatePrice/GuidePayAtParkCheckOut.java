@@ -1,25 +1,28 @@
 package Controllers.calculatePrice;
 
+import logic.GoNatureFinals;
+
+
 /**
- * GuidePayAtParkCheckOut extends CheckOutDecorator
- * GuidePayAtParkCheckOut calculates organized group pay at the park order's price
- *
+ * GroupCasualCheckOut calculates casual group order's price
  */
-public class GuidePayAtParkCheckOut extends CheckOutDecorator {
+public class GuidePayAtParkCheckOut implements CheckOut {
 
-	private final double discountForGuidesPayAtPark = 0.75;
+    private int numOfVisitors;
+    private final double fullPrice = GoNatureFinals.FULL_PRICE;
 
-	public GuidePayAtParkCheckOut(CheckOut tempCheckOut) {
-		super(tempCheckOut);
-	}
+    private final double discountForGuidesPayAtPark = 0.75;
 
-	/**
-	 * Overrite getPrice from CheckOutDecorator
-	 * 
-	 * @return return the organized group pay at the park order's price
-	 */
-	public double getPrice() {
-		return regularCheckOut.getPrice() * discountForGuidesPayAtPark;
-	}
+    public GuidePayAtParkCheckOut(int numOfVisitors) {
+    	this.numOfVisitors = numOfVisitors ;
+    }
 
+    /**
+     * Overwrite getPrice from CheckOut interface
+     * @return return the casual group order's price
+     */
+    @Override
+    public double getPrice() {
+        return (numOfVisitors-1) * fullPrice * discountForGuidesPayAtPark;
+    }
 }

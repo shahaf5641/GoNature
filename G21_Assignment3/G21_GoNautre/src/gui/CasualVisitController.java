@@ -10,9 +10,9 @@ import java.util.ResourceBundle;
 import Controllers.OrderControl;
 import Controllers.ParkControl;
 import Controllers.TravelerControl;
+import Controllers.calculatePrice.CasualSoloFamilyVisitCheckOut;
 import Controllers.calculatePrice.CheckOut;
 import Controllers.calculatePrice.GroupCasualCheckOut;
-import Controllers.calculatePrice.RegularCheckOut;
 import alerts.CustomAlerts;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -103,9 +103,7 @@ public class CasualVisitController implements Initializable {
 
 		typeComboBox.getItems().clear();
 		typeComboBox.getItems().addAll(Arrays.asList(OrderType.values()));
-		if (!permissionLabel.getText().equals("Family")) {
-			typeComboBox.getItems().remove(OrderType.GROUP);
-		}
+		
 
 		/* Listener to order type ComboBox. activate on every item selected */
 		typeComboBox.valueProperty().addListener((obs, oldItem, newItem) -> {
@@ -202,21 +200,24 @@ public class CasualVisitController implements Initializable {
 	private double calculatePriceForVisit() {
 		double price = 0;
 		// Recive the data from the text fields.
-		String idOfTraveler = idInputCasualVisit.getText();
+		//String idOfTraveler = idInputCasualVisit.getText();
 		int numberOfVisitors = Integer.parseInt(numOfVisitorsCasualVisit.getText());
 		String orderType = currentOrderType();
 
 		// Setting up vars
-		boolean existTraveler = TravelerControl.isTravelerExist(idOfTraveler);
-		LocalDate today = LocalDate.now();
-		int parkId = MemberLoginController.member.getParkId();
+		//boolean existTraveler = TravelerControl.isTravelerExist(idOfTraveler);
+		//LocalDate today = LocalDate.now();
+		//int parkId = MemberLoginController.member.getParkId();
 
 		// Setting up price class.
-		CheckOut chk = new RegularCheckOut(numberOfVisitors);
 
 		// Order for group has no discount.
 		if (orderType.equals(OrderType.GROUP.toString())) {
-			price = (new GroupCasualCheckOut(chk)).getPrice();
+			price = (new GroupCasualCheckOut(numberOfVisitors)).getPrice();
+			return price;
+		}
+		if (orderType.equals(OrderType.SOLO.toString()) || orderType.equals(OrderType.FAMILY.toString())) {
+			price = (new CasualSoloFamilyVisitCheckOut(numberOfVisitors)).getPrice();
 			return price;
 		}
 		
@@ -315,25 +316,25 @@ public class CasualVisitController implements Initializable {
 	 * This function handle the receipt.
 	 */
 	private void loadOrderConfirmation(Order order) {
-		try {
-			Stage newStage = new Stage();
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
-			CasualVisitReceiptController controller = new CasualVisitReceiptController();
-			controller.setOrder(order);
+	    try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
+	        Parent root = loader.load();
+	        
+	        // Get the controller instance from the FXMLLoader
+	        CasualVisitReceiptController controller = loader.getController();
+	        controller.setOrder(order);
 
-			loader.setController(controller);
-			loader.load();
-			Parent p = loader.getRoot();
-
-			newStage.setTitle("Order receipt");
-			newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
-			newStage.setScene(new Scene(p));
-			newStage.setResizable(false);
-			newStage.show();
-		} catch (IOException e) {
-			System.out.println("faild to load form");
-			e.printStackTrace();
-		}
+	        Stage newStage = new Stage();
+	        newStage.setTitle("Order receipt");
+	        newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
+	        newStage.setScene(new Scene(root));
+	        newStage.setResizable(false);
+	        newStage.show();
+	    } catch (IOException e) {
+	        System.out.println("Failed to load form");
+	        e.printStackTrace();
+	    }
 	}
+
 
 }

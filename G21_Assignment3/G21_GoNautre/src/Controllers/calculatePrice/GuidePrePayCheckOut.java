@@ -1,24 +1,30 @@
 package Controllers.calculatePrice;
 
-/**
- * GuidePrePayCheckOut extends CheckOutDecorator
- * GuidePrePayCheckOut calculates organized group pre pay order's price
- *
- */
-public class GuidePrePayCheckOut extends CheckOutDecorator{
-	
-	private final double baseDiscount = 0.75;
-	private final double prePayDiscount = 0.88;
-	public GuidePrePayCheckOut(CheckOut tempCheckOut) {
-		super(tempCheckOut);
-	}
+import logic.GoNatureFinals;
 
-	/**
-	 * Overrite getPrice from CheckOutDecorator
-	 * 
-	 * @return return the organized group pre pay order's price
-	 */
-	public double getPrice() {
-		return regularCheckOut.getPrice() * baseDiscount * prePayDiscount;	
-	}
+
+/**
+ * GroupCasualCheckOut calculates casual group order's price
+ */
+public class GuidePrePayCheckOut implements CheckOut {
+
+    private int numOfVisitors;
+    private final double fullPrice = GoNatureFinals.FULL_PRICE;
+
+    private final double discountForGuidesPayAtPark = 0.75;
+    private final double discountForGuidesPrePayAtPark = 0.88;
+
+
+    public GuidePrePayCheckOut(int numOfVisitors) {
+    	this.numOfVisitors = numOfVisitors ;
+    }
+
+    /**
+     * Overwrite getPrice from CheckOut interface
+     * @return return the casual group order's price
+     */
+    @Override
+    public double getPrice() {
+        return (numOfVisitors-1) * fullPrice * discountForGuidesPayAtPark * discountForGuidesPrePayAtPark;
+    }
 }

@@ -13,7 +13,6 @@ import Controllers.ParkControl;
 import Controllers.TravelerControl;
 import Controllers.calculatePrice.CheckOut;
 import Controllers.calculatePrice.GuidePrePayCheckOut;
-import Controllers.calculatePrice.RegularCheckOut;
 import Controllers.calculatePrice.RegularPreOrderCheckOut;
 import alerts.CustomAlerts;
 import javafx.collections.FXCollections;
@@ -311,23 +310,25 @@ public class ManageTravelerController implements Initializable {
 		int parkId = MemberLoginController.member.getParkId();
 
 		// Regular Price
-		CheckOut chk = new RegularCheckOut(numberOfVisitors);
 
 		// Order is for solo / family and the visit is pre-ordered,
 		// in addition the ordering person is not a guide
+		System.out.println("100");
 		if (orderType.equals(OrderType.SOLO.toString()) || orderType.equals(OrderType.FAMILY.toString())) {
 
-			price = new RegularPreOrderCheckOut(chk).getPrice();
+			price = new RegularPreOrderCheckOut(numberOfVisitors).getPrice();
+			System.out.println("101");
 			return price;
 		} else {
 			// The group is a group visit.
 			// if (sub == null) {
-			price = new RegularPreOrderCheckOut(chk).getPrice();
+			price = new RegularPreOrderCheckOut(numberOfVisitors).getPrice();
 			// } else if (sub.getSubscriberType().equals("Guide")) {
-			// price = new GuidePrePayCheckOut(chk).getPrice();
+			// price = new GuidePrePayCheckOut(numberOfVisitors).getPrice();
 			// } else {
-			// price = new SubscriberPreOrderCheckOut(chk).getPrice();
+			// price = new SubscriberPreOrderCheckOut(numberOfVisitors).getPrice();
 			// }
+			System.out.println("102");
 			return price;
 		}
 

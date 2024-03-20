@@ -13,4 +13,5 @@ public interface CheckOut {
 	 */
 	public double getPrice();
 
+	
 }

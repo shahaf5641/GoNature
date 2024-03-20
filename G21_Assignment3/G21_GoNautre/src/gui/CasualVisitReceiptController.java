@@ -62,9 +62,10 @@ public class CasualVisitReceiptController implements Initializable {
         }
     }
 
-    /* On Finish button click */
+ // Method to close the stage
     private void closeStage() {
-        getStage().close();
+        Stage stage = (Stage) finishBtn.getScene().getWindow();
+        stage.close();
     }
 
     /**
