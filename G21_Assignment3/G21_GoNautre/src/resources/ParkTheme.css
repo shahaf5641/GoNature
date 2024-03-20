@@ -1,18 +1,25 @@
 /* Theme Colors */
 * {
-    -fx-primary: #008000; /* Green */
+    -fx-primary: #FFFFFF; /* White */
     -fx-secondary: #4CAF50; /* Dark Green */
     -fx-primarytext: black; /* Black */
     -fx-prompttext: lightgray; 
-    -fx-blue: #32CD32; /* Lime Green */
+    -fx-blue: #32CD32; /* Lime Greenn */
     -fx-red: #00FA9A; /* Medium Spring Green */
     -fx-white: #00FF00; /* Lime Green */
+
 }
 
 /* General Styling */
 .root {
-  
+    -fx-background-image: url("../resources/images/BackroundImage.png"); /* Adjust path as needed */
+    -fx-background-size: cover; /* Optional: Adjusts the image size to cover the entire scene */
+    -fx-background-repeat: no-repeat; /* Optional: Prevents image repetition */
+    -fx-background-position: center;
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
 }
+
 
 .glyph-icon {
     -fx-fill: -fx-primarytext;
@@ -126,7 +133,9 @@
     -fx-background-color: derive(-fx-primary, 20%);
 }
 
-/* ... (rest of the table styles) */
+#MenuButtons {
+	-fx-text-fill: white;
+}
 
 #PortText, #TextArea, #OrderNumberText, #OrderNumberText2, #ParkNameText, #PhoneNumberText {
     -fx-text-fill: black; /* Set column text color to black */

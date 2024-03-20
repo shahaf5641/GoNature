@@ -16,8 +16,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import logic.GoNatureFinals;
@@ -43,8 +41,6 @@ public class ServerGUIController {
 	@FXML
 	private TextArea txtareaLog;
 
-	@FXML
-	private Circle circleStatus;
 
 	@FXML
 	private TextField txtFldPort;
@@ -64,7 +60,7 @@ public class ServerGUIController {
 		Parent root = loader.load();
 
 		Scene scene = new Scene(root);
-		primaryStage.setTitle("G8_Server");
+		primaryStage.setTitle("G21_Server");
 		primaryStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
@@ -107,14 +103,6 @@ public class ServerGUIController {
 	public void updateTextAreaLog(String msg) {
 		if (txtareaLog != null)
 			txtareaLog.appendText(msg + "\n");
-	}
-
-	/**
-	 * This function change the color of the circle
-	 * @param c The new circle's color
-	 */
-	public void setCircleColor(Color c) {
-		circleStatus.setFill(c);
 	}
 
 }

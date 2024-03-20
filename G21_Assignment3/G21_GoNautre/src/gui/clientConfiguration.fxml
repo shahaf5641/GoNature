@@ -4,20 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="375.0" stylesheets="@../resources/GreenTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="headerLabel" layoutX="152.0" layoutY="40.0" text="Client Connection Set Up" />
-      <Label layoutX="82.0" layoutY="115.0" text="Server ip/hostname:" />
-      <Label layoutX="82.0" layoutY="164.0" text="Port:" />
-      <TextField fx:id="ipTextField" layoutX="246.0" layoutY="110.0" text="127.0.0.1" />
-      <TextField fx:id="portTextField" layoutX="246.0" layoutY="159.0" text="5555" />
-      <Button fx:id="connectButton" layoutX="226.0" layoutY="224.0" onMouseClicked="#connectButtonClick" prefHeight="40.0" prefWidth="131.0" text="Connect">
-         <graphic>
-            <Circle fx:id="circleStatus" fill="RED" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-         </graphic>
-      </Button>
-      <Button fx:id="startAppBtn" layoutX="226.0" layoutY="333.0" onMouseClicked="#loadApp" prefHeight="39.0" prefWidth="131.0" text="Start App" />
+      <Label fx:id="headerLabel" layoutX="76.0" layoutY="34.0" text="Client Connection" textFill="#37ff00" underline="true" />
+      <Label layoutX="25.0" layoutY="118.0" text="Hostname:" />
+      <Label layoutX="25.0" layoutY="177.0" text="Port:" />
+      <TextField fx:id="ipTextField" layoutX="161.0" layoutY="114.0" prefHeight="36.0" prefWidth="163.0" promptText="127.0.0.1" />
+      <TextField fx:id="portTextField" layoutX="161.0" layoutY="173.0" prefHeight="36.0" prefWidth="163.0" promptText="5555" />
+      <Button fx:id="connectButton" layoutX="113.0" layoutY="252.0" onMouseClicked="#connectButtonClick" prefHeight="40.0" prefWidth="131.0" text="Connect" />
+      <Button fx:id="startAppBtn" layoutX="113.0" layoutY="335.0" onMouseClicked="#loadApp" prefHeight="39.0" prefWidth="131.0" text="Start App" />
    </children>
 </AnchorPane>

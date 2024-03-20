@@ -31,7 +31,7 @@
 
          </image>
       </ImageView>
-      <Button fx:id="sendToManagerBtn" layoutX="261.0" layoutY="798.0" text="Send To Department Manager" onAction="#sendToManagerBtn" />
+      <Button fx:id="sendToManagerBtn" layoutX="261.0" layoutY="798.0" onAction="#sendToManagerBtn" text="Send To Department Manager" />
       <TextArea fx:id="commentTextArea" layoutX="230.0" layoutY="693.0" prefHeight="88.0" prefWidth="239.0" promptText="Add Comments (Optional)" />
       <Label layoutX="315.0" layoutY="658.0" text="Comments:" underline="true" />
       <BarChart fx:id="barChart" layoutX="17.0" layoutY="304.0" prefHeight="338.0" prefWidth="627.0" title="Days Distribution">

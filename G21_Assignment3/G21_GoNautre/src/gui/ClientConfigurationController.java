@@ -44,9 +44,6 @@ public class ClientConfigurationController implements Initializable {
     private Button startAppBtn;
 
     @FXML
-    private Circle circleStatus;
-
-    @FXML
     private TextField ipTextField;
 
     @FXML
@@ -75,12 +72,9 @@ public class ClientConfigurationController implements Initializable {
         if (!ipTextField.getText().isEmpty() && !portTextField.getText().isEmpty()) {
             try {
                 ClientUI.chat = new ClientController(ipTextField.getText(), Integer.parseInt(portTextField.getText()));
-                circleStatus.setFill(Color.GREEN);
             } catch (NumberFormatException e) {
-                circleStatus.setFill(Color.RED);
                 e.printStackTrace();
             } catch (IOException e) {
-                circleStatus.setFill(Color.RED);
                 e.printStackTrace();
             }
         } else {

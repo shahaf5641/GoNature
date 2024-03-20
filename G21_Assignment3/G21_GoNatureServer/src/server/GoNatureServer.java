@@ -46,9 +46,7 @@ public class GoNatureServer extends AbstractServer {
 			mysqlconnection = MysqlConnection.getInstance().getConnection();
 			serverGUIController.updateTextAreaLog("Server Connected");
 			serverGUIController.updateTextAreaLog("DB Connected");
-			serverGUIController.setCircleColor(Color.GREEN);
 		} catch (Exception e) {
-			serverGUIController.setCircleColor(Color.RED);
 			serverGUIController.updateTextAreaLog("Failed to load DB");
 			throw e;
 		}
