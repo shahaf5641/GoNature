@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 import logic.GoNatureFinals;
 
 /**
- * counts pending orders with passed date and cancelled orders for each park
+ * counts pending orders with passed date and cancelled orders for each park.
  * presents it in report and shows in total how many orders were cancelled
  */
 public class CancelsReportController implements Initializable{
