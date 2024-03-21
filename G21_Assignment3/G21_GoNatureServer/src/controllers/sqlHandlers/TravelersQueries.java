@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import logic.Employees;
 import logic.Messages;
+import logic.Subscriber;
 import logic.Traveler;
 import logic.WorkerType;
 
@@ -90,9 +91,31 @@ public class TravelersQueries {
 		}
 	}
 
-	
+	/**
+	 * This function gets subscriber's id a retrieve the subscriber from the database
+	 * 
+	 * @param parameters The subscriber's id
+	 * @return Subscriber object
+	 */
+	public Subscriber getSubscriberById(ArrayList<?> parameters) {
+		Subscriber sub = null;
+		String sql = "SELECT * FROM g21gonature.subscriber WHERE travelerId = ? ";
+		PreparedStatement query;
+		try {
+			query = conn.prepareStatement(sql);
+			query.setString(1, (String) parameters.get(0));
+			ResultSet res = query.executeQuery();
+			if (res.next())
+				sub = new Subscriber(res.getString(1), res.getString(2), res.getString(3), res.getString(4),
+						res.getString(5));
+		} catch (SQLException e) {
+			System.out.println("Could not execute checkIfConnected query");
+			e.printStackTrace();
+		}
 
-	
+		return sub;
+	}
+
 	/**
 	 * This function INSERT a new traveler to 'traveler' table in the database
 	 * 
@@ -207,11 +230,32 @@ public class TravelersQueries {
 		}
 	}
 
+	/**
+	 * This function inserts a new subscriber into subscriber table with given subscriber details
+	 * 
+	 * @param parameters ArrayList with travelerId firstName lastName email phoneNumber creditCard subscriberType numberOfParticipants
+	 */
+	public void insertSubscriberToSubscriberTable(ArrayList<?> parameters) {
+		String sql = "INSERT INTO g21gonature.subscriber (travelerId, firstName, lastName, email, phoneNumber) values (?,?,?,?,?)";
+		PreparedStatement query;
+		try {
+			query = conn.prepareStatement(sql);
+			query.setString(1, (String) parameters.get(0));
+			query.setString(2, (String) parameters.get(1));
+			query.setString(3, (String) parameters.get(2));
+			query.setString(4, (String) parameters.get(3));
+			query.setString(5, (String) parameters.get(4));
+			query.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Could not execute insertSubscriberToSubscriberTable query");
+			e.printStackTrace();
+		}
+	}
 
 	/**
-	 * This function gets traveler messages from messages table by traveler
+	 * This function gets traveler/subscriber messages from messages table by traveler/subscriber's ID
 	 * 
-	 * @param parameters toId traveler's ID
+	 * @param parameters toId traveler/subscriber's ID
 	 * @return ArrayList of messages
 	 */
 	public ArrayList<Messages> getMessages(ArrayList<?> parameters) {
@@ -266,10 +310,10 @@ public class TravelersQueries {
 	/**
 	 * This function inserts new credit card into card table with given card details
 	 * 
-	 * @param parameters ArrayList cardNumber cardExpiryDate CVC
+	 * @param parameters ArrayList with subscriberId cardNumber cardExpiryDate CVC
 	 */
 	public void insertCardToCreditCardTable(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g21gonature.creditcard (cardNumber, cardExpiryDate, CVC) values (?,?,?)";
+		String sql = "INSERT INTO g21gonature.creditcard (subscriberId, cardNumber, cardExpiryDate, CVC) values (?,?,?,?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);

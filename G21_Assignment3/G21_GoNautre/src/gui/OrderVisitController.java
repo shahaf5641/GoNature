@@ -276,7 +276,14 @@ public class OrderVisitController implements Initializable {
 				&& summaryType.getText().equals(OrderType.GROUP.toString())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
 					"Group order must have atleast 2 visitors").showAndWait();
-		} else if (Integer.parseInt(summaryVisitors.getText()) > 9
+		} 
+		else if(TravelerControl.getSubscriber(summaryID.getText()) == null
+				&& summaryType.getText().equals(OrderType.GROUP.toString()))
+		{
+			new CustomAlerts(AlertType.ERROR, "Bad Input", "Not Registered Guide",
+					"Please contact service employee").showAndWait();
+		}
+		else if (Integer.parseInt(summaryVisitors.getText()) > 9
 				&& summaryType.getText().equals(OrderType.FAMILY.toString())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
 					"Group order can be up to 9 travelers").showAndWait();

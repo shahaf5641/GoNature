@@ -22,6 +22,7 @@ import logic.Messages;
 import logic.Order;
 import logic.Park;
 import logic.ServerToClientResponse;
+import logic.Subscriber;
 import logic.Traveler;
 import logic.Report;
 import ocsf.server.ConnectionToClient;
@@ -161,6 +162,12 @@ public class HandleClientRequest implements Runnable {
 					travelerQueriesl.removeFromLoggedInTable(request.getParameters());
 					client.sendToClient("User logedout.");
 				}
+				
+				if (request.getRequestType().equals(Request.INSERT_TO_SUBSCRIBER)) {
+					travelerQueriesl.insertSubscriberToSubscriberTable(request.getParameters());
+					client.sendToClient("Finished Insert");
+					client.sendToClient("");
+				}
 
 				if (request.getRequestType().equals(Request.GET_ALL_ORDER_FOR_ID)) {
 					ArrayList<Order> orders = orderQueries.getAllOrdersForID(request.getParameters());
@@ -213,6 +220,12 @@ public class HandleClientRequest implements Runnable {
 				if (request.getRequestType().equals(Request.MANAGER_REQUEST)) {
 					requestsQueries.insertAllNewRequestsFromParkManager(request.getParameters());
 					response = new ServerToClientResponse();
+					client.sendToClient(response);
+				}
+				if (request.getRequestType().equals(Request.GET_SUBSCRIBER)) {
+					Subscriber sub = travelerQueriesl.getSubscriberById(request.getParameters());
+					response = new ServerToClientResponse();
+					response.setResultSet(new ArrayList<Subscriber>(Arrays.asList(sub)));
 					client.sendToClient(response);
 				}
 
@@ -387,7 +400,6 @@ public class HandleClientRequest implements Runnable {
 					response = new ServerToClientResponse();
 					response.setResultSet(reportsQueries.CountGroupsEnterTime(request.getParameters()));
 					client.sendToClient(response);
-
 				}
 				if (request.getRequestType().equals(Request.COUNT_VISIT_SOLO_VISITORS)) {
 

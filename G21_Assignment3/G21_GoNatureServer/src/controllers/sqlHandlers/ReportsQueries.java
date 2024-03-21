@@ -97,7 +97,6 @@ public class ReportsQueries {
 				VisitReport report = new VisitReport(res.getInt(1), res.getString(2));
 				rep.add(report);
 			}
-
 		} catch (SQLException e) {
 			System.out.println("Could not execute CountSolos query");
 			e.printStackTrace();
