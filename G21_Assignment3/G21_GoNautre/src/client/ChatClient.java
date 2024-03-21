@@ -108,30 +108,14 @@ public class ChatClient extends AbstractClient {
 	 */
 	public void handleMessageFromClientUI(ClientToServerRequest<?> message) {
 		try {
-			System.out.println("13");
-
 			openConnection();// in order to send more than one message
-			System.out.println("14");
-
 			awaitResponse = true;
-			System.out.println("15");
-
 			sendToServer(message);
-			System.out.println("16");
-
 			// wait for response
 			while (awaitResponse) {
-				System.out.println("17");
-
 				try {
-					System.out.println("18");
-
 					Thread.sleep(100);
-					System.out.println("19");
-
 				} catch (InterruptedException e) {
-					System.out.println("20");
-
 					e.printStackTrace();
 				}
 			}

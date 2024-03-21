@@ -1,5 +1,6 @@
 package gui;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -73,7 +74,7 @@ public class UsageReportController implements Initializable {
 	private void init() {
 		Locale.setDefault(Locale.ENGLISH);
 		initLabels();
-	    generateUsageReport(); // Call generateUsageReport method here
+	    generateUsageReport();
 
 		if (isDepManager) {
 			commentTextArea.setEditable(false);
@@ -93,23 +94,15 @@ public class UsageReportController implements Initializable {
 	}
 	
 	public void generateUsageReport() {
-	    // Clear existing items in the table
 	    notFullDatesTable.getItems().clear();
-
-	    // Get the number of days in the selected month
 	    int daysInMonth = getDaysInMonth(year, monthNumber);
     	int currentMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
 		if (monthNumber > currentMonth)
 			year--;
-	    // Loop through each day of the selected month
 	    for (int day = 1; day <= daysInMonth; day++) {
-	        // Call isParkIsFullAtDate method to check if park was full on the current day
 	        ArrayList<String> comments = isParkIsFullAtDate(year, monthNumber, day);
-
-	        // Check if the park was not full on the current day
-	        if (!comments.contains("Full")) {
+	        if (comments.get(0).equals("notFull")) {
 	            String date = String.format("%d-%02d-%02d", year, monthNumber, day);
-	            // Add the date to the TableView
 	            notFullDatesTable.getItems().add(date);
 	        }
 	    }

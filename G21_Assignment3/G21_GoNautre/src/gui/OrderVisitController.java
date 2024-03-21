@@ -330,14 +330,10 @@ public class OrderVisitController implements Initializable {
 					return 0.0;
 				}
 			}
-
-			System.out.println("1");
-
 			/* guest order */
 			if (summaryPayment.getText().equals("At The Park")
 					&& summaryType.getText().equals(OrderType.GROUP.toString())) {
 				GuidePayAtParkCheckOut checkOut = new GuidePayAtParkCheckOut(visitorsNumber);
-				System.out.println("4");
 
 				return checkOut.getPrice();
 
@@ -354,13 +350,11 @@ public class OrderVisitController implements Initializable {
 
 			else {
 				SoloFamilyOrderCheckOut checkOut = new SoloFamilyOrderCheckOut(visitorsNumber);
-				System.out.println("5");
 
 				return checkOut.getPrice();
 			}
 
 		}
-		System.out.println("6");
 
 		return (double) GoNatureFinals.FULL_PRICE;
 	}

@@ -207,35 +207,11 @@ public class TravelersQueries {
 		}
 	}
 
-	/**
-	 * This function inserts a new subscriber into subscriber table with given subscriber details
-	 * 
-	 * @param parameters ArrayList with travelerId firstName lastName email phoneNumber creditCard subscriberType numberOfParticipants
-	 */
-	public void insertSubscriberToSubscriberTable(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g21gonature.subscriber (travelerId, firstName, lastName, email, phoneNumber, creditCard, subscriberType, numberOfParticipants) values (?,?,?,?,?,?,?,?)";
-		PreparedStatement query;
-		try {
-			query = conn.prepareStatement(sql);
-			query.setString(1, (String) parameters.get(0));
-			query.setString(2, (String) parameters.get(1));
-			query.setString(3, (String) parameters.get(2));
-			query.setString(4, (String) parameters.get(3));
-			query.setString(5, (String) parameters.get(4));
-			query.setString(6, (String) parameters.get(5));
-			query.setString(7, (String) parameters.get(6));
-			query.setInt(8, Integer.parseInt((String) parameters.get(7)));
-			query.executeUpdate();
-		} catch (SQLException e) {
-			System.out.println("Could not execute insertSubscriberToSubscriberTable query");
-			e.printStackTrace();
-		}
-	}
 
 	/**
-	 * This function gets traveler/subscriber messages from messages table by traveler/subscriber's ID
+	 * This function gets traveler messages from messages table by traveler
 	 * 
-	 * @param parameters toId traveler/subscriber's ID
+	 * @param parameters toId traveler's ID
 	 * @return ArrayList of messages
 	 */
 	public ArrayList<Messages> getMessages(ArrayList<?> parameters) {
@@ -290,10 +266,10 @@ public class TravelersQueries {
 	/**
 	 * This function inserts new credit card into card table with given card details
 	 * 
-	 * @param parameters ArrayList with subscriberId cardNumber cardExpiryDate CVC
+	 * @param parameters ArrayList cardNumber cardExpiryDate CVC
 	 */
 	public void insertCardToCreditCardTable(ArrayList<?> parameters) {
-		String sql = "INSERT INTO g21gonature.creditcard (subscriberId, cardNumber, cardExpiryDate, CVC) values (?,?,?,?)";
+		String sql = "INSERT INTO g21gonature.creditcard (cardNumber, cardExpiryDate, CVC) values (?,?,?)";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);

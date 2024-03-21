@@ -6,9 +6,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="parametersTable" layoutX="164.0" layoutY="102.0" onMousePressed="#requestTableClicked" prefHeight="180.0" prefWidth="593.0">
+      <TableView fx:id="parametersTable" layoutX="156.0" layoutY="138.0" prefHeight="322.0" prefWidth="593.0">
         <columns>
             <TableColumn fx:id="parametersIdCol" prefWidth="76.0" text="ID" />
             <TableColumn fx:id="parkIDCol" prefWidth="78.0" text="Park ID" />
@@ -21,24 +21,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TableView fx:id="discountTable" layoutX="164.0" layoutY="309.0" onMousePressed="#discountTableClicked" prefHeight="180.0" prefWidth="593.0">
-        <columns>
-          <TableColumn fx:id="discountIdCol" prefWidth="39.0" text="ID" />
-            <TableColumn fx:id="discountCol" prefWidth="127.0" text="Discount %" />
-          <TableColumn fx:id="startDateCol" prefWidth="75.0" text="Start Date" />
-            <TableColumn fx:id="endDateCol" prefWidth="75.0" text="End Date" />
-            <TableColumn fx:id="discountStatusCol" prefWidth="75.0" text="Status" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
       <Label fx:id="headerLabel" layoutX="355.0" layoutY="26.0" text="Review Requests" />
-      <Label layoutX="385.0" layoutY="76.0" text="Park Parameters Requests" />
-      <Label layoutX="383.0" layoutY="287.0" text="Park Discount Requests" />
+      <Label layoutX="384.0" layoutY="88.0" text="Park Parameters Requests" />
       <Button fx:id="confirmRequestBtn" layoutX="472.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#confirmRequestBtn" prefHeight="39.0" prefWidth="196.0" text="   Confirm Request" />
       <Button fx:id="cancelRequestBtn" layoutX="264.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#cancelRequestBtn" prefHeight="39.0" prefWidth="188.0" text="   Cancel Request" />
-      <Label layoutX="413.0" layoutY="492.0" text="Selected Request:" underline="true" />
-      <Label fx:id="selectedRequestLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" layoutY="512.0" prefHeight="20.0" prefWidth="490.0" text="Discount 112" />
+      <Label fx:id="selectedRequestLabel" layoutX="413.0" layoutY="492.0" text="Selected Request:" underline="true" />
    </children>
 </Pane>

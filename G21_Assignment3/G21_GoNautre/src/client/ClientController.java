@@ -69,9 +69,7 @@ public class ClientController implements ChatIF {
 	 * @param message The message to send to the server
 	 */
 	public void accept(ClientToServerRequest<?> message) {
-		System.out.println("22");
 		client.handleMessageFromClientUI(message);
-		System.out.println("23");
 
 	}
 

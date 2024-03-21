@@ -8,7 +8,6 @@ import java.util.ArrayList;
  * It contains a request type, parameters, and additional input.
  * @param <T> The type of object being passed as parameters.
  */
-@SuppressWarnings("serial")
 public class ClientToServerRequest<T> implements Serializable {
 
 	// Enum defining different types of requests

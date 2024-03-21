@@ -73,30 +73,17 @@ public class UpdateParametersController implements Initializable {
     @FXML
     private void sendForApprovealButtonClicked() {
 
-    	
         ArrayList<String> arrayOfTextRequests = new ArrayList<>();
-
-        System.out.println("1");
         arrayOfTextRequests.add(newMaxVisitorsTextField.getText());
-        System.out.println("2");
         arrayOfTextRequests.add(newEsitimatedTIme.getText());
-        System.out.println("3");
         arrayOfTextRequests.add(gapTextField.getText());
-        System.out.println("4");
-        //arrayOfTextRequests.add(discountStartDateTextField.getText());
-        //arrayOfTextRequests.add(discountEndDateTextField.getText());
-        //arrayOfTextRequests.add(discountPercentage.getText());
-
-        System.out.println("5");
-        Integer prakID = MemberLoginController.member.getParkId();
-        System.out.println("6");
-        arrayOfTextRequests.add(prakID.toString());
-        System.out.println("7");
+        Integer parkID = MemberLoginController.member.getParkId();
+        String parkIdString = parkID.toString(); // Convert Integer to String
+        arrayOfTextRequests.add(parkIdString);
         RequestControl.addNewRequest(arrayOfTextRequests);
-        System.out.println("8");
+        System.out.println("2");
         new CustomAlerts(AlertType.INFORMATION, "Sent", "Sent", "New requests were sent to Department Manager")
                 .showAndWait();
-        System.out.println("9");
     }
 
     @Override

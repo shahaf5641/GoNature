@@ -15,13 +15,8 @@ public class RequestControl {
 	 * @param arrayOfRequests Array with the needed parameters
 	 */
 	public static void addNewRequest(ArrayList<?> arrayOfRequests) {
-		System.out.println("10");
 		ClientToServerRequest<?> request = new ClientToServerRequest<>(Request.MANAGER_REQUEST, arrayOfRequests);
-		System.out.println("11");
-
 		ClientUI.chat.accept(request);
-		System.out.println("12");
-
 	}
 
 	/**
@@ -31,16 +26,6 @@ public class RequestControl {
 		ClientToServerRequest<?> request = new ClientToServerRequest<>(Request.VIEW_MANAGER_REQUEST, new ArrayList<>());
 		ClientUI.chat.accept(request);
 	}
-
-	/**
-	 * this function sends a request to view Discount table
-	 */
-	public static void viewcurrentDiscounts() {
-		ClientToServerRequest<?> request = new ClientToServerRequest<>(Request.VIEW_MANAGER_DISCOUNT,
-				new ArrayList<>());
-		ClientUI.chat.accept(request);
-	}
-
 	/**
 	 * This function change the status of a given request
 	 * 

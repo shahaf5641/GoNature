@@ -339,10 +339,6 @@ public class HandleClientRequest implements Runnable {
 					int parkID = Integer.parseInt((String) request.getParameters().get(2));
 					if (request.getParameters().get(1).equals("Total Visitors"))
 						response.setResultSet(reportsQueries.createNumberOfVisitorsReport(month, parkID));
-
-					if (request.getParameters().get(1).equals("Income"))
-						response.setResultSet(reportsQueries.createIncomeReport(month, parkID));
-
 					client.sendToClient(response);
 
 				}
@@ -358,7 +354,6 @@ public class HandleClientRequest implements Runnable {
 
 				if (request.getRequestType().equals(Request.CHANGE_PARK_PARAMETERS)) {
 					response = new ServerToClientResponse();
-
 					parkQueries.changeParkParametersInDB(request.getParameters());
 					client.sendToClient(response);
 				}
@@ -387,13 +382,6 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient(response);
 
 				}
-				if (request.getRequestType().equals(Request.COUNT_ENTER_SUBS_VISITORS)) {
-
-					response = new ServerToClientResponse();
-					response.setResultSet(reportsQueries.CountSubsEnterTime(request.getParameters()));
-					client.sendToClient(response);
-
-				}
 				if (request.getRequestType().equals(Request.COUNT_ENTER_GROUP_VISITORS)) {
 
 					response = new ServerToClientResponse();
@@ -405,13 +393,6 @@ public class HandleClientRequest implements Runnable {
 
 					response = new ServerToClientResponse();
 					response.setResultSet(reportsQueries.CountSolosVisitTime(request.getParameters()));
-					client.sendToClient(response);
-
-				}
-				if (request.getRequestType().equals(Request.COUNT_VISIT_SUBS_VISITORS)) {
-
-					response = new ServerToClientResponse();
-					response.setResultSet(reportsQueries.CountSubsVisitTime(request.getParameters()));
 					client.sendToClient(response);
 
 				}
@@ -511,11 +492,6 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient(response);
 				}
 
-				if (request.getRequestType().equals(Request.COUNT_ENTER_SUBS_VISITORS_WITH_DAYS)) {
-					response = new ServerToClientResponse();
-					response.setResultSet(reportsQueries.CountSubsEnterTimeWithDays(request.getParameters()));
-					client.sendToClient(response);
-				}
 				if (request.getRequestType().equals(Request.COUNT_ENTER_SOLOS_VISITORS_WITH_DAYS)) {
 					response = new ServerToClientResponse();
 					response.setResultSet(reportsQueries.CountSolosEnterTimeWithDays(request.getParameters()));
@@ -524,11 +500,6 @@ public class HandleClientRequest implements Runnable {
 				if (request.getRequestType().equals(Request.COUNT_ENTER_GROUPS_VISITORS_WITH_DAYS)) {
 					response = new ServerToClientResponse();
 					response.setResultSet(reportsQueries.CountGroupsEnterTimeWithDays(request.getParameters()));
-					client.sendToClient(response);
-				}
-				if (request.getRequestType().equals(Request.COUNT_VISIT_SUBS_VISITORS_WITH_DAYS)) {
-					response = new ServerToClientResponse();
-					response.setResultSet(reportsQueries.CountSubsVisitTimeWithDays(request.getParameters()));
 					client.sendToClient(response);
 				}
 				if (request.getRequestType().equals(Request.COUNT_VISIT_SOLOS_VISITORS_WITH_DAYS)) {
