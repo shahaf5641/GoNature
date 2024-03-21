@@ -74,7 +74,6 @@ public class CasualVisitController implements Initializable {
 	@FXML
 	private Label permissionLabel;
 
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		initComboBoxOrderType();
@@ -103,7 +102,6 @@ public class CasualVisitController implements Initializable {
 
 		typeComboBox.getItems().clear();
 		typeComboBox.getItems().addAll(Arrays.asList(OrderType.values()));
-		
 
 		/* Listener to order type ComboBox. activate on every item selected */
 		typeComboBox.valueProperty().addListener((obs, oldItem, newItem) -> {
@@ -177,8 +175,7 @@ public class CasualVisitController implements Initializable {
 
 		// Input validation for number of visitors.
 		if (numOfVisitors > 15 || numOfVisitors <= 0) {
-			popNotification(AlertType.ERROR, "Input Error",
-					"Please fill the form correctly and then press check price");
+			popNotification(AlertType.ERROR, "Input Error", "The number of visitors must be up to 15. ");
 			return false;
 		}
 
@@ -188,9 +185,6 @@ public class CasualVisitController implements Initializable {
 			return false;
 		}
 
-		
-
-		
 		return true;
 	}
 
@@ -200,14 +194,14 @@ public class CasualVisitController implements Initializable {
 	private double calculatePriceForVisit() {
 		double price = 0;
 		// Recive the data from the text fields.
-		//String idOfTraveler = idInputCasualVisit.getText();
+		// String idOfTraveler = idInputCasualVisit.getText();
 		int numberOfVisitors = Integer.parseInt(numOfVisitorsCasualVisit.getText());
 		String orderType = currentOrderType();
 
 		// Setting up vars
-		//boolean existTraveler = TravelerControl.isTravelerExist(idOfTraveler);
-		//LocalDate today = LocalDate.now();
-		//int parkId = MemberLoginController.member.getParkId();
+		// boolean existTraveler = TravelerControl.isTravelerExist(idOfTraveler);
+		// LocalDate today = LocalDate.now();
+		// int parkId = MemberLoginController.member.getParkId();
 
 		// Setting up price class.
 
@@ -220,7 +214,7 @@ public class CasualVisitController implements Initializable {
 			price = (new CasualSoloFamilyVisitCheckOut(numberOfVisitors)).getPrice();
 			return price;
 		}
-		
+
 		return price;
 	}
 
@@ -268,8 +262,6 @@ public class CasualVisitController implements Initializable {
 		String email = emailInputCasualVisit.getText();
 		int parkId = MemberLoginController.member.getParkId();
 
-		
-
 		// Creating new order with relevent details.
 		Order order = new Order(idOfTraveler, parkId, LocalDate.now().toString(), LocalTime.now().toString(), orderType,
 				numberOfVisitors, email, Double.parseDouble(totalPriceLabel.getText()),
@@ -298,6 +290,7 @@ public class CasualVisitController implements Initializable {
 
 			// Need to get orderId from DB
 			order = OrderControl.getTravelerRecentOrder(idOfTraveler);
+			System.out.println(order.getOrderDate() + order.getOrderTime() + order.getOrderType());
 
 			// Closing the scene and updating the table for entrance worker.
 			Stage stage = (Stage) idInputCasualVisit.getScene().getWindow();
@@ -307,6 +300,7 @@ public class CasualVisitController implements Initializable {
 
 			// Setting the receipt window.
 			loadOrderConfirmation(order);
+			System.out.println("701");
 		} else {
 			popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
 		}
@@ -315,26 +309,32 @@ public class CasualVisitController implements Initializable {
 	/*
 	 * This function handle the receipt.
 	 */
-	private void loadOrderConfirmation(Order order) {
-	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
-	        Parent root = loader.load();
-	        
-	        // Get the controller instance from the FXMLLoader
-	        CasualVisitReceiptController controller = loader.getController();
-	        controller.setOrder(order);
+	public void loadOrderConfirmation(Order order) {
+		try {
+			if (order == null) {
+				System.out.println("Order is null. Cannot load order confirmation.");
+				return;
+			}
+			// Get the controller instance from the FXMLLoader
+			CasualVisitReceiptController controller = new CasualVisitReceiptController();
 
-	        Stage newStage = new Stage();
-	        newStage.setTitle("Order receipt");
-	        newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
-	        newStage.setScene(new Scene(root));
-	        newStage.setResizable(false);
-	        newStage.show();
-	    } catch (IOException e) {
-	        System.out.println("Failed to load form");
-	        e.printStackTrace();
-	    }
+			controller.setOrder(order);
+			System.out.println("1" + order.getOrderDate() + order.getOrderTime() + order.getOrderType());
+
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
+			Parent root = loader.load();
+
+			Stage newStage = new Stage();
+			newStage.setTitle("Order receipt");
+			newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
+			newStage.setScene(new Scene(root));
+			newStage.setResizable(false);
+			newStage.show();
+		} catch (IOException e) {
+			System.out.println("Failed to load form");
+			e.printStackTrace();
+		}
 	}
-
 
 }

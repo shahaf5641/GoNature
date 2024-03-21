@@ -146,4 +146,6 @@ public class OrderTb {
 	public void setOrderStatus(SimpleStringProperty orderStatus) {
 		this.orderStatus = orderStatus;
 	}
+	
+	
 }

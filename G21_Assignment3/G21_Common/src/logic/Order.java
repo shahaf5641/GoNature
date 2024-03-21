@@ -93,7 +93,12 @@ public class Order implements Serializable {
 
     // Getter and setter methods for accessing and modifying the instance variables
 
-    public int getOrderId() {
+    public Order(int orderId2, String travelerId2, String orderDate2, String orderTime2, String orderStatus2,
+			String orderType2, int numberOfParticipants2, double price2, int parkId2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getOrderId() {
         return orderId;
     }
 

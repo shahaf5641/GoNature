@@ -342,7 +342,9 @@ public class ManageTravelerController implements Initializable {
 			Stage newStage = new Stage();
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/OrderConfirmation.fxml"));
 			OrderConfirmationController controller = new OrderConfirmationController();
+
 			controller.setOrder(new Order(clickedRow));
+
 			String id = clickedRow.getTravelerId();
 			Traveler traveler;
 
@@ -365,6 +367,7 @@ public class ManageTravelerController implements Initializable {
 		}
 	}
 
+	
 	/*
 	 * This function return if the traveler can enter the park when approching the
 	 * entrance
