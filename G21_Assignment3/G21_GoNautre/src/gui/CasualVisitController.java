@@ -178,6 +178,12 @@ public class CasualVisitController implements Initializable {
 			popNotification(AlertType.ERROR, "Input Error", "The number of visitors must be up to 15. ");
 			return false;
 		}
+		if(TravelerControl.getSubscriber(idInputCasualVisit.getText()) == null
+				&& orderType.equals(OrderType.GROUP.toString()))
+		{
+			new CustomAlerts(AlertType.ERROR, "Bad Input", "Not Registered Guide",
+					"Please contact service employee").showAndWait();
+		}
 
 		// Input validation - group with one participant.
 		if (orderType.equals(OrderType.GROUP.toString()) && numOfVisitors < 2) {
