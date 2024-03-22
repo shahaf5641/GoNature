@@ -172,7 +172,7 @@ public class CasualVisitController implements Initializable {
 
 		// Recive the data after it has been validated, in order to avoid exceptions.
 		int numOfVisitors = Integer.parseInt(numOfCasualVisitors);
-
+//
 		// Input validation for number of visitors.
 		if (numOfVisitors > 15 || numOfVisitors <= 0) {
 			popNotification(AlertType.ERROR, "Input Error", "The number of visitors must be up to 15. ");
