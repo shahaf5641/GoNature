@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Controllers.OrderControl;
 import Controllers.ParkControl;
 import Controllers.TravelerControl;
+import Controllers.WorkerControl;
 import Controllers.calculatePrice.CheckOut;
 import Controllers.calculatePrice.GuidePrePayCheckOut;
 import Controllers.calculatePrice.RegularPreOrderCheckOut;
@@ -29,6 +31,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
@@ -52,9 +55,8 @@ import logic.Traveler;
 public class ManageTravelerController implements Initializable {
 
 	ObservableList<OrderTb> ov = FXCollections.observableArrayList();
-
 	@FXML
-	private javafx.scene.control.TextField idTextField;
+	private TextField idTextField;
 
 	@FXML
 	private TableView<OrderTb> ordersTableView;
@@ -205,6 +207,42 @@ public class ManageTravelerController implements Initializable {
 		}
 		return ov;
 	}
+	
+    @FXML
+    private void exitBtn() {
+		// Did the user choose order
+		if (clickedRow == null) {
+			new CustomAlerts(AlertType.ERROR, "Input Error", "Input Error", "Please select traveler")
+					.showAndWait();
+			return;
+		}
+
+		
+		// Can traveler exit the park?
+		// Order status is not valid
+		if (!clickedRow.getOrderStatus().equals(OrderStatusName.ENTERED_THE_PARK.toString()))
+		{
+			new CustomAlerts(AlertType.ERROR, "Input Error", "Order Error",
+					"Make sure the traveler entered in the park").showAndWait();
+			return;
+		}
+		
+        if (idTextField.getText().isEmpty())
+        {
+			new CustomAlerts(AlertType.ERROR, "Input Error", "Order Error", "Please enter ID")
+				.showAndWait();
+			return;
+        	
+        }
+        
+    	LocalTime currentTime = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedTime = currentTime.format(formatter);
+        WorkerControl.executeExitSequence(idTextField.getText(),formattedTime);
+		new CustomAlerts(AlertType.INFORMATION, "Success", "Exit", "Exit succeed")
+		.showAndWait();
+        
+    }
 
 	/*
 	 * This function clears the labels
@@ -313,11 +351,9 @@ public class ManageTravelerController implements Initializable {
 
 		// Order is for solo / family and the visit is pre-ordered,
 		// in addition the ordering person is not a guide
-		System.out.println("100");
 		if (orderType.equals(OrderType.SOLO.toString()) || orderType.equals(OrderType.FAMILY.toString())) {
 
 			price = new RegularPreOrderCheckOut(numberOfVisitors).getPrice();
-			System.out.println("101");
 			return price;
 		} else {
 			// The group is a group visit.
@@ -328,7 +364,6 @@ public class ManageTravelerController implements Initializable {
 			// } else {
 			// price = new SubscriberPreOrderCheckOut(numberOfVisitors).getPrice();
 			// }
-			System.out.println("102");
 			return price;
 		}
 

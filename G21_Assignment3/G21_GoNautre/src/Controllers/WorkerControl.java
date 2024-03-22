@@ -1,11 +1,20 @@
 package Controllers;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import client.ChatClient;
 import client.ClientUI;
+import gui.ManageTravelerController;
 import logic.ClientToServerRequest;
+import logic.ClientToServerRequest.Request;
+import logic.Order;
+import logic.OrderStatusName;
+import logic.Park;
+
+import java.util.Arrays;
+
 import logic.Employees;
+import logic.Order;
+import logic.OrderStatusName;
+import logic.Park;
 import logic.ClientToServerRequest.Request;
 
 /**
@@ -13,6 +22,7 @@ import logic.ClientToServerRequest.Request;
  */
 @SuppressWarnings("unchecked")
 public class WorkerControl {
+	public static Order order = null;
 
 	/**
 	 * This function get an employee's id and returns Employee object,
@@ -55,4 +65,45 @@ public class WorkerControl {
 		return employeeInfo;
 
 	}
+	
+	/**
+	 * This function runs all the actions that needs to happened when exiting the park.
+	 * Update exit time in the database.
+	 * Update park's current visitors.
+	 * 
+	 * @param id The id of the exiting traveler.
+	 * @param exitTime The traveler exit time
+	 * @param cardReaderController  The GUI controller to update.
+	 */
+	public static void executeExitSequence(String id, String exitTime) {
+		order = OrderControl.getRelevantOrder_ParkExit(id);
+		if (order != null) {
+			updateVisitExitTime(order, exitTime);
+			OrderControl.changeOrderStatus(String.valueOf(order.getOrderId()), OrderStatusName.COMPLETED);
+			Park park = ParkControl.getParkById(String.valueOf(order.getParkId()));
+			ParkControl.updateCurrentVisitors(order.getParkId(),
+					park.getCurrentVisitors() - order.getNumberOfParticipants());
+		}
+		else
+		{
+			System.out.println("NEED TO ALERT");
+		}
+	}
+	
+
+	/**
+	 * This function update visit exit time.
+	 * This function is only to update exit visit time using the card reader simulator
+	 * It's update the exit time artificially.
+	 * 
+	 * @param order the order to update.
+	 */
+	private static void updateVisitExitTime(Order order, String exitTime) {
+		ClientToServerRequest<Order> request = new ClientToServerRequest<>(Request.UPDATE_EXIT_TIME);
+		request.setObj(order);
+		request.setInput(exitTime);
+		ClientUI.chat.accept(request);
+	}
 }
+	
+

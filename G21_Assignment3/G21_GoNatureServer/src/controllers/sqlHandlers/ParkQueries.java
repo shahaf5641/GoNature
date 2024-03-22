@@ -230,12 +230,11 @@ public class ParkQueries {
 
 	/**
 	 * This function updates the exit time of a visit in the database
-	 * This function is only for the card reader simulation.
 	 * 
 	 * @param order the order to update
 	 * @param exitTime The traveler exit time
 	 */
-	public void updateVisitExitTimeSimulator(Order order, String exitTime) {
+	public void updateVisitExitTime(Order order, String exitTime) {
 		String sql = "UPDATE g21gonature.visit SET exitTime = ? WHERE travelerId = ? AND parkId = ? AND entrenceTime = ? AND visitDate = ?";
 		PreparedStatement query;
 		String time = order.getOrderTime();
@@ -253,7 +252,7 @@ public class ParkQueries {
 			query.setString(5, order.getOrderDate());
 			query.executeUpdate();
 		} catch (SQLException e) {
-			System.out.println("Could not execute updateVisitExitTimeSimulator");
+			System.out.println("Could not execute updateVisitExitTime");
 			e.printStackTrace();
 		}
 

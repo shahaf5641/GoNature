@@ -443,8 +443,8 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(result);
 					client.sendToClient(response);
 				}
-				if (request.getRequestType().equals(Request.UPDATE_EXIT_TIME_SIMULATOR)) {
-					parkQueries.updateVisitExitTimeSimulator((Order) request.getObj(), request.getInput());
+				if (request.getRequestType().equals(Request.UPDATE_EXIT_TIME)) {
+					parkQueries.updateVisitExitTime((Order) request.getObj(), request.getInput());
 					client.sendToClient("Finished");
 				}
 
