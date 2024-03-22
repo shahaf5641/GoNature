@@ -248,6 +248,15 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(new ArrayList<Employees>(Arrays.asList(employee)));
 					client.sendToClient(response);
 				}
+				
+				if (request.getRequestType().equals(Request.GET_EMPLOYEEID)) {
+					String id = employeeQueries.getEmployeeIdByPassUser(request.getParameters());
+					response = new ServerToClientResponse();
+					response.setResultSet(new ArrayList<String>(Arrays.asList(id)));
+					client.sendToClient(response);
+				}
+				
+				
 				if (request.getRequestType().equals(Request.GET_EMPLOYEE_PASSWORD)) {
 					Employees employee = employeeQueries.getEmployeeById(request.getParameters());
 					String password;

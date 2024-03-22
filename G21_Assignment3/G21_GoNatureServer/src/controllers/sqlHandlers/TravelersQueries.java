@@ -150,21 +150,15 @@ public class TravelersQueries {
 	 * @return Traveler object
 	 */
 	public Employees isMemberExist(ArrayList<?> parameters) {
-		WorkerType wt;
-		Employees member = null;
-		String sql = "SELECT * FROM g21gonature.employeesidentification WHERE employeeId = ? AND password = ? ";
-		PreparedStatement query, query2;
-		try {
-			query = conn.prepareStatement(sql);
-			query.setString(1, (String) parameters.get(0));
-			query.setString(2, (String) parameters.get(1));
-			ResultSet res = query.executeQuery();
-			if (res.next()) {
-				/* new query */
-				sql = "SELECT * FROM g21gonature.employees WHERE employeeId = ?";
-				query2 = conn.prepareStatement(sql);
-				query2.setInt(1, Integer.parseInt((String) parameters.get(0)));// changed to int
-				res = query2.executeQuery();
+	    WorkerType wt;
+	    Employees member = null;
+	    String sql = "SELECT * FROM g21gonature.employees WHERE username = ? AND password = ?";
+	    PreparedStatement query;
+	    try {
+	        query = conn.prepareStatement(sql);
+	        query.setString(1, (String) parameters.get(0));
+	        query.setString(2, (String) parameters.get(1));
+	        ResultSet res = query.executeQuery();
 				if (res.next()) {
 					switch (res.getString(2)) {
 					case "Entrance":
@@ -183,9 +177,9 @@ public class TravelersQueries {
 						throw new IllegalArgumentException("Wrong role type!");
 					}
 					member = new Employees(Integer.parseInt(res.getString(1)), wt, Integer.parseInt(res.getString(3)),
-							res.getString(4), res.getString(5), res.getString(6));
+							res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getString(8) );
 				}
-			}
+			
 		} catch (SQLException e) {
 			System.out.println("Could not execute isMemberExist query");
 			e.printStackTrace();

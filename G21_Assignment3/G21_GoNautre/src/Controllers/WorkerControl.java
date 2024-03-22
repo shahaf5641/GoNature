@@ -30,6 +30,15 @@ public class WorkerControl {
 		return employee;
 
 	}
+	
+	public static String getEmployeeId(String username, String password)
+	{
+		ClientToServerRequest<?> request = new ClientToServerRequest<>(Request.GET_EMPLOYEEID,
+				new ArrayList<String>(Arrays.asList(username,password)));
+		ClientUI.chat.accept(request);
+		String id = (String) ChatClient.responseFromServer.getResultSet().get(0);
+		return id;
+	}
 
 	/**
 	 * This function gets an id of employee and return his email and password in array list.

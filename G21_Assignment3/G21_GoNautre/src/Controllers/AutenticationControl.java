@@ -35,16 +35,6 @@ public class AutenticationControl {
 	}
 
 	/**
-	 * This function handle the traveler login by subscriber id
-	 * 
-	 * @param subID  the traveler's subscriber id
-	 * @return 0 on success
-	 * @return 1 traveler already connected
-	 * @return 2 traveler id does not exist
-	 */
-	
-
-	/**
 	 * This function get a traveler's id and ask the server to
 	 * insert it to "loggedIn" table.
 	 * 
@@ -95,9 +85,9 @@ public class AutenticationControl {
 	 * @return true traveler exists.
 	 * @return false traveler not exists.
 	 */
-	public static boolean isMemberExist(String id, String pass) {
+	public static boolean isMemberExist(String username, String pass) {
 		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.MEMBER_LOGIN,
-				new ArrayList<String>(Arrays.asList(id, pass)));
+				new ArrayList<String>(Arrays.asList(username, pass)));
 		ClientUI.chat.accept(request);
 		Employees member = (Employees) ChatClient.responseFromServer.getResultSet().get(0);
 		if (member == null)
@@ -116,9 +106,11 @@ public class AutenticationControl {
 	 * @return 1  member already connected
 	 * @return 2  member id does not exist
 	 */
-	public static int memberLoginHandler(String id, String password) {
+	public static int memberLoginHandler(String username, String password, String id) {
 		boolean connected = isConnected(id);
-		boolean mem_exsit = isMemberExist(id, password);
+		boolean mem_exsit = isMemberExist(username, password);
+		System.out.println("After is member");
+
 		if (connected && mem_exsit)
 			return 1;
 		if (!connected && mem_exsit) {

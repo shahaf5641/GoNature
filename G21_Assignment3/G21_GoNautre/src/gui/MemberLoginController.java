@@ -2,11 +2,14 @@
 package gui;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Controllers.AutenticationControl;
+import Controllers.WorkerControl;
 import alerts.CustomAlerts;
 import client.ChatClient;
+import client.ClientUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,8 +21,10 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import logic.ClientToServerRequest;
 import logic.Employees;
 import logic.GoNatureFinals;
+import logic.ClientToServerRequest.Request;
 
 public class MemberLoginController implements Initializable {
 
@@ -93,28 +98,32 @@ public class MemberLoginController implements Initializable {
     @FXML
     private void loginButtonAction() {
         /* Alon 12.12.20 */
-        String id = idTextField.getText();
+        String username = idTextField.getText();
         String pass = passwordTextField.getText();
-        if (id.isEmpty() || pass.isEmpty())
+        if (username.isEmpty() || pass.isEmpty())
             new CustomAlerts(AlertType.ERROR, "Input Error", "Input Error", "Please fill all the fields").showAndWait();
         else {
-            int res = AutenticationControl.memberLoginHandler(id, pass);
+        	ArrayList<String> userpasslist = new ArrayList<>();
+        	userpasslist.add(username);
+        	userpasslist.add(pass);
+        	String id = WorkerControl.getEmployeeId(username,pass);
+            int res = AutenticationControl.memberLoginHandler(username, pass, id);
             if (res == 0) {
                 member = (Employees) ChatClient.responseFromServer.getResultSet().get(0);
                 String member_type = member.getRole().getStr();
                 String fxmlName = member_type.replaceAll("\\s+", ""); // Trimming all white spaces.
                 switch (fxmlName) {
                     case "DepartmentManager":
-                        switchScene("DepartmentManagerScreen.fxml", "GoNature8 - Department Manager", member_type);
+                        switchScene("DepartmentManagerScreen.fxml", "GoNature21 - Department Manager", member_type);
                         break;
                     case "ParkManager":
-                        switchScene("ParkManager.fxml", "GoNature8 - Park Manager", member_type);
+                        switchScene("ParkManager.fxml", "GoNature21 - Park Manager", member_type);
                         break;
                     case "Entrance":
-                        switchScene("EntranceWorker.fxml", "GoNature8 - Entrance Worker", member_type);
+                        switchScene("EntranceWorker.fxml", "GoNature21 - Entrance Worker", member_type);
                         break;
                     case "Service":
-                        switchScene("ServiceWorker.fxml", "GoNature8 - Service Worker", member_type);
+                        switchScene("ServiceWorker.fxml", "GoNature21 - Service Worker", member_type);
                         break;
                     default:
                         break;
