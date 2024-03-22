@@ -48,6 +48,6 @@
             </panes>
         </Accordion>
         <Label fx:id="headerLabel" layoutX="337.0" layoutY="22.0" text="Update Parameters" />
-        <Button fx:id="sendForApprovealButton" layoutX="360.0" layoutY="547.0" onAction="#sendForApprovealButtonClicked" text="SEND FOR APPROVAL" />
+        <Button fx:id="sendForApprovealButton" layoutX="360.0" layoutY="547.0" onMouseClicked="#sendForApprovealButtonClicked" text="SEND FOR APPROVAL" />
     </children>
 </AnchorPane>

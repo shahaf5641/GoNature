@@ -58,9 +58,6 @@ public class ViewRequestsForChangesController implements Initializable {
 	@FXML
 	private Button cancelRequestBtn;
 
-	@FXML
-	private Label selectedRequestLabel;
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//selectedRequestLabel.setText("");
@@ -83,7 +80,9 @@ public class ViewRequestsForChangesController implements Initializable {
 		TableViewSelectionModel<Request> request = null;
 			request = parametersTable.getSelectionModel();
 			Request r = request.getSelectedItem();
-			if (r != null && r.getRequestStatus().equals(OrderStatusName.PENDING.toString())) {
+			if (r!=null)
+			{
+			if (r.getRequestStatus().equals(OrderStatusName.PENDING.toString())) {
 				RequestControl.changeRequestStatus(r.getRequestId(), true);
 				changeParkParameterList.add(r.getChangeName());
 				changeParkParameterList.add(r.getNewValue());
@@ -95,12 +94,16 @@ public class ViewRequestsForChangesController implements Initializable {
 			}
 
 			else {
-				new CustomAlerts(AlertType.ERROR, "Sent", "Sent", "cannot change status that is not 'pending'")
+				new CustomAlerts(AlertType.INFORMATION, "Error", "Not sent", "cannot change status that is not 'pending'")
 						.showAndWait();
 			}
-		selectedRequestLabel.setText("");
+			}
+			else
+			{
+				new CustomAlerts(AlertType.ERROR, "Error", "Try again", "Please select request")
+				.showAndWait();
+			}
 		loadChanges();
-
 	}
 
 	void loadChanges() {
@@ -122,14 +125,24 @@ public class ViewRequestsForChangesController implements Initializable {
 		TableViewSelectionModel<Request> request = null;
 			request = parametersTable.getSelectionModel();
 			Request r = request.getSelectedItem();
+			if (r!=null)
+			{
 			if (r.getRequestStatus().equals(OrderStatusName.PENDING.toString())) {
 				RequestControl.changeRequestStatus(r.getRequestId(), false);
 				new CustomAlerts(AlertType.INFORMATION, "Sent", "Sent",
 						"Request " + r.getChangeName() + " was declined with value " + r.getNewValue()).showAndWait();
 			} else {
-				new CustomAlerts(AlertType.INFORMATION, "Sent", "Sent", "cannot change status that is not 'pending'")
+				new CustomAlerts(AlertType.INFORMATION, "Error", "Not sent", "cannot change status that is not 'pending'")
 						.showAndWait();
 			}
+			}
+			else
+			{
+				new CustomAlerts(AlertType.ERROR, "Error", "Try again", "Please select request")
+				.showAndWait();
+				
+			}
+			
 		loadChanges();
 	}
 }

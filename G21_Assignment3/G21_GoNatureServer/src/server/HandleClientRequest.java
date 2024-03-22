@@ -119,13 +119,6 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(parks);
 					client.sendToClient(response);
 				}
-				if (request.getRequestType().equals(Request.GET_MAX_DISCOUNT)) {
-					Discount discount = requestsQueries.getMaxDisount(request.getParameters());
-					response = new ServerToClientResponse();
-					response.setResultSet(new ArrayList<Discount>(Arrays.asList(discount)));
-					client.sendToClient(response);
-				}
-
 				if (request.getRequestType().equals(Request.GET_ORDERS_BETWEEN_DATES)) {
 					ArrayList<Order> orders = orderQueries.getOrderBetweenTimes(request.getParameters());
 					response = new ServerToClientResponse();
@@ -314,13 +307,6 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient(response);
 				}
 
-				if (request.getRequestType().equals(Request.VIEW_MANAGER_DISCOUNT)) {
-					response = new ServerToClientResponse();
-					response.setResultSet(requestsQueries.GetDiscountsFromDB());
-					client.sendToClient(response);
-
-				}
-
 				if (request.getRequestType().equals(Request.CONFIRM_REQUEST)) {
 					response = new ServerToClientResponse();
 					if ((int) request.getParameters().get(1) == 1)
@@ -331,20 +317,6 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient(response);
 				}
 
-				if (request.getRequestType().equals(Request.CONFIRM_DISCOUNT)) {
-
-					response = new ServerToClientResponse();
-					if ((int) request.getParameters().get(1) == 1)
-						requestsQueries.changeStatusOfDiscount(true, (int) request.getParameters().get(0));
-
-					else {
-						requestsQueries.changeStatusOfDiscount(false, (int) request.getParameters().get(0));
-
-					}
-
-					client.sendToClient(response);
-
-				}
 
 				if (request.getRequestType().equals(Request.MANAGER_REPORT)) {
 					response = new ServerToClientResponse();

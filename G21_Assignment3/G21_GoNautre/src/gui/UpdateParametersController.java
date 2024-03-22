@@ -81,23 +81,29 @@ public class UpdateParametersController implements Initializable {
         String parkIdString = parkID.toString(); // Convert Integer to String
         arrayOfTextRequests.add(parkIdString);
         RequestControl.addNewRequest(arrayOfTextRequests);
-        System.out.println("2");
-        new CustomAlerts(AlertType.INFORMATION, "Sent", "Sent", "New requests were sent to Department Manager")
-                .showAndWait();
+        if (arrayOfTextRequests.get(0).isEmpty() && 
+        	    arrayOfTextRequests.get(1).isEmpty() && 
+        	    arrayOfTextRequests.get(2).isEmpty()) {
+        	    new CustomAlerts(AlertType.ERROR, "Error", "Not sent", "Please fill at least one field")
+        	            .showAndWait();
+        	}
+
+        else
+        {
+            new CustomAlerts(AlertType.INFORMATION, "Sent", "Sent", "New requests were sent to Department Manager")
+            .showAndWait();
+        }
+
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         accordion.setExpandedPane(maxVisitorsTP);
-        
-
         initTextFields();
         
     }
 
     private void initTextFields() {
-        
- 
         gapTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
