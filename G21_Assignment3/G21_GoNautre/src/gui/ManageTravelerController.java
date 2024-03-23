@@ -57,6 +57,9 @@ public class ManageTravelerController implements Initializable {
 	ObservableList<OrderTb> ov = FXCollections.observableArrayList();
 	@FXML
 	private TextField idTextField;
+	
+	@FXML
+	private TextField visitorsTextField;
 
 	@FXML
 	private TableView<OrderTb> ordersTableView;
@@ -91,8 +94,7 @@ public class ManageTravelerController implements Initializable {
 	@FXML
 	private Label orderIdTxt;
 
-	@FXML
-	private javafx.scene.control.TextField visitorsTextField;
+
 
 	private OrderTb clickedRow;
 
@@ -232,16 +234,18 @@ public class ManageTravelerController implements Initializable {
 			new CustomAlerts(AlertType.ERROR, "Input Error", "Order Error", "Please enter ID")
 				.showAndWait();
 			return;
-        	
         }
         
-    	LocalTime currentTime = LocalTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        String formattedTime = currentTime.format(formatter);
-        WorkerControl.executeExitSequence(idTextField.getText(),formattedTime);
-		new CustomAlerts(AlertType.INFORMATION, "Success", "Exit", "Exit succeed")
-		.showAndWait();
-        
+        else
+        {
+        	LocalTime currentTime = LocalTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String formattedTime = currentTime.format(formatter);
+            WorkerControl.executeExitSequence(idTextField.getText(),formattedTime);
+    		new CustomAlerts(AlertType.INFORMATION, "Success", "Exit", "Exit succeed")
+    		.showAndWait();
+        }
+
     }
 
 	/*
@@ -322,7 +326,6 @@ public class ManageTravelerController implements Initializable {
 		Park p = ParkControl.getParkById(String.valueOf(clickedRow.getParkId()));
 		int updateNumber = p.getCurrentVisitors() + numberOfParticipantsInCurrentOrder;
 		ParkControl.updateCurrentVisitors(clickedRow.getParkId(), updateNumber);
-
 		ParkControl.updateIfParkFull(p);
 
 		// Printing receipt

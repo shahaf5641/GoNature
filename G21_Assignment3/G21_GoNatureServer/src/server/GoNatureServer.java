@@ -18,13 +18,12 @@ import server.threads.UpdateTravelerExitStatus;
  * This class overrides some of the methods in the abstract superclass in order
  * to give more functionality to the server.
  *
- * @author Shlomi Amar
- * @author Alon Ivshin
- * @author Ofir Vaknin
- * @author Lior Keren
- * @author Ofir Newman
+ * @author Shahaf Israel	
+ * @author Sara Saleh
+ * @author Shai Osmo
+ * @author Yuval Sabato
  * 
- * @version January 2021
+ * @version March 2024
  */
 public class GoNatureServer extends AbstractServer {
 
@@ -53,10 +52,6 @@ public class GoNatureServer extends AbstractServer {
 
 		NotifyThread notifyThread = new NotifyThread(mysqlconnection);
 		new Thread(notifyThread).start();
-
-		UpdateOrderStatusVisitCompleted updateOrderStatusVisitCompleted = new UpdateOrderStatusVisitCompleted(
-				mysqlconnection);
-		new Thread(updateOrderStatusVisitCompleted).start();
 
 		UpdateOrderStatusFromWaitingToCancel wtc = new UpdateOrderStatusFromWaitingToCancel(mysqlconnection);
 		new Thread(wtc).start();

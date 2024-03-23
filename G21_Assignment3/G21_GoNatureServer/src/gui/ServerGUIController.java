@@ -1,7 +1,9 @@
 package gui;
+import java.sql.Connection;
 
 import java.io.IOException;
-
+import controllers.DataControl;
+import controllers.sqlHandlers.MysqlConnection;
 import server.GoNatureServer;
 import server.ServerUI;
 import javafx.event.ActionEvent;
@@ -15,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -28,6 +31,9 @@ import logic.GoNatureFinals;
  *
  */
 public class ServerGUIController {
+	
+	@FXML
+	private Button Importdatabtn;
 
 	@FXML
 	private Pane paneMainPane;
@@ -40,7 +46,6 @@ public class ServerGUIController {
 
 	@FXML
 	private TextArea txtareaLog;
-
 
 	@FXML
 	private TextField txtFldPort;
@@ -104,5 +109,15 @@ public class ServerGUIController {
 		if (txtareaLog != null)
 			txtareaLog.appendText(msg + "\n");
 	}
+	
+	@FXML
+	private void Importdatabtn(MouseEvent event)
+	{
+		DataControl.ExportData();
+	}
+	
+	
+	
+	
 
 }

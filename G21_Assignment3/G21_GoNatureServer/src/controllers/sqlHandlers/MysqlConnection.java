@@ -2,7 +2,10 @@ package controllers.sqlHandlers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * MysqlConnection class holds a connection to the DB.
@@ -22,7 +25,7 @@ public class MysqlConnection {
 	 * @throws InstantiationException if failed to connect to the database
 	 * @throws IllegalAccessException if failed to connect to the database
 	 */
-	private MysqlConnection()
+	public MysqlConnection()
 			throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -34,7 +37,7 @@ public class MysqlConnection {
 		}
 		try {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/g21gonature?serverTimezone=UTC",
-					"root", "YUVAL3398");
+					"root", "Aa123456");
 
 			/* How to handle multiple requests to the database */
 			connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);

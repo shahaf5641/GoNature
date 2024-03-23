@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import controllers.EmailControl;
 import controllers.WaitingListControl;
+import controllers.sqlHandlers.DataQueries;
 import controllers.sqlHandlers.EmployeeQueries;
 import controllers.sqlHandlers.OrderQueries;
 import controllers.sqlHandlers.ParkQueries;
@@ -52,6 +53,7 @@ public class HandleClientRequest implements Runnable {
 	private TravelersQueries travelerQueriesl;
 	private RequestsQueries requestsQueries;
 	private EmployeeQueries employeeQueries;
+	private DataQueries dataQueries;
 
 	public HandleClientRequest(ConnectionToClient client, Object msg) {
 		this.client = client;
@@ -308,7 +310,7 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(result);
 					client.sendToClient(response);
 				}
-
+				
 				if (request.getRequestType().equals(Request.GET_ALL_ORDERS_FOR_PARK_WITH_TRAVLER)) {
 					response = new ServerToClientResponse();
 					ArrayList<Order> result = orderQueries.getOrderForTravelerInPark(request.getParameters());
