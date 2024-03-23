@@ -73,6 +73,8 @@ public class CasualVisitController implements Initializable {
 
 	@FXML
 	private Label permissionLabel;
+	
+	private Order order;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -269,7 +271,7 @@ public class CasualVisitController implements Initializable {
 		int parkId = MemberLoginController.member.getParkId();
 
 		// Creating new order with relevent details.
-		Order order = new Order(idOfTraveler, parkId, LocalDate.now().toString(), LocalTime.now().toString(), orderType,
+		order = new Order(idOfTraveler, parkId, LocalDate.now().toString(), LocalTime.now().toString(), orderType,
 				numberOfVisitors, email, Double.parseDouble(totalPriceLabel.getText()),
 				OrderStatusName.ENTERED_THE_PARK.toString());
 
@@ -296,7 +298,6 @@ public class CasualVisitController implements Initializable {
 
 			// Need to get orderId from DB
 			order = OrderControl.getTravelerRecentOrder(idOfTraveler);
-			System.out.println(order.getOrderDate() + order.getOrderTime() + order.getOrderType());
 
 			// Closing the scene and updating the table for entrance worker.
 			Stage stage = (Stage) idInputCasualVisit.getScene().getWindow();
@@ -305,8 +306,7 @@ public class CasualVisitController implements Initializable {
 			stage.close();
 
 			// Setting the receipt window.
-			loadOrderConfirmation(order);
-			System.out.println("701");
+			loadOrderConfirmation();
 		} else {
 			popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
 		}
@@ -315,22 +315,18 @@ public class CasualVisitController implements Initializable {
 	/*
 	 * This function handle the receipt.
 	 */
-	public void loadOrderConfirmation(Order order) {
+	public void loadOrderConfirmation() {
 		try {
 			if (order == null) {
 				System.out.println("Order is null. Cannot load order confirmation.");
 				return;
 			}
 			// Get the controller instance from the FXMLLoader
-			CasualVisitReceiptController controller = new CasualVisitReceiptController();
-
-			controller.setOrder(order);
-			System.out.println("1" + order.getOrderDate() + order.getOrderTime() + order.getOrderType());
-
-
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/CasualVisitReceipt.fxml"));
+			CasualVisitReceiptController controller = new CasualVisitReceiptController();
+			controller.setOrder(order);
+			loader.setController(controller);
 			Parent root = loader.load();
-
 			Stage newStage = new Stage();
 			newStage.setTitle("Order receipt");
 			newStage.getIcons().add(new Image(GoNatureFinals.APP_ICON));
