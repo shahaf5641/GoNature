@@ -281,7 +281,8 @@ public class CasualVisitController implements Initializable {
 		// Adding visit adds the visit to the DB
 
 		OrderTb orderTb = new OrderTb(order);
-		if (OrderControl.addCasualOrder(order)) {
+		if((ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors()+ numberOfVisitors)<= (ParkControl.getParkById(String.valueOf(parkId)).getMaxVisitors()))
+		{if (OrderControl.addCasualOrder(order)) {
 			OrderControl.addVisit(orderTb);
 
 			// Updated number = the number of visitors after the entrance of the casual
@@ -309,6 +310,11 @@ public class CasualVisitController implements Initializable {
 			loadOrderConfirmation();
 		} else {
 			popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
+		}}
+		else {
+			//popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
+			new CustomAlerts(AlertType.ERROR, "Error", "The park is full",
+					"Sorry, the park is full. Please come back at another time.").showAndWait();
 		}
 	}
 
