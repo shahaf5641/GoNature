@@ -18,7 +18,7 @@ public class MsgTemplates {
 			+ "Visitors: %s.\n"
 			+ "Total price: %s.\n\n"
 			+ "We will see you at the park,\n"
-			+ "GoNature8 Family.\n\n"};
+			+ "GoNature21 Family.\n\n"};
 
 
 
@@ -30,7 +30,7 @@ public class MsgTemplates {
 			+ "Visit time %s\n"
 			+ "\n"
 			+ "Thank you,\n"
-			+ "GoNature8 Family" };
+			+ "GoNature21 Family" };
 	
 	public static String[] errorWaitingList = { "Error Waiting List", "There was error trying to put you in the waiting list.\n" 
 	+ "Please try again later."
@@ -41,7 +41,7 @@ public class MsgTemplates {
 	+ "Here are your login information:\n"
 	+ "ID: %s\n"
 	+ "Password: %s\n\n"
-	+ "GoNature8 Family."
+	+ "GoNature21 Family."
  };
 	
 	public static String [] ConfirmOrder24hoursBeforeVisit = { "Please Confirm your order",""
@@ -50,7 +50,7 @@ public class MsgTemplates {
 			+ "Please confirm your order within two hours.\n"
 			+ "NOTE: If you will not confirm your visit beforehand, your order will be automatically cancelled.\n\n"
 			+ "Best Regards,\n"
-			+ "GoNature8 Family."
+			+ "GoNature21 Family."
 			
 	};
 	
@@ -58,7 +58,7 @@ public class MsgTemplates {
 			+ "Hello,\n"
 			+ "We would like to inform you that your visit order to %s in %s at %s was cancelled.\n\n"
 			+ "Best Regards,\n"
-			+ "GoNature8 Family."
+			+ "GoNature21 Family."
 			
 	};
 	
@@ -69,7 +69,7 @@ public class MsgTemplates {
 			+ "If you would like to come at this time, please confirm.\n"
 			+ "You have 1 hours to confirm the order before it automatically cancelled\n\n"
 			+ "Best Regards,\n"
-			+ "GoNature8 Family."		
+			+ "GoNature21 Family."		
 			
 	};
 }

@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import controllers.EmailControl;
 import controllers.WaitingListControl;
-import controllers.sqlHandlers.DataQueries;
 import controllers.sqlHandlers.EmployeeQueries;
 import controllers.sqlHandlers.OrderQueries;
 import controllers.sqlHandlers.ParkQueries;
@@ -17,7 +16,6 @@ import controllers.sqlHandlers.TravelersQueries;
 import controllers.sqlHandlers.MysqlConnection;
 import logic.ClientToServerRequest;
 import logic.ClientToServerRequest.Request;
-import logic.Discount;
 import logic.Employees;
 import logic.Messages;
 import logic.Order;
@@ -53,7 +51,6 @@ public class HandleClientRequest implements Runnable {
 	private TravelersQueries travelerQueriesl;
 	private RequestsQueries requestsQueries;
 	private EmployeeQueries employeeQueries;
-	private DataQueries dataQueries;
 
 	public HandleClientRequest(ConnectionToClient client, Object msg) {
 		this.client = client;
