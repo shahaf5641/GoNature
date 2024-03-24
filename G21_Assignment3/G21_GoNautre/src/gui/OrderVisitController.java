@@ -285,7 +285,7 @@ public class OrderVisitController implements Initializable {
 		else if (Integer.parseInt(summaryVisitors.getText()) > 9
 				&& summaryType.getText().equals(OrderType.FAMILY.toString())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
-					"Group order can be up to 9 travelers").showAndWait();
+					"Family order can be up to 9 travelers").showAndWait();
 		} else if (Integer.parseInt(summaryVisitors.getText()) < 1) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Invalid Visitor's Number",
 					"Visitor's number must be positive number and atleast 2. ").showAndWait();
