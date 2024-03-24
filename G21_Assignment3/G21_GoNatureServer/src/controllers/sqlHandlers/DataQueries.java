@@ -52,7 +52,7 @@ public class DataQueries {
             }
             System.out.println("Data export completed successfully.");
         } catch (SQLException e) {
-            System.out.println("Error executing exportTableData query");
+            System.out.println("Please empty tables and try again");
             e.printStackTrace();
         }
     }
