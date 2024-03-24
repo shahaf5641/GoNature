@@ -268,19 +268,6 @@ public class ReportsControl {
 	}
 	/**
 	 *  This function receive month and day of current year and asks the server
-	 * to send the number of subscriber visitors at this month dived by their visit time.
-	 * 
-	 * @param month The report's month
-	 * @param day The day in the month
-	 */
-	public static void countSubsVisitTimeWithDay(int month, String day) {
-		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.COUNT_VISIT_SUBS_VISITORS_WITH_DAYS,
-				new ArrayList<String>(Arrays.asList(String.valueOf(month),day)));
-		ClientUI.chat.accept(request);
-		
-	}
-	/**
-	 *  This function receive month and day of current year and asks the server
 	 * to send the number of group visitors at this month dived by their visit time.
 	 * 
 	 * @param month The report's month

@@ -134,10 +134,27 @@ public class VisitsReportController implements Initializable {
             if (maxNumOfVisitors < sum) {
                 maxNumOfVisitors = sum;
             }
-            hour = Double.parseDouble(rep3.get(i).getData().substring(0, 2));
-            min = Double.parseDouble(rep3.get(i).getData().substring(3, 5)) / 60;
-            time = hour + min;
-            series3.getData().add(new Data<Number, Number>(time, sum));
+            String data = rep3.get(i).getData(); // Assuming rep.get(i).getData() returns "04:00:00"
+
+            // Split the time string using ":" as the delimiter
+            String[] parts = data.split(":");
+            if (parts.length >= 2) { // Ensure we have at least two parts (hour and minute)
+                try {
+                    // Parse the hour and minute parts as doubles
+                    hour = Double.parseDouble(parts[0]);
+                    min = Double.parseDouble(parts[1]);
+                    
+                    // Calculate the total time in hours (e.g., 4 hours and 30 minutes would be 4.5 hours)
+                    time = hour + (min / 60.0);
+                    series3.getData().add(new Data<Number, Number>(time, sum));
+                } catch (NumberFormatException e) {
+                    // Handle the case where parsing fails
+                    System.err.println("Error parsing hour or minute: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Invalid time format");
+            }
+            
         }
 
         series3.setName("Groups");
@@ -173,9 +190,26 @@ public class VisitsReportController implements Initializable {
             if (maxNumOfVisitors < sum) {
                 maxNumOfVisitors = sum;
             }
-            hour = Double.parseDouble(rep3.get(i).getData().substring(0, 2));
-            min = Double.parseDouble(rep3.get(i).getData().substring(3, 5)) / 60;
-            time = hour + min;
+            String data = rep3.get(i).getData(); // Assuming rep.get(i).getData() returns "04:00:00"
+
+            // Split the time string using ":" as the delimiter
+            String[] parts = data.split(":");
+            if (parts.length >= 2) { // Ensure we have at least two parts (hour and minute)
+                try {
+                    // Parse the hour and minute parts as doubles
+                    hour = Double.parseDouble(parts[0]);
+                    min = Double.parseDouble(parts[1]);
+                    
+                    // Calculate the total time in hours (e.g., 4 hours and 30 minutes would be 4.5 hours)
+                    time = hour + (min / 60.0);
+                    
+                } catch (NumberFormatException e) {
+                    // Handle the case where parsing fails
+                    System.err.println("Error parsing hour or minute: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Invalid time format");
+            }
 
             series3.getData().add(new Data<Number, Number>(time, sum / totalNumOfVisitors * 100));
         }
@@ -210,10 +244,27 @@ public class VisitsReportController implements Initializable {
             if (maxNumOfVisitors < sum) {
                 maxNumOfVisitors = sum;
             }
-            hour = Double.parseDouble(rep.get(i).getData().substring(0, 2));
-            min = Double.parseDouble(rep.get(i).getData().substring(3, 5)) / 100;
-            time = hour + min;
-            series.getData().add(new Data<Number, Number>(time, sum));
+            String data = rep.get(i).getData(); // Assuming rep.get(i).getData() returns "04:00:00"
+
+            // Split the time string using ":" as the delimiter
+            String[] parts = data.split(":");
+            if (parts.length >= 2) { // Ensure we have at least two parts (hour and minute)
+                try {
+                    // Parse the hour and minute parts as doubles
+                    hour = Double.parseDouble(parts[0]);
+                    min = Double.parseDouble(parts[1]);
+                    
+                    // Calculate the total time in hours (e.g., 4 hours and 30 minutes would be 4.5 hours)
+                    time = hour + (min / 60.0);
+                    series.getData().add(new Data<Number, Number>(time, sum));
+                } catch (NumberFormatException e) {
+                    // Handle the case where parsing fails
+                    System.err.println("Error parsing hour or minute: " + e.getMessage());
+                }
+            } else {
+                System.err.println("Invalid time format");
+            }
+            
         }
         series.setName("Solos      ");
         entranceTime_chart.getData().add(series);
@@ -250,13 +301,22 @@ public class VisitsReportController implements Initializable {
             if (maxNumOfVisitors < sum) {
                 maxNumOfVisitors = sum;
             }
-            hour = Double.parseDouble(rep.get(i).getData().substring(0, 2));
-            System.out.println(hour);
-            System.out.println(rep.get(i).getData());
-            min = Double.parseDouble(rep.get(i).getData().substring(3, 5)) / 100;
-            System.out.println(min);
-            time = hour + min;
-            System.out.println(time);
+            String data = rep.get(i).getData();
+
+         String[] parts = data.split(":");
+         if (parts.length >= 2) {
+             try {
+                 hour = Double.parseDouble(parts[0]);
+                 min = Double.parseDouble(parts[1]);
+                 
+                 time = hour + (min / 60.0);
+             } catch (NumberFormatException e) {
+                 System.err.println("Error parsing hour or minute: " + e.getMessage());
+             }
+         } else {
+             System.err.println("Invalid time format");
+         }
+         	
             series.getData().add(new Data<Number, Number>(time, sum / totalNumOfVisitors * 100));
         }
 
