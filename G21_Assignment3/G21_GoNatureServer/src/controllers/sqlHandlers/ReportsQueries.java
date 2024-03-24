@@ -119,7 +119,7 @@ public class ReportsQueries {
 				+ "(SELECT visit.travelerId,order.numberOfParticipants,visit.entrenceTime "
 				+ "FROM g21gonature.visit, g21gonature.order WHERE visit.travelerId = order.travelerId "
 				+ "AND order.orderType = 'Group Visit' AND order.orderStatus = 'Visit completed' "
-				+ "AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
+				+ "AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ?) AS test GROUP BY test.entrenceTime;";
 		PreparedStatement query;
 		try {
@@ -189,7 +189,7 @@ public class ReportsQueries {
 				+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime, visit.exitTime "
 				+ "FROM g21gonature.visit,g21gonature.order WHERE "
 				+ "visit.travelerId = order.travelerId AND order.orderType = 'Group Visit' "
-				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
+				+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 				+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);";
 		PreparedStatement query;
 		try {
@@ -480,8 +480,10 @@ public ArrayList<VisitReport> CountGroupsEnterTimeWithDays(ArrayList<?> paramete
 			+ "(SELECT visit.travelerId,order.numberOfParticipants,visit.entrenceTime "
 			+ "FROM g21gonature.visit, g21gonature.order WHERE visit.travelerId = order.travelerId "
 			+ "AND order.orderType = 'Group Visit' AND order.orderStatus = 'Visit completed' "
-			+ "AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
+			+ "AND visit.visitDate = order.orderDate "
 			+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) AS test GROUP BY test.entrenceTime;";
+	
+	
 	PreparedStatement query;
 	try {
 		query = conn.prepareStatement(sql);
@@ -553,7 +555,7 @@ public ArrayList<VisitReport> CountGroupsVisitTimeWithDays(ArrayList<?> paramete
 			+ "FROM (SELECT visit.travelerId,order.numberOfParticipants, visit.entrenceTime, visit.exitTime "
 			+ "FROM g21gonature.visit,g21gonature.order WHERE "
 			+ "visit.travelerId = order.travelerId AND order.orderType = 'Group Visit' "
-			+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate AND visit.entrenceTime = order.orderTime "
+			+ "AND order.orderStatus = 'Visit completed' AND visit.visitDate = order.orderDate "
 			+ "AND MONTH(visit.visitDate) = ? AND YEAR(visit.visitDate) = ? AND DAY(visit.visitDate) = ?) as test GROUP BY TIMEDIFF(test.exitTime, test.entrenceTime);";
 	PreparedStatement query;
 	try {
