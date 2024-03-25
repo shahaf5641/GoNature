@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="registerRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddSubscriberController">
+<AnchorPane fx:id="registerRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" stylesheets="@../resources/projectTheme.css" prefWidth="843.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddSubscriberController">
     <children>
         <Label fx:id="headerLabel" layoutX="350.0" layoutY="23.0" text="Register Account" />
         <TextField fx:id="emailInputRegister" layoutX="360.0" layoutY="209.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Email" />
