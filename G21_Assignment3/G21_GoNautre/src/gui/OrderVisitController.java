@@ -366,6 +366,7 @@ public class OrderVisitController implements Initializable {
 	}
 
 	private boolean checkIfOrderTimeIs24HouesFromNow() {
+		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		LocalDateTime now = LocalDateTime.now();
 		String currentDateAndTime = dtf.format(now);
