@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import controllers.EmailControl;
 import controllers.sqlHandlers.OrderQueries;
 import controllers.sqlHandlers.ParkQueries;
 import controllers.sqlHandlers.TravelersQueries;
@@ -44,7 +43,6 @@ public class CancelOrders implements Runnable {
 
 			for (Order order : pendingOrders) {
 				if (isDateLessThan24Hours(order.getOrderDate(), order.getOrderTime())) {
-					System.out.println(order.getOrderId());
 					String status = OrderStatusName.CANCELED.toString();
 					String orderId = String.valueOf(order.getOrderId());
 					orderQueries.setOrderStatusWithIDandStatus(new ArrayList<String>(Arrays.asList(status, orderId)));
@@ -80,12 +78,6 @@ public class CancelOrders implements Runnable {
 		String subject = MsgTemplates.orderCancel[0];
 		String content = String.format(MsgTemplates.orderCancel[1].toString(), park.getParkName(),
 				order.getOrderDate(), order.getOrderTime());
-
-		Messages msg = new Messages(0, travelerId, date, time, subject, content, orderId);
-
-		/* Send email */
-		EmailControl.sendEmail(msg);
-
 		/* Add message to DB */
 		ArrayList<String> parameters = new ArrayList<>(
 				Arrays.asList(travelerId, date, time, subject, content, String.valueOf(orderId)));

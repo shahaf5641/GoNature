@@ -2,20 +2,15 @@ package Controllers;
 import java.util.ArrayList;
 import client.ChatClient;
 import client.ClientUI;
-import gui.ManageTravelerController;
+
 import logic.ClientToServerRequest;
 import logic.ClientToServerRequest.Request;
 import logic.Order;
 import logic.OrderStatusName;
 import logic.Park;
-
 import java.util.Arrays;
-
 import logic.Employees;
-import logic.Order;
-import logic.OrderStatusName;
-import logic.Park;
-import logic.ClientToServerRequest.Request;
+
 
 /**
  * WorkerControl class handles all the worker related functionalities

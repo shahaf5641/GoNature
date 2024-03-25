@@ -72,7 +72,6 @@ public class WaitingListControl {
 		String time = dateAndTime.split(" ")[1];
 		String travelerId = order.getTravelerId();
 		int orderId = order.getOrderId();
-		System.out.println("IN SENDMSG FUNC");
 		Park park = parkQueries.getParkById(new ArrayList<String>(Arrays.asList(String.valueOf(order.getParkId()))));
 		String subject = MsgTemplates.waitingListPlaceInPark[0].toString();
 		String content = String.format(MsgTemplates.waitingListPlaceInPark[1].toString(), park.getParkName(),
@@ -81,8 +80,7 @@ public class WaitingListControl {
 		Messages msg = new Messages(0, travelerId, date, time, subject, content, orderId);
 
 		/* Send email */
-		System.out.println("Before sendemail line");
-		EmailControl.sendEmail(msg);
+		//EmailControl.sendEmail(msg);
 		
 		/* Add message to DB */
 		ArrayList<String> parameters = new ArrayList<>(

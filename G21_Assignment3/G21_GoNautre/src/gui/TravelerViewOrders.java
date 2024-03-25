@@ -264,8 +264,6 @@ public class TravelerViewOrders implements Initializable {
 		int orderId = Integer.parseInt(orderIdTxt.getText());
 
 		NotificationControl.sendMessageToTraveler(travelerId, date, time, subject, content, String.valueOf(orderId));
-		Messages msg = new Messages(0, travelerId, date, time, subject, content, orderId);
-		NotificationControl.sendMailInBackgeound(msg, order.getEmail());
 	}
 
 	/*

@@ -56,7 +56,6 @@ public class RecoverPasswordController implements Initializable {
                 String emailContent = String.format(MsgTemplates.passwordRecovery[1].toString(), id, password);
                 Messages msg = new Messages(0, null, null, null, MsgTemplates.passwordRecovery[0],
                         emailContent, -2);
-                NotificationControl.sendMailInBackgeound(msg, email);
             }
 
             new CustomAlerts(AlertType.INFORMATION, "Password Recovery", "Password Recovery",

@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import controllers.EmailControl;
 import controllers.WaitingListControl;
 import controllers.sqlHandlers.EmployeeQueries;
 import controllers.sqlHandlers.OrderQueries;
@@ -31,13 +30,12 @@ import util.sendToClient;
  * HandleClientRequest handles all the requests from the clients.
  * This class is a thread that create on every request from the server.
  * 
- * @author Shlomi Amar
- * @author Alon Ivshin
- * @author Ofir Vaknin
- * @author Lior Keren
- * @author Ofir Newman
+ * @author Shahaf Israel
+ * @author Shai Osmo
+ * @author Yuval Sabato
+ * @author Sara Saleh
  * 
- * @version December 2020
+ * @version March 2024
  */
 public class HandleClientRequest implements Runnable {
 
@@ -227,20 +225,7 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient(response);
 				}
 
-				if (request.getRequestType().equals(Request.SEND_EMAIL)) {
-					boolean result = EmailControl.sendEmail((Messages) request.getObj());
-					response = new ServerToClientResponse();
-					response.setResult(result);
-					client.sendToClient(response);
-				}
 
-				if (request.getRequestType().equals(Request.SEND_EMAIL_WITH_EMAIL)) {
-					boolean result = EmailControl.sendEmailToWithEmailInput((Messages) request.getObj(),
-							request.getInput());
-					response = new ServerToClientResponse();
-					response.setResult(result);
-					client.sendToClient(response);
-				}
 				if (request.getRequestType().equals(Request.GET_EMPLOYEE)) {
 					Employees employee = employeeQueries.getEmployeeById(request.getParameters());
 					response = new ServerToClientResponse();

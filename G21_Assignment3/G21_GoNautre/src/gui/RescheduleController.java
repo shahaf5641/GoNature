@@ -116,10 +116,6 @@ public class RescheduleController implements Initializable {
                 NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), date, time,
                         MsgTemplates.orderConfirmation[0], emailContent, String.valueOf(recentOrder.getOrderId()));
 
-                Messages msg = new Messages(0, traveler.getTravelerId(), date, time,
-                        MsgTemplates.orderConfirmation[0], emailContent, recentOrder.getOrderId());
-                NotificationControl.sendMailInBackgeound(msg, null);
-
                 if (isOrderFromMain)
                     orderStage.close();
 
@@ -218,9 +214,6 @@ public class RescheduleController implements Initializable {
                 NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), date, time,
                         MsgTemplates.enterToWaitingList[0], msgContent, String.valueOf(recentOrder.getOrderId()));
 
-                Messages msg = new Messages(0, traveler.getTravelerId(), date, time,
-                        MsgTemplates.enterToWaitingList[0], msgContent, recentOrder.getOrderId());
-                NotificationControl.sendMailInBackgeound(msg, null);
                 isWaitingList = true;
                 loadOrderConfirmation();
             }

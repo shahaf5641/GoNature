@@ -10,7 +10,6 @@ import logic.ClientToServerRequest;
 import logic.ClientToServerRequest.Request;
 import resources.MsgTemplates;
 import logic.Discount;
-import logic.Messages;
 import logic.Order;
 import logic.OrderStatusName;
 import logic.OrderTb;
@@ -69,10 +68,13 @@ public class OrderControl {
 				/* Add message to data base */
 				NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), date, time,
 						MsgTemplates.orderConfirmation[0], emailContent, String.valueOf(recentOrder.getOrderId()));
+<<<<<<< Upstream, based on branch 'main' of https://github.com/shahaf5641/GoNature.git
 				/* Send message by mail */
 				Messages msg = new Messages(0, traveler.getTravelerId(), date, time, MsgTemplates.orderConfirmation[0],
 						emailContent, recentOrder.getOrderId());
 				NotificationControl.sendMailInBackgeound(msg, null);
+=======
+>>>>>>> 5411e1e PUSHED
 			}
 
 		}

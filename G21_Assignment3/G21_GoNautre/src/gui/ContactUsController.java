@@ -56,7 +56,6 @@ public class ContactUsController implements Initializable {
                     + phoneTextField.getText() + ".\n" + textArea.getText();
 
             Messages msg = new Messages(0, null, null, null, subjectLabel.getText(), content, -1);
-            NotificationControl.sendMailInBackgeound(msg, GoNatureFinals.GO_NATURE_EMAIL);
             CustomAlerts alert = new CustomAlerts(AlertType.INFORMATION, "Email Sent", "Email Sent",
                     "Thank you for reaching out.\n" + "We will be in touch as soon as possible.");
             alert.showAndWait();

@@ -55,6 +55,9 @@ public class GoNatureServer extends AbstractServer {
 
 		UpdateOrderStatusFromWaitingToCancel wtc = new UpdateOrderStatusFromWaitingToCancel(mysqlconnection);
 		new Thread(wtc).start();
+		
+		UpdateTravelerExitStatus tex = new UpdateTravelerExitStatus(mysqlconnection);
+		new Thread(tex).start();
 	}
 
 	// Instance methods ************************************************

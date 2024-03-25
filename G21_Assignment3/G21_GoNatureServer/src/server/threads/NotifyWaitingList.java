@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import controllers.EmailControl;
 import controllers.sqlHandlers.OrderQueries;
 import controllers.sqlHandlers.ParkQueries;
 import controllers.sqlHandlers.TravelersQueries;
@@ -125,11 +124,13 @@ public class NotifyWaitingList implements Runnable {
 		Messages msg = new Messages(0, travelerId, date, time, subject, content, orderId);
 
 		/* Send email */
-		EmailControl.sendEmail(msg);
+		//EmailControl.sendEmail(msg);
 
 		/* Add message to DB */
+		
 		ArrayList<String> parameters = new ArrayList<>(
 				Arrays.asList(travelerId, date, time, subject, content, String.valueOf(orderId)));
+		System.out.println(parameters);
 		travelerQueries.sendMessageToTraveler(parameters);
 
 	}

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import controllers.EmailControl;
 import controllers.sqlHandlers.OrderQueries;
 import controllers.sqlHandlers.ParkQueries;
 import controllers.sqlHandlers.TravelersQueries;
@@ -135,11 +134,6 @@ public class NotifyTravelers implements Runnable {
 		String content = String.format(MsgTemplates.ConfirmOrder24hoursBeforeVisit[1].toString(), park.getParkName(),
 				order.getOrderDate(), order.getOrderTime());
 
-		Messages msg = new Messages(0, travelerId, date, time, subject, content, orderId);
-
-		/* Send email */
-		EmailControl.sendEmail(msg);
-
 		/* Add message to DB */
 		ArrayList<String> parameters = new ArrayList<>(
 				Arrays.asList(travelerId, date, time, subject, content, String.valueOf(orderId)));
@@ -163,10 +157,6 @@ public class NotifyTravelers implements Runnable {
 		String content = String.format(MsgTemplates.orderCancel[1].toString(), park.getParkName(),
 				order.getOrderDate(), order.getOrderTime());
 
-		Messages msg = new Messages(0, travelerId, date, time, subject, content, orderId);
-
-		/* Send email */
-		EmailControl.sendEmail(msg);
 
 		/* Add message to DB */
 		ArrayList<String> parameters = new ArrayList<>(
