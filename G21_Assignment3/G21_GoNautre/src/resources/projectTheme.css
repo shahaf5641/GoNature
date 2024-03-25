@@ -69,7 +69,6 @@
 	-fx-prompt-text-fill: -fx-prompttext;
 	-fx-text-fill: -fx-primarytext;
     -fx-font-size : 10.0pt;
-    -jfx-focus-color: -fx-secondary;
     -fx-text-fill: derive(-fx-secondary, 20.0%);
 }
 
