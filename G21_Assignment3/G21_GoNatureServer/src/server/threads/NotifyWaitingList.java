@@ -58,7 +58,7 @@ public class NotifyWaitingList implements Runnable {
 
 	/**
 	 * This function check if the traveler confirmed or canceled his order.
-	 * if he did not confirmed his order within one hour - the order canceled
+	 * if he did not confirmed his order within two hours - the order canceled
 	 * automatically and we notify the next in the waiting list (if there is
 	 * someone)
 	 * 
@@ -80,7 +80,7 @@ public class NotifyWaitingList implements Runnable {
 		int totalSleep = 0;
 		Order updatedOrder = null;
 
-		while (totalSleep != 60) {
+		while (totalSleep != 120) {
 			System.out.println("Entred while");
 			updatedOrder = orderQueries.getOrderByID(order.getOrderId());
 			if (updatedOrder.getOrderStatus().equals(OrderStatusName.CANCELED.toString())

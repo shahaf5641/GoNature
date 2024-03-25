@@ -43,7 +43,7 @@ public class CancelOrders implements Runnable {
 			ArrayList<Order> pendingOrders = getRelevantOrders();
 
 			for (Order order : pendingOrders) {
-				if (isDateLessThan22Hours(order.getOrderDate(), order.getOrderTime())) {
+				if (isDateLessThan24Hours(order.getOrderDate(), order.getOrderTime())) {
 					System.out.println(order.getOrderId());
 					String status = OrderStatusName.CANCELED.toString();
 					String orderId = String.valueOf(order.getOrderId());
@@ -96,7 +96,7 @@ public class CancelOrders implements Runnable {
 		return orderQueries.getPendingOrders();
 	}
 	
-	private boolean isDateLessThan22Hours(String date, String time) {
+	private boolean isDateLessThan24Hours(String date, String time) {
 
 		String combinedVisit = date + " " + time;
 		String combinedToday = LocalDate.now().toString() + " " + LocalTime.now().toString();
@@ -118,7 +118,7 @@ public class CancelOrders implements Runnable {
 		long diffInMills = visitDate.getTime() - todayDate.getTime();
 		long diffInHour = TimeUnit.MILLISECONDS.toHours(diffInMills);
 
-		if (diffInHour <= 22 && diffInHour > 0)
+		if (diffInHour <= 24 && diffInHour > 0)
 			return true;
 		return false;
 	}

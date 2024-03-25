@@ -212,7 +212,7 @@ public class TravelerViewOrders implements Initializable {
 
 		/*
 		 * User can Cancel order if order is PENDING, PENDING_EMAIL_SENT, WAITING, WAITING_HAS_SPOT, CONFIRMED
-		 * Otherwise, can not confirm order.
+		 * Otherwise, can not cancel order.
 		 * Question - Confirmed can be canceled after the date?
 		 */
 		if (orderStatusTxt.getText().equals(OrderStatusName.PENDING.toString())
@@ -230,6 +230,7 @@ public class TravelerViewOrders implements Initializable {
 
 				// Check the waiting list.
 				OrderControl.checkWaitingList(Integer.parseInt(orderIdTxt.getText()));
+				System.out.println("After CHECK");
 				
 				
 				
