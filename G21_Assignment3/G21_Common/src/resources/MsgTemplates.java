@@ -44,7 +44,7 @@ public class MsgTemplates {
 	+ "GoNature21 Family."
  };
 	
-	public static String [] ConfirmOrder24hoursBeforeVisit = { "Please Confirm your order",""
+	public static String [] ConfirmOrder24hoursBeforeVisit = { "Simulation - Please Confirm your order",""
 			+ "Hello,"
 			+ "You have made an order for a visit in %s in %s at %s.\n"
 			+ "Please confirm your order within two hours.\n"
