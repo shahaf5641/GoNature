@@ -73,7 +73,7 @@ public class CasualVisitController implements Initializable {
 
 	@FXML
 	private Label permissionLabel;
-	
+
 	private Order order;
 
 	@Override
@@ -180,11 +180,10 @@ public class CasualVisitController implements Initializable {
 			popNotification(AlertType.ERROR, "Input Error", "The number of visitors must be up to 15. ");
 			return false;
 		}
-		if(TravelerControl.getSubscriber(idInputCasualVisit.getText()) == null
-				&& orderType.equals(OrderType.GROUP.toString()))
-		{
-			new CustomAlerts(AlertType.ERROR, "Bad Input", "Not Registered Guide",
-					"Please contact service employee").showAndWait();
+		if (TravelerControl.getSubscriber(idInputCasualVisit.getText()) == null
+				&& orderType.equals(OrderType.GROUP.toString())) {
+			new CustomAlerts(AlertType.ERROR, "Bad Input", "Not Registered Guide", "Please contact service employee")
+					.showAndWait();
 		}
 
 		// Input validation - group with one participant.
@@ -281,40 +280,52 @@ public class CasualVisitController implements Initializable {
 		// Adding visit adds the visit to the DB
 
 		OrderTb orderTb = new OrderTb(order);
-		if((ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors()+ numberOfVisitors)<= (ParkControl.getParkById(String.valueOf(parkId)).getMaxVisitors()))
-		{if (OrderControl.addCasualOrder(order)) {
-			OrderControl.addVisit(orderTb);
+		if (order.getOrderTime().compareTo("18:01:00") < 0) {
+			if ((ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors()
+					+ numberOfVisitors) <= (ParkControl.getParkById(String.valueOf(parkId)).getMaxVisitors())) {
+				if (OrderControl.addCasualOrder(order)) {
+					OrderControl.addVisit(orderTb);
 
-			// Updated number = the number of visitors after the entrance of the casual
-			// visit.
-			int updateNumber = ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors() + numberOfVisitors;
+					// Updated number = the number of visitors after the entrance of the casual
+					// visit.
+					int updateNumber = ParkControl.getParkById(String.valueOf(parkId)).getCurrentVisitors()
+							+ numberOfVisitors;
 
-			// Updating the number of visitors in the park
-			ParkControl.updateCurrentVisitors(parkId, updateNumber);
-			Park park = ParkControl.getParkById(String.valueOf(MemberLoginController.member.getParkId()));
+					// Updating the number of visitors in the park
+					ParkControl.updateCurrentVisitors(parkId, updateNumber);
+					Park park = ParkControl.getParkById(String.valueOf(MemberLoginController.member.getParkId()));
 
-			ParkControl.updateIfParkFull(park);
+					ParkControl.updateIfParkFull(park);
 
-			// Notifying the visit is approved.
+					// Notifying the visit is approved.
 
-			// Need to get orderId from DB
-			order = OrderControl.getTravelerRecentOrder(idOfTraveler);
+					// Need to get orderId from DB
+					order = OrderControl.getTravelerRecentOrder(idOfTraveler);
 
-			// Closing the scene and updating the table for entrance worker.
-			Stage stage = (Stage) idInputCasualVisit.getScene().getWindow();
-			ManageTravelerController manageTravelerController = (ManageTravelerController) stage.getUserData();
-			manageTravelerController.loadTableView();
-			stage.close();
+					// Closing the scene and updating the table for entrance worker.
+					Stage stage = (Stage) idInputCasualVisit.getScene().getWindow();
+					ManageTravelerController manageTravelerController = (ManageTravelerController) stage.getUserData();
+					manageTravelerController.loadTableView();
+					stage.close();
 
-			// Setting the receipt window.
-			loadOrderConfirmation();
-		} else {
-			popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
-		}}
-		else {
-			//popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
-			new CustomAlerts(AlertType.ERROR, "Error", "The park is full",
-					"Sorry, the park is full. Please come back at another time.").showAndWait();
+					// Setting the receipt window.
+					loadOrderConfirmation();
+				}
+				else {
+					popNotification(AlertType.ERROR, "System Error", "An error has occurred, please try again");
+				}
+			} else {
+				// popNotification(AlertType.ERROR, "System Error", "An error has occurred,
+				// please try again");
+				new CustomAlerts(AlertType.ERROR, "Error", "The park is full",
+						"Sorry, the park is full. Please come back at another time.").showAndWait();
+			}
+		} else
+
+		{
+
+			new CustomAlerts(AlertType.ERROR, "Error", "Ther park is closed",
+					"Sorry, you can't enter the park after 18:00.").showAndWait();
 		}
 	}
 

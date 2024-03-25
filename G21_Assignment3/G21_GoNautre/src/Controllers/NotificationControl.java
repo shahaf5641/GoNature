@@ -84,6 +84,7 @@ public class NotificationControl {
 	public static ArrayList<Messages> getMessages(String id) {
 		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.GET_MESSAGES_BY_ID,
 				new ArrayList<String>(Arrays.asList(id)));
+		
 		ClientUI.chat.accept(request);
 		return ChatClient.responseFromServer.getResultSet();
 	}
