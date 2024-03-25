@@ -86,7 +86,7 @@ public class OrderConfirmationController implements Initializable {
 		if (isWaitingList) {
 			headerLabel.setText("You Are In The Waiting List");
 			msgLine1.setText("If someone will cancel their visit we will let you know");
-			msgLine2.setText("You will have 1 hour to confirm your order");
+			//msgLine2.setText("You will have 1 hour to confirm your order");
 		}
 		if (order != null && traveler != null) {
 			summaryID.setText(order.getTravelerId());

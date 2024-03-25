@@ -428,7 +428,7 @@ public class ManageTravelerController implements Initializable {
 			return false;
 
 		// Order is within range
-		if (LocalTime.now().isAfter(orderTime.minusMinutes(15)) && orderTime.isBefore(orderTime.plusHours(1)))
+		if (LocalTime.now().isAfter(orderTime.minusMinutes(30)) && orderTime.isBefore(orderTime.plusHours((long) 1.5)))
 			return true;
 		return false;
 	}
