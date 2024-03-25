@@ -2,22 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane fx:id="topPane" prefHeight="120.0" prefWidth="1206.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="114.0" fitWidth="203.0" layoutX="42.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/images/LOGO%20(2).png" />
-               </image>
-            </ImageView>
             <Label fx:id="userLabel" alignment="CENTER" layoutX="418.0" layoutY="31.0" prefHeight="58.0" prefWidth="370.0" text="Traveler" textAlignment="CENTER" />
          </children>
       </AnchorPane>
@@ -27,41 +20,11 @@
          <children>
             <VBox fx:id="vbox" prefHeight="600.0" prefWidth="204.0">
                <children>
-                  <Button fx:id="profileTravelerButton" onAction="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile">
-                     <graphic>
-                        <ImageView>
-                           <Image url="@../resources/icons/user_icon.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="orderTravelerButton" layoutX="10.0" layoutY="10.0" onAction="#loadOrderVisit" prefHeight="122.0" prefWidth="204.0" text=" Order a visit">
-                     <graphic>
-                        <ImageView>
-                           <Image url="@../resources/icons/shopping_cart_icon.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="viewOrdersButton" layoutX="10.0" layoutY="136.0" onAction="#loadOrders" prefHeight="122.0" prefWidth="204.0" text=" My orders">
-                     <graphic>
-                        <ImageView>
-                           <Image url="@../resources/icons/table_icon.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="viewMessagesButton" layoutX="10.0" layoutY="262.0" onAction="#loadMessages" prefHeight="122.0" prefWidth="204.0" text=" My messages">
-                     <graphic>
-                        <ImageView>
-                           <Image url="@../resources/icons/envelope_icon.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="logoutBtn" onAction="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout">
-                     <graphic>
-                        <ImageView>
-                           <Image url="@../resources/icons/sign_out_icon.png" />
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <Button fx:id="profileTravelerButton" onAction="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile" />
+                  <Button fx:id="orderTravelerButton" layoutX="10.0" layoutY="10.0" onAction="#loadOrderVisit" prefHeight="122.0" prefWidth="204.0" text=" Order a visit" />
+                  <Button fx:id="viewOrdersButton" layoutX="10.0" layoutY="136.0" onAction="#loadOrders" prefHeight="122.0" prefWidth="204.0" text=" My orders" />
+                  <Button fx:id="viewMessagesButton" layoutX="10.0" layoutY="262.0" onAction="#loadMessages" prefHeight="122.0" prefWidth="204.0" text=" My messages" />
+                  <Button fx:id="logoutBtn" onAction="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout" />
                </children>
             </VBox>
          </children>
