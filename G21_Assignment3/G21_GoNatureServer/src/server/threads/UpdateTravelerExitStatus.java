@@ -44,9 +44,7 @@ public class UpdateTravelerExitStatus implements Runnable {
 	public void run() {
 
 		while (true) {
-			System.out.println("Looking for relevant orders for travelers who exited");
 			ArrayList<Order> orders = getRelevantOrders();
-
 			String newNumberOfParticipants = "";
 			Park park;
 			String orderId = "";
