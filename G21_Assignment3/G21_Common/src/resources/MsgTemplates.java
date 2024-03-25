@@ -67,7 +67,7 @@ public class MsgTemplates {
 			+ "We are happy to inform you that there was an opening for a visit while you were waiting!\n"
 			+ "At %s park on %s at %s.\n"
 			+ "If you would like to come at this time, please confirm.\n"
-			+ "You have 1 hours to confirm the order before it automatically cancelled\n\n"
+			+ "You have 2 hours to confirm the order before it automatically cancelled\n\n"
 			+ "Best Regards,\n"
 			+ "GoNature21 Family."		
 			

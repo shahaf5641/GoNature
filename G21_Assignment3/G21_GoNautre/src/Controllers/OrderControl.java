@@ -1,9 +1,7 @@
 package Controllers;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import client.ChatClient;
@@ -49,57 +47,37 @@ public class OrderControl {
 	 * @param traveler The traveler that made this order
 	 * @return Order object - the order that was inserted to the database
 	 */
-	   public static Order addOrderAndNotify(Order order, Traveler traveler) {
-	        Order recentOrder = null;
-	        if (OrderControl.addOrder(order, traveler)) {
-	            recentOrder = OrderControl.getTravelerRecentOrder(traveler.getTravelerId());
+	public static Order addOrderAndNotify(Order order, Traveler traveler) {
+		System.out.println("In FUNCTION");
+		Order recentOrder = null;
+		if (OrderControl.addOrder(order, traveler)) {
+			recentOrder = OrderControl.getTravelerRecentOrder(traveler.getTravelerId());
 
-	            /* Insert message to database */
-	            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	            LocalDate now = LocalDate.now();
-	            LocalDate visitDate = LocalDate.parse(order.getOrderDate());
-	            String time = dtf.format(now);
+			/* Insert massage to data base */
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+			LocalDateTime now = LocalDateTime.now();
+			String dateAndTime = dtf.format(now);
+			String date = dateAndTime.split(" ")[0];
+			String time = dateAndTime.split(" ")[1];
+			if (recentOrder != null) { // Insert email to the database
+				/* Create message content */
+				String emailContent = String.format(MsgTemplates.orderConfirmation[1].toString(),
+						String.valueOf(recentOrder.getOrderId()),
+						ParkControl.getParkName(String.valueOf(recentOrder.getParkId())), recentOrder.getOrderDate(),
+						recentOrder.getOrderTime(), recentOrder.getOrderType(),
+						String.valueOf(recentOrder.getNumberOfParticipants()), String.valueOf(recentOrder.getPrice()));
+				/* Add message to data base */
+				NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), date, time,
+						MsgTemplates.orderConfirmation[0], emailContent, String.valueOf(recentOrder.getOrderId()));
+				/* Send message by mail */
+				Messages msg = new Messages(0, traveler.getTravelerId(), date, time, MsgTemplates.orderConfirmation[0],
+						emailContent, recentOrder.getOrderId());
+				NotificationControl.sendMailInBackgeound(msg, null);
+			}
 
-	            /* Schedule reminder one day before the visit */
-	            LocalDate reminderDate = visitDate.minus(1, ChronoUnit.DAYS);
-	            String formattedReminderDate = reminderDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
-	            if (recentOrder != null) {
-	                /* Create order confirmation message content */
-	                String emailContent = String.format(MsgTemplates.orderConfirmation[1].toString(),
-	                        String.valueOf(recentOrder.getOrderId()),
-	                        ParkControl.getParkName(String.valueOf(recentOrder.getParkId())), recentOrder.getOrderDate(),
-	                        recentOrder.getOrderTime(), recentOrder.getOrderType(),
-	                        String.valueOf(recentOrder.getNumberOfParticipants()), String.valueOf(recentOrder.getPrice()));
-
-	                /* Add order confirmation message to database */
-	                NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), formattedReminderDate, time,
-	                        MsgTemplates.orderConfirmation[0], emailContent, String.valueOf(recentOrder.getOrderId()));
-
-	                /* Send order confirmation message by email */
-	                Messages msg = new Messages(0, traveler.getTravelerId(), formattedReminderDate, time,
-	                        MsgTemplates.orderConfirmation[0], emailContent, recentOrder.getOrderId());
-	                NotificationControl.sendMailInBackgeound(msg, null);
-
-	                /* Prepare reminder message content */
-	                String reminderMessage = String.format(MsgTemplates.ConfirmOrder24hoursBeforeVisit[1].toString(),
-	                        String.valueOf(recentOrder.getOrderId()),
-	                        ParkControl.getParkName(String.valueOf(recentOrder.getParkId())), recentOrder.getOrderDate(),
-	                        recentOrder.getOrderTime(), recentOrder.getOrderType(),
-	                        String.valueOf(recentOrder.getNumberOfParticipants()), String.valueOf(recentOrder.getPrice()));
-
-	                /* Add reminder message to database */
-	                NotificationControl.sendMessageToTraveler(traveler.getTravelerId(), formattedReminderDate, time,
-	                        MsgTemplates.ConfirmOrder24hoursBeforeVisit[0], reminderMessage, String.valueOf(recentOrder.getOrderId()));
-
-	                /* Send reminder message by email */
-	                Messages reminderMsg = new Messages(0, traveler.getTravelerId(), formattedReminderDate, time,
-	                        MsgTemplates.ConfirmOrder24hoursBeforeVisit[0], reminderMessage, recentOrder.getOrderId());
-	                NotificationControl.sendMailInBackgeound(reminderMsg, null);
-	            }
-	        }
-	        return recentOrder;
-	    }
+		}
+		return recentOrder;
+	}
 
 	/**
 	 * This function gets a traveler and his order. The function adds the order to
