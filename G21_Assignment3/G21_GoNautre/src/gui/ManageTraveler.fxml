@@ -25,13 +25,12 @@
       </TableView>
       <Button fx:id="occVisitBtn" layoutX="84.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#loadCasualVisit" prefHeight="39.0" prefWidth="173.0" text="Casual VIsit" />
       <Button fx:id="confirmBtn" layoutX="345.0" layoutY="535.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="173.0" text="Traveler Enter" />
-      <Button fx:id="searchBtn" layoutX="602.0" layoutY="96.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Search" />
-      <Label fx:id="headerLabel" layoutX="345.0" layoutY="32.0" text="Manage Traveler" />
-      <Label layoutX="410.0" layoutY="439.0" text="Selected Order:" underline="true" />
-      <Label layoutX="372.0" layoutY="459.0" prefWidth="90.0" text="Order ID:" underline="true" />
-      <Label fx:id="orderIdTxt" layoutX="374.0" layoutY="481.0" prefHeight="20.0" prefWidth="83.0" />
-      <Label layoutX="468.0" layoutY="459.0" prefWidth="90.0" text="Arrived visitors:" underline="true" />
-      <TextField fx:id="visitorsTextField" layoutX="468.0" layoutY="476.0" prefHeight="30.0" prefWidth="101.0" promptText="Arrived Visitors" />
+      <Button fx:id="searchBtn" layoutX="585.0" layoutY="94.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Search" />
+      <Label fx:id="headerLabel" layoutX="345.0" layoutY="32.0" text="Manage Traveler" underline="true" />
+      <Label layoutX="265.0" layoutY="451.0" prefWidth="90.0" text="Order ID:" underline="true" />
+      <Label fx:id="orderIdLabel" layoutX="360.0" layoutY="453.0" prefHeight="20.0" prefWidth="52.0" />
+      <Label layoutX="486.0" layoutY="451.0" prefHeight="19.0" prefWidth="116.0" text="Arrived visitors:" underline="true" />
       <Button fx:id="exitBtn" layoutX="596.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#exitBtn" prefHeight="39.0" prefWidth="173.0" text="Traveler Exit" />
+      <Label fx:id="visitorsLabel" layoutX="629.0" layoutY="452.0" prefHeight="20.0" prefWidth="52.0" />
    </children>
 </AnchorPane>

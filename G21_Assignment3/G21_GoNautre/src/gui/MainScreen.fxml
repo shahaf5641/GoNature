@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1270.0" styleClass="custom-pane" stylesheets="@../resources/ParkTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="908.0" styleClass="custom-pane" stylesheets="@../resources/ParkTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane fx:id="rootAnchorPane">
             <children>
-                <VBox alignment="CENTER" prefHeight="768.0" prefWidth="1150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <VBox alignment="CENTER" layoutY="266.0" prefHeight="484.0" prefWidth="1270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <HBox alignment="CENTER" prefHeight="225.0" prefWidth="225.0" spacing="20.0">
                             <children>
@@ -22,7 +22,12 @@
                                 </ImageView>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER" fillHeight="false" prefHeight="325.0" prefWidth="802.0" />
+                        <HBox alignment="CENTER" fillHeight="false" prefHeight="325.0" prefWidth="1002.0">
+                     <children>
+                            <VBox fx:id="MenuButtons" prefHeight="122.0" prefWidth="801.0">
+                  					<fx:include source="MainScreenMenu.fxml" />
+                  				</VBox>
+                     </children></HBox>
                         <HBox alignment="CENTER" prefHeight="180.0" prefWidth="1153.0" spacing="175.0">
                             <children>
                                 <StackPane fx:id="firstImageStack" prefHeight="150.0" prefWidth="200.0">
@@ -56,9 +61,6 @@
                         </HBox>
                     </children>
                 </VBox>
-                <VBox fx:id="MenuButtons" prefHeight="478.0" prefWidth="154.0">
-      					<fx:include source="MainScreenMenu.fxml" />
-      				</VBox>
             </children>
         </AnchorPane>
     </children>

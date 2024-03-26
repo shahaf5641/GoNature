@@ -92,7 +92,10 @@ public class ManageTravelerController implements Initializable {
 	private Label headerLabel;
 
 	@FXML
-	private Label orderIdTxt;
+	private Label orderIdLabel;
+	
+	@FXML
+	private Label visitorsLabel;
 
 
 
@@ -190,8 +193,9 @@ public class ManageTravelerController implements Initializable {
 			row.setOnMouseClicked(event -> {
 				if (!row.isEmpty() && event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
 					clickedRow = row.getItem();
-					orderIdTxt.setText(String.valueOf(clickedRow.getOrderId()));
-					visitorsTextField.setText(String.valueOf(clickedRow.getNumberOfParticipants()));
+					orderIdLabel.setText(String.valueOf(clickedRow.getOrderId()));
+					//visitorsTextField.setText(String.valueOf(clickedRow.getNumberOfParticipants()));
+					visitorsLabel.setText(String.valueOf(clickedRow.getNumberOfParticipants()));
 				}
 			});
 			return row;
@@ -252,8 +256,9 @@ public class ManageTravelerController implements Initializable {
 	 * This function clears the labels
 	 */
 	private void clearLabels() {
-		orderIdTxt.setText("");
-		visitorsTextField.setText("");
+		orderIdLabel.setText("");
+		//visitorsTextField.setText("");
+		visitorsLabel.setText("");
 	}
 
 	/*
@@ -277,7 +282,8 @@ public class ManageTravelerController implements Initializable {
 		// Calculate how many people can enter
 		double price = 0;
 		int numberOfParticipantsInOriginalOrder = clickedRow.getNumberOfParticipants();
-		int numberOfParticipantsInCurrentOrder = Integer.parseInt(visitorsTextField.getText());
+		//int numberOfParticipantsInCurrentOrder = Integer.parseInt(visitorsTextField.getText());
+		int numberOfParticipantsInCurrentOrder = Integer.parseInt(visitorsLabel.getText());
 		if (numberOfParticipantsInOriginalOrder < numberOfParticipantsInCurrentOrder) {
 			new CustomAlerts(AlertType.ERROR, "Input Error", "Order Error",
 					"You can't list more people than the order mentioned").showAndWait();
