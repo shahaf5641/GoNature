@@ -38,6 +38,3 @@
       <Button layoutX="288.0" layoutY="661.0" onMouseClicked="#saveReportAsPdf" text="Save Report Locally" />
    </children>
 </AnchorPane>
-lly" />
-   </children>
-</AnchorPane>
