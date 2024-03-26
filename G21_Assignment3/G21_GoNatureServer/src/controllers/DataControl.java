@@ -7,8 +7,9 @@ public class DataControl {
 
     // Access the TravelersQueries object for retrieving email addresses
     private static DataQueries dataQueries = new DataQueries(GoNatureServer.mysqlconnection);
-    public static void ExportData()
+    public static int ExportData()
     {
-    	dataQueries.exportTableData();
+    	return(dataQueries.exportTableData());
+    	
     }
 }

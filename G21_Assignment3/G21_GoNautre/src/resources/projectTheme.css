@@ -448,3 +448,18 @@ TextFlow {
 	-fx-border-radius: 15.0px;	
 }
 
+/*Server */
+
+#serverLabel {
+	-fx-font-family: 'David', sans-serif;
+    -fx-font-size: 10.0pt;
+    -fx-text-fill: -fx-secondary;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}
+
+#parkReportsLabel {
+	-fx-font-family: 'David', sans-serif;
+    -fx-font-size: 16.0pt;
+    -fx-text-fill: black;
+}
+

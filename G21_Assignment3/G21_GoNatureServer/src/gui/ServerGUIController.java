@@ -1,6 +1,6 @@
 package gui;
 import java.sql.Connection;
-
+import java.sql.SQLException;
 import java.io.IOException;
 import controllers.DataControl;
 import controllers.sqlHandlers.MysqlConnection;
@@ -113,11 +113,16 @@ public class ServerGUIController {
 	@FXML
 	private void Importdatabtn(MouseEvent event)
 	{
-		DataControl.ExportData();
+		if (DataControl.ExportData()==0)
+		{
+			updateTextAreaLog("Data import succeed");
+		}
+		else
+		{
+			updateTextAreaLog("Please empty tables and try again");
+		}	
 	}
 	
-	
-	
-	
-
 }
+
+

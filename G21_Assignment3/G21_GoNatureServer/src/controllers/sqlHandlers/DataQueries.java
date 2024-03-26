@@ -13,7 +13,7 @@ public class DataQueries {
         this.conn = conn;
     }
 
-    public void exportTableData() {
+    public int exportTableData() {
         String sql = "SELECT * FROM g21gonature.system_users";
         try {
             Statement stmt = conn.createStatement();
@@ -50,10 +50,10 @@ public class DataQueries {
                     query.executeUpdate();
                 }
             }
-            System.out.println("Data export completed successfully.");
+            
+            return 0;
         } catch (SQLException e) {
-            System.out.println("Please empty tables and try again");
-            e.printStackTrace();
+            return 1;
         }
     }
 }
