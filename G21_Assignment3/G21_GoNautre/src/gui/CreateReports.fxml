@@ -6,8 +6,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -26,6 +24,7 @@
                             </children>
                         </AnchorPane>
                     </content>
+<<<<<<< Upstream, based on branch 'main' of https://github.com/shahaf5641/GoNature
                     <graphic>
                         <ImageView>
                             <image>
@@ -34,6 +33,8 @@
                             </image>
                         </ImageView>
                     </graphic>
+=======
+>>>>>>> 9492bba dada
                 </TitledPane>
                 <TitledPane fx:id="reportTP" alignment="CENTER" animated="false" text="CHOOSE REPORT">
                     <content>
@@ -46,13 +47,6 @@
                             </children>
                         </AnchorPane>
                     </content>
-                    <graphic>
-                        <ImageView>
-                            <image>
-                                 <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
                 </TitledPane>
                 <TitledPane fx:id="commentTP" alignment="CENTER" animated="false" text="COMMENT (*OPTIONAL)">
                     <content>

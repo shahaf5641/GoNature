@@ -37,9 +37,6 @@ public class OrderConfirmationController implements Initializable {
     private Label summaryDate;
     
     @FXML
-    private Label smsSimLabel;
-
-    @FXML
     private Label summaryTime;
 
     @FXML
@@ -79,10 +76,6 @@ public class OrderConfirmationController implements Initializable {
 	}
 
 	public void setOrderInfo() {
-		smsSimLabel.setText("");
-		if (isOrderFromWeb) {
-			smsSimLabel.setText("This message was sent to your Email");
-		}
 		if (isWaitingList) {
 			headerLabel.setText("You Are In The Waiting List");
 			msgLine1.setText("If someone will cancel their visit we will let you know");
