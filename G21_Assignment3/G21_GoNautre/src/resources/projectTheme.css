@@ -447,6 +447,21 @@ TextFlow {
 	-fx-border-color: -fx-primarytext;
 	-fx-border-radius: 15.0px;	
 }
+#travelerLoginLabel{
+    -fx-font-family: "Roboto", sans-serif;
+    
+
+}
+/* Define a style for odd rows */
+.table-row-odd {
+    -fx-background-color: lightgray;
+}
+
+/* Define a style for selected rows */
+.table-row-selected {
+    -fx-background-color: white;
+}
+
 
 /*Server */
 

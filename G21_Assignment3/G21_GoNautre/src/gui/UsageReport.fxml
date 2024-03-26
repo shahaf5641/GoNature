@@ -5,26 +5,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane fx:id="rootPane" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="rootPane" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <AnchorPane fx:id="root" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="748.0" stylesheets="@../resources/projectTheme.css">
+        <AnchorPane fx:id="root" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="658.0" stylesheets="@../resources/projectTheme.css">
             <children>
-                <Label fx:id="headerReport" layoutX="290.0" layoutY="38.0" text="Usage Report" />
-                <Button fx:id="sendToManagerBtn" layoutX="256.0" layoutY="499.0" text="Send To Department Manager" />
-                <TextArea fx:id="commentTextArea" layoutX="256.0" layoutY="362.0" prefHeight="108.0" prefWidth="239.0" promptText="Add Comments (Optional)" />
-                <Label layoutX="342.0" layoutY="330.0" text="Comments:" underline="true" />
-                <Label fx:id="monthLabel" layoutX="353.0" layoutY="77.0" text="Month" />
-                <ImageView fitHeight="108.0" fitWidth="99.0" layoutX="621.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../resources/images/calander.png" />
-                    </image>
-                </ImageView>
-                <TableView fx:id="notFullDatesTable" layoutX="30.0" layoutY="120.0" prefHeight="200.0" prefWidth="688.0">
+                <Label fx:id="headerReport" layoutX="226.0" layoutY="38.0" text="Usage Report" />
+                <Button fx:id="sendToManagerBtn" layoutX="189.0" layoutY="473.0" text="Send To Department Manager" />
+                <TextArea fx:id="commentTextArea" layoutX="200.0" layoutY="347.0" prefHeight="108.0" prefWidth="239.0" promptText="Add Comments (Optional)" />
+                <Label layoutX="280.0" layoutY="328.0" text="Comments:" underline="true" />
+                <Label fx:id="monthLabel" layoutX="280.0" layoutY="70.0" text="Month" />
+                <TableView fx:id="notFullDatesTable" layoutX="204.0" layoutY="130.0" prefHeight="198.0" prefWidth="231.0">
                     <columns>
                         <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Date" />
                     </columns>

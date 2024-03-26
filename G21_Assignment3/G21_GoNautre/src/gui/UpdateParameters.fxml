@@ -7,47 +7,57 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="updateParametersRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <padding>
-        <javafx.geometry.Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-    </padding>
-    <children>
-        <Accordion fx:id="accordion" layoutX="185.0" layoutY="97.0" prefHeight="439.0" prefWidth="531.0">
+<AnchorPane fx:id="updateParametersRootPane" prefHeight="383.0" prefWidth="486.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox alignment="CENTER" layoutY="-22.0" prefHeight="365.0" prefWidth="574.0" spacing="10.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <Label fx:id="headerLabel" alignment="CENTER" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Update Parameters">
+         <VBox.margin>
+            <Insets left="70.0" right="100.0" top="50.0" />
+         </VBox.margin></Label>
+        <Accordion fx:id="accordion" prefWidth="600.0">
             <panes>
-                <TitledPane fx:id="maxVisitorsTP" animated="false" expanded="false" text="UPDATE MAX VISITORS">
+                <TitledPane fx:id="maxVisitorsTP" animated="false" contentDisplay="CENTER" expanded="false" style="-fx-font-size: 16px;" text="Maximum Visitors Settings">
                     <content>
-                        <AnchorPane fx:id="identificationAP" minHeight="0.0" minWidth="0.0" prefHeight="194.0" prefWidth="529.0">
-                            <children>
-                                <TextField fx:id="newMaxVisitorsTextField" alignment="CENTER" layoutX="145.0" layoutY="156.0" prefHeight="37.0" prefWidth="239.0" promptText="Enter New Max Visitors" />
-                                <Label layoutX="203.0" layoutY="29.0" prefHeight="39.0" prefWidth="124.0" text="Enter Max Visitors" />
-                            </children>
-                        </AnchorPane>
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <TextField fx:id="newMaxVisitorsTextField" prefWidth="300.0" promptText="Enter New Maximum Visitors" />
+                        </VBox>
                     </content>
                 </TitledPane>
-                <TitledPane fx:id="estimatedTimeTP" animated="false" text="UPDATE ESTIMATED STAY TIME">
+                <TitledPane fx:id="estimatedTimeTP" animated="false" contentDisplay="CENTER" style="-fx-font-size: 16px;" text="Estimated Stay Time Settings">
                     <content>
-                        <AnchorPane fx:id="informationAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                            <children>
-                                <TextField fx:id="newEsitimatedTIme" alignment="CENTER" layoutX="145.0" layoutY="129.0" prefHeight="37.0" prefWidth="239.0" promptText="Enter New Estimated Stay Time" />
-                                <Label layoutX="188.0" layoutY="57.0" text="Enter Estimated Stay Time" />
-                            </children>
-                        </AnchorPane>
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <TextField fx:id="newEsitimatedTIme" prefWidth="300.0" promptText="Enter New Estimated Stay Time" />
+                        </VBox>
                     </content>
                 </TitledPane>
-                <TitledPane fx:id="gapTP" animated="false" text="UPDATE GAP">
+                <TitledPane fx:id="gapTP" animated="false" style="-fx-font-size: 16px;" text="Gap Settings">
                     <content>
-                        <AnchorPane fx:id="paymentAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" visible="false">
-                            <children>
-                                <TextField fx:id="gapTextField" alignment="CENTER" layoutX="145.0" layoutY="156.0" prefHeight="37.0" prefWidth="239.0" promptText="Enter New Gap" />
-                                <Label layoutX="234.0" layoutY="55.0" text="Enter Gap:" />
-                            </children>
-                        </AnchorPane>
+                        <VBox alignment="CENTER" spacing="10.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <TextField fx:id="gapTextField" prefWidth="300.0" promptText="Enter New Gap" />
+                        </VBox>
                     </content>
                 </TitledPane>
             </panes>
+         <VBox.margin>
+            <Insets right="50.0" top="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
         </Accordion>
-        <Label fx:id="headerLabel" layoutX="337.0" layoutY="22.0" text="Update Parameters" />
-        <Button fx:id="sendForApprovealButton" layoutX="360.0" layoutY="547.0" onMouseClicked="#sendForApprovealButtonClicked" text="SEND FOR APPROVAL" />
-    </children>
+        <Button fx:id="sendForApprovealButton" prefHeight="43.0" prefWidth="202.0" text="Send for Approval" />
+    </VBox>
 </AnchorPane>
