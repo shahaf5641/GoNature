@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <AnchorPane fx:id="topPane" prefHeight="120.0" prefWidth="1206.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="userLabel" alignment="CENTER" layoutX="418.0" layoutY="31.0" prefHeight="58.0" prefWidth="370.0" text="Traveler" textAlignment="CENTER" />
-         </children>
-      </AnchorPane>
-   </top>
-   <left>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox fx:id="vbox" prefHeight="600.0" prefWidth="204.0">
-               <children>
-                  <Button fx:id="profileTravelerButton" onAction="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile" />
-                  <Button fx:id="orderTravelerButton" layoutX="10.0" layoutY="10.0" onAction="#loadOrderVisit" prefHeight="122.0" prefWidth="204.0" text=" Order a visit" />
-                  <Button fx:id="viewOrdersButton" layoutX="10.0" layoutY="136.0" onAction="#loadOrders" prefHeight="122.0" prefWidth="204.0" text=" My orders" />
-                  <Button fx:id="viewMessagesButton" layoutX="10.0" layoutY="262.0" onAction="#loadMessages" prefHeight="122.0" prefWidth="204.0" text=" My messages" />
-                  <Button fx:id="logoutBtn" onAction="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout" />
-               </children>
-            </VBox>
-         </children>
-      </StackPane>
-   </left>
-</BorderPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="895.0" stylesheets="@../resources/projectTheme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1">
+   <children>
+      <TableView fx:id="ordersTableView" layoutX="126.0" layoutY="89.0" prefHeight="242.0" prefWidth="662.0">
+         <columns>
+            <TableColumn fx:id="orderIdCol" prefWidth="75.0" text="Order ID" />
+            <TableColumn fx:id="visitDateCol" prefWidth="75.0" text="Visit Date" />
+            <TableColumn fx:id="visitTimeCol" prefWidth="75.0" text="Visit Time" />
+            <TableColumn fx:id="orderStatusCol" prefWidth="75.0" text="Order Status" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="confirmOrderBtn" layoutX="451.0" layoutY="471.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="186.0" text="   Confirm Order" />
+      <Button fx:id="cancelOrderBtn" layoutX="229.0" layoutY="471.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="186.0" text="   Cancel Order" />
+      <Label fx:id="headerLabel" layoutX="377.0" layoutY="48.0" text="Your Orders" />
+      <Label layoutX="391.0" layoutY="372.0" text="Selected Order:" underline="true" />
+      <Label fx:id="orderIdTxt" layoutX="186.0" layoutY="435.0" prefHeight="20.0" prefWidth="90.0" />
+      <Label fx:id="visitDateTxt" layoutX="315.0" layoutY="436.0" prefWidth="90.0" />
+      <Label fx:id="visitTimeTxt" layoutX="446.0" layoutY="436.0" prefWidth="90.0" />
+      <Label fx:id="orderStatusTxt" layoutX="576.0" layoutY="436.0" prefWidth="90.0" />
+      <Label layoutX="204.0" layoutY="401.0" prefWidth="90.0" text="Order ID:" underline="true" />
+      <Label layoutX="322.0" layoutY="401.0" prefWidth="90.0" text="Visit Date:" underline="true" />
+      <Label layoutX="454.0" layoutY="401.0" prefWidth="90.0" text="Visit Time:" underline="true" />
+      <Label layoutX="576.0" layoutY="401.0" prefWidth="90.0" text="Order Status:" underline="true" />
+      <Label layoutX="335.0" layoutY="340.0" text="* choose an order ID and select it" />
+   </children>
+   <padding>
+      <Insets bottom="25.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</Pane>
