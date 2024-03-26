@@ -80,15 +80,16 @@
 .text-field {
 	-fx-prompt-text-fill: -fx-prompttext;
 	-fx-text-fill: -fx-primarytext;
-    -fx-font-size : 10.0pt;
+    -fx-font-size : 14.0pt;
+    -fx-font-family: "David";
     -fx-text-fill: derive(-fx-secondary, 20.0%);
 }
 
 .text-area {
 	-fx-prompt-text-fill: -fx-prompttext;
 	-fx-text-fill: -fx-primarytext;
-    -fx-font-size : 10.0pt;
-    -jfx-focus-color: -fx-secondary;
+    -fx-font-size : 14.0pt;
+    -fx-font-family: "David";
     -fx-text-fill: derive(-fx-secondary, 20.0%);
 }
 
@@ -98,12 +99,43 @@
 	-fx-text-fill: -fx-secondary;
 }
 
-.titled-pane {
-	-fx-font-size: 14.0px;
+.accordion {
+    -fx-padding: 10px;
 }
 
-.titled-pane > .title > .glyph-icon {
-     -fx-fill: black;
+.titled-pane {
+    -fx-font-family: 'David', sans-serif;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 1px;
+	-fx-font-size: 18.0px;
+	-fx-border-radius: 5px;
+}
+
+.titled-pane .content {
+    -fx-padding: 10px;
+    -fx-background-radius: 0 0 5px 5px;
+    -fx-background-color: #f4f4f4;
+    -fx-font-family: 'David', sans-serif;
+}
+
+
+.titled-pane .title {
+    -fx-font-family: "David";
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #333;
+    -fx-background-color: lightgray;
+}
+
+.titled-pane:expanded .content {
+    -fx-background-radius: 0;
+}
+
+/* Style the rounded border */
+.titled-pane .title .arrow-button {
+    -fx-background-radius: 5px;
+    -fx-background-color: #ccc;
 }
 
 .table-view{
@@ -111,9 +143,16 @@
     -fx-font-size: 12.0px; 
     -fx-border-color: derive(-fx-secondary, -60.0%);
 }
-.table-view:focused{
-    -fx-background-color: derive(-fx-primary, 20.0%);
+/* Apply white background color on hover */
+.table-view:hover {
+    -fx-background-color: white;
 }
+
+/* Apply white background color when focused */
+.table-view:focused {
+    -fx-background-color: white;
+}
+
 .table-row-cell {
     -fx-cell-size: 40.0px;
 }
@@ -145,7 +184,7 @@
     -fx-background-color: derive(-fx-primary, 10.0%);
 }
 .table-row-cell:selected {
-    -fx-background-color: -fx-secondary;
+    -fx-background-color: white;
     -fx-text-fill: -fx-primary;
     -fx-background-insets: 0.0;
 }
@@ -326,18 +365,22 @@
 	-fx-background-color: -fx-primary;
 }
 
+
+/* Style the radio button text */
 .radio-button {
-	-fx-text-fill: -fx-primarytext;
+    -fx-text-fill: white; /* Set the text color */
+    -fx-font-size: 17px; /* Set the font size */
 }
 
+/* Style the radio button circle */
 .radio-button .radio {
-    -fx-border-radius: 15.0px;
-    -fx-padding: 1.0px;
+    -fx-shape: "M 0 0 L 16 0 L 16 16 L 0 16 Z";
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+    -fx-padding: 4px;
 }
 
-.radio-button .radio:selected {
-    -fx-background-color: -fx-secondary;
-}
 
 #paymentPane > .text-field {
 	-fx-font-size: 10.0pt;
@@ -350,7 +393,17 @@
 }
 
 .combo-box > .list-cell {
-    -fx-text-fill: -fx-secondary;
+	-fx-font-family: "David";
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-color: lightgray;
+}
+
+.combo-box > .arrow-button {
+	-fx-background-radius: 5px;
+    -fx-background-color: lightgray;
+	
 }
 
 #headerLabel{
@@ -389,9 +442,11 @@
 }
 
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
-    -fx-padding: 4 0 4 5;
-    /* No alternate highlighting */
-    -fx-background: -fx-primary;
+	-fx-font-family: "David";
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-color: lightgray;
 }
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
     -fx-background: -fx-secondary;
@@ -452,15 +507,12 @@ TextFlow {
     
 
 }
-/* Define a style for odd rows */
-.table-row-odd {
-    -fx-background-color: lightgray;
+
+#accordionId {
+	
 }
 
-/* Define a style for selected rows */
-.table-row-selected {
-    -fx-background-color: white;
-}
+
 
 
 /*Server */

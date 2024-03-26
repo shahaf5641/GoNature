@@ -80,14 +80,16 @@
 .text-field {
 	-fx-prompt-text-fill: -fx-prompttext;
 	-fx-text-fill: -fx-primarytext;
-    -fx-font-size : 10.0pt;
+    -fx-font-size : 14.0pt;
+    -fx-font-family: "David";
     -fx-text-fill: derive(-fx-secondary, 20.0%);
 }
 
 .text-area {
 	-fx-prompt-text-fill: -fx-prompttext;
 	-fx-text-fill: -fx-primarytext;
-    -fx-font-size : 10.0pt;
+    -fx-font-size : 14.0pt;
+    -fx-font-family: "David";
     -jfx-focus-color: -fx-secondary;
     -fx-text-fill: derive(-fx-secondary, 20.0%);
 }
