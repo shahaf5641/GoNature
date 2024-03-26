@@ -4,40 +4,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="824.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ContactUsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="824.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ContactUsController">
    <children>
-      <AnchorPane fx:id="ourConcactsPane" minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="324.0" style="-fx-background-color: #4b4f97;">
+      <AnchorPane fx:id="emailPane" layoutX="184.0" minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="640.0">
          <children>
-            <Label layoutX="50.0" layoutY="437.0" text="To register as a subscriber, call:  *3636" />
-            <Label layoutX="52.0" layoutY="472.0" text="For general help, call:  *3637" />
-            <Label fx:id="emailLabel" layoutX="53.0" layoutY="504.0" text="support@goNature.com" textAlignment="CENTER" />
-            <Label layoutX="25.0" layoutY="24.0" style="-fx-font-weight: bold;" text="Our contacts" />
-            <ImageView fitHeight="211.0" fitWidth="210.0" layoutX="57.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/images/LOGO%20(2).png" />
-               </image>
-            </ImageView>
+            <Label layoutX="123.0" layoutY="28.0" style="-fx-font-weight: bold; -fx-font-family: 'David';" text="Send us a message" />
+            <TextArea fx:id="textArea" layoutX="24.0" layoutY="280.0" prefHeight="170.0" prefWidth="394.0" promptText="Write your message here" style="-fx-font-family: 'David';" />
+            <Button fx:id="sendButton" layoutX="21.0" layoutY="470.0" onMouseClicked="#sendEmailBtn" prefHeight="40.0" prefWidth="402.0" style="-fx-font-family: 'David';" text="SEND" />
+            <TextField fx:id="nameTextField" layoutX="31.0" layoutY="107.0" prefHeight="38.0" prefWidth="168.0" promptText="Your name" style="-fx-font-family: 'David';" />
+            <TextField fx:id="phoneTextField" layoutX="222.0" layoutY="107.0" prefHeight="38.0" prefWidth="192.0" promptText="Your phone" style="-fx-font-family: 'David';" />
+            <TextField fx:id="emailTextField" layoutX="31.0" layoutY="163.0" prefHeight="37.0" prefWidth="394.0" promptText="Email address" style="-fx-font-family: 'David';" />
+            <Label layoutX="260.0" layoutY="70.0" style="-fx-font-family: 'David';" text="PHONE" />
+            <TextField fx:id="subjectLabel" layoutX="31.0" layoutY="223.0" prefHeight="30.0" prefWidth="394.0" promptText="Subject" style="-fx-font-family: 'David';" />
+            <Label layoutX="43.0" layoutY="70.0" prefHeight="19.0" prefWidth="45.0" style="-fx-font-family: 'David';" text="USER" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="emailPane" layoutX="324.0" minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="514.0">
-         <children>
-            <Label layoutX="25.0" layoutY="24.0" style="-fx-font-weight: bold;" text="Send us a message" />
-            <TextArea fx:id="textArea" layoutX="54.0" layoutY="229.0" prefHeight="224.0" prefWidth="394.0" promptText="Write your message here" />
-            <Button fx:id="sendButton" layoutX="50.0" layoutY="487.0" onMouseClicked="#sendEmailBtn" prefHeight="40.0" prefWidth="402.0" text="SEND" />
-            <TextField fx:id="nameTextField" layoutX="74.0" layoutY="59.0" prefHeight="37.0" prefWidth="170.0" promptText="Your name" />
-            <TextField fx:id="phoneTextField" layoutX="298.0" layoutY="59.0" prefHeight="37.0" prefWidth="170.0" promptText="Your phone" />
-            <TextField fx:id="emailTextField" layoutX="74.0" layoutY="119.0" prefHeight="37.0" prefWidth="394.0" promptText="Email address" />
-            <Label layoutX="261.0" layoutY="91.0" text="PHONE" />
-            <Label layoutX="34.0" layoutY="148.0" text="ENVELOPE" />
-            <Label layoutX="38.0" layoutY="89.0" text="USER" />
-            <TextField fx:id="subjectLabel" layoutX="74.0" layoutY="181.0" prefHeight="30.0" prefWidth="394.0" promptText="Subject" />
-            <Label layoutX="34.0" layoutY="204.0" text="COMMENTING_ALT" />
-            <Label layoutX="199.0" layoutY="515.0" text="SEND_ALT" />
-         </children>
-      </AnchorPane>
+      <Label layoutX="50.0" layoutY="169.0" style="-fx-font-family: 'David';" text="ENVELOPE" />
+      <Label layoutX="25.0" layoutY="225.0" style="-fx-font-family: 'David';" text="COMMENTING_ALT" />
    </children>
 </AnchorPane>

@@ -14,15 +14,15 @@
 
 <AnchorPane fx:id="createReportsRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label fx:id="headerLabel" layoutX="357.0" layoutY="37.0" text="Create Reports" />
+        <Label fx:id="headerLabel" layoutX="340.0" layoutY="111.0" text="Create Reports" />
         <Accordion fx:id="accordion" layoutX="257.0" layoutY="216.0" prefHeight="238.0" prefWidth="386.0">
             <panes>
-                <TitledPane fx:id="monthTP" animated="false" text=" CHOOSE MONTH">
+                <TitledPane fx:id="monthTP" alignment="CENTER" animated="false" text=" CHOOSE MONTH">
                     <content>
                         <AnchorPane fx:id="chooseMonthAP" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="384.0">
                             <children>
-                                <Label layoutX="49.0" layoutY="71.0" text="Choose Month Number:" />
-                                <ComboBox fx:id="monthCB" layoutX="227.0" layoutY="66.0" promptText="Month" />
+                                <Label layoutX="103.0" layoutY="29.0" text="Choose Month Number:" />
+                                <ComboBox fx:id="monthCB" layoutX="121.0" layoutY="74.0" promptText="Month" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -30,20 +30,19 @@
                         <ImageView>
                             <image>
                                <Image url="@../../../../../Desktop/project%20%20stuff/׳“׳•׳—׳•׳×/dashboard%20(1).png" />
-
+      
                             </image>
                         </ImageView>
                     </graphic>
                 </TitledPane>
-                <TitledPane fx:id="reportTP" animated="false" text="CHOOSE REPORT">
+                <TitledPane fx:id="reportTP" alignment="CENTER" animated="false" text="CHOOSE REPORT">
                     <content>
                         <AnchorPane fx:id="chooseReportAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <Label layoutX="101.0" layoutY="29.0" text="Please Choose Report To Create" />
-                                <HBox layoutX="20.0" layoutY="81.0" spacing="10.0">
-                                    <RadioButton fx:id="totalVisitorsRB" onMouseClicked="#turnON_totalVisitorsRB" text="Total Visitors" />
-                                </HBox>
-                                 <RadioButton fx:id="useageRB" layoutX="210.0" layoutY="81.0" onMouseClicked="#turnON_useageRB" text="Usage" />
+                                <Label layoutX="98.0" layoutY="30.0" text="Please Choose Report To Create" />
+                                <HBox layoutX="20.0" layoutY="81.0" spacing="10.0" />
+                                 <RadioButton fx:id="useageRB" layoutX="125.0" layoutY="105.0" onMouseClicked="#turnON_useageRB" text="Usage" />
+                                 <RadioButton fx:id="totalVisitorsRB" layoutX="125.0" layoutY="65.0" onMouseClicked="#turnON_totalVisitorsRB" text="Total Visitors" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -55,12 +54,12 @@
                         </ImageView>
                     </graphic>
                 </TitledPane>
-                <TitledPane fx:id="commentTP" animated="false" text="COMMENT (*OPTIONAL)">
+                <TitledPane fx:id="commentTP" alignment="CENTER" animated="false" text="COMMENT (*OPTIONAL)">
                     <content>
                         <AnchorPane fx:id="addCommentAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TextArea fx:id="commentTextArea" layoutX="54.0" layoutY="49.0" prefHeight="84.0" prefWidth="277.0" promptText="Add Comment" />
-                                <Label layoutX="95.0" layoutY="20.0" text="Add Comment About The Month" />
+                                <TextArea fx:id="commentTextArea" layoutX="45.0" layoutY="74.0" prefHeight="30.0" prefWidth="293.0" promptText="Add Comment" />
+                                <Label layoutX="73.0" layoutY="39.0" text="Add Comment About The Month" />
                             </children>
                         </AnchorPane>
                     </content>
