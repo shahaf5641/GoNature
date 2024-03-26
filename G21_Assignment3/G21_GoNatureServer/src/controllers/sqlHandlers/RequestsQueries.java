@@ -38,7 +38,7 @@ public class RequestsQueries {
 		try {
 			query = conn.prepareStatement(sql); // handles updates
 
-			if (managerRequests.get(0) != null && !(managerRequests.get(0)).equals("")) {
+			if (managerRequests.get(0) != null && !(managerRequests.get(0)).equals("") ) {
 
 				query.setString(1, "UPDATE MAX VISITORS");
 				query.setString(2, (String) managerRequests.get(0));

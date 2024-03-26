@@ -1,6 +1,6 @@
 package client;
 
-import client.ClientController;
+//import client.ClientController;
 import gui.ClientConfigurationController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

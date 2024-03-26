@@ -11,14 +11,14 @@ public enum OrderType {
     /**
      * Overrides the toString method to provide custom string representations for each enum value.
      * @return A string representation of the enum value.
-     */
+     */ 
     @Override
     public String toString() {
         switch (this) {
             case SOLO:
                 return "Solo Visit";
             case FAMILY:
-                return "Family visit";
+                return "Family Visit";
             case GROUP:
                 return "Group Visit";
             default:
