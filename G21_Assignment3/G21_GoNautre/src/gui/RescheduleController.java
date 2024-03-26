@@ -50,8 +50,7 @@ public class RescheduleController implements Initializable {
     @FXML
     private Button waitingListBtn;
 
-    @FXML
-    private Label selectedTimeLabel;
+   
 
     @FXML
     private AnchorPane mainPane;
@@ -256,9 +255,7 @@ public class RescheduleController implements Initializable {
 
     }
 
-    public void setSelectedTimeLabel(String DateAndTime) {
-        this.selectedTimeLabel.setText(DateAndTime);
-    }
+   
 
     public void setOrder(Order order) {
         this.order = order;

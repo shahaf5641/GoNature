@@ -9,22 +9,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="676.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1013.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="headerReport" layoutX="217.0" layoutY="14.0" text="Total Visitors Report" />
-      <Label layoutX="229.0" layoutY="134.0" text="Individual Visitors:" underline="true" />
-      <Label layoutX="229.0" layoutY="174.0" text="Organized Groups:" underline="true" />
-      <Label layoutX="394.0" layoutY="94.0" style="-fx-font-weight: bold;" text="Total visitors: " underline="true" />
-      <Label fx:id="monthLabel" layoutX="328.0" layoutY="52.0" text="Month" />
-      <Label fx:id="individualLabel" layoutX="423.0" layoutY="134.0" text="200" />
-      <Label fx:id="groupsLabel" layoutX="424.0" layoutY="174.0" text="200" />
-      <Label layoutX="230.0" layoutY="219.0" text="Total:" underline="true" />
-      <Label fx:id="totalLabel" layoutX="423.0" layoutY="219.0" text="200" />
-      <Label layoutX="229.0" layoutY="94.0" style="-fx-font-weight: bold;" text="Type:" underline="true" />
-      <Button fx:id="sendToManagerBtn" layoutX="230.0" layoutY="797.0" text="Send To Department Manager" />
-      <TextArea fx:id="commentTextArea" layoutX="230.0" layoutY="693.0" prefHeight="88.0" prefWidth="239.0" promptText="Add Comments (Optional)" />
-      <Label layoutX="315.0" layoutY="658.0" text="Comments:" underline="true" />
-      <BarChart fx:id="barChart" layoutX="17.0" layoutY="304.0" prefHeight="338.0" prefWidth="627.0" title="Days Distribution">
+      <Label fx:id="headerReport" layoutX="269.0" layoutY="63.0" text="Total Visitors Report" underline="true" />
+      <Label layoutX="48.0" layoutY="213.0" text="Individual Visitors:" underline="true" />
+      <Label layoutX="49.0" layoutY="263.0" text="Organized Groups:" underline="true" />
+      <Label layoutX="255.0" layoutY="166.0" style="-fx-font-weight: bold;" text="Total visitors: " underline="true" />
+      <Label fx:id="monthLabel" layoutX="583.0" layoutY="70.0" text="Month" />
+      <Label fx:id="individualLabel" layoutX="269.0" layoutY="213.0" text="200" />
+      <Label fx:id="groupsLabel" layoutX="269.0" layoutY="263.0" text="200" />
+      <Label layoutX="48.0" layoutY="310.0" text="Total:" underline="true" />
+      <Label fx:id="totalLabel" layoutX="269.0" layoutY="310.0" text="200" />
+      <Label layoutX="49.0" layoutY="166.0" style="-fx-font-weight: bold;" text="Type:" underline="true" />
+      <Button fx:id="sendToManagerBtn" layoutX="333.0" layoutY="606.0" text="Send To Department Manager" />
+      <TextArea fx:id="commentTextArea" layoutX="48.0" layoutY="474.0" prefHeight="88.0" prefWidth="303.0" promptText="Add Comments (Optional)" />
+      <Label layoutX="50.0" layoutY="445.0" text="Comments:" underline="true" />
+      <BarChart fx:id="barChart" layoutX="390.0" layoutY="126.0" prefHeight="392.0" prefWidth="627.0" title="Days Distribution">
          <xAxis>
             <CategoryAxis label="Day Of The Week" side="BOTTOM" fx:id="xAxis" />
          </xAxis>
@@ -32,7 +32,7 @@
             <NumberAxis fx:id="yAxis" label="Visitors Number" side="LEFT" />
          </yAxis>
       </BarChart>
-      <Line endX="-282.0" endY="193.0" layoutX="283.0" layoutY="-109.0" opacity="0.19" startX="408.0" startY="192.99998474121094" stroke="WHITE" strokeWidth="1.5" />
-      <Line endX="-282.0" endY="193.0" layoutX="283.0" layoutY="102.0" opacity="0.19" startX="408.0" startY="193.0" stroke="WHITE" strokeWidth="1.5" />
+      <Line endX="-282.0" endY="193.0" layoutX="294.0" layoutY="-74.0" opacity="0.19" startX="736.9393310546875" startY="193.0" stroke="WHITE" strokeWidth="1.5" />
+      <Line endX="-282.0" endY="193.0" layoutX="294.0" layoutY="471.0" opacity="0.19" startX="736.9393310546875" startY="193.0" stroke="WHITE" strokeWidth="1.5" />
    </children>
 </AnchorPane>

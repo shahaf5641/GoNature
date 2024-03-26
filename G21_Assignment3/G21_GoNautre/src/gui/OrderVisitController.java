@@ -609,7 +609,6 @@ public class OrderVisitController implements Initializable {
 			controller.setOrder(order);
 			loader.setController(controller);
 			loader.load();
-			controller.setSelectedTimeLabel(summaryDate.getText() + ", " + summaryTime.getText());
 			controller.setRescheduleStage(newStage);
 			if (isOrderFromMain) {
 				controller.setOrderFromMain(true);
