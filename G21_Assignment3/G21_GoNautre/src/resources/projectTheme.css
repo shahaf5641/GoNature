@@ -508,8 +508,9 @@ TextFlow {
 
 }
 
-#accordionId {
-	
+#sendusmessageID {
+	-fx-font-family: 'David', sans-serif;
+    -fx-font-size: 17.0pt;
 }
 
 

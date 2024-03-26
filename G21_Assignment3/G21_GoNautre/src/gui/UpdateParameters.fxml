@@ -9,15 +9,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="updateParametersRootPane" prefHeight="628.0" prefWidth="842.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <VBox alignment="CENTER" layoutX="141.0" layoutY="84.0" prefHeight="365.0" prefWidth="574.0" spacing="10.0">
+<AnchorPane fx:id="updateParametersRootPane" prefHeight="424.0" prefWidth="1094.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox alignment="CENTER" layoutX="-1.0" prefHeight="424.0" prefWidth="1094.0" spacing="10.0">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
-        <Label fx:id="headerLabel" alignment="CENTER" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Update Parameters">
-         <VBox.margin>
-            <Insets left="70.0" right="100.0" top="50.0" />
-         </VBox.margin></Label>
+        <Label fx:id="headerLabel" alignment="CENTER" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Update Parameters" />
         <Accordion fx:id="accordion" prefWidth="600.0">
             <panes>
                 <TitledPane fx:id="estimatedTimeTP" animated="false" contentDisplay="CENTER" style="-fx-font-size: 16px;" text="Estimated Stay Time Settings">

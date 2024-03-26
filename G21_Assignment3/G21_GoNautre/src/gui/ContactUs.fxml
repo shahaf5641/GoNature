@@ -5,23 +5,20 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="824.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ContactUsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="444.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ContactUsController">
    <children>
-      <AnchorPane fx:id="emailPane" layoutX="184.0" minHeight="0.0" minWidth="0.0" prefHeight="559.0" prefWidth="640.0">
-         <children>
-            <Label layoutX="123.0" layoutY="28.0" style="-fx-font-weight: bold; -fx-font-family: 'David';" text="Send us a message" />
-            <TextArea fx:id="textArea" layoutX="24.0" layoutY="280.0" prefHeight="170.0" prefWidth="394.0" promptText="Write your message here" style="-fx-font-family: 'David';" />
-            <Button fx:id="sendButton" layoutX="21.0" layoutY="470.0" onMouseClicked="#sendEmailBtn" prefHeight="40.0" prefWidth="402.0" style="-fx-font-family: 'David';" text="SEND" />
-            <TextField fx:id="nameTextField" layoutX="31.0" layoutY="107.0" prefHeight="38.0" prefWidth="168.0" promptText="Your name" style="-fx-font-family: 'David';" />
-            <TextField fx:id="phoneTextField" layoutX="222.0" layoutY="107.0" prefHeight="38.0" prefWidth="192.0" promptText="Your phone" style="-fx-font-family: 'David';" />
-            <TextField fx:id="emailTextField" layoutX="31.0" layoutY="163.0" prefHeight="37.0" prefWidth="394.0" promptText="Email address" style="-fx-font-family: 'David';" />
-            <Label layoutX="260.0" layoutY="70.0" style="-fx-font-family: 'David';" text="PHONE" />
-            <TextField fx:id="subjectLabel" layoutX="31.0" layoutY="223.0" prefHeight="30.0" prefWidth="394.0" promptText="Subject" style="-fx-font-family: 'David';" />
-            <Label layoutX="43.0" layoutY="70.0" prefHeight="19.0" prefWidth="45.0" style="-fx-font-family: 'David';" text="USER" />
-         </children>
-      </AnchorPane>
-      <Label layoutX="50.0" layoutY="169.0" style="-fx-font-family: 'David';" text="ENVELOPE" />
-      <Label layoutX="25.0" layoutY="225.0" style="-fx-font-family: 'David';" text="COMMENTING_ALT" />
+      <TextField fx:id="nameTextField" layoutX="31.0" layoutY="66.0" prefHeight="38.0" prefWidth="168.0" promptText="Your name" style="-fx-font-family: 'David';" />
+      <TextField fx:id="phoneTextField" layoutX="228.0" layoutY="66.0" prefHeight="38.0" prefWidth="192.0" promptText="Your phone" style="-fx-font-family: 'David';" />
+      <TextField fx:id="emailTextField" layoutX="31.0" layoutY="128.0" prefHeight="37.0" prefWidth="394.0" promptText="Email address" style="-fx-font-family: 'David';" />
+      <TextField fx:id="subjectLabel" layoutX="31.0" layoutY="191.0" prefHeight="30.0" prefWidth="394.0" promptText="Subject" style="-fx-font-family: 'David';" />
+      <Label fx:id="sendusmessageID" layoutX="135.0" layoutY="14.0" style="-fx-font-weight: bold; -fx-font-family: 'David';" text="Send us a message">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textArea" layoutX="31.0" layoutY="273.0" prefHeight="170.0" prefWidth="394.0" promptText="Write your message here" style="-fx-font-family: 'David';" />
+      <Button fx:id="sendButton" layoutX="91.0" layoutY="483.0" onMouseClicked="#sendEmailBtn" prefHeight="40.0" prefWidth="274.0" style="-fx-font-family: 'David';" text="SEND" />
    </children>
 </AnchorPane>

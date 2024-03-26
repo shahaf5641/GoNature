@@ -4,18 +4,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="482.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="headerLabel" layoutX="139.0" layoutY="54.0" prefHeight="32.0" prefWidth="223.0" text="Park Parameters" underline="true" wrapText="true" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="138.0" />
-      <Label layoutX="83.0" layoutY="182.0" text="Current Visitors:" />
-      <Label fx:id="currentLabel" layoutX="264.0" layoutY="182.0" text="0" />
-      <Label layoutX="82.0" layoutY="233.0" text="Max Visitors:" />
-      <Label fx:id="maxLabel" layoutX="264.0" layoutY="233.0" text="0" />
-      <Label layoutX="82.0" layoutY="280.0" text="Allowed Gap:" />
-      <Label fx:id="allowedLabel" layoutX="264.0" layoutY="280.0" text="0" />
-      <Label layoutX="83.0" layoutY="327.0" text="Place In Park:" />
-      <Label fx:id="actualLabel" layoutX="264.0" layoutY="327.0" text="0" />
-      <ComboBox fx:id="parkComboBox" layoutX="218.0" layoutY="123.0" prefHeight="30.0" prefWidth="140.0" promptText="Park:" />
-      <Label fx:id="chooseParkLabel" layoutX="83.0" layoutY="129.0" text="Choose Park:" />
+      <Label fx:id="headerLabel" layoutX="338.0" layoutY="79.0" prefHeight="32.0" prefWidth="223.0" text="Park Parameters" underline="true" />
+      <Label layoutX="313.0" layoutY="209.0" text="Current Visitors:" />
+      <Label fx:id="currentLabel" layoutX="494.0" layoutY="209.0" text="0" />
+      <Label layoutX="312.0" layoutY="260.0" text="Max Visitors:" />
+      <Label fx:id="maxLabel" layoutX="494.0" layoutY="260.0" text="0" />
+      <Label layoutX="312.0" layoutY="307.0" text="Allowed Gap:" />
+      <Label fx:id="allowedLabel" layoutX="494.0" layoutY="307.0" text="0" />
+      <Label layoutX="313.0" layoutY="354.0" text="Place In Park:" />
+      <Label fx:id="actualLabel" layoutX="494.0" layoutY="354.0" text="0" />
+      <ComboBox fx:id="parkComboBox" layoutX="448.0" layoutY="150.0" prefHeight="30.0" prefWidth="140.0" promptText="Park:" />
+      <Label fx:id="chooseParkLabel" layoutX="313.0" layoutY="156.0" text="Choose Park:" />
    </children>
 </AnchorPane>
