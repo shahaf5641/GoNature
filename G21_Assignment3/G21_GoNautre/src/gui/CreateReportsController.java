@@ -58,7 +58,7 @@ public class CreateReportsController implements Initializable {
     private TextArea commentTextArea;
 
     @FXML
-    private Accordion accordion;
+    private Accordion accordionId;
 
     private String fxmlName;
     private String screenTitle;
@@ -71,7 +71,7 @@ public class CreateReportsController implements Initializable {
     }
 
     private void init() {
-        accordion.setExpandedPane(monthTP);
+        accordionId.setExpandedPane(monthTP);
         initComboBox();
         /* Default settings */
         totalVisitorsRB.setSelected(true);
@@ -102,14 +102,6 @@ public class CreateReportsController implements Initializable {
         totalVisitorsRB.setSelected(false);
         this.fxmlName = "/gui/UsageReport.fxml";
         screenTitle = "Usage Report";
-    }
-
-    @FXML
-    private void turnON_IncomeRB() {
-        totalVisitorsRB.setSelected(false);
-        useageRB.setSelected(false);
-        this.fxmlName = "/gui/IncomeReport.fxml";
-        screenTitle = "Income Report";
     }
 
     private void initComboBox() {
