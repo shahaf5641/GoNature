@@ -6,21 +6,34 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="idInputCasualVisit" layoutX="315.0" layoutY="86.0" prefHeight="37.0" prefWidth="172.0" promptText="Visitor's ID" />
-      <Label layoutX="190.0" layoutY="95.0" text="Enter Visitor's ID:" />
-      <TextField fx:id="emailInputCasualVisit" layoutX="315.0" layoutY="202.0" prefHeight="30.0" prefWidth="172.0" promptText="Enter Your Email" />
-      <Label layoutX="190.0" layoutY="151.0" text="Order Type:" />
-      <ComboBox fx:id="typeComboBox" layoutX="315.0" layoutY="144.0" prefHeight="30.0" prefWidth="172.0" promptText="Order Type" />
-      <Label layoutX="190.0" layoutY="207.0" text="Visitor's Email" />
-      <TextField fx:id="numOfVisitorsCasualVisit" layoutX="494.0" layoutY="144.0" prefHeight="30.0" prefWidth="106.0" promptText="Visitor's Number" />
-      <Label fx:id="headerLabel" layoutX="297.0" layoutY="30.0" text="Casual Visit" />
-      <Button fx:id="placeOrderBtn" layoutX="268.0" layoutY="347.0" prefHeight="39.0" prefWidth="165.0" text="Place Order" />
-      <Label layoutX="190.0" layoutY="263.0" text="Total Price:" />
-      <Label fx:id="totalPriceLabel" layoutX="315.0" layoutY="263.0" prefHeight="20.0" prefWidth="46.0" />
-      <Button fx:id="checkPriceBtn" layoutX="364.0" layoutY="254.0" prefHeight="39.0" prefWidth="154.0" text="Check Price" />
-      <Label fx:id="permissionLabel" layoutX="600.0" layoutY="95.0" prefHeight="20.0" prefWidth="46.0" />
-      <Label layoutX="494.0" layoutY="95.0" prefHeight="20.0" prefWidth="103.0" text="Visitor's Type:" />
+      <TextField fx:id="idInputCasualVisit" layoutX="194.0" layoutY="86.0" prefHeight="37.0" prefWidth="172.0" promptText="Visitor's ID" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="54.0" layoutY="95.0" style="-fx-font-family: 'David';" text="Enter Visitor's ID:" />
+      
+      <TextField fx:id="emailInputCasualVisit" layoutX="194.0" layoutY="201.0" prefHeight="30.0" prefWidth="172.0" promptText="Enter Your Email" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="53.0" layoutY="149.0" style="-fx-font-family: 'David';" text="Order Type:" />
+      
+      <ComboBox fx:id="typeComboBox" layoutX="194.0" layoutY="148.0" prefHeight="30.0" prefWidth="172.0" promptText="Order Type" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="54.0" layoutY="207.0" style="-fx-font-family: 'David';" text="Visitor's Email" />
+      
+      <TextField fx:id="numOfVisitorsCasualVisit" layoutX="538.0" layoutY="159.0" prefHeight="30.0" prefWidth="124.0" promptText="Visitor's Number" style="-fx-font-family: 'David';" />
+      
+      <Label fx:id="headerLabel" layoutX="297.0" layoutY="30.0" style="-fx-font-family: 'David';" text="Casual Visit" />
+      
+      <Button fx:id="placeOrderBtn" layoutX="409.0" layoutY="315.0" prefHeight="39.0" prefWidth="165.0" style="-fx-font-family: 'David';" text="Place Order" />
+      
+      <Label layoutX="56.0" layoutY="273.0" style="-fx-font-family: 'David';" text="Total Price:" />
+      
+      <Label fx:id="totalPriceLabel" layoutX="315.0" layoutY="263.0" prefHeight="20.0" prefWidth="46.0" style="-fx-font-family: 'David';" />
+      
+      <Button fx:id="checkPriceBtn" layoutX="182.0" layoutY="315.0" prefHeight="39.0" prefWidth="154.0" style="-fx-font-family: 'David';" text="Check Price" />
+      
+      <Label fx:id="permissionLabel" layoutX="600.0" layoutY="95.0" prefHeight="20.0" prefWidth="46.0" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="409.0" layoutY="164.0" prefHeight="20.0" prefWidth="115.0" style="-fx-font-family: 'David';" text="Visitor's Type:" />
    </children>
 </AnchorPane>

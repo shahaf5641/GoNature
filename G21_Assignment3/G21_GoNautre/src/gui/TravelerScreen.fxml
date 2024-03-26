@@ -5,29 +5,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1100.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1194.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane fx:id="topPane" prefHeight="120.0" prefWidth="1206.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="topPane" prefHeight="182.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="userLabel" alignment="CENTER" layoutX="418.0" layoutY="31.0" prefHeight="58.0" prefWidth="370.0" text="Traveler" textAlignment="CENTER" />
+            <Label fx:id="userLabel" alignment="CENTER" layoutX="345.0" layoutY="24.0" prefHeight="58.0" prefWidth="370.0" text="Traveler" textAlignment="CENTER" />
+            <Button fx:id="profileTravelerButton" layoutX="870.0" layoutY="81.0" onAction="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile" />
+            <Button fx:id="orderTravelerButton" layoutX="659.0" layoutY="81.0" onAction="#loadOrderVisit" prefHeight="122.0" prefWidth="204.0" text=" Order a visit" />
+            <Button fx:id="viewOrdersButton" layoutX="445.0" layoutY="81.0" onAction="#loadOrders" prefHeight="122.0" prefWidth="204.0" text=" My orders" />
+            <Button fx:id="viewMessagesButton" layoutX="228.0" layoutY="81.0" onAction="#loadMessages" prefHeight="122.0" prefWidth="204.0" text=" My messages" />
+            <Button fx:id="logoutBtn" layoutX="14.0" layoutY="81.0" onAction="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout" />
          </children>
       </AnchorPane>
    </top>
-   <left>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox fx:id="vbox" prefHeight="600.0" prefWidth="204.0">
-               <children>
-                  <Button fx:id="profileTravelerButton" onAction="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile" />
-                  <Button fx:id="orderTravelerButton" layoutX="10.0" layoutY="10.0" onAction="#loadOrderVisit" prefHeight="122.0" prefWidth="204.0" text=" Order a visit" />
-                  <Button fx:id="viewOrdersButton" layoutX="10.0" layoutY="136.0" onAction="#loadOrders" prefHeight="122.0" prefWidth="204.0" text=" My orders" />
-                  <Button fx:id="viewMessagesButton" layoutX="10.0" layoutY="262.0" onAction="#loadMessages" prefHeight="122.0" prefWidth="204.0" text=" My messages" />
-                  <Button fx:id="logoutBtn" onAction="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout" />
-               </children>
-            </VBox>
-         </children>
-      </StackPane>
-   </left>
+   <center>
+      <StackPane prefHeight="424.0" prefWidth="1094.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>
