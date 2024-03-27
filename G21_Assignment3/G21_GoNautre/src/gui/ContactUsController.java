@@ -27,9 +27,6 @@ public class ContactUsController implements Initializable {
     private TextArea textArea;
 
     @FXML
-    private Label emailLabel;
-
-    @FXML
     private Button sendButton;
 
     @FXML
@@ -46,16 +43,11 @@ public class ContactUsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        emailLabel.setText(GoNatureFinals.GO_NATURE_EMAIL);
     }
 
     @FXML
     private void sendEmailBtn() {
         if (isValidInput()) {
-            String content = "Mail from: " + nameTextField.getText() + ", " + emailTextField.getText() + ", "
-                    + phoneTextField.getText() + ".\n" + textArea.getText();
-
-            Messages msg = new Messages(0, null, null, null, subjectLabel.getText(), content, -1);
             CustomAlerts alert = new CustomAlerts(AlertType.INFORMATION, "Email Sent", "Email Sent",
                     "Thank you for reaching out.\n" + "We will be in touch as soon as possible.");
             alert.showAndWait();

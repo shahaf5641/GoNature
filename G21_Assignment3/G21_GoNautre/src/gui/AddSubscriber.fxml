@@ -5,18 +5,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="registerRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="843.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddSubscriberController">
+<AnchorPane fx:id="registerRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AddSubscriberController">
     <children>
-        <Label fx:id="headerLabel" layoutX="313.0" layoutY="23.0" text="Register Account" />
-        <TextField fx:id="emailInputRegister" layoutX="490.0" layoutY="184.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Email" />
-        <Label layoutX="421.0" layoutY="189.0" text="Email:" />
-        <TextField fx:id="fullNameInputRegister" layoutX="183.0" layoutY="104.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Full Name" />
-        <Label layoutX="64.0" layoutY="109.0" text="Full Name:" />
-        <TextField fx:id="phoneNumberInputRegister" layoutX="183.0" layoutY="184.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Phone Number" />
-        <Label layoutX="57.0" layoutY="189.0" text="Phone Number:" />
-        <TextField fx:id="idInputRegister" layoutX="490.0" layoutY="104.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer ID" />
-        <Label layoutX="421.0" layoutY="109.0" text="ID:" />
-        <Button fx:id="AddAcountBTN" layoutX="321.0" layoutY="245.0" onMouseClicked="#AddAcountBTN" prefHeight="39.0" prefWidth="180.0" text="Add Account" />
-        <Label fx:id="requiredFieldsLabel11" layoutX="313.0" layoutY="63.0" style="-fx-text-fill: red;" text="* Please fill in all the fields" />
+        <Label fx:id="headerLabel" layoutX="338.0" layoutY="79.0" text="Register Account" underline="true" />
+        <TextField fx:id="emailInputRegister" layoutX="519.0" layoutY="248.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Email" />
+        <Label layoutX="450.0" layoutY="253.0" text="Email:" />
+        <TextField fx:id="fullNameInputRegister" layoutX="212.0" layoutY="168.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Full Name" />
+        <Label layoutX="93.0" layoutY="173.0" text="Full Name:" />
+        <TextField fx:id="phoneNumberInputRegister" layoutX="212.0" layoutY="248.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer Phone Number" />
+        <Label layoutX="86.0" layoutY="253.0" text="Phone Number:" />
+        <TextField fx:id="idInputRegister" layoutX="519.0" layoutY="168.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Customer ID" />
+        <Label layoutX="450.0" layoutY="173.0" text="ID:" />
+        <Button fx:id="AddAcountBTN" layoutX="350.0" layoutY="309.0" onMouseClicked="#AddAcountBTN" prefHeight="39.0" prefWidth="180.0" text="Add Account" />
+        <Label fx:id="requiredFieldsLabel11" layoutX="348.0" layoutY="124.0" style="-fx-text-fill: red;" text=" Please fill in all the fields" />
     </children>
 </AnchorPane>

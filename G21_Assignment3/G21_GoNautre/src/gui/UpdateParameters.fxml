@@ -10,20 +10,20 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="updateParametersRootPane" prefHeight="424.0" prefWidth="1094.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-    <VBox alignment="CENTER" layoutX="-1.0" prefHeight="424.0" prefWidth="1094.0" spacing="10.0">
+     <Label fx:id="headerLabel" alignment="CENTER" layoutX="448.0" layoutY="32.0" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Update Parameters" underline="true" />
+    <VBox alignment="CENTER" layoutY="72.0" prefHeight="356.0" prefWidth="1094.0" spacing="10.0">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
-        <Label fx:id="headerLabel" alignment="CENTER" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Update Parameters" />
-        <Accordion fx:id="accordion" prefWidth="600.0">
+        <Accordion fx:id="accordion" prefHeight="251.0" prefWidth="1098.0">
             <panes>
-                <TitledPane fx:id="estimatedTimeTP" animated="false" contentDisplay="CENTER" style="-fx-font-size: 16px;" text="Estimated Stay Time Settings">
+                <TitledPane fx:id="estimatedTimeTP" animated="false" contentDisplay="CENTER" prefHeight="132.0" prefWidth="1006.0" style="-fx-font-size: 16px;" text="Estimated Stay Time Settings">
                     <content>
-                        <VBox alignment="CENTER" spacing="10.0">
+                        <VBox alignment="CENTER" prefHeight="10.0" spacing="10.0">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </padding>
-                            <TextField fx:id="newEsitimatedTIme" prefWidth="300.0" promptText="Enter New Estimated Stay Time" />
+                            <TextField fx:id="newEsitimatedTIme" prefHeight="35.0" prefWidth="490.0" promptText="Enter New Estimated Stay Time" />
                         </VBox>
                     </content>
                 </TitledPane>
@@ -55,6 +55,6 @@
             <Insets right="5.0" />
          </padding>
         </Accordion>
-        <Button fx:id="sendForApprovealButton" prefHeight="43.0" prefWidth="202.0" text="Send for Approval" />
+        <Button fx:id="sendForApprovealButton" onMouseClicked="#sendForApprovealButtonClicked" prefHeight="43.0" prefWidth="202.0" text="Send for Approval" />
     </VBox>
 </AnchorPane>

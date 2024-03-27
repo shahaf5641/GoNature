@@ -48,19 +48,18 @@ public class RecoverPasswordController implements Initializable {
             String email = info.get(0);
             String password = info.get(1);
             if (email.equals("") || password == null || password.equals("")) {
-                System.out.println(email + "da");
-                System.out.println(password);
-                System.out.println("there is no such id");
+                new CustomAlerts(AlertType.ERROR, "Not found", "Not found",
+                        "There is no such id").showAndWait();
+                getStage().close();
+
             }
-            else {
-                String emailContent = String.format(MsgTemplates.passwordRecovery[1].toString(), id, password);
-                Messages msg = new Messages(0, null, null, null, MsgTemplates.passwordRecovery[0],
-                        emailContent, -2);
+            else
+            {
+                new CustomAlerts(AlertType.INFORMATION, "Password Recovery", "Password Recovery",
+                        "Check your email.\nWe sent your password to your email.").showAndWait();
+                getStage().close();
             }
 
-            new CustomAlerts(AlertType.INFORMATION, "Password Recovery", "Password Recovery",
-                    "Check your email.\nWe sent your password to your email.").showAndWait();
-            getStage().close();
         }
 
     }

@@ -18,7 +18,7 @@
         </Button>
         <Button fx:id="memberLogin" onMouseClicked="#loadMemberLogin" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-container">
             <graphic>
-                <Text fx:id="MenuButtons" strokeLineCap="BUTT" text="Member Login" />
+                <Text fx:id="MenuButtons" strokeLineCap="BUTT" text="Employee Login" />
             </graphic>
         </Button>
         <Button fx:id="showPrices" onMouseClicked="#loadPrices" prefHeight="400.0" prefWidth="160.0" styleClass="toolbar-container">
