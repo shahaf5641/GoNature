@@ -97,7 +97,6 @@ public class MemberLoginController implements Initializable {
 
     @FXML
     private void loginButtonAction() {
-        /* Alon 12.12.20 */
         String username = idTextField.getText();
         String pass = passwordTextField.getText();
         if (username.isEmpty() || pass.isEmpty())

@@ -131,12 +131,29 @@ public class ReportsControl {
 	 * @param month  month we want report for
 	 * @return ArrayList with number of cancelled orders
 	 */
-	public static ArrayList<Integer> getParkCancels(int parkID, int month) {
-		ClientToServerRequest<Integer> request = new ClientToServerRequest<>(Request.GET_CANCELS,
-				new ArrayList<Integer>(Arrays.asList(parkID, month)));
+	public static ArrayList<Integer> getParkCancels(String parkID, String startdate, String enddate) {
+		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.GET_CANCELS,
+				new ArrayList<String>(Arrays.asList(parkID, startdate, enddate)));
 		ClientUI.chat.accept(request);
 		return ChatClient.responseFromServer.getResultSet();
 	}
+	
+	/**
+	 * This function gets cancelled orders number for a certain park in a specific month - for cancel report.
+	 * 
+	 * @param parkID park's ID
+	 * @param month  month we want report for
+	 * @return ArrayList with number of cancelled orders
+	 */
+	public static ArrayList<Integer> getParkNotArrived(String parkID, String startdate, String enddate) {
+		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.GET_NOTARRIVED,
+				new ArrayList<String>(Arrays.asList(parkID, startdate, enddate)));
+		ClientUI.chat.accept(request);
+		return ChatClient.responseFromServer.getResultSet();
+	}
+	
+	
+	
 
 	/**
 	 * this function shows the report for the specified type and month
@@ -187,15 +204,6 @@ public class ReportsControl {
 		return ChatClient.responseFromServer.getResultSet();
 	}
 
-	/**
-	 * This function returns all the orders in a given month which made by Subscribers
-	 * 
-	 * @param monthNumber the month of the orders
-	 * @param parkID      The park id
-	 * 
-	 * @return ArrayList of order object
-	 */
-	
 
 	/**
 	 * This function returns all the orders in a given month which are Group visits
@@ -226,18 +234,6 @@ public class ReportsControl {
 		ClientUI.chat.accept(request);
 	}
 
-	/**
-	 * This function returns all the orders of a given month and day of current year
-	 * which are subscriber visitors
-	 * 
-	 * @param month The report's month
-	 * @param day The day in the month
-	 */
-	public static void countSubsEnterTimeWithDays(int month, String day) {
-		ClientToServerRequest<String> request = new ClientToServerRequest<>(Request.COUNT_ENTER_SUBS_VISITORS_WITH_DAYS,
-				new ArrayList<String>(Arrays.asList(String.valueOf(month), day)));
-		ClientUI.chat.accept(request);
-	}
 
 	/**
 	 * This function returns all the orders of a given month and day of current year

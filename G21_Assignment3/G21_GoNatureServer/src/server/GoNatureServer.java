@@ -2,16 +2,12 @@ package server;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
 import controllers.sqlHandlers.MysqlConnection;
 import gui.ServerGUIController;
-import javafx.scene.paint.Color;
 import ocsf.server.*;
-import server.threads.CancelOrders;
 import server.threads.NotifyThread;
-import server.threads.NotifyTravelers;
+import server.threads.UpdateOrderStatusFromConfirmToNotArrived;
 import server.threads.UpdateOrderStatusFromWaitingToCancel;
-import server.threads.UpdateOrderStatusVisitCompleted;
 import server.threads.UpdateTravelerExitStatus;
 
 /**
@@ -58,6 +54,9 @@ public class GoNatureServer extends AbstractServer {
 		
 		UpdateTravelerExitStatus tex = new UpdateTravelerExitStatus(mysqlconnection);
 		new Thread(tex).start();
+		
+		UpdateOrderStatusFromConfirmToNotArrived cna = new UpdateOrderStatusFromConfirmToNotArrived(mysqlconnection);
+		new Thread(cna).start();
 	}
 
 	// Instance methods ************************************************

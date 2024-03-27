@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1013.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="1013.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="headerReport" layoutX="269.0" layoutY="63.0" text="Total Visitors Report" underline="true" />
       <Label layoutX="48.0" layoutY="213.0" text="Individual Visitors:" underline="true" />
@@ -21,7 +21,7 @@
       <Label layoutX="48.0" layoutY="310.0" text="Total:" underline="true" />
       <Label fx:id="totalLabel" layoutX="269.0" layoutY="310.0" text="200" />
       <Label layoutX="49.0" layoutY="166.0" style="-fx-font-weight: bold;" text="Type:" underline="true" />
-      <Button fx:id="sendToManagerBtn" layoutX="333.0" layoutY="606.0" text="Send To Department Manager" />
+      <Button fx:id="sendToManagerBtn" layoutX="380.0" layoutY="609.0" text="Send To Department Manager" />
       <TextArea fx:id="commentTextArea" layoutX="48.0" layoutY="474.0" prefHeight="88.0" prefWidth="303.0" promptText="Add Comments (Optional)" />
       <Label layoutX="50.0" layoutY="445.0" text="Comments:" underline="true" />
       <BarChart fx:id="barChart" layoutX="390.0" layoutY="126.0" prefHeight="392.0" prefWidth="627.0" title="Days Distribution">

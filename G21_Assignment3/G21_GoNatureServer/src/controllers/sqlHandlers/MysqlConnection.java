@@ -37,7 +37,7 @@ public class MysqlConnection {
 		}
 		try {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/g21gonature?serverTimezone=UTC",
-					"root", "h2o58r0l");
+					"root", "Aa123456");
 
 			/* How to handle multiple requests to the database */
 			connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);

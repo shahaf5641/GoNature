@@ -3,6 +3,8 @@ package gui;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -19,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +34,12 @@ import logic.GoNatureFinals;
  */
 public class CancelsReportController implements Initializable{
 	
+	@FXML
+	private TextField startDatetext;
+	
+	@FXML
+	private TextField endDatetext;
+	
     @FXML
     private AnchorPane rootPane;
     
@@ -38,19 +47,29 @@ public class CancelsReportController implements Initializable{
     private Label headerLabel;
 
     @FXML
-    private Label monthLabel;
+    private Label MosesCancelLabel;
 
     @FXML
-    private Label ardentParkCancelsLabel;
+    private Label PheonixCancelsLabel;
 
     @FXML
-    private Label pineParkCancelsLabel;
+    private Label YosemiteCancelsLabel;
 
     @FXML
-    private Label lindaParkCancelsLabel;
-
+    private Label CancelsTotalLabel;
+    
     @FXML
-    private Label totalLabel;
+    private Label MosesNotArrivedLabel;
+    
+    @FXML
+    private Label PheonixNotArrivedLabel;
+    
+    @FXML
+    private Label YosemiteNotArrivedLabel;
+    
+    @FXML
+    private Label NotArrivedTotalLabel;
+    
 	
     private int monthNumber; // the month number
     
@@ -58,27 +77,48 @@ public class CancelsReportController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		initLabels();
 	}
-	/*does the counting and setting of each label*/
+	
 	private void initLabels() {
-		/*sets label of month from user's choice from last screen */
-		monthLabel.setText(GoNatureFinals.MONTHS[monthNumber]); // set the name of the month
+		MosesCancelLabel.setText("0");
+		PheonixCancelsLabel.setText("0");
+		YosemiteCancelsLabel.setText("0");
+		CancelsTotalLabel.setText("0");
+		MosesNotArrivedLabel.setText("0");
+		PheonixNotArrivedLabel.setText("0");
+		YosemiteNotArrivedLabel.setText("0");
+		NotArrivedTotalLabel.setText("0");
+		//To be continued
+	}
+	
+	@FXML
+	private void viewDetaillsButton(){
+        String startdate = startDatetext.getText();
+        String enddate = endDatetext.getText();
+        int cancels=0,cancelsPark1=0,cancelsPark2=0,cancelsPark3=0, notarrived= 0, notarrivedPark1=0, notarrivedPark2=0, notarrivedPark3=0;
+        if (startdate.isEmpty() || enddate.isEmpty())
+            new CustomAlerts(AlertType.ERROR, "Input Error", "Input Error", "Please fill all the fields").showAndWait();
+        else {
 
-		int cancels=0,cancelsPark1=0,cancelsPark2=0,cancelsPark3=0;
-		/*Ardent*/
-		cancelsPark1=ReportsControl.getParkCancels(1,monthNumber).get(0);			//get cancels for Ardent
-		cancelsPark1+=ReportsControl.getParkPendingDatePassed(1,monthNumber).get(0);//get pending after date has passed for Ardent
-		ardentParkCancelsLabel.setText(String.valueOf(cancelsPark1));				//set number for Ardent
-		/*Pine*/
-		cancelsPark2=ReportsControl.getParkCancels(2,monthNumber).get(0);			//get cancels for Pine
-		cancelsPark2+=ReportsControl.getParkPendingDatePassed(2,monthNumber).get(0);//get pending after date has passed for Pine
-		pineParkCancelsLabel.setText(String.valueOf(String.valueOf(cancelsPark2)));	//set cancels for Pine
-		/*Linda*/
-		cancelsPark3=ReportsControl.getParkCancels(3,monthNumber).get(0);			//get cancels for Linda
-		cancelsPark3+=ReportsControl.getParkPendingDatePassed(3,monthNumber).get(0);//get pending after date has passed for Linda
-		lindaParkCancelsLabel.setText(String.valueOf(String.valueOf(cancelsPark3)));//set cancels for Linda
-		
-		cancels=cancelsPark1+cancelsPark2+cancelsPark3;								//calculate total
-		totalLabel.setText(String.valueOf(String.valueOf(cancels)));				//set total number of cancels
+    		/*Moses*/
+    		cancelsPark1=ReportsControl.getParkCancels("1",startdate,enddate).get(0);			//get cancels for Moses
+    		notarrivedPark1=ReportsControl.getParkNotArrived("1",startdate,enddate).get(0);//get not arrived for Moses
+    		MosesCancelLabel.setText(String.valueOf(cancelsPark1));				
+    		MosesNotArrivedLabel.setText(String.valueOf(notarrivedPark1));	
+    		/*Pheonix*/
+    		cancelsPark2=ReportsControl.getParkCancels("2",startdate,enddate).get(0);			//get cancels for Pheonix
+    		notarrivedPark2=ReportsControl.getParkNotArrived("2",startdate,enddate).get(0);//get not arrived for for Pheonix
+    		PheonixCancelsLabel.setText(String.valueOf(String.valueOf(cancelsPark2)));	
+    		PheonixNotArrivedLabel.setText(String.valueOf(String.valueOf(notarrivedPark2)));
+    		/*Yosemite*/
+    		cancelsPark3=ReportsControl.getParkCancels("3",startdate,enddate).get(0);			//get cancels for Yosemite
+    		notarrivedPark3=ReportsControl.getParkNotArrived("3",startdate,enddate).get(0);//get not arrived for for Yosemite
+    		YosemiteCancelsLabel.setText(String.valueOf(String.valueOf(cancelsPark3)));
+    		YosemiteNotArrivedLabel.setText(String.valueOf(String.valueOf(notarrivedPark3)));
+    		cancels=cancelsPark1+cancelsPark2+cancelsPark3;
+    		notarrived = notarrivedPark1+notarrivedPark2+notarrivedPark3;
+    		CancelsTotalLabel.setText(String.valueOf(String.valueOf(cancels)));
+    		NotArrivedTotalLabel.setText(String.valueOf(String.valueOf(notarrived)));
+        }
 	}
 	
 	@FXML

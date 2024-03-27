@@ -11,7 +11,8 @@ public enum OrderStatusName {
     WAITING,            // The order is waiting.
     WAITING_HAS_SPOT,   // The order is waiting and has a spot.
     ENTERED_THE_PARK,   // The traveler has entered the park.
-    COMPLETED;          // The visit associated with the order is completed.
+    COMPLETED,			// The visit associated with the order is completed.
+    NOT_ARRIVED_NOT_CANCELED; //The traveler not arrived and not canceled.         
 
     /**
      * Overrides the toString method to provide custom string representations for each enum value.
@@ -24,6 +25,8 @@ public enum OrderStatusName {
                 return "Confirmed";
             case CANCELED:
                 return "Canceled";
+            case NOT_ARRIVED_NOT_CANCELED:
+            	return "Not arrived";
             case PENDING:
                 return "Pending";
             case WAITING:

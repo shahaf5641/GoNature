@@ -158,11 +158,8 @@ public class DepartmentManagerReportsController implements Initializable {
     private void cancelReportBtn() {
         fxmlName = "/gui/CancelsReport.fxml";
         screenTitle = "Cancels Report";
-        if (monthCB.getSelectionModel().getSelectedIndex() != 0) {
-            switchScenceWithController();
-        } else {
-            new CustomAlerts(AlertType.ERROR, "Error", "Month Error", "Plesae choose month.").showAndWait();
-        }
+        switchScenceWithController();
+
     }
 
     /* Here we need to fill the table view from database */

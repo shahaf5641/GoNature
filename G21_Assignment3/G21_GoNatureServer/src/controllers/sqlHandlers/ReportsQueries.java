@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import logic.Order;
 import logic.OrderStatusName;
 import logic.VisitReport;
@@ -236,24 +236,24 @@ public class ReportsQueries {
 	}
 
 	/**
-	 * This query gets cancelled orders from order table for park ID in specific month
+	 * This query gets cancelled orders from order table for park ID between 2 dates
 	 * 
-	 * @param parameters ArrayList with parkId and month
+	 * @param parameters ArrayList with parkId 2 dates
 	 * @return ArrayList with number of cancelled orders
+	 * @throws ParseException 
 	 */
-	public ArrayList<Integer> getParkCancels(ArrayList<?> parameters) {
+	@SuppressWarnings("removal")
+	public ArrayList<Integer> getParkCancels(ArrayList<?> parameters) throws ParseException {
 		ArrayList<Integer> cancels = new ArrayList<Integer>();
-		int parkId = (int) parameters.get(0);
-		int month = (int) parameters.get(1);
-
-		String sql = "SELECT COUNT(*) FROM g21gonature.order WHERE parkId = ? AND MONTH(orderDate) = ? AND orderStatus = ?";
+		int parkId = Integer.parseInt((String) parameters.get(0));
+		String sql = "SELECT COUNT(*) FROM g21gonature.order WHERE parkId = ? AND orderDate >= ? AND orderDate <= ? AND orderStatus = ?";
 		PreparedStatement query;
 		try {
 			query = conn.prepareStatement(sql);
 			query.setInt(1, parkId);
-			query.setInt(2, month);
-			query.setString(3, OrderStatusName.CANCELED.toString());
-
+			query.setString(2, (String) parameters.get(1));
+			query.setString(3, (String) parameters.get(2));
+			query.setString(4, OrderStatusName.CANCELED.toString());
 			ResultSet res = query.executeQuery();
 			while (res.next())
 				cancels.add(new Integer(res.getInt(1)));
@@ -263,6 +263,40 @@ public class ReportsQueries {
 		}
 		return cancels;
 	}
+	
+	
+	/**
+	 * This query gets not arrived orders from order table for park ID between 2 dates
+	 * 
+	 * @param parameters ArrayList with parkId and 2 dates
+	 * @return ArrayList with number of not arrived orders
+	 * @throws ParseException 
+	 */
+	@SuppressWarnings("removal")
+	public ArrayList<Integer> getParkNotArrived(ArrayList<?> parameters) throws ParseException {
+		ArrayList<Integer> notarrived = new ArrayList<Integer>();
+		int parkId = Integer.parseInt((String) parameters.get(0));
+		String sql = "SELECT COUNT(*) FROM g21gonature.order WHERE parkId = ? AND orderDate >= ? AND orderDate <= ? AND orderStatus = ?";
+		PreparedStatement query;
+		try {
+			query = conn.prepareStatement(sql);
+			query.setInt(1, parkId);
+			query.setString(2, (String) parameters.get(1));
+			query.setString(3, (String) parameters.get(2));
+			query.setString(4, OrderStatusName.NOT_ARRIVED_NOT_CANCELED.toString());
+			ResultSet res = query.executeQuery();
+			while (res.next())
+				notarrived.add(new Integer(res.getInt(1)));
+		} catch (SQLException e) {
+			System.out.println("Could not execute getParkNotArrived query");
+			e.printStackTrace();
+		}
+		return notarrived;
+	}
+	
+	
+	
+	
 
 	/**
 	 * This function returns all the orders in a given month which are Solo visit and the traveler

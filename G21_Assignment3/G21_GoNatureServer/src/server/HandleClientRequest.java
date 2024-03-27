@@ -3,6 +3,7 @@ package server;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import controllers.WaitingListControl;
@@ -408,7 +409,15 @@ public class HandleClientRequest implements Runnable {
 					response.setResultSet(cancels);
 					client.sendToClient(response);
 				}
-
+				
+				if (request.getRequestType().equals(Request.GET_NOTARRIVED)) {
+					ArrayList<Integer> notarrived = reportsQueries.getParkNotArrived(request.getParameters());
+					response = new ServerToClientResponse();
+					response.setResultSet(notarrived);
+					client.sendToClient(response);
+				}
+				
+				
 				if (request.getRequestType().equals(Request.GET_SIMULATOR_TRAVELERS_IDS)) {
 					ArrayList<String> travelersID = parkQueries.getSimulatorTravelersId();
 					response = new ServerToClientResponse();
@@ -490,7 +499,7 @@ public class HandleClientRequest implements Runnable {
 					client.sendToClient(response);
 				}
 
-			} catch (IOException e) {
+			} catch (IOException | ParseException e) {
 				e.printStackTrace();
 			}
 	}

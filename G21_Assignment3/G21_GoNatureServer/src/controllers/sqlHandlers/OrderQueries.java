@@ -265,6 +265,61 @@ public class OrderQueries {
 		}
 		return orders;
 	}
+	
+	/**
+	 * This function return orders that their status is "Confirmed" and the travelers did not arrive.
+	 * 
+	 * @return ArrayList of object Order containing matching orders.
+	 */
+	public ArrayList<Order> getConfirmedNotArrivedOrders() {
+		ArrayList<Order> orders = new ArrayList<Order>();
+		String sql = "SELECT * FROM g21gonature.order WHERE orderStatus = ? AND orderDate = ? AND orderTime <= ? AND orderID >= 0";
+		PreparedStatement query;
+		try {
+			query = conn.prepareStatement(sql);
+			query.setString(1, OrderStatusName.CONFIRMED.toString());
+			query.setString(2, LocalDate.now().toString());
+			String[] parts = LocalTime.now().toString().split(":");
+			int hour = Integer.parseInt(parts[0]);
+			int min = Integer.parseInt(parts[1]);
+			int Totalmins = hour * 60 + min;
+			Totalmins -=90;
+			int newHour = Totalmins / 60;
+			int newMin = Totalmins % 60;
+			String newTime = newHour + ":" + newMin + ":" + "00";
+			query.setString(3, newTime);
+			ResultSet res = query.executeQuery();
+			while (res.next()) {
+				Order order = new Order(res.getInt(1), res.getString(2), res.getInt(3), res.getString(4),
+						res.getString(5), res.getString(6), res.getInt(7), res.getString(8), res.getDouble(9),
+						res.getString(10));
+				orders.add(order);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Could not execute getAllOrdersForId");
+			e.printStackTrace();
+		}
+		return orders;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	/**
 	 * This function gets an order id and retrieve the relevant order from the database

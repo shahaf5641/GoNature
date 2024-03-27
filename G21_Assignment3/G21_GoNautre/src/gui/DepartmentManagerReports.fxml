@@ -23,12 +23,12 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button fx:id="visitReportBtn" layoutX="192.0" layoutY="521.0" onMouseClicked="#visitReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Visits Report" />
-        <Button fx:id="CancelsReportBtn" layoutX="497.0" layoutY="521.0" onMouseClicked="#cancelReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Cancels Report" />
+        <Button fx:id="visitReportBtn" layoutX="122.0" layoutY="521.0" onMouseClicked="#visitReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Visits Report" />
+        <Button fx:id="CancelsReportBtn" layoutX="603.0" layoutY="521.0" onMouseClicked="#cancelReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Cancels Report" />
         <Label alignment="CENTER" layoutX="167.0" layoutY="91.0" prefHeight="20.0" prefWidth="566.0" style="-fx-font-family: 'David';" text="Reports from park managers:" underline="true" />
         <Label layoutX="393.0" layoutY="423.0" style="-fx-font-family: 'David';" text="Generate Report:" underline="true" />
-        <Label layoutX="270.0" layoutY="465.0" style="-fx-font-family: 'David';" text="Choose Month Number:" />
-        <ComboBox fx:id="monthCB" layoutX="498.0" layoutY="461.0" promptText="Month" />
+        <Label layoutX="86.0" layoutY="466.0" style="-fx-font-family: 'David';" text="Choose Month Number:" />
+        <ComboBox fx:id="monthCB" layoutX="278.0" layoutY="462.0" promptText="Month" />
       <Line endX="-4.600006103515625" endY="49.19999694824219" layoutX="175.0" layoutY="102.0" startX="558.4000244140625" startY="49.19999694824219" stroke="WHITE" />
       <Line endX="-4.600006103515625" endY="49.19999694824219" layoutX="173.0" layoutY="331.0" startX="558.4000244140625" startY="49.19999694824219" stroke="WHITE" />
       <Line endX="-16.0" endY="40.0" layoutX="183.0" layoutY="85.0" startX="550.4000244140625" startY="40.0" stroke="WHITE" />
