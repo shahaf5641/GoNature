@@ -3,11 +3,9 @@ package gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 import Controllers.ParkControl;
-import Controllers.TravelerControl;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.shape.Line;
 import logic.WorkerType;
 
 /**
@@ -38,9 +36,6 @@ public class ProfileController implements Initializable {
 
 	@FXML
 	private Label parkLabel;
-
-	@FXML
-	private Line line;
 
 	private boolean isWorker;
 
@@ -79,7 +74,6 @@ public class ProfileController implements Initializable {
 			if (role.equals(WorkerType.DEPARTMENT_MANAGER) || role.equals(WorkerType.SERVICE)) { // <-- ALON NEW
 				profileParkLabel.setVisible(false);
 				parkLabel.setVisible(false);
-				line.setVisible(false);
 			}
 		}
 
@@ -91,7 +85,6 @@ public class ProfileController implements Initializable {
 			ProfileEmailLabel.setText(TravelerLoginController.traveler.getEmail());
 			profileParkLabel.setVisible(false);
 			parkLabel.setVisible(false);
-			line.setVisible(false);
 			profileAccountTypeLabel.setText("Guest");
 
 		}

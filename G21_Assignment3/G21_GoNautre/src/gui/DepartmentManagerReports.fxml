@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label fx:id="headerLabel" layoutX="364.0" layoutY="43.0" style="-fx-font-family: 'David';" text="Parks Reports" underline="true" />
+        <Label fx:id="headerLabel" layoutX="373.0" layoutY="40.0" style="-fx-font-family: 'David';" text="Parks Reports" underline="true" />
         <TableView fx:id="ReportsTableView" layoutX="167.0" layoutY="125.0" prefHeight="255.0" prefWidth="566.0">
             <columns>
                 <TableColumn fx:id="reportIDCol" prefWidth="75.0" text="Report ID" />
@@ -23,16 +23,17 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
-        <Button fx:id="visitReportBtn" layoutX="333.0" layoutY="472.0" onMouseClicked="#visitReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Visits Report" />
-        <Button fx:id="CancelsReportBtn" layoutX="583.0" layoutY="472.0" onMouseClicked="#cancelReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Cancels Report" />
+        <Button fx:id="visitReportBtn" layoutX="192.0" layoutY="521.0" onMouseClicked="#visitReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Visits Report" />
+        <Button fx:id="CancelsReportBtn" layoutX="497.0" layoutY="521.0" onMouseClicked="#cancelReportBtn" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Cancels Report" />
         <Label alignment="CENTER" layoutX="167.0" layoutY="91.0" prefHeight="20.0" prefWidth="566.0" style="-fx-font-family: 'David';" text="Reports from park managers:" underline="true" />
-        <Label layoutX="392.0" layoutY="400.0" style="-fx-font-family: 'David';" text="Generate Report:" underline="true" />
-        <Label layoutX="20.0" layoutY="482.0" style="-fx-font-family: 'David';" text="Choose Month Number:" />
-        <ComboBox fx:id="monthCB" layoutX="216.0" layoutY="478.0" promptText="Month" />
+        <Label layoutX="393.0" layoutY="423.0" style="-fx-font-family: 'David';" text="Generate Report:" underline="true" />
+        <Label layoutX="270.0" layoutY="465.0" style="-fx-font-family: 'David';" text="Choose Month Number:" />
+        <ComboBox fx:id="monthCB" layoutX="498.0" layoutY="461.0" promptText="Month" />
       <Line endX="-4.600006103515625" endY="49.19999694824219" layoutX="175.0" layoutY="102.0" startX="558.4000244140625" startY="49.19999694824219" stroke="WHITE" />
       <Line endX="-4.600006103515625" endY="49.19999694824219" layoutX="173.0" layoutY="331.0" startX="558.4000244140625" startY="49.19999694824219" stroke="WHITE" />
       <Line endX="-16.0" endY="40.0" layoutX="183.0" layoutY="85.0" startX="550.4000244140625" startY="40.0" stroke="WHITE" />
       <Line endX="-16.0" endY="39.20001220703125" layoutX="183.0" layoutY="341.0" startX="-16.5" startY="-216.5" stroke="WHITE" />
       <Line endX="-16.0" endY="39.20001220703125" layoutX="750.0" layoutY="341.0" startX="-16.5" startY="-216.5" stroke="WHITE" />
+      <Line endX="-4.600006103515625" endY="49.19999694824219" fill="WHITE" layoutX="5.0" layoutY="345.0" startX="895.0" startY="49.199981689453125" />
     </children>
 </AnchorPane>

@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1097.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="799.0" prefWidth="1073.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <top>
-      <AnchorPane fx:id="topPane" prefHeight="182.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="topPane" prefHeight="213.0" prefWidth="1056.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="profileButton" layoutX="14.0" layoutY="72.0" onMouseClicked="#loadProfile" prefHeight="100.0" prefWidth="190.0" text=" Profile" />
-            <Button fx:id="currentVisitorsButton" layoutX="241.0" layoutY="72.0" onMouseClicked="#loadParkParameters" prefHeight="100.0" prefWidth="190.0" text="Park Parameters" />
-            <Button fx:id="createReportsButton" layoutX="464.0" layoutY="72.0" onMouseClicked="#loadCreateReports" prefHeight="100.0" prefWidth="190.0" text="Create Reports" />
-            <Button fx:id="updateParametersButton" layoutX="681.0" layoutY="72.0" onMouseClicked="#loadUpdateParameters" prefHeight="100.0" prefWidth="190.0" text="Update Parameters" />
-            <Button fx:id="logoutBtn" layoutX="897.0" layoutY="72.0" onMouseClicked="#logOut" prefHeight="100.0" prefWidth="190.0" text="Logout" />
-            <Label fx:id="userLabel" alignment="CENTER" layoutX="417.0" layoutY="14.0" prefHeight="47.0" prefWidth="285.0" text="Park Manager" textAlignment="CENTER" underline="true" />
+            <Button fx:id="profileButton" layoutX="14.0" layoutY="77.0" onMouseClicked="#loadProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile" />
+            <Button fx:id="currentVisitorsButton" layoutX="223.0" layoutY="77.0" onMouseClicked="#loadParkParameters" prefHeight="122.0" prefWidth="204.0" text="Park Parameters" />
+            <Button fx:id="createReportsButton" layoutX="433.0" layoutY="77.0" onMouseClicked="#loadCreateReports" prefHeight="122.0" prefWidth="204.0" text="Create Reports" />
+            <Button fx:id="updateParametersButton" layoutX="643.0" layoutY="77.0" onMouseClicked="#loadUpdateParameters" prefHeight="122.0" prefWidth="204.0" text="Update Parameters" />
+            <Button fx:id="logoutBtn" layoutX="853.0" layoutY="77.0" onMouseClicked="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout" />
+            <Label fx:id="userLabel" alignment="CENTER" layoutX="325.0" layoutY="8.0" prefHeight="58.0" prefWidth="394.0" text="Park Manager" textAlignment="CENTER" underline="true" />
          </children>
       </AnchorPane>
    </top>
    <center>
-      <VBox prefHeight="579.0" prefWidth="1117.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="638.0" prefWidth="1073.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

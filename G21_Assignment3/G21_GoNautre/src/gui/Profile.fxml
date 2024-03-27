@@ -6,22 +6,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="headerLabel" layoutX="397.0" layoutY="53.0" text="Welcome" textAlignment="CENTER" underline="true" />
-      <Label layoutX="306.0" layoutY="106.0" style="-fx-text-fill: #7FED9D;" text="First name:" underline="true" />
-      <Label fx:id="profileNameLabel" layoutX="516.0" layoutY="106.0" text="Israel" />
-      <Label layoutX="306.0" layoutY="147.0" style="-fx-text-fill: #7FED9D;" text="Last Name:" underline="true" />
-      <Label fx:id="profileLastNameLabel" layoutX="516.0" layoutY="147.0" text="Israeli" />
-      <Label layoutX="306.0" layoutY="189.0" style="-fx-text-fill: #7FED9D;" text="ID:" underline="true" />
-      <Label fx:id="profileIDLabel" layoutX="516.0" layoutY="189.0" text="123456789" />
-      <Label layoutX="306.0" layoutY="272.0" style="-fx-text-fill: #7FED9D;" text="Email:" underline="true" />
-      <Label fx:id="ProfileEmailLabel" layoutX="516.0" layoutY="272.0" text="Moses@gmail.com" />
-      <Label layoutX="306.0" layoutY="230.0" style="-fx-text-fill: #7FED9D;" text="Account type:" underline="true" />
-      <Label fx:id="profileAccountTypeLabel" layoutX="516.0" layoutY="230.0" text="Park manager" />
-      <Label fx:id="parkLabel" layoutX="308.0" layoutY="314.0" style="-fx-text-fill: #7FED9D;" text="Park:" underline="true" />
-      <Label fx:id="profileParkLabel" layoutX="516.0" layoutY="314.0" text="Moses" />
-      <Line disable="true" endX="200.0" endY="-56.0" layoutX="5.0" layoutY="96.0" startX="200.0" startY="249.5" stroke="#d9d9d9" strokeWidth="0.7" />
-      <Line disable="true" endX="210.0" endY="-1.5" layoutX="485.0" layoutY="41.0" startX="-279.5" startY="-1.5" stroke="#d9d9d9" strokeWidth="0.7" />
-      <Line fx:id="line" disable="true" endX="220.5" endY="-56.0" layoutX="474.0" layoutY="402.0" startX="-268.5" startY="-56.0" stroke="#d9d9d9" strokeWidth="0.7" />
-      <Line disable="true" endX="200.0" endY="-56.0" layoutX="495.0" layoutY="96.0" startX="200.0" startY="250.0" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Label fx:id="headerLabel" layoutX="418.0" layoutY="78.0" text="Welcome" textAlignment="CENTER" underline="true" />
+      <Label layoutX="305.0" layoutY="146.0" style="-fx-text-fill: #7FED9D;" text="First Name:" underline="true" />
+      <Label fx:id="profileNameLabel" layoutX="515.0" layoutY="146.0" text="Israel" />
+      <Label layoutX="305.0" layoutY="187.0" style="-fx-text-fill: #7FED9D;" text="Last Name:" underline="true" />
+      <Label fx:id="profileLastNameLabel" layoutX="515.0" layoutY="187.0" text="Israeli" />
+      <Label layoutX="305.0" layoutY="229.0" style="-fx-text-fill: #7FED9D;" text="ID:" underline="true" />
+      <Label fx:id="profileIDLabel" layoutX="515.0" layoutY="229.0" text="123456789" />
+      <Label layoutX="305.0" layoutY="312.0" style="-fx-text-fill: #7FED9D;" text="Email:" underline="true" />
+      <Label fx:id="ProfileEmailLabel" layoutX="515.0" layoutY="312.0" text="Moses@gmail.com" />
+      <Label layoutX="305.0" layoutY="270.0" style="-fx-text-fill: #7FED9D;" text="Account type:" underline="true" />
+      <Label fx:id="profileAccountTypeLabel" layoutX="515.0" layoutY="270.0" text="Park manager" />
+      <Label fx:id="parkLabel" layoutX="307.0" layoutY="354.0" style="-fx-text-fill: #7FED9D;" text="Park:" underline="true" />
+      <Label fx:id="profileParkLabel" layoutX="515.0" layoutY="354.0" text="Moses" />
+      <Line disable="true" endX="200.0" endY="-72.0" layoutX="4.0" layoutY="136.0" startX="200.0" startY="249.5" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Line disable="true" endX="255.2071533203125" endY="-2.7071075439453125" layoutX="484.0" layoutY="65.0" startX="-279.5" startY="-1.5" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Line disable="true" endX="200.5" endY="-72.0" layoutX="538.0" layoutY="135.0" startX="200.0" startY="250.0" stroke="#d9d9d9" strokeWidth="0.7" />
    </children>
 </AnchorPane>
