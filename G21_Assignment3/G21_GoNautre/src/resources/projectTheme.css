@@ -414,7 +414,7 @@
 #headerReport{
 	 -fx-font-size: 20.0pt;
 	 -fx-font-weight: bold;
-	 -fx-text-fill: #f7e479;
+	 -fx-text-fill: darkgray;
 	 
 }
 
@@ -530,6 +530,38 @@ TextFlow {
     -fx-font-size: 16.0pt;
     -fx-text-fill: black;
 }
+
+#stayTime_chart, #entranceTime_chart,#barChart {
+	
+	-fx-font-family: 'David', sans-serif;
+    -fx-font-size: 14.0pt;
+    -fx-text-fill: black;
+	
+}
+.chart-title {
+    -fx-text-fill: darkgray;
+    -fx-font-family: 'David', sans-serif;
+    -fx-font-size: 17.0pt;
+}
+
+#tabelLabels {
+	-fx-font-family: 'David', sans-serif;
+    -fx-font-size: 14.0pt;
+    -fx-text-fill: darkgray;
+}
+
+
+#tabelLabelstitle {
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 25px; /* Rounded corners */
+    -fx-effect: dropshadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+}
+
 
 
 

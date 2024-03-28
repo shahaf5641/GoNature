@@ -264,7 +264,6 @@ public class ReportsQueries {
 		return cancels;
 	}
 	
-	
 	/**
 	 * This query gets not arrived orders from order table for park ID between 2 dates
 	 * 
@@ -368,8 +367,7 @@ public class ReportsQueries {
 				+ " AND parkId =" + parkID + " AND orderType='Solo Visit' AND orderStatus='Visit completed'";
 
 		String sql2 = "SELECT SUM(numberOfParticipants) FROM g21gonature.order WHERE month(orderDate)=" + month
-				+ " AND parkId =" + parkID
-				+ " AND orderType='Solo Visit' AND orderStatus = 'Visit completed'";
+				+ " AND parkId =" + parkID + " AND orderType= 'Family Visit' AND orderStatus = 'Visit completed'";
 
 		String sql3 = "SELECT SUM(numberOfParticipants) FROM g21gonature.order WHERE month(orderDate)=" + month
 				+ " AND parkId =" + parkID + " AND orderType='Group Visit' AND orderStatus = 'Visit completed'";
@@ -397,10 +395,10 @@ public class ReportsQueries {
 			res = query.executeQuery();
 
 			if (res.next()){
-numberOfVisitorsPerType.add(res.getInt(1));
-} else
-numberOfVisitorsPerType.add(0);
-} catch (SQLException e) {
+				numberOfVisitorsPerType.add(res.getInt(1));
+			} else
+				numberOfVisitorsPerType.add(0);
+		} catch (SQLException e) {
 		e.printStackTrace();
 	}
 

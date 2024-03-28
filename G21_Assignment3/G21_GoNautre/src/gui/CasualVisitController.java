@@ -184,6 +184,7 @@ public class CasualVisitController implements Initializable {
 				&& orderType.equals(OrderType.GROUP.toString())) {
 			new CustomAlerts(AlertType.ERROR, "Bad Input", "Not Registered Guide", "Please contact service employee")
 					.showAndWait();
+			return false;
 		}
 
 		// Input validation - group with one participant.

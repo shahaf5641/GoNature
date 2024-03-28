@@ -66,7 +66,6 @@ public class TotalVisitorsReportController implements Initializable {
 	@FXML
 	private Label groupsLabel;
 
-
 	@FXML
 	private Label totalLabel;
 
@@ -94,7 +93,6 @@ public class TotalVisitorsReportController implements Initializable {
 
 	/* Orders distributed by order type */
 	private ArrayList<Order> solosOrdersUnClean = new ArrayList<Order>();
-	private ArrayList<Order> subscribesrOrdersUnClean = new ArrayList<Order>();
 	private ArrayList<Order> groupsOrdersUnClean = new ArrayList<Order>();
 
 	/*
@@ -261,7 +259,7 @@ public class TotalVisitorsReportController implements Initializable {
 
 		individualLabel.setText(String.valueOf(reportList.get(0)));
 		groupsLabel.setText(String.valueOf(reportList.get(2)));
-		totalLabel.setText(String.valueOf(reportList.get(0) + reportList.get(1) + reportList.get(2)));
+		totalLabel.setText(String.valueOf(reportList.get(0) + reportList.get(2)));
 
 	}
 
