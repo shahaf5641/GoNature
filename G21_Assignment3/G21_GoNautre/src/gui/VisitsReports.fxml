@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="927.0" prefWidth="1142.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="722.0" stylesheets="@../resources/projectTheme.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="headerReport" layoutX="464.0" layoutY="39.0" prefHeight="39.0" prefWidth="169.0" text="Visits Report" />
-      <LineChart fx:id="stayTime_chart" layoutX="1.0" layoutY="371.0" prefHeight="453.0" prefWidth="544.0" title="Stay Time Graph">
+      <Label fx:id="headerReport" layoutX="275.0" prefHeight="39.0" prefWidth="169.0" text="Visits Report" />
+      <LineChart fx:id="stayTime_chart" layoutX="39.0" layoutY="404.0" prefHeight="268.0" prefWidth="641.0" title="Stay Time Graph">
         <xAxis>
           <NumberAxis fx:id="stayX2" label="Stay Time (In hours)" side="BOTTOM" />
         </xAxis>
@@ -19,7 +19,8 @@
           <NumberAxis fx:id="stayY" label="Percentage Of Visitors " side="LEFT" />
         </yAxis>
       </LineChart>
-      <LineChart fx:id="entranceTime_chart" layoutX="536.0" layoutY="371.0" prefHeight="453.0" prefWidth="605.0" title="Entrance Graph">
+      <Line endX="-282.0" endY="193.0" layoutX="286.0" layoutY="210.0" opacity="0.19" startX="447.0" startY="193.0" stroke="WHITE" strokeWidth="1.5" />
+      <LineChart fx:id="entranceTime_chart" layoutX="39.0" layoutY="137.0" prefHeight="278.0" prefWidth="642.0" title="Entrance Graph">
          <xAxis>
             <NumberAxis fx:id="enterX2" label="Entrance hour" side="BOTTOM" />
          </xAxis>
@@ -27,15 +28,13 @@
             <NumberAxis fx:id="enterY" label="Number of visitors" side="LEFT" />
          </yAxis>
       </LineChart>
-      <Label fx:id="lblMonth" layoutX="575.0" layoutY="105.0" text="Label" />
-      <Label layoutX="454.0" layoutY="105.0" prefHeight="19.0" prefWidth="94.0" text="Reports For:" />
-      <Label layoutX="377.0" layoutY="237.0" text="Pick day of the month:" />
-      <ComboBox fx:id="comboBox" layoutX="561.0" layoutY="231.0" prefHeight="30.0" prefWidth="179.0" />
-      <Line endX="-282.0" endY="193.0" layoutX="290.0" layoutY="165.0" opacity="0.19" startX="852.0" startY="193.0" stroke="WHITE" strokeWidth="1.5" />
-      <ComboBox fx:id="dataComboBox" layoutX="561.0" layoutY="281.0" prefHeight="30.0" prefWidth="179.0" />
-      <Label layoutX="437.0" layoutY="287.0" text="Data to show:" />
-      <Button layoutX="454.0" layoutY="870.0" onMouseClicked="#saveReportAsPdf" text="Save Report Locally" />
-      <Label layoutX="371.0" layoutY="191.0" style="-fx-font-family: 'David';" text="Choose Month Number:" />
-      <ComboBox fx:id="monthCB" layoutX="561.0" layoutY="186.0" promptText="Month" />
+      <Label fx:id="lblMonth" layoutX="378.0" layoutY="39.0" text="Label" />
+      <Label layoutX="284.0" layoutY="39.0" prefHeight="19.0" prefWidth="94.0" text="Reports For:" />
+      <Label layoutX="190.0" layoutY="69.0" text="Pick day of the month:" />
+      <ComboBox fx:id="comboBox" layoutX="360.0" layoutY="64.0" prefHeight="30.0" prefWidth="179.0" />
+      <Line endX="-282.0" endY="193.0" layoutX="297.0" layoutY="-55.0" opacity="0.19" startX="437.00006103515625" startY="193.0" stroke="WHITE" strokeWidth="1.5" />
+      <ComboBox fx:id="dataComboBox" layoutX="360.0" layoutY="98.0" prefHeight="30.0" prefWidth="179.0" />
+      <Label layoutX="241.0" layoutY="103.0" text="Data to show:" />
+      <Button layoutX="288.0" layoutY="661.0" onMouseClicked="#saveReportAsPdf" text="Save Report Locally" />
    </children>
 </AnchorPane>

@@ -97,6 +97,7 @@ public class VisitsReportController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 initComboBox();
+
                 entranceTime_chart.getData().clear();
                 stayTime_chart.getData().clear();
                 loadSolosData(comboBox.getSelectionModel().getSelectedItem());

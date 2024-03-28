@@ -158,7 +158,7 @@ public class DepartmentManagerReportsController implements Initializable {
     private void cancelReportBtn() {
         fxmlName = "/gui/CancelsReport.fxml";
         screenTitle = "Cancels Report";
-        switchScenceWithController();
+         switchScenceWithController();
 
     }
 
