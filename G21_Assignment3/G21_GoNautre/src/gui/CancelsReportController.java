@@ -70,8 +70,9 @@ public class CancelsReportController implements Initializable{
     @FXML
     private Label NotArrivedTotalLabel;
     
-	
-    private int monthNumber; // the month number
+    private String startdate, enddate;
+    
+    
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -92,8 +93,8 @@ public class CancelsReportController implements Initializable{
 	
 	@FXML
 	private void viewDetaillsButton(){
-        String startdate = startDatetext.getText();
-        String enddate = endDatetext.getText();
+		SetStartDate(startDatetext.getText());
+		SetEndDate(endDatetext.getText());
         int cancels=0,cancelsPark1=0,cancelsPark2=0,cancelsPark3=0, notarrived= 0, notarrivedPark1=0, notarrivedPark2=0, notarrivedPark3=0;
         if (startdate.isEmpty() || enddate.isEmpty())
             new CustomAlerts(AlertType.ERROR, "Input Error", "Input Error", "Please fill all the fields").showAndWait();
@@ -129,7 +130,7 @@ public class CancelsReportController implements Initializable{
 	    }
 	    
 		WritableImage nodeshot = rootPane.snapshot(new SnapshotParameters(), null);
-		String fileName = "Cancels Report - month number " + monthNumber + ".pdf";
+		String fileName = "Cancels Report " + startdate + " - " + enddate + ".pdf";
 		File file = new File("test.png");
 
 		try {
@@ -164,12 +165,23 @@ public class CancelsReportController implements Initializable{
 	}
 	
 	/**
-	 * Setter for class variable monthNumber
+	 * Setter for class variable stardate
 	 * 
-	 * @param month The mounth number
+	 * @param startdate The startdate
 	 */
-	public void setMonthNumber(int month){
-		this.monthNumber = month;	
+	public void SetStartDate(String startdate){
+		this.startdate = startdate;	
 	}
+	
+	/**
+	 * Setter for class variable enddate
+	 * 
+	 * @param enddate The enddate
+	 */
+	
+	public void SetEndDate(String enddate){
+		this.enddate = enddate;	
+	}
+
 
 }

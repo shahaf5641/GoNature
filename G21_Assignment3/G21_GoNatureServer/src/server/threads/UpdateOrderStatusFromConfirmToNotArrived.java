@@ -40,7 +40,6 @@ public class UpdateOrderStatusFromConfirmToNotArrived implements Runnable {
 	public void run() {
 
 		while (true) {
-			//query.setString(1, OrderStatusName.NOTARRIVENOTCANCELED.toString());
 			ArrayList<Order> orders = getRelevantOrders();	//Confirmed not arrived orders
 			String orderId = "";
 			for (Order order : orders) {

@@ -211,7 +211,6 @@ public class DepartmentManagerReportsController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlName));
             if (screenTitle.equals("Cancels Report")) {
                 CancelsReportController controller = new CancelsReportController();
-                controller.setMonthNumber(monthCB.getSelectionModel().getSelectedIndex());
                 loader.setController(controller);
             } else {
                 VisitsReportController controller = new VisitsReportController();

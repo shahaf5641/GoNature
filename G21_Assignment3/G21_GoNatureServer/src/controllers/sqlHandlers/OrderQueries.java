@@ -317,9 +317,6 @@ public class OrderQueries {
 	
 	
 	
-	
-	
-	
 
 	/**
 	 * This function gets an order id and retrieve the relevant order from the database

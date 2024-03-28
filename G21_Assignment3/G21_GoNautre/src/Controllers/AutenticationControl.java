@@ -109,8 +109,6 @@ public class AutenticationControl {
 	public static int memberLoginHandler(String username, String password, String id) {
 		boolean connected = isConnected(id);
 		boolean mem_exsit = isMemberExist(username, password);
-		System.out.println("After is member");
-
 		if (connected && mem_exsit)
 			return 1;
 		if (!connected && mem_exsit) {
