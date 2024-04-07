@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="225.0" layoutY="106.0" text="Enter Traveler ID:" />
+      <TextField fx:id="idTextField" layoutX="383.0" layoutY="100.0" prefHeight="30.0" prefWidth="163.0" promptText="Enter ID" />
+      <TableView fx:id="ordersTableView" layoutX="226.0" layoutY="160.0" prefHeight="266.0" prefWidth="478.0">
+        <columns>
+            <TableColumn fx:id="travelerIDTableColumn" editable="false" prefWidth="75.0" text="Traveler ID" />
+          <TableColumn fx:id="orderIDTableColumn" editable="false" prefWidth="75.0" text="Order ID" />
+          <TableColumn fx:id="dateTableColumn" editable="false" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="timeTableColumn" editable="false" prefWidth="75.0" text="Time" />
+            <TableColumn fx:id="statusTableColumn" editable="false" prefWidth="75.0" text="Status" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="occVisitButton" layoutX="84.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#loadCasualVisit" prefHeight="39.0" prefWidth="173.0" text="Casual Entry" />
+      <Button fx:id="enterButton" layoutX="345.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#enterButton" prefHeight="39.0" prefWidth="173.0" text="Traveler Enter" />
+      <Button fx:id="searchButton" layoutX="585.0" layoutY="94.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="101.0" text="Search" />
+      <Label fx:id="headerLabel" layoutX="345.0" layoutY="32.0" text="Manage Traveler" underline="true" />
+      <Label layoutX="265.0" layoutY="451.0" prefWidth="90.0" text="Order ID:" underline="true" />
+      <Label fx:id="orderIdLabel" layoutX="360.0" layoutY="453.0" prefHeight="20.0" prefWidth="52.0" />
+      <Label layoutX="486.0" layoutY="451.0" prefHeight="19.0" prefWidth="116.0" text="Arrived visitors:" underline="true" />
+      <Button fx:id="exitButton" layoutX="596.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#exitButton" prefHeight="39.0" prefWidth="173.0" text="Traveler Exit" />
+      <Label fx:id="visitorsLabel" layoutX="629.0" layoutY="452.0" prefHeight="20.0" prefWidth="52.0" />
+   </children>
+</AnchorPane>

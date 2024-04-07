@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="headerLabel" layoutX="370.0" layoutY="78.0" prefHeight="32.0" prefWidth="223.0" text="Park Parameters" underline="true" />
+      <Label layoutX="305.0" layoutY="187.0" text="Current Visitors:" />
+      <Label fx:id="currentvisitorsLabel" layoutX="566.0" layoutY="187.0" text="0" />
+      <Label layoutX="305.0" layoutY="229.0" text="Max Visitors:" />
+      <Label fx:id="maxVisitorsLabel" layoutX="566.0" layoutY="229.0" text="0" />
+      <Label layoutX="305.0" layoutY="270.0" text="Allowed Gap:" />
+      <Label fx:id="allowedLabel" layoutX="566.0" layoutY="270.0" text="0" />
+      <Label layoutX="305.0" layoutY="313.0" text="Place In Park:" />
+      <Label fx:id="actualLabel" layoutX="566.0" layoutY="313.0" text="0" />
+      <ComboBox fx:id="parkComboBox" layoutX="515.0" layoutY="146.0" prefHeight="30.0" prefWidth="140.0" promptText="Park:" />
+      <Label fx:id="chooseParkLabel" layoutX="305.0" layoutY="146.0" text="Choose Park:" />
+      <Line disable="true" endX="200.0" endY="-72.0" layoutX="4.0" layoutY="136.0" startX="200.0" startY="249.5" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Line disable="true" endX="255.2071533203125" endY="-2.7071075439453125" layoutX="484.0" layoutY="65.0" startX="-279.5" startY="-1.5" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Line disable="true" endX="200.5" endY="-72.0" layoutX="538.0" layoutY="135.0" startX="200.0" startY="250.0" stroke="#d9d9d9" strokeWidth="0.7" />
+   </children>
+</AnchorPane>

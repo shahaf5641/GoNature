@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="createReportsRootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="headerLabel" layoutX="363.0" layoutY="38.0" text="Create Reports" underline="true" />
+        <Accordion fx:id="accordionId" layoutX="164.0" layoutY="99.0" prefHeight="371.0" prefWidth="572.0">
+            <panes>
+                <TitledPane fx:id="monthTP" alignment="CENTER" animated="false" prefHeight="283.0" prefWidth="531.0" text=" CHOOSE MONTH">
+                    <content>
+                        <AnchorPane fx:id="chooseMonthAP" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="384.0">
+                            <children>
+                                <Label layoutX="181.0" layoutY="37.0" text="Choose Month Number:" />
+                                <ComboBox fx:id="monthCB" layoutX="220.0" layoutY="72.0" promptText="Month" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+               <font>
+                  <Font size="22.0" />
+               </font>
+                </TitledPane>
+                <TitledPane fx:id="reportTP" alignment="CENTER" animated="false" text="CHOOSE REPORT">
+                    <content>
+                        <AnchorPane fx:id="chooseReportAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="154.0" layoutY="27.0" text="Please Choose Report To Create" />
+                                <HBox layoutX="20.0" layoutY="81.0" spacing="10.0" />
+                                 <RadioButton fx:id="useageRB" layoutX="207.0" layoutY="141.0" onMouseClicked="#useageOnRadioButton" text="Usage" />
+                                 <RadioButton fx:id="totalVisitorsRB" layoutX="207.0" layoutY="81.0" onMouseClicked="#totalVisitorsOnRadioButton" text="Total Visitors" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+                <TitledPane fx:id="commentTP" alignment="CENTER" animated="false" text="COMMENT (*OPTIONAL)">
+                    <content>
+                        <AnchorPane fx:id="addCommentAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextArea fx:id="commentTextArea" layoutX="118.0" layoutY="70.0" prefHeight="86.0" prefWidth="293.0" promptText="Add Comment" />
+                                <Label layoutX="151.0" layoutY="35.0" text="Add Comment About The Month" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </TitledPane>
+            </panes>
+        </Accordion>
+      <Button fx:id="createButton" layoutX="340.0" layoutY="511.0" onMouseClicked="#createReportButton" prefHeight="50.0" prefWidth="220.0" text="Generate Report" />
+      <ProgressIndicator fx:id="pi" layoutX="400.0" layoutY="150.0" maxHeight="75.0" maxWidth="75.0" prefHeight="75.0" prefWidth="75.0" visible="false" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="600.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="headerLabel" alignment="CENTER" layoutX="91.0" layoutY="14.0" prefHeight="39.0" prefWidth="419.0" text="Thank you for your order" />
+      <Label layoutX="14.0" layoutY="128.0" style="-fx-text-fill: #7FED9D;" text="Personal Info:" />
+      <Label layoutX="136.0" layoutY="85.0" text="ID:" />
+      <Label layoutX="133.0" layoutY="173.0" text="Email:" />
+      <Label layoutX="133.0" layoutY="114.0" text="Name:" />
+      <Label layoutX="133.0" layoutY="144.0" text="Phone:" />
+      <Label fx:id="summaryIDLabel" layoutX="208.0" layoutY="85.0" text="123456789" />
+      <Label fx:id="summaryEmailLabel" layoutX="214.0" layoutY="173.0" prefHeight="20.0" prefWidth="188.0" text="adada@gmail.com" />
+      <Label fx:id="summaryFullNameLabel" layoutX="214.0" layoutY="114.0" text="Bobi bob" />
+      <Label fx:id="summaryPhoneLabel" layoutX="214.0" layoutY="144.0" text="054441005" />
+      <Label layoutX="28.0" layoutY="326.0" style="-fx-text-fill: #7FED9D;" text="Visit Info:" />
+      <Label layoutX="137.0" layoutY="252.0" text="Park:" />
+      <Label layoutX="137.0" layoutY="282.0" text="Date:" />
+      <Label layoutX="137.0" layoutY="342.0" text="Type:" />
+      <Label layoutX="137.0" layoutY="312.0" text="Time:" />
+      <Label layoutX="137.0" layoutY="402.0" text="Payment:" />
+      <Line disable="true" endX="-175.00001525878906" endY="-113.32455444335938" layoutX="294.0" layoutY="181.0" startX="-175.0" startY="27.55963134765625" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Label fx:id="summaryParkLabel" layoutX="240.0" layoutY="252.0" text="moses park" />
+      <Label fx:id="summaryDateLabel" layoutX="240.0" layoutY="282.0" text="2024-01-01" />
+      <Label fx:id="summaryTimeLabel" layoutX="240.0" layoutY="312.0" text="14:30" />
+      <Label fx:id="summaryType" layoutX="240.0" layoutY="342.0" text="Solo Visit" />
+      <Label layoutX="137.0" layoutY="372.0" text="Visitors:" />
+      <Label fx:id="summaryVisitors" layoutX="240.0" layoutY="372.0" text="1" />
+      <Label fx:id="summaryPayment" layoutX="240.0" layoutY="402.0" text="Online" />
+      <Label layoutX="427.0" layoutY="143.0" style="-fx-text-fill: #7FED9D;" text="Total Price:" />
+      <Label fx:id="totalPriceLabel" layoutX="528.0" layoutY="143.0" text="950.0" />
+      <Button fx:id="finishButton" layoutX="434.0" layoutY="309.0" onMouseClicked="#closeStage" prefHeight="39.0" prefWidth="122.0" text="OK" />
+      <Label fx:id="messageLine" alignment="CENTER" layoutX="416.0" layoutY="201.0" prefHeight="20.0" prefWidth="159.0" text="A reminder will be sent" />
+      <Label layoutX="137.0" layoutY="432.0" text="Order Status:" />
+      <Label fx:id="orderStatusLabel" layoutX="240.0" layoutY="432.0" text="Pending" />
+      <Line disable="true" endX="-174.99996948242188" endY="-127.65895080566406" layoutX="295.0" layoutY="370.0" startX="-174.99996948242188" startY="91.92025756835938" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Line disable="true" endX="-175.00001525878906" endY="-113.32455444335938" layoutX="577.0" layoutY="174.0" startX="-175.00003051757812" startY="287.0165100097656" stroke="#d9d9d9" strokeWidth="0.7" />
+      <Label fx:id="msgLine11" alignment="CENTER" layoutX="401.0" layoutY="257.0" prefHeight="20.0" prefWidth="188.0" text="you will have to confirm it" />
+      <Label fx:id="msgLine12" alignment="CENTER" layoutX="429.0" layoutY="230.0" prefHeight="20.0" prefWidth="131.0" text="a day before visit" />
+   </children>
+</AnchorPane>

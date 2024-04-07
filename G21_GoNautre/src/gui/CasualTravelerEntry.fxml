@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="idInputCasualEntry" layoutX="194.0" layoutY="86.0" prefHeight="37.0" prefWidth="172.0" promptText="Visitor's ID" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="54.0" layoutY="95.0" style="-fx-font-family: 'David';" text="Enter Visitor's ID:" />
+      
+      <TextField fx:id="InputEmail" layoutX="194.0" layoutY="201.0" prefHeight="30.0" prefWidth="172.0" promptText="Enter Your Email" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="53.0" layoutY="149.0" style="-fx-font-family: 'David';" text="Order Type:" />
+      
+      <ComboBox fx:id="typeComboBox" layoutX="194.0" layoutY="148.0" prefHeight="30.0" prefWidth="172.0" promptText="Order Type" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="54.0" layoutY="207.0" style="-fx-font-family: 'David';" text="Visitor's Email" />
+      
+      <TextField fx:id="numOfVisitorsCasualVisit" layoutX="538.0" layoutY="159.0" prefHeight="30.0" prefWidth="124.0" promptText="Visitor's Number" style="-fx-font-family: 'David';" />
+      
+      <Label fx:id="headerLabel" layoutX="297.0" layoutY="30.0" style="-fx-font-family: 'David';" text="Casual Entry" />
+      
+      <Button fx:id="placeButton" layoutX="409.0" layoutY="315.0" prefHeight="39.0" prefWidth="165.0" style="-fx-font-family: 'David';" text="Place Order" />
+      
+      <Label layoutX="56.0" layoutY="273.0" style="-fx-font-family: 'David';" text="Total Price:" />
+      
+      <Label fx:id="totalPriceLabel" layoutX="315.0" layoutY="263.0" prefHeight="20.0" prefWidth="46.0" style="-fx-font-family: 'David';" />
+      
+      <Button fx:id="checkPriceButton" layoutX="182.0" layoutY="315.0" prefHeight="39.0" prefWidth="154.0" style="-fx-font-family: 'David';" text="Check Price" />
+      
+      <Label fx:id="permissionLabel" layoutX="600.0" layoutY="95.0" prefHeight="20.0" prefWidth="46.0" style="-fx-font-family: 'David';" />
+      
+      <Label layoutX="409.0" layoutY="164.0" prefHeight="20.0" prefWidth="115.0" style="-fx-font-family: 'David';" text="Visitor's Type:" />
+   </children>
+</AnchorPane>

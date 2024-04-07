@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="1097.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane fx:id="topAnchorPane" prefHeight="182.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="userLabel" alignment="CENTER" layoutX="458.0" layoutY="7.0" prefHeight="48.0" prefWidth="182.0" text="Traveler" textAlignment="CENTER" underline="true" />
+            <Button fx:id="profileButton" layoutX="14.0" layoutY="68.0" onAction="#loadTravelerProfile" prefHeight="100.0" prefWidth="204.0" text=" Profile" />
+            <Button fx:id="orderButton" layoutX="660.0" layoutY="68.0" onAction="#loadOrderTravelerVisit" prefHeight="100.0" prefWidth="204.0" text=" Order a visit" />
+            <Button fx:id="viewOrdersButton" layoutX="447.0" layoutY="68.0" onAction="#loadTravelerOrders" prefHeight="100.0" prefWidth="204.0" text=" My orders" />
+            <Button fx:id="viewMessagesButton" layoutX="229.0" layoutY="68.0" onAction="#loadMessages" prefHeight="100.0" prefWidth="204.0" text=" My messages" />
+            <Button fx:id="logoutBtn" layoutX="879.0" layoutY="68.0" onAction="#logOut" prefHeight="100.0" prefWidth="204.0" text="Logout" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <StackPane prefHeight="424.0" prefWidth="1094.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

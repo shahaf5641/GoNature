@@ -1,0 +1,472 @@
+/*Theme colors applied to all user interface elements across the project. */
+* {
+    -fx-red: #FF5555; /* Soft red */
+    -fx-white: #FFFFFF; /* White */
+    -fx-primary: #0A6640; /* Dark green */
+    -fx-primarytext: #FFFFFF; /* White text */
+    -fx-prompttext: lightgray; /* Light gray for prompts */
+    -fx-secondary: #137547; /* Medium green */
+}
+
+
+/* GENERAL */
+.root {
+	-fx-background-color: -fx-primary;
+}
+
+.button {
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: #137547;
+    -fx-border-radius: 30px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20.0px;
+    -fx-font-size: 12.0pt;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+    -fx-transition-duration: 0.2s;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 10, 0, 0, 2);
+}
+
+.label {
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size: 12.0pt;
+    -fx-font-weight: bold;
+    -fx-font-family: "David", sans-serif;
+}
+
+.glyph-icon {
+    -fx-fill: -fx-primarytext;
+}
+
+.button:hover {
+    -fx-background-color: derive(-fx-primary, 20%); 
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2); 
+}
+.button:pressed {
+    -fx-background-color: derive(-fx-primary, 30%);
+}
+
+.button:disabled {
+    -fx-opacity: 0.5;
+    -fx-effect: null;
+}
+.button:focused {
+    -fx-background-color: derive(-fx-primary, 20%); 
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 2); 
+}
+
+
+
+.button:hover .glyph-icon, .button:focused .glyph-icon {
+    -fx-fill: -fx-primary;
+}
+
+
+.table-view {
+    -fx-background-color: derive(-fx-primary, 10.0%);
+    -fx-font-size: 12.0px;
+    -fx-border-color: derive(-fx-secondary, -60.0%);
+}
+
+    .table-view:focused {
+        -fx-background-color: derive(-fx-primary, 20.0%);
+    }
+#cancelRequestBtn, #cancelOrderBtn, #closeBtn{
+	    -fx-border-color: -fx-red;
+}
+#cancelRequestBtn:hover, #cancelOrderBtn:hover, #closeBtn:hover{
+	-fx-border-color: -fx-red;
+    -fx-background-color: -fx-red;
+    -fx-text-fill: -fx-primary;
+}
+
+#cancelRequestBtn:focused, #cancelOrderBtn:focused, #closeBtn:focused{
+    -fx-border-color: -fx-red;
+    -fx-background-color: -fx-red;
+    -fx-text-fill: -fx-primary;
+}
+.combo-box {
+    -fx-font-size: 10.0pt;
+    -fx-prompt-text-fill: -fx-prompttext;
+    -fx-text-fill: -fx-secondary;
+}
+
+.titled-pane {
+    -fx-font-size: 14.0px;
+}
+
+    .titled-pane > .title > .glyph-icon {
+        -fx-fill: black;
+    }
+
+.text-field {
+	-fx-prompt-text-fill: -fx-prompttext;
+	-fx-text-fill: -fx-primarytext;
+    -fx-font-size : 14.0pt;
+    -fx-font-family: "David";
+    -fx-text-fill: derive(-fx-secondary, 20.0%);
+}
+
+.text-area {
+	-fx-prompt-text-fill: -fx-prompttext;
+	-fx-text-fill: -fx-primarytext;
+    -fx-font-size : 14.0pt;
+    -fx-font-family: "David";
+    -fx-text-fill: derive(-fx-secondary, 20.0%);
+}
+
+
+
+.placeholder .label {
+    -fx-text-fill: white;
+}
+
+
+.table-row-cell {
+    -fx-cell-size: 40.0px;
+}
+.table-view .column-header-background{
+    -fx-background-color: -fx-primary;
+}
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+.table-row-cell:selected {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+    -fx-background-insets: 0.0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+.table-row-cell:focused, .table-cell:focused{
+    -fx-text-fill: -fx-primary;
+}
+
+.table-column{
+    -fx-alignment: CENTER;  
+}
+.table-row-cell:even{
+    -fx-background-color: derive(-fx-primary, 10.0%);
+}
+e-row-cell:selected .table-cell{
+    -fx-text-fill: -fx-primary;
+}
+.table-row-cell {
+    -fx-background-color: -fx-primary;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+
+
+
+
+
+
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb{
+    -fx-background-color: derive(-fx-primary, 60.0%);
+    -fx-border-color: transparent;
+    -fx-background-radius: 5.0em;
+}
+.table-view .filler{
+    -fx-fill: -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+
+
+.list-view{
+    -fx-background-color: derive(-fx-primary, 10.0%);
+    -fx-font-size: 12.0px; 
+    -fx-border-color: derive(-fx-secondary, -60.0%);
+}
+    .list-view .column-header-background .label {
+        -fx-background-color: transparent;
+        -fx-text-fill: white;
+    }
+
+    .list-view .column-header {
+        -fx-background-color: transparent;
+    }
+.table-view > .virtual-flow > .scroll-bar:vertical,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track,
+.table-view > .virtual-flow > .scroll-bar:vertical > .track-background,
+.table-view > .virtual-flow > .scroll-bar:horizontal,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.table-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view > .virtual-flow > .scroll-bar > .increment-button,
+.table-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-text-fill: white;
+}
+.table-context {
+    -fx-base: -fx-primary;
+}
+
+
+.list-view:focused{
+    -fx-background-color: derive(-fx-primary, 20.0%);
+}
+.list-row-cell {
+    -fx-cell-size: 40.0px;
+}
+
+    .list-row-cell:selected .table-cell {
+        -fx-text-fill: -fx-primary;
+    }
+
+
+.list-view .column-header-background{
+    -fx-background-color: -fx-primary;
+}
+
+
+.list-view .table-cell{
+    -fx-text-fill: white;
+}
+.list-row-cell:focused, .table-cell:focused{
+    -fx-text-fill: -fx-primary;
+}
+.list-row-cell{
+    -fx-background-color: -fx-primary;
+    -fx-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+}
+.list-row-cell:selected {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+    -fx-background-insets: 0.0;
+}
+.list-view .filler {
+    -fx-fill: -fx-primary;
+    -fx-background-color: -fx-primary;
+}
+.list-view > .virtual-flow > .scroll-bar:vertical,
+.list-view > .virtual-flow > .scroll-bar:vertical > .track,
+.list-view > .virtual-flow > .scroll-bar:vertical > .track-background, 
+.list-view > .virtual-flow > .scroll-bar:horizontal,
+.list-view > .virtual-flow > .scroll-bar:horizontal > .track,
+.list-view > .virtual-flow > .scroll-bar:horizontal > .track-background {
+    -fx-background-color: transparent;
+}
+.list-view > .virtual-flow > .scroll-bar > .increment-button, 
+.list-view > .virtual-flow > .scroll-bar > .decrement-button {
+    -fx-text-fill: white;
+}
+
+.list-context
+{
+    -fx-base: -fx-primary;
+}
+.list-column{
+    -fx-alignment: CENTER;  
+}
+.list-row-cell:even{
+    -fx-background-color: derive(-fx-primary, 10.0%);
+}
+
+#menuLabel {
+    -fx-text-fill: -fx-secondary;
+}
+
+
+#firstImageStack:hover, #secondImageStack:hover, #thirdImageStack:hover {
+	-fx-background-color: -fx-secondary;
+    -fx-background-radius: 30.0px;	
+}
+#line1, #line2 {
+    -fx-stroke: -fx-secondary;
+    -fx-stroke-width: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN SCREEN MENU SECTION*/
+.toolbar-button:hover {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.toolbar-button:hover .glyph-icon, .toolbar-button:focused .glyph-icon {
+    -fx-fill: -fx-primary;
+}
+.toolbar-button {
+    -fx-border-color: transparent;
+    
+    
+   
+    -fx-background-radius: 0.0px;
+    -fx-border-radius: 0.0px;
+}
+.toolbar-button:hover:focused {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+
+
+/* Contact us */
+#ContactUs-emailPane {
+	 -fx-background-color: -fx-primary;
+}
+
+#ourConcactsPane > .label, #emailPane > .label {
+	-fx-font-size : 12.0pt;
+
+
+	-fx-text-fill: -fx-primarytext;
+}
+
+/* traveler screen*/
+#userLabel {
+	-fx-font-size : 30.0pt;
+	-fx-text-fill: -fx-primarytext;
+}
+
+#vbox > .button {
+	-fx-background-radius: 0.0px;
+    -fx-border-radius: 0.0px;
+	-fx-border-width: 0.0px 1.0px 1.0px 1.0px;	
+}
+
+/* order visit */
+#identificationAP, #informationAP, #paymentAP, #paymentTP, #chooseMonthAP, #chooseReportAP, #addCommentAP, #discountAP,  #creditCardPane{
+	-fx-background-color: -fx-primary;
+}
+#timePicker {
+    -fx-font-size: 10.0pt;
+    -fx-prompt-text-fill: -fx-prompttext;
+    -fx-text-fill: -fx-secondary;
+}
+
+.combo-box > .list-cell {
+    -fx-text-fill: -fx-secondary;
+}
+
+.radio-button {
+	-fx-text-fill: -fx-primarytext;
+}
+#headerLabel {
+    -fx-font-size: 20.0pt;
+    -fx-font-weight: bold;
+}
+
+#headerReport {
+    -fx-font-size: 20.0pt;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f7e479;
+}
+
+.radio-button .radio {
+    -fx-border-radius: 15.0px;
+    -fx-padding: 1.0px;
+}
+
+.radio-button .radio:selected {
+    -fx-background-color: -fx-secondary;
+}
+
+#paymentPane > .text-field {
+	-fx-font-size: 10.0pt;
+}
+
+
+#topPane {
+	-fx-border-color: -fx-secondary;
+	-fx-border-width: 0.0px 0.0px 1.0px 0.0px;
+}
+
+#rescheduleTextArea *.text{
+	-fx-text-alignment: center;
+}
+
+
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:hover {
+    -fx-background: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected,
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected:hover {
+    -fx-background: -fx-secondary;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: -fx-primary;
+    }
+
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-padding: 4 0 4 5;
+  
+    -fx-background: -fx-primary;
+}
+
+
+.combo-box-popup > .list-view > .placeholder > .label {
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size: 10.0pt;
+}
+
+.chart-plot-background {
+    -fx-background-color: #34495e;
+}
+
+
+.chart-horizontal-grid-lines{
+	-fx-stroke: #353b48;		
+}
+TextFlow {
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-primarytext;
+    -fx-border-radius: 15.0px;
+}
+.chart-vertical-grid-lines{
+	-fx-stroke: transparent;
+	
+}
+
+.chart-legend {
+   -fx-background-color: -fx-primary; 
+} 
+
+.chart-title {
+    -fx-font-size: 1.2em;
+    -fx-text-fill: -fx-secondary;
+}
+.axis {
+    AXIS_COLOR: derive(-fx-background,-20%);
+    -fx-tick-label-font-size: 0.833333em;
+    -fx-tick-label-fill: -fx-primarytext;
+}
+
+
+.thick-chart .chart-series-line {    
+	-fx-stroke-width: 5px;
+}
+/*Server */
+#serverLabel {
+	-fx-font-family: 'David', sans-serif;
+    -fx-font-size: 30.0pt;
+    -fx-text-fill: lightgray;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0);
+}

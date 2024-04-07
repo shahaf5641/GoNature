@@ -1,0 +1,142 @@
+/* Theme Colors */
+* {
+    -fx-primary: #FFFFFF; /* White */
+    -fx-secondary: #4CAF50; /* Dark Green */
+    -fx-primarytext: black; /* Black */
+    -fx-prompttext: lightgray; 
+    -fx-blue: #32CD32; /* Lime Greenn */
+    -fx-red: #00FA9A; /* Medium Spring Green */
+    -fx-white: #00FF00; /* Lime Green */
+
+}
+
+/* General Styling */
+.root {
+    -fx-background-image: url("../resources/images/BackroundImage.png"); /* Adjust path as needed */
+    -fx-background-size: cover; /* Optional: Adjusts the image size to cover the entire scene */
+    -fx-background-repeat: no-repeat; /* Optional: Prevents image repetition */
+    -fx-background-position: center;
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+}
+
+
+.glyph-icon {
+    -fx-fill: -fx-primarytext;
+}
+
+.label {
+    -fx-text-fill: black;
+    -fx-font-size: 18.0pt; /* Increased font size */
+    -fx-font-family: 'Cursive'; /* Different font */
+}
+
+.button {
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20.0px;
+    -fx-background-radius: 20.0px;
+    -fx-font-size: 12.0pt;
+    -fx-cursor: hand; /* Optional: Change cursor on hover */
+}
+
+.button:hover, .button:focused {
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.button:pressed {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+    -fx-scale-x: 1.1; /* Scale X by 1.1 when pressed */
+    -fx-scale-y: 1.1; /* Scale Y by 1.1 when pressed */
+    -fx-background-insets: 0; /* Remove the background insets to avoid distortion */
+}
+
+
+.text-field, .text-area, .combo-box {
+    -fx-font-size: 14.0pt; /* Increased font size */
+    -fx-text-fill: black; /* Set text color to black */
+    -fx-font-family: 'Verdana'; /* Different font */
+}
+
+.text-field, .text-area {
+    -fx-prompt-text-fill: -fx-prompttext;
+    -jfx-focus-color: -fx-secondary;
+    -fx-text-fill: black; /* Set text color to black */
+}
+
+.titled-pane {
+    -fx-font-size: 28.0px; /* Larger font size */
+    -fx-font-family: 'Impact'; /* Different font */
+}
+
+.titled-pane > .title > .glyph-icon {
+    -fx-fill: black;
+}
+
+/* Main Screen Menu Section */
+.toolbar-button {
+    -fx-background-color: derive(-fx-primary, 10.0%);
+}
+
+.toolbar-button:hover {
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.toolbar-button:hover .glyph-icon {
+    -fx-fill: -fx-primary;
+}
+
+#vbox > .button {
+    -fx-background-radius: 0.0px;
+    -fx-border-radius: 0.0px;
+    -fx-border-width: 0.0px 1.0px 1.0px 1.0px;    
+}
+
+.radio-button {
+    -fx-text-fill: black; /* Set text color to black */
+}
+
+.radio-button .radio {
+    -fx-border-radius: 15.0px;
+    -fx-padding: 1.0px;
+}
+
+.radio-button .radio:selected {
+    -fx-background-color: -fx-secondary;
+}
+
+.combo-box > .list-cell {
+    -fx-text-fill: -fx-secondary;
+}
+
+#TitleLabel {
+    -fx-font-family: 'Arial Black', sans-serif; /* Use a bold font */
+    -fx-font-size: 40.0pt; /* Increase font size */
+    -fx-text-fill: -fx-secondary; /* Text color */
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 0); /* Add a drop shadow */
+}
+
+/* TableView Default Styling */
+.table-view {
+    -fx-background-color: derive(-fx-primary, 10%);
+    -fx-font-size: 14px; /* Increased font size */
+    -fx-border-color: black; /* Set column text color to black */
+    -fx-font-family: 'Georgia'; /* Different font */
+}
+
+.table-view:focused {
+    -fx-background-color: derive(-fx-primary, 20%);
+}
+
+#MenuButtons {
+	-fx-text-fill: white;
+}
+
+#PortText, #TextArea, #OrderNumberText, #OrderNumberText2, #ParkNameText, #PhoneNumberText {
+    -fx-text-fill: black; /* Set column text color to black */
+}

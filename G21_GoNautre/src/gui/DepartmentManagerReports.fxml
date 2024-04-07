@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label fx:id="headerLabel" layoutX="364.0" layoutY="43.0" style="-fx-font-family: 'David';" text="Parks Reports" underline="true" />
+        <TableView fx:id="ReportsTableView" layoutX="167.0" layoutY="125.0" prefHeight="255.0" prefWidth="566.0">
+            <columns>
+                <TableColumn fx:id="reportIDTableColumn" prefWidth="75.0" text="Report ID" />
+                <TableColumn fx:id="reportTableColumn" prefWidth="75.0" text="Report Type" />
+                <TableColumn fx:id="IDparkCol" prefWidth="75.0" text="Park ID" />
+                <TableColumn fx:id="monthTableColumn" prefWidth="75.0" text="Month" />
+                <TableColumn fx:id="commentTableColumn" prefWidth="75.0" text="Comment" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+        <Button fx:id="visitReportButton" layoutX="84.0" layoutY="492.0" onMouseClicked="#visitReportButton" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Visits Report" />
+        <Button fx:id="CancelsReportButton" layoutX="593.0" layoutY="492.0" onMouseClicked="#cancelReportButton" prefHeight="39.0" prefWidth="210.0" style="-fx-font-family: 'David';" text="Cancels Report" />
+        <Label alignment="CENTER" layoutX="167.0" layoutY="91.0" prefHeight="20.0" prefWidth="566.0" style="-fx-font-family: 'David';" text="Reports from park managers:" underline="true" />
+        <Label layoutX="392.0" layoutY="400.0" style="-fx-font-family: 'David';" text="Generate Report:" underline="true" />
+        <Label layoutX="33.0" layoutY="441.0" style="-fx-font-family: 'David';" text="Choose Month Number:" />
+        <ComboBox fx:id="monthComboBox" layoutX="229.0" layoutY="437.0" promptText="Month" />
+      <Line endX="-4.600006103515625" endY="49.19999694824219" layoutX="175.0" layoutY="102.0" startX="558.4000244140625" startY="49.19999694824219" stroke="WHITE" />
+      <Line endX="-4.600006103515625" endY="49.19999694824219" layoutX="173.0" layoutY="331.0" startX="558.4000244140625" startY="49.19999694824219" stroke="WHITE" />
+      <Line endX="-16.0" endY="40.0" layoutX="183.0" layoutY="85.0" startX="550.4000244140625" startY="40.0" stroke="WHITE" />
+      <Line endX="-16.0" endY="39.20001220703125" layoutX="183.0" layoutY="341.0" startX="-16.5" startY="-216.5" stroke="WHITE" />
+      <Line endX="-16.0" endY="39.20001220703125" layoutX="750.0" layoutY="341.0" startX="-16.5" startY="-216.5" stroke="WHITE" />
+    </children>
+</AnchorPane>

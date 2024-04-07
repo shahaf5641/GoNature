@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="444.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ContactUsController">
+   <children>
+      <TextField fx:id="nameTextField" layoutX="31.0" layoutY="66.0" prefHeight="38.0" prefWidth="168.0" promptText="Your name" style="-fx-font-family: 'David';" />
+      <TextField fx:id="phoneTF" layoutX="228.0" layoutY="66.0" prefHeight="38.0" prefWidth="192.0" promptText="Your phone" style="-fx-font-family: 'David';" />
+      <TextField fx:id="emailTF" layoutX="31.0" layoutY="128.0" prefHeight="37.0" prefWidth="394.0" promptText="Email address" style="-fx-font-family: 'David';" />
+      <TextField fx:id="subjectLabel" layoutX="31.0" layoutY="191.0" prefHeight="30.0" prefWidth="394.0" promptText="Subject" style="-fx-font-family: 'David';" />
+      <Label fx:id="sendusmessageID" layoutX="135.0" layoutY="14.0" style="-fx-font-weight: bold; -fx-font-family: 'David';" text="Send us a message">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textArea" layoutX="31.0" layoutY="273.0" prefHeight="170.0" prefWidth="394.0" promptText="Write your message here" style="-fx-font-family: 'David';" />
+      <Button fx:id="send" layoutX="91.0" layoutY="483.0" onMouseClicked="#sendEmailBtn" prefHeight="40.0" prefWidth="274.0" style="-fx-font-family: 'David';" text="SEND" />
+   </children>
+</AnchorPane>

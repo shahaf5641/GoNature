@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="LoadingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="431.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoadingScreenController">
+    <children>
+      <Label fx:id="loadingLabel" layoutX="142.0" layoutY="67.0" prefHeight="53.0" prefWidth="268.0" text="Loading details..." AnchorPane.bottomAnchor="183.0" AnchorPane.topAnchor="67.0" />
+         <ProgressIndicator fx:id="progressIndicator" layoutX="190.0" layoutY="188.0" styleClass="progress-indicator" />
+    </children>
+</AnchorPane>

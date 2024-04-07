@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="799.0" prefWidth="1073.0" stylesheets="@../resources/G21CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane fx:id="topPane" prefHeight="213.0" prefWidth="1056.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="parkManagerProfileButton" layoutX="14.0" layoutY="77.0" onMouseClicked="#loadProfileParkManagerProfile" prefHeight="122.0" prefWidth="204.0" text=" Profile" />
+            <Button fx:id="currentVisitorsButton" layoutX="223.0" layoutY="77.0" onMouseClicked="#loadParkParams" prefHeight="122.0" prefWidth="204.0" text="Park Parameters" />
+            <Button fx:id="createReportsButton" layoutX="433.0" layoutY="77.0" onMouseClicked="#loadGenerateReports" prefHeight="122.0" prefWidth="204.0" text="Create Reports" />
+            <Button fx:id="updateParametersButton" layoutX="643.0" layoutY="77.0" onMouseClicked="#loadUpdateParams" prefHeight="122.0" prefWidth="204.0" text="Update Parameters" />
+            <Button fx:id="logoutBtn" layoutX="853.0" layoutY="77.0" onMouseClicked="#logOut" prefHeight="122.0" prefWidth="204.0" text="Logout" />
+            <Label fx:id="userLabel" alignment="CENTER" layoutX="325.0" layoutY="8.0" prefHeight="58.0" prefWidth="394.0" text="Park Manager" textAlignment="CENTER" underline="true" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <VBox prefHeight="638.0" prefWidth="1073.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
